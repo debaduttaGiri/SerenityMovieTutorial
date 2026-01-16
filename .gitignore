@@ -1,0 +1,26 @@
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+bin/
+obj/
+
+## NuGet
+packages/
+*.nupkg
+*.snupkg
+
+## Logs
+*.log
+
+## OS
+Thumbs.db
+.DS_Store
+
+## Serenity
+wwwroot/Content/site/
+wwwroot/Content/themes/
