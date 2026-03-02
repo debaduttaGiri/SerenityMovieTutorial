@@ -1,7 +1,9 @@
 ﻿
 namespace SereneMovieTutorial.Membership.Pages
 {
+    using SereneMovieTutorial.Default.Entities;
     using Serenity;
+    using Serenity.Data;
     using Serenity.Services;
     using System;
     using System.Web.Mvc;
@@ -17,6 +19,7 @@ namespace SereneMovieTutorial.Membership.Pages
         {
             ViewData["Activated"] = activated;
             ViewData["HideLeftNavigation"] = true;
+
 
             if (UseAdminLTELoginBox)
                 return View(MVC.Views.Membership.Account.AccountLogin_AdminLTE);
@@ -43,10 +46,36 @@ namespace SereneMovieTutorial.Membership.Pages
                     throw new ArgumentNullException("username");
 
                 var username = request.Username;
-                
-                if (WebSecurityHelper.Authenticate(ref username, request.Password, false))
-                    return new ServiceResponse();
 
+                if (WebSecurityHelper.Authenticate(ref username, request.Password, false))
+                {
+                    string branchName; string financialYearName;
+
+
+                    using (var connection = SqlConnections.NewFor<BranchMasterRow>())
+                    {
+                        branchName = connection
+                            .ById<BranchMasterRow>(request.BranchId)
+                            ?.BranchName;
+                        
+                    }
+                    using (var connection = SqlConnections.NewFor<FinancialYearRow>())
+                    {
+                        financialYearName = connection
+                        .ById<FinancialYearRow>(request.FinancialYearId)
+                        ?.Name; 
+                    }
+                    Session["BranchId"] = request.BranchId;
+                    Session["BranchName"] = branchName;
+                    Session["FinancialYear"] = financialYearName;
+
+
+
+
+
+                    return new ServiceResponse();
+                }
+                
                 throw new ValidationError("AuthenticationError", Texts.Validation.AuthenticationError);
             });
         }
@@ -63,5 +92,7 @@ namespace SereneMovieTutorial.Membership.Pages
             FormsAuthentication.SignOut();
             return new RedirectResult("~/");
         }
+       
+
     }
 }

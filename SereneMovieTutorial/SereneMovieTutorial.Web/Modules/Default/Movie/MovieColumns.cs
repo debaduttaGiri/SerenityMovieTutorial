@@ -11,13 +11,15 @@ namespace SereneMovieTutorial.Default.Columns
     using SereneMovieTutorial.Modules.Default.Movie;
 
     [ColumnsScript("Default.Movie")]
-    [BasedOnRow(typeof(Entities.MovieRow), CheckNames = true)]
+    [BasedOnRow(typeof(Entities.MovieRow), CheckNames = false)]
     public class MovieColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), Hidden]
         public Int32 MovieId { get; set; }
-        [EditLink]
+        [EditLink]       
         public String Title { get; set; }
+        [DisplayName("Actors")]
+        public string Actors { get; set; }
         public String Description { get; set; }
         public String Storyline { get; set; }
         public Int32 Year { get; set; }
@@ -29,5 +31,6 @@ namespace SereneMovieTutorial.Default.Columns
         //public string GenreName { get; set; }
         [Width(200), GenreListFormatter,QuickFilter]
         public List<int> GenreList { get; set; }
+        
     }
 }

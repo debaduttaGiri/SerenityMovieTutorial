@@ -1,0 +1,32 @@
+﻿
+namespace SereneMovieTutorial.Default {
+    export class ExpenseForm extends Serenity.PrefixedContext {
+        static formKey = 'Default.Expense';
+    }
+
+    export interface ExpenseForm {
+        Plant: Serenity.IntegerEditor;
+        District: Serenity.IntegerEditor;
+        Destination: Serenity.IntegerEditor;
+        Expense: Serenity.DecimalEditor;
+        Remarks: Serenity.StringEditor;
+        Weight: Serenity.DecimalEditor;
+        Wheels: Serenity.IntegerEditor;
+    }
+
+    [
+        ['Plant', () => Serenity.IntegerEditor],
+        ['District', () => Serenity.IntegerEditor],
+        ['Destination', () => Serenity.IntegerEditor],
+        ['Expense', () => Serenity.DecimalEditor],
+        ['Remarks', () => Serenity.StringEditor],
+        ['Weight', () => Serenity.DecimalEditor],
+        ['Wheels', () => Serenity.IntegerEditor]
+    ].forEach(x => Object.defineProperty(ExpenseForm.prototype, <string>x[0], {
+        get: function () {
+            return this.w(x[0], (x[1] as any)());
+        },
+        enumerable: true,
+        configurable: true
+    }));
+}

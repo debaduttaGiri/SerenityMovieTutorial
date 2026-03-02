@@ -13,7 +13,7 @@ namespace SereneMovieTutorial.Default.Columns
     [BasedOnRow(typeof(Entities.GenreRow), CheckNames = true)]
     public class GenreColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 GenreId { get; set; }
         [EditLink]
         public String Name { get; set; }

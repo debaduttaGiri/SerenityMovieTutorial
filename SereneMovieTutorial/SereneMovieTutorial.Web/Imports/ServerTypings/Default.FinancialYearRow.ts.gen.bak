@@ -1,0 +1,39 @@
+﻿
+namespace SereneMovieTutorial.Default {
+    export interface FinancialYearRow {
+        Id?: number;
+        Name?: string;
+        StartDate?: string;
+        EndDate?: string;
+        NameOfInvoice?: string;
+        Remarks?: string;
+    }
+
+    export namespace FinancialYearRow {
+        export const idProperty = 'Id';
+        export const nameProperty = 'Name';
+        export const localTextPrefix = 'Default.FinancialYear';
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
+
+        export namespace Fields {
+            export declare const Id;
+            export declare const Name;
+            export declare const StartDate;
+            export declare const EndDate;
+            export declare const NameOfInvoice;
+            export declare const Remarks;
+        }
+
+        [
+            'Id',
+            'Name',
+            'StartDate',
+            'EndDate',
+            'NameOfInvoice',
+            'Remarks'
+        ].forEach(x => (<any>Fields)[x] = x);
+    }
+}

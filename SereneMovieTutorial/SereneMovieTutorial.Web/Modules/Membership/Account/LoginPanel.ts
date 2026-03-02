@@ -1,5 +1,5 @@
 ﻿namespace SereneMovieTutorial.Membership {
-
+    
     @Serenity.Decorators.registerClass()
     export class LoginPanel extends Serenity.PropertyPanel<LoginRequest, any> {
 
@@ -7,22 +7,35 @@
 
         constructor(container: JQuery) {
             super(container);
+            //new Serenity.LookupEditor(this.byId("BranchName"), {
+            //    lookupKey: "Default.BranchMaster" 
+            //});
+
 
             $.fn['vegas'] && $('body')['vegas']({
-                delay: 30000,
+                delay: 15000,
                 cover: true,
                 overlay: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAAA3NCSVQICAjb4U" +
                     "/gAAAABlBMVEX///8AAABVwtN+AAAAAnRSTlMA/1uRIrUAAAAJcEhZcwAAAsQAAALEAVuRnQsAAAAWdEVYdENyZWF0" +
                     "aW9uIFRpbWUAMDQvMTMvMTGrW0T6AAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M1cbXjNgAAAAxJREFUCJljaGBgAAABhACBrONIPgAAAABJRU5ErkJggg==",
                 slides: [
-                    { src: Q.resolveUrl("~/Content/site/slides/slide1.jpg"), transition: 'fade' },
-                    { src: Q.resolveUrl("~/Content/site/slides/slide2.jpg"), transition: 'zoomOut' },
-                    { src: Q.resolveUrl("~/Content/site/slides/slide3.jpg"), transition: 'swirlLeft' }
+                    { src: Q.resolveUrl("~/Content/site/slides/T1.jpg"), transition: 'fade' },
+                    { src: Q.resolveUrl("~/Content/site/slides/TT2.jpg"), transition: 'fade' },
+                    { src: Q.resolveUrl("~/Content/site/slides/T5.jpg"), transition: 'zoomOut' },
+                    { src: Q.resolveUrl("~/Content/site/slides/T3.jpg"), transition: 'swirlLeft' },
+                    { src: Q.resolveUrl("~/Content/site/slides/T4.jpg"), transition: 'zoomOut' }
+                    //{ src: Q.resolveUrl("~/Content/site/slides/T6.jpg"), transition: 'zoomOut' }
                 ]
             });
 
             this.byId('LoginButton').click(e => {
                 e.preventDefault();
+
+                //if (Q.isEmptyOrNull(this.byId('BranchName').val())) {
+                //    Q.notifyError("Please select a branch");
+                //    this.byId('State').focus();
+                //    return;
+                //}
 
                 if (!this.validateForm()) {
                     return;
@@ -52,6 +65,7 @@
                         Q.ErrorHandling.showServiceError(response.Error);
                     }
                 });
+
             });
         }
 
@@ -74,26 +88,40 @@
 <div class="flex-layout">
     <div class="logo"></div>
     <h3>${Q.text("Forms.Membership.Login.FormTitle")}</h3>
+
     <form id="~_Form" action="">
         <div class="s-Form">
             <div class="fieldset ui-widget ui-widget-content ui-corner-all">
+
                 <div id="~_PropertyGrid"></div>
+                
+
                 <div class="clear"></div>
             </div>
+
             <div class="buttons">
                 <button id="~_LoginButton" type="submit" class="btn btn-primary">
                     ${Q.text("Forms.Membership.Login.SignInButton")}
                 </button>
             </div>
-            <div class="actions">
-                <a href="${Q.resolveUrl('~/Account/ForgotPassword')}"><i class="fa fa-angle-right"></i>&nbsp;${Q.text("Forms.Membership.Login.ForgotPassword")}</a>
-                <a href="${Q.resolveUrl('~/Account/SignUp')}"><i class="fa fa-angle-right"></i>&nbsp;${Q.text("Forms.Membership.Login.SignUpButton")}</a>
-                <div class="clear"></div>
-            </div>
         </div>
     </form>
-</div>
-`;
+</div>`;
         }
+
+        protected afterLoadEntity() {
+            this.byId('State')
+                .attr('required', 'required')
+                .attr('aria-required', 'true');
+
+            this.byId('ForgotPassword').hide();
+            this.byId('SignUp').hide();
+        }
+
+
     }
 }
+//<div class="field">
+                //    <label class="caption required">Branch</label>
+                //    <input id="~_BranchName" class="editor" />
+                //</div>

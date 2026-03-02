@@ -13,7 +13,8 @@
   "Site": [
     "~/Content/jquery.fileupload.css",
     "~/Content/colorbox/jquery.colorbox.css",
-    "~/Content/site/site.css"
+    "~/Content/site/site.css",
+    "~/Content/site/my-style.css"
   ],
   "Pages/Dashboard": [
     "~/Content/iCheck/flat/blue.css",

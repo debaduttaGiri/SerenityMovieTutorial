@@ -1,0 +1,71 @@
+﻿/* Branch text styling */
+.branch-text {
+    font-weight: 700;
+    font-size: 26px;
+    color: #fff;
+    /*letter-spacing: 1px;*/
+}
+
+/* Center the branch name horizontally AND vertically */
+.navbar-branch-left {
+    display: flex;
+    align-items: center;
+    padding-top:5px;
+    padding-left:6px;
+    
+}
+
+
+
+.year-text {
+    font-weight: 500;
+    font-size: 15px;
+    color: #ddd;
+    
+}
+
+/* Financial year on the right */
+.navbar-Year-right {
+    display: flex;
+    align-items: center;
+    padding-top: 18px;
+    padding-left: 810px;
+}
+/*-----------------------------------------*/
+/* Custom styling for Distict editable inputs */
+.distict-input {
+    border: 0px solid white; /* blue border */
+    padding: 4px;
+    font-size: 13px;
+    width: 100%;
+    height:90%;
+    box-sizing: border-box;
+}
+
+    /* Focus state (when clicked) */
+    .distict-input:focus {
+        outline: none; /* remove default black line */
+        border-color: white; /* darker blue on focus */
+        box-shadow: 0 0 4px rgba(0, 91, 187, 0.5); /* subtle glow */
+    }
+    /*------------------------------------*/
+
+.edits-val {
+    border: 0px solid white; /* blue border */
+    padding: 4px;
+    font-size: 13px;
+    width: 100%;
+    height: 80%;
+    box-sizing: border-box;
+}
+/*-------------------*/
+.check-box.inherited {
+    opacity: 0.6;
+    pointer-events: none;
+}
+/*.grid{
+    height:auto;
+    width:800px;
+    font-size:20px;
+    align-content:center
+}*/

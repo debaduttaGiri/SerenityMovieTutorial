@@ -18,5 +18,8 @@
         public string Source { get; set; }
         public DateTime? UpdateDate { get; set; }
         public DateTime? LastDirectoryUpdate { get; set; }
+        public Int32? BranchId { get; set; }
+        public string BranchName { get; set; }
+
     }
 }

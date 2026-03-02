@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serenity.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Web;
 
 namespace SereneMovieTutorial.Modules.Default.Movie
 {
-    [Serenity.ComponentModel.EnumKey("MovieDB.MovieKind")]
+    [Serenity.ComponentModel.EnumKey("MovieDB.MovieKind")   ]
     public enum MovieKind
     {
         [Description("Film")]

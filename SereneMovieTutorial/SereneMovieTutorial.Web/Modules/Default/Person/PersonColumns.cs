@@ -14,7 +14,7 @@ namespace SereneMovieTutorial.Default.Columns
     [BasedOnRow(typeof(Entities.PersonRow), CheckNames = true)]
     public class PersonColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
         public Int32 PersonId { get; set; }
         [EditLink]
         public String FullName { get; set; }

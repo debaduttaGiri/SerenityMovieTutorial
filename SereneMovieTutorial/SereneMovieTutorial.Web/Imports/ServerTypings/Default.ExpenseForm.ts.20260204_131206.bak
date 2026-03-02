@@ -1,0 +1,36 @@
+﻿namespace SereneMovieTutorial.Default {
+    export interface ExpenseForm {
+        PlantId: Serenity.LookupEditor;
+        DistrictId: Serenity.LookupEditor;
+        DestinationId: Serenity.LookupEditor;
+        Expense: Serenity.DecimalEditor;
+        Remarks: Serenity.StringEditor;
+    }
+
+    export class ExpenseForm extends Serenity.PrefixedContext {
+        static formKey = 'Default.Expense';
+        private static init: boolean;
+
+        constructor(prefix: string) {
+            super(prefix);
+
+            if (!ExpenseForm.init)  {
+                ExpenseForm.init = true;
+
+                var s = Serenity;
+                var w0 = s.LookupEditor;
+                var w1 = s.DecimalEditor;
+                var w2 = s.StringEditor;
+
+                Q.initFormType(ExpenseForm, [
+                    'PlantId', w0,
+                    'DistrictId', w0,
+                    'DestinationId', w0,
+                    'Expense', w1,
+                    'Remarks', w2
+                ]);
+            }
+        }
+    }
+}
+

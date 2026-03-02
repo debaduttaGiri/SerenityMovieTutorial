@@ -7423,3 +7423,87 @@ section.content > .s-DataGrid {
 .s-Default-PersonDialog .caption {
   width: 150px;
 }
+.s-Default-Employee2Dialog > .size {
+  width: 650px;
+}
+.s-Default-Employee2Dialog .caption {
+  width: 150px;
+}
+.s-Default-EmployeesDialog > .size {
+  width: 650px;
+}
+.s-Default-EmployeesDialog .caption {
+  width: 150px;
+}
+.s-Default-PlantDialog > .size {
+  width: 650px;
+}
+.s-Default-PlantDialog .caption {
+  width: 150px;
+}
+.s-Default-DistictDialog > .size {
+  width: 650px;
+}
+.s-Default-DistictDialog .caption {
+  width: 150px;
+}
+.s-Default-DestinationDialog > .size {
+  width: 650px;
+}
+.s-Default-DestinationDialog .caption {
+  width: 150px;
+}
+.s-Default-ExpenseDialog > .size {
+  width: 650px;
+}
+.s-Default-ExpenseDialog .caption {
+  width: 150px;
+}
+.s-Default-VehicleMasterDialog > .size {
+  width: 650px;
+}
+.s-Default-VehicleMasterDialog .caption {
+  width: 150px;
+}
+.s-Default-CustomerMasterDialog > .size {
+  width: 650px;
+}
+.s-Default-CustomerMasterDialog .caption {
+  width: 150px;
+}
+.s-Default-BranchMasterDialog > .size {
+  width: 650px;
+}
+.s-Default-BranchMasterDialog .caption {
+  width: 150px;
+}
+.s-Default-StateMasterDialog > .size {
+  width: 650px;
+}
+.s-Default-StateMasterDialog .caption {
+  width: 150px;
+}
+.s-Default-ItemMasterDialog > .size {
+  width: 650px;
+}
+.s-Default-ItemMasterDialog .caption {
+  width: 150px;
+}
+.s-Default-LoadingTripDialog > .size {
+  width: 650px;
+}
+.s-Default-LoadingTripDialog .caption {
+  width: 150px;
+}
+.s-Default-FinancialYearDialog > .size {
+  width: 650px;
+}
+.s-Default-FinancialYearDialog .caption {
+  width: 150px;
+}
+.s-Default-CustomerDialog > .size {
+  width: 650px;
+}
+.s-Default-CustomerDialog .caption {
+  width: 150px;
+}

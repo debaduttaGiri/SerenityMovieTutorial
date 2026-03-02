@@ -1,0 +1,38 @@
+﻿
+namespace SereneMovieTutorial.Default {
+    export class BranchMasterForm extends Serenity.PrefixedContext {
+        static formKey = 'Default.BranchMaster';
+    }
+
+    export interface BranchMasterForm {
+        BranchName: Serenity.StringEditor;
+        BranchCode: Serenity.StringEditor;
+        GstNo: Serenity.IntegerEditor;
+        PanNo: Serenity.IntegerEditor;
+        PhoneNumber: Serenity.IntegerEditor;
+        PinCode: Serenity.IntegerEditor;
+        Address: Serenity.StringEditor;
+        State: Serenity.StringEditor;
+        Remarks: Serenity.StringEditor;
+        StateId: Serenity.IntegerEditor;
+    }
+
+    [,
+        ['BranchName', () => Serenity.StringEditor],
+        ['BranchCode', () => Serenity.StringEditor],
+        ['GstNo', () => Serenity.IntegerEditor],
+        ['PanNo', () => Serenity.IntegerEditor],
+        ['PhoneNumber', () => Serenity.IntegerEditor],
+        ['PinCode', () => Serenity.IntegerEditor],
+        ['Address', () => Serenity.StringEditor],
+        ['State', () => Serenity.StringEditor],
+        ['Remarks', () => Serenity.StringEditor],
+        ['StateId', () => Serenity.IntegerEditor]
+    ].forEach(x => Object.defineProperty(BranchMasterForm.prototype, <string>x[0], {
+        get: function () {
+            return this.w(x[0], (x[1] as any)());
+        },
+        enumerable: true,
+        configurable: true
+    }));
+}

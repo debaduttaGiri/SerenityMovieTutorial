@@ -12,7 +12,8 @@ namespace SereneMovieTutorial.Default.Entities
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[MovieGenres]")]
     [DisplayName("Movie Genres"), InstanceName("Movie Genres")]
     [ReadPermission("Administration:General")]
-    [ModifyPermission("Administration:General")]
+    //[ModifyPermission("Administration:General")]
+    //[InsertPermission("Administration:General")]
     public sealed class MovieGenresRow : Row, IIdRow
     {
         [DisplayName("Movie Genre Id"), Identity]

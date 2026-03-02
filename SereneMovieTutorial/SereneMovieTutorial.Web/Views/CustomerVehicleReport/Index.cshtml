@@ -1,0 +1,122 @@
+﻿@model IEnumerable<SereneMovieTutorial.Reports.CustomerVehicleReportModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+    <h2>Customer Vehicle Report</h2>
+    <hr />
+    @if (Model == null || !Model.Any())
+    {
+        <p>No records found.</p>
+    }
+    else
+    {
+        <!-- 🔹 Customer Details -->
+        <fieldset style="margin-bottom:20px;">
+            <legend><b>Customer Details</b></legend>
+            
+            <table>
+                <tr>
+                    <td><b>Customer Code:</b></td>
+                    <td>@Model.First().CustomerCode</td>
+
+                    <td><b>Name:</b></td>
+                    <td>@Model.First().FullName</td>
+                </tr>
+                <tr>
+                    <td><b>Mobile:</b></td>
+                    <td>@Model.First().MobileNumber</td>
+
+                    <td><b>Email:</b></td>
+                    <td>@Model.First().Email</td>
+                </tr>
+                <tr>
+                    <td><b>Address:</b></td>
+                    <td colspan="3">
+                        @Model.First().AddressLine1,
+                        @Model.First().City,
+                        @Model.First().State -
+                        @Model.First().PinCode
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>DOB:</b></td>
+                    <td>
+                        @(Model.First().DateOfBirth != null
+                        ? Model.First().DateOfBirth.Value.ToString("dd-MMM-yyyy")
+                        : "N/A")
+                    </td>
+
+
+                    <td><b>Status:</b></td>
+                    <td>@(Model.First().IsActive ? "Active" : "Inactive")</td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <!-- 🔹 Vehicle Details -->
+        <fieldset>
+            <legend><b>Vehicle Details</b></legend>
+
+            <table border="1" cellpadding="5" cellspacing="0" width="100%">
+                <tr style="background:#f2f2f2;">
+                    <th>Vehicle No</th>
+                    <th>Type</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    
+                    <th>Color</th>
+                    <th>Seats</th>
+                    <th>EngineNumber</th>
+                    <th>ChassisNumber</th>
+                    <th>Insurance Expiry</th>
+                    <th>Fuel Type</th>
+                    <th>Status</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+            <tr>
+                <td>@item.VehicleNumber</td>
+                <td>@(item.VehicleType == 1
+                        ?"Truck"
+                        :item.VehicleType == 2
+                        ?"Bus"
+                        :"Car")
+                </td>
+                <td>@item.Brand</td>
+                <td>@item.Model</td>
+                <td>@item.ManufacturingYear</td>
+                
+                <td>@item.Color</td>
+                <td>@item.SeatingCapacity</td>
+                <td>@item.EngineNumber</td>
+                <td>@item.ChassisNumber</td>
+                <td>
+                    @(item.InsuranceExpiryDate != null
+                    ? item.InsuranceExpiryDate.Value.ToString("dd-MMM-yyyy")
+                    : "N/A")
+                </td>
+                <td>
+                    @(item.FuelType == 1
+                        ?"Diesel"
+                        :item.FuelType ==2 
+                        ?"Petrol"
+                        :"EV"
+                    )
+                </td>
+                <td>
+                    @(item.VehicleIsActive == true
+                              ? "Active"
+                              : item.VehicleIsActive == false
+                              ? "Inactive"
+                              : "N/A")
+                </td>
+            </tr>
+                }
+            </table>
+        </fieldset>
+    }
+
+

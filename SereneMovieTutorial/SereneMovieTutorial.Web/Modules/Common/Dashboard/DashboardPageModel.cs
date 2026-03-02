@@ -3,9 +3,9 @@ namespace SereneMovieTutorial.Common
 {
     public class DashboardPageModel
     {
-        public int OpenOrders { get; set; }
-        public int ClosedOrderPercent { get; set; }
-        public int CustomerCount { get; set; }
-        public int ProductCount { get; set; }
+        public decimal TodayWeight { get; set; }
+        public decimal MonthWeight { get; set; }
+        public int TodayTrips { get; set; }
+        public int MonthTrips { get; set; }
     }
 }

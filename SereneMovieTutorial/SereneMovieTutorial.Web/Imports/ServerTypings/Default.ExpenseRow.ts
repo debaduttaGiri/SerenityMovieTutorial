@@ -1,0 +1,57 @@
+﻿namespace SereneMovieTutorial.Default {
+    export interface ExpenseRow {
+        ExpenseId?: number;
+        Plant?: number;
+        District?: number;
+        Destination?: number;
+        Expense?: number;
+        Remarks?: string;
+        Plant1?: string;
+        PlantRemarks?: string;
+        DistrictPlant?: number;
+        DistrictDistict?: string;
+        DistrictRemarks?: string;
+        DestinationPlant?: number;
+        DestinationDistict?: number;
+        Destination1?: string;
+        DestinationRemarks?: string;
+        Weight?: number;
+        Wheels?: number;
+    }
+
+    export namespace ExpenseRow {
+        export const idProperty = 'ExpenseId';
+        export const nameProperty = 'Remarks';
+        export const localTextPrefix = 'Default.Expense';
+        export const lookupKey = 'Default.Expense';
+
+        export function getLookup(): Q.Lookup<ExpenseRow> {
+            return Q.getLookup<ExpenseRow>('Default.Expense');
+        }
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
+
+        export declare const enum Fields {
+            ExpenseId = "ExpenseId",
+            Plant = "Plant",
+            District = "District",
+            Destination = "Destination",
+            Expense = "Expense",
+            Remarks = "Remarks",
+            Plant1 = "Plant1",
+            PlantRemarks = "PlantRemarks",
+            DistrictPlant = "DistrictPlant",
+            DistrictDistict = "DistrictDistict",
+            DistrictRemarks = "DistrictRemarks",
+            DestinationPlant = "DestinationPlant",
+            DestinationDistict = "DestinationDistict",
+            Destination1 = "Destination1",
+            DestinationRemarks = "DestinationRemarks",
+            Weight = "Weight",
+            Wheels = "Wheels"
+        }
+    }
+}
+

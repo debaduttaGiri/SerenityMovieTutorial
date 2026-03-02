@@ -1,0 +1,46 @@
+﻿namespace SereneMovieTutorial.Default {
+    export interface ExpenseRow {
+        PlantId?: number;
+        DistrictId?: number;
+        DestinationId?: number;
+        Expense?: number;
+        Remarks?: string;
+        Plant?: string;
+        PlantRemarks?: string;
+        DistrictPlant?: number;
+        DistrictDistict?: string;
+        DistrictRemarks?: string;
+        DestinationPlant?: number;
+        DestinationDistict?: number;
+        Destination?: string;
+        DestinationRemarks?: string;
+    }
+
+    export namespace ExpenseRow {
+        export const idProperty = 'PlantId';
+        export const nameProperty = 'Remarks';
+        export const localTextPrefix = 'Default.Expense';
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
+
+        export declare const enum Fields {
+            PlantId = "PlantId",
+            DistrictId = "DistrictId",
+            DestinationId = "DestinationId",
+            Expense = "Expense",
+            Remarks = "Remarks",
+            Plant = "Plant",
+            PlantRemarks = "PlantRemarks",
+            DistrictPlant = "DistrictPlant",
+            DistrictDistict = "DistrictDistict",
+            DistrictRemarks = "DistrictRemarks",
+            DestinationPlant = "DestinationPlant",
+            DestinationDistict = "DestinationDistict",
+            Destination = "Destination",
+            DestinationRemarks = "DestinationRemarks"
+        }
+    }
+}
+

@@ -14,9 +14,16 @@
       "./node_modules/@types/"
     ]
   },
+  //"include": [
+  //  "./Imports/",
+  //  "./Modules/",
+  //  "./Scripts/typings/"
+  //]
   "include": [
     "./Imports/",
     "./Modules/",
-    "./Scripts/typings/"
+    "./Scripts/typings/",
+    "./Serenity.CoreLib/" 
+
   ]
 }

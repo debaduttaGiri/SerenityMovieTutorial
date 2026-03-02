@@ -1,5 +1,6 @@
 ﻿using Serenity;
 using Serenity.Extensibility;
+using System;
 
 namespace SereneMovieTutorial
 {
@@ -24,6 +25,7 @@ namespace SereneMovieTutorial
                 }
             }
         }
+
 
         public static class Forms
         {
@@ -56,7 +58,7 @@ namespace SereneMovieTutorial
 
                 public static class Login
                 {
-                    public static LocalText FormTitle = "Welcome to SERENE (Serenity Application Template)";
+                    public static LocalText FormTitle = "Tranzol";
                     public static LocalText SignInButton = "Sign In";
                     public static LocalText ForgotPassword = "Forgot password?";
                     public static LocalText SignUpButton = "Register a new account";
@@ -108,9 +110,9 @@ namespace SereneMovieTutorial
 
             public static class Dashboard
             {
-                public static LocalText ContentDescription =
-                    "a sample with random data (from free <em><a href = \"https://almsaeedstudio.com/\" target= \"_blank\">" +
-                    "AdminLTE theme</a></em>)";
+                public static LocalText ContentDescription = "";
+                    //"a sample with random data (from free <em><a href = \"https://almsaeedstudio.com/\" target= \"_blank\">" +
+                    //"AdminLTE theme</a></em>)";
             }
 
             public static class BasicProgressDialog
@@ -160,7 +162,7 @@ namespace SereneMovieTutorial
 
             public static class Layout
             {
-                public static LocalText FooterCopyright = "Copyright (c) 2015.";
+                public static LocalText FooterCopyright = "Copyright (c) "+ DateTime.Now.Year+".";
                 public static LocalText FooterInfo = "Serenity Platform";
                 public static LocalText FooterRights = "All rights reserved.";
                 public static LocalText GeneralSettings = "General Settings";

@@ -10,6 +10,7 @@ namespace SereneMovieTutorial.Default.Forms
     using System.IO;
     using SereneMovieTutorial.Modules.Default.Movie;
 
+
     [FormScript("Default.Movie")]
     [BasedOnRow(typeof(Entities.MovieRow), CheckNames = true)]
     
@@ -18,7 +19,7 @@ namespace SereneMovieTutorial.Default.Forms
         public String Title { get; set; }
         [TextAreaEditor(Rows = 3)]
         public String Description { get; set; }
-        [DisplayName("Cast"), MovieCastEditor, IgnoreName]
+        [DisplayName("Cast"), MovieCastEditor]
         public List<Entities.MovieCastRow> CastList { get; set; }
         [TextAreaEditor(Rows = 8)]
         public String Storyline { get; set; }

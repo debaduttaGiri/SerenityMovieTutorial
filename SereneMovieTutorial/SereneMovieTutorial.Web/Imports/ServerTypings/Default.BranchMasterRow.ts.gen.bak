@@ -1,0 +1,63 @@
+﻿
+namespace SereneMovieTutorial.Default {
+    export interface BranchMasterRow {
+        Id?: number;
+        BranchName?: string;
+        BranchCode?: string;
+        GstNo?: number;
+        PanNo?: number;
+        PhoneNumber?: number;
+        PinCode?: number;
+        Address?: string;
+        State?: string;
+        Remarks?: string;
+        StateId?: number;
+        State1?: string;
+        StateStateCode?: string;
+        StateRemarks?: string;
+    }
+
+    export namespace BranchMasterRow {
+        export const idProperty = 'Id';
+        export const nameProperty = 'BranchName';
+        export const localTextPrefix = 'Default.BranchMaster';
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
+
+        export namespace Fields {
+            export declare const Id;
+            export declare const BranchName;
+            export declare const BranchCode;
+            export declare const GstNo;
+            export declare const PanNo;
+            export declare const PhoneNumber;
+            export declare const PinCode;
+            export declare const Address;
+            export declare const State;
+            export declare const Remarks;
+            export declare const StateId;
+            export declare const State1;
+            export declare const StateStateCode;
+            export declare const StateRemarks;
+        }
+
+        [
+            'Id',
+            'BranchName',
+            'BranchCode',
+            'GstNo',
+            'PanNo',
+            'PhoneNumber',
+            'PinCode',
+            'Address',
+            'State',
+            'Remarks',
+            'StateId',
+            'State1',
+            'StateStateCode',
+            'StateRemarks'
+        ].forEach(x => (<any>Fields)[x] = x);
+    }
+}

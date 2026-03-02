@@ -20,6 +20,7 @@ namespace SereneMovieTutorial.Default.Entities
         const string jGenre = nameof(jGenre);
 
         [DisplayName("Movie Id"), Identity]
+        [SortOrder(1, descending: true)]
         public Int32? MovieId
         {
             get { return Fields.MovieId[this]; }
@@ -31,6 +32,12 @@ namespace SereneMovieTutorial.Default.Entities
         {
             get { return Fields.Title[this]; }
             set { Fields.Title[this] = value; }
+        }
+        [DisplayName("Actors"), Expression("(SELECT STRING_AGG(p.FirstName+p.LastName, ', ') FROM MovieCast mc  JOIN Person p ON p.PersonId = mc.PersonId WHERE mc.MovieId = T0.[MovieId])")]
+        public String Actors
+        { 
+            get { return Fields.Actors[this]; }
+            set { Fields.Actors[this] = value; }
         }
 
         [DisplayName("Description"), Size(1000),QuickSearch]
@@ -67,10 +74,11 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.Runtime[this]; }
             set { Fields.Runtime[this] = value; }
         }
+        [EnumEditor]
         [DisplayName("Kind"), NotNull,DefaultValue(MovieKind.Film)]
-        public MovieKind? Kind
+        public Int32? Kind
         { 
-            get { return (MovieKind?)Fields.Kind[this]; } 
+            get { return (Int32?)Fields.Kind[this]; } 
             set => Fields.Kind[this] = (Int32?)value;
         }
         //[DisplayName("Genre"), ForeignKey(typeof(GenreRow)), LeftJoin(jGenre)]
@@ -121,6 +129,8 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.Title; }
         }
 
+        
+
         public static readonly RowFields Fields = new RowFields().Init();
 
         public MovieRow()
@@ -132,6 +142,7 @@ namespace SereneMovieTutorial.Default.Entities
         {
             public Int32Field MovieId;
             public StringField Title;
+            public StringField Actors;
             public StringField Description;
             public StringField Storyline;
             public Int32Field Year;

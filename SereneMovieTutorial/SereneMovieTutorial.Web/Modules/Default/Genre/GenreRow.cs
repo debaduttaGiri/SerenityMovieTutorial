@@ -11,12 +11,15 @@ namespace SereneMovieTutorial.Default.Entities
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[Genre]")]
     [DisplayName("Genre"), InstanceName("Genre")]
-    [ReadPermission("Administration:General")]
-    [ModifyPermission("Administration:General")]
+    [ReadPermission("Administration:General:Read")]
+    [ModifyPermission("Administration:General:Modify")]
+    [InsertPermission("Administration:General:Insert")]
+    [DeletePermission("Administration:General:Delete")]
     [LookupScript]
     public sealed class GenreRow : Row, IIdRow, INameRow
     {
         [DisplayName("Genre Id"), Identity]
+        [SortOrder(1,descending:true)]
         public Int32? GenreId
         {
             get { return Fields.GenreId[this]; }

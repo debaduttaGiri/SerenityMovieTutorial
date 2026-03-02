@@ -1,6 +1,8 @@
 ﻿
 namespace SereneMovieTutorial.Common.Pages
 {
+    using SereneMovieTutorial.Default.Entities;
+    using SereneMovieTutorial.Default.Repositories;
     using Serenity;
     using Serenity.Data;
     using System;
@@ -12,7 +14,23 @@ namespace SereneMovieTutorial.Common.Pages
         [Authorize, HttpGet, Route("~/")]
         public ActionResult Index()
         {
-            return View(MVC.Views.Common.Dashboard.DashboardIndex, new DashboardPageModel());
+            using(var connection = SqlConnections.NewFor<LoadingTripRow>())
+    {
+                var repo = new LoadingTripRepository();
+
+                var summary = repo.GetWeightSummary(connection);
+
+                var model = new DashboardPageModel
+                {
+                    TodayWeight = summary.TodayWeight,
+                    MonthWeight = summary.MonthWeight,
+                    TodayTrips = summary.TodayTrips,
+                    MonthTrips = summary.MonthTrips
+                };
+
+                return View(MVC.Views.Common.Dashboard.DashboardIndex, model);
+            }
+            //return View(MVC.Views.Common.Dashboard.DashboardIndex, new DashboardPageModel());
         }
     }
 }

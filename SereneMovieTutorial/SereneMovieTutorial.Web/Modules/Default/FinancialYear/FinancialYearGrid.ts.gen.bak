@@ -1,0 +1,17 @@
+﻿
+namespace SereneMovieTutorial.Default {
+
+    @Serenity.Decorators.registerClass()
+    export class FinancialYearGrid extends Serenity.EntityGrid<FinancialYearRow, any> {
+        protected getColumnsKey() { return 'Default.FinancialYear'; }
+        protected getDialogType() { return FinancialYearDialog; }
+        protected getIdProperty() { return FinancialYearRow.idProperty; }
+        protected getInsertPermission() { return FinancialYearRow.insertPermission; }
+        protected getLocalTextPrefix() { return FinancialYearRow.localTextPrefix; }
+        protected getService() { return FinancialYearService.baseUrl; }
+
+        constructor(container: JQuery) {
+            super(container);
+        }
+    }
+}

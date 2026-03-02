@@ -55,6 +55,23 @@
                 }
             });
 
+            buttons.push({
+                title: Q.text('Site.UserDialog.EditPermissionsButton'),
+                cssClass: 'edit-permissions-button',
+                icon: 'fa fa-lock text-red',
+                onClick: () => {
+                    
+                    new NewUserPermissionDialog({
+                        userID: this.entity.UserId,
+                        username: this.entity.Username
+                    }).dialogOpen();
+                    console.log(this.entity.UserId);
+                    console.log(this.entity.Username);
+                }
+            });
+
+            
+
             return buttons;
         }
 

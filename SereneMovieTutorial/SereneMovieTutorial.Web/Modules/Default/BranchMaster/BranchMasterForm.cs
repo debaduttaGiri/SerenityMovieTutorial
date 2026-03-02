@@ -1,0 +1,31 @@
+﻿
+namespace SereneMovieTutorial.Default.Forms
+{
+    using Serenity;
+    using Serenity.ComponentModel;
+    using Serenity.Data;
+    using System;
+    using System.ComponentModel;
+    using System.Collections.Generic;
+    using System.IO;
+
+    [FormScript("Default.BranchMaster")]
+    [BasedOnRow(typeof(Entities.BranchMasterRow), CheckNames = true)]
+    public class BranchMasterForm
+    {
+        public String BranchName { get; set; }
+        public String BranchCode { get; set; }
+        public Int32 GstNo { get; set; }
+        public Int32 PanNo { get; set; }
+        public Int32 PhoneNumber { get; set; }
+        public Int32 PinCode { get; set; }
+        [TextAreaEditor(Rows = 3)]
+        public String Address { get; set; }
+        //public String State { get; set; }
+        [LookupEditor(typeof(Entities.StateMasterRow),InplaceAdd =true)]
+        //[LookupEditor("Default.Person", InplaceAdd = true)]
+        public Int32 StateId { get; set; }
+        public String Remarks { get; set; }
+        //public Int32 StateId { get; set; }
+    }
+}

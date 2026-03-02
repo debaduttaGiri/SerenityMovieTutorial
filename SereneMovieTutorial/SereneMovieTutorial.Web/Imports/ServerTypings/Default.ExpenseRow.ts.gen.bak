@@ -1,0 +1,72 @@
+﻿
+namespace SereneMovieTutorial.Default {
+    export interface ExpenseRow {
+        Plant?: number;
+        District?: number;
+        Destination?: number;
+        Expense?: number;
+        Remarks?: string;
+        ExpenseId?: number;
+        Weight?: number;
+        Wheels?: number;
+        Plant1?: string;
+        PlantRemarks?: string;
+        DistrictPlant?: number;
+        DistrictDistict?: string;
+        DistrictRemarks?: string;
+        DestinationPlant?: number;
+        DestinationDistict?: number;
+        Destination1?: string;
+        DestinationRemarks?: string;
+    }
+
+    export namespace ExpenseRow {
+        export const idProperty = 'ExpenseId';
+        export const nameProperty = 'Remarks';
+        export const localTextPrefix = 'Default.Expense';
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
+
+        export namespace Fields {
+            export declare const Plant;
+            export declare const District;
+            export declare const Destination;
+            export declare const Expense;
+            export declare const Remarks;
+            export declare const ExpenseId;
+            export declare const Weight;
+            export declare const Wheels;
+            export declare const Plant1;
+            export declare const PlantRemarks;
+            export declare const DistrictPlant;
+            export declare const DistrictDistict;
+            export declare const DistrictRemarks;
+            export declare const DestinationPlant;
+            export declare const DestinationDistict;
+            export declare const Destination1;
+            export declare const DestinationRemarks;
+        }
+
+        [
+            'Plant',
+            'District',
+            'Destination',
+            'Expense',
+            'Remarks',
+            'ExpenseId',
+            'Weight',
+            'Wheels',
+            'Plant1',
+            'PlantRemarks',
+            'DistrictPlant',
+            'DistrictDistict',
+            'DistrictRemarks',
+            'DestinationPlant',
+            'DestinationDistict',
+            'Destination1',
+            'DestinationRemarks'
+        ].forEach(x => (<any>Fields)[x] = x);
+    }
+}

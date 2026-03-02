@@ -18,6 +18,7 @@ namespace SereneMovieTutorial.Default.Entities
     public sealed class PersonRow : Row, IIdRow, INameRow
     {
         [DisplayName("Person Id"), Identity]
+        [SortOrder(1,descending:true)]
         public Int32? PersonId
         {
             get { return Fields.PersonId[this]; }

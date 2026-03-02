@@ -59,32 +59,37 @@
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
-      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ClosedXML.0.95.4\lib\net40\ClosedXML.dll</HintPath>
     </Reference>
     <Reference Include="CsQuery, Version=1.3.3.249, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="EPPlus, Version=4.5.3.2, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EPPlus.4.5.3.2\lib\net40\EPPlus.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.5.3.3, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EPPlus.4.5.3.3\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
     </Reference>
     <Reference Include="FluentMigrator, Version=1.6.2.0, Culture=neutral, PublicKeyToken=aacfc7de5acabf05, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FluentMigrator.1.6.2\lib\40\FluentMigrator.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="FluentMigrator.Runner, Version=1.6.2.0, Culture=neutral, PublicKeyToken=aacfc7de5acabf05, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FluentMigrator.Runner.1.6.2\lib\40\FluentMigrator.Runner.dll</HintPath>
-      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\iTextSharp.5.5.10\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Mono.Cecil, Version=0.11.1.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Serenity.Web.3.13.5\lib\net45\Mono.Cecil.dll</HintPath>
@@ -106,27 +111,22 @@
     </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="Serenity.Core, Version=3.13.5.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="Serenity.Core, Version=3.13.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Serenity.Core.3.13.5\lib\net45\Serenity.Core.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Data, Version=3.13.5.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="Serenity.Data, Version=3.13.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Serenity.Data.3.13.5\lib\net45\Serenity.Data.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Data.Entity, Version=3.13.5.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="Serenity.Data.Entity, Version=3.13.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Serenity.Data.Entity.3.13.5\lib\net45\Serenity.Data.Entity.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="Serenity.Services, Version=3.13.5.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="Serenity.Services, Version=3.13.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Serenity.Services.3.13.5\lib\net45\Serenity.Services.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Serenity.Web, Version=3.13.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Serenity.Web.3.13.5\lib\net45\Serenity.Web.dll</HintPath>
@@ -149,27 +149,21 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -181,6 +175,7 @@
     <Reference Include="TinyMapper, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\TinyMapper.3.0.3\lib\net40\TinyMapper.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <Import Project="..\..\Serenity\tools\Submodule\Serenity.Submodule.Web.targets" Condition=" Exists('..\..\Serenity\Serenity.Core\Serenity.Core.csproj') " />
   <ItemGroup>
@@ -543,6 +538,13 @@
     <Content Include="Content\serenity\serenity.editors.css" />
     <Content Include="Content\serenity\serenity.jquery-ui.messagedialogs.css" />
     <Content Include="Content\simple-line-icons.css" />
+    <Content Include="Content\site\images\Tranzol.jpeg" />
+    <Content Include="Content\site\my-style.css" />
+    <Content Include="Content\site\slides\T1.jpg" />
+    <Content Include="Content\site\slides\TT2.jpg" />
+    <Content Include="Content\site\slides\T5.jpg" />
+    <Content Include="Content\site\slides\T3.jpg" />
+    <Content Include="Content\site\slides\T4.jpg" />
     <Content Include="Content\slick-default-theme.css" />
     <Content Include="Content\slick.columnpicker.css" />
     <Content Include="Content\slick.grid.css" />
@@ -597,9 +599,16 @@
     <Content Include="fonts\ionicons.svg" />
     <Content Include="fonts\Simple-Line-Icons.svg" />
     <Content Include="Modules\Default\Person\PersonDialog.Template.html" />
-    <Content Include="Readme.CodeGenerator.txt" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\build-config.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
@@ -785,6 +794,54 @@
     <Content Include="Scripts\ckeditor\skins\moono\images\lock.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\refresh.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\spinner.gif" />
+    <Content Include="Scripts\ckeditor\skins\moono\readme.md" />
+    <Content Include="Scripts\ckeditor\README.md" />
+    <Content Include="Scripts\ckeditor\LICENSE.md" />
+    <Content Include="Scripts\ckeditor\CHANGES.md" />
+    <Content Include="fonts\Simple-Line-Icons.woff2" />
+    <Content Include="fonts\Simple-Line-Icons.woff" />
+    <Content Include="fonts\Simple-Line-Icons.ttf" />
+    <Content Include="fonts\Simple-Line-Icons.eot" />
+    <Content Include="fonts\OpenSansSemiBold.woff" />
+    <Content Include="fonts\OpenSansLight.woff" />
+    <Content Include="fonts\OpenSansItalic.woff" />
+    <Content Include="fonts\OpenSansBold.woff" />
+    <Content Include="fonts\OpenSans.woff" />
+    <Content Include="fonts\ionicons.woff" />
+    <Content Include="fonts\ionicons.ttf" />
+    <Content Include="fonts\ionicons.eot" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\serenity\core\serenity-core.js" />
+    <Content Include="Scripts\serenity\core\serenity-core.min.js" />
+    <Content Include="Scripts\serenity\dialogs\serenity-dialogs.js" />
+    <Content Include="Scripts\serenity\dialogs\serenity-dialogs.min.js" />
+    <Content Include="Scripts\serenity\editors\serenity-editors.js" />
+    <Content Include="Scripts\serenity\editors\serenity-editors.min.js" />
+    <Content Include="Scripts\serenity\filterpanel\serenity-filterpanel.js" />
+    <Content Include="Scripts\serenity\filterpanel\serenity-filterpanel.min.js" />
+    <Content Include="Scripts\serenity\forms\serenity-forms.js" />
+    <Content Include="Scripts\serenity\forms\serenity-forms.min.js" />
+    <Content Include="Scripts\serenity\grids\serenity-grids.js" />
+    <Content Include="Scripts\serenity\grids\serenity-grids.min.js" />
+    <Content Include="Scripts\serenity\quickfilter\serenity-quickfilter.js" />
+    <Content Include="Scripts\serenity\quickfilter\serenity-quickfilter.min.js" />
+    <Content Include="Scripts\serenity\Serenity.CoreLib.js" />
+    <Content Include="Scripts\serenity\Serenity.CoreLib.min.js" />
+    <Content Include="Scripts\serenity\Serenity.Script.UI.js" />
+    <Content Include="Scripts\serenity\Serenity.Script.UI.min.js" />
+    <Content Include="Scripts\serenity\slick\serenity-slick.js" />
+    <Content Include="Scripts\serenity\slick\serenity-slick.min.js" />
+    <Content Include="Scripts\serenity\widget\serenity-widget.js" />
+    <Content Include="Scripts\serenity\widget\serenity-widget.min.js" />
+    <Content Include="wkhtmltopdf-license.txt" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Readme.CodeGenerator.txt" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\flot\excanvas.js" />
     <Content Include="Scripts\flot\excanvas.min.js" />
@@ -820,39 +877,10 @@
     <Content Include="Scripts\flot\jquery.flot.threshold.min.js" />
     <Content Include="Scripts\flot\jquery.flot.time.js" />
     <Content Include="Scripts\flot\jquery.flot.time.min.js" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\toastr.scss" />
-    <Content Include="Content\toastr.less" />
-    <Content Include="Scripts\ckeditor\skins\moono\readme.md" />
-    <Content Include="Scripts\ckeditor\README.md" />
-    <Content Include="Scripts\ckeditor\LICENSE.md" />
-    <Content Include="Scripts\ckeditor\CHANGES.md" />
-    <Content Include="fonts\Simple-Line-Icons.woff2" />
-    <Content Include="fonts\Simple-Line-Icons.woff" />
-    <Content Include="fonts\Simple-Line-Icons.ttf" />
-    <Content Include="fonts\Simple-Line-Icons.eot" />
-    <Content Include="fonts\OpenSansSemiBold.woff" />
-    <Content Include="fonts\OpenSansLight.woff" />
-    <Content Include="fonts\OpenSansItalic.woff" />
-    <Content Include="fonts\OpenSansBold.woff" />
-    <Content Include="fonts\OpenSans.woff" />
-    <Content Include="fonts\ionicons.woff" />
-    <Content Include="fonts\ionicons.ttf" />
-    <Content Include="fonts\ionicons.eot" />
-    <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\fontawesome-webfont.eot" />
-    <Content Include="wkhtmltopdf-license.txt" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.js" />
     <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -954,28 +982,7 @@
     <Content Include="Scripts\Select2-locales\select2_locale_zh-TW.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
-    <Content Include="Scripts\serenity\core\serenity-core.js" />
-    <Content Include="Scripts\serenity\core\serenity-core.min.js" />
-    <Content Include="Scripts\serenity\dialogs\serenity-dialogs.js" />
-    <Content Include="Scripts\serenity\dialogs\serenity-dialogs.min.js" />
-    <Content Include="Scripts\serenity\editors\serenity-editors.js" />
-    <Content Include="Scripts\serenity\editors\serenity-editors.min.js" />
-    <Content Include="Scripts\serenity\filterpanel\serenity-filterpanel.js" />
-    <Content Include="Scripts\serenity\filterpanel\serenity-filterpanel.min.js" />
-    <Content Include="Scripts\serenity\forms\serenity-forms.js" />
-    <Content Include="Scripts\serenity\forms\serenity-forms.min.js" />
-    <Content Include="Scripts\serenity\grids\serenity-grids.js" />
-    <Content Include="Scripts\serenity\grids\serenity-grids.min.js" />
-    <Content Include="Scripts\serenity\quickfilter\serenity-quickfilter.js" />
-    <Content Include="Scripts\serenity\quickfilter\serenity-quickfilter.min.js" />
-    <Content Include="Scripts\serenity\Serenity.CoreLib.js" />
-    <Content Include="Scripts\serenity\Serenity.CoreLib.min.js" />
-    <Content Include="Scripts\serenity\Serenity.Script.UI.js" />
-    <Content Include="Scripts\serenity\Serenity.Script.UI.min.js" />
-    <Content Include="Scripts\serenity\slick\serenity-slick.js" />
-    <Content Include="Scripts\serenity\slick\serenity-slick.min.js" />
-    <Content Include="Scripts\serenity\widget\serenity-widget.js" />
-    <Content Include="Scripts\serenity\widget\serenity-widget.min.js" />
+    <Content Include="Modules\Default\BranchMaster\BranchMasterIndex.cshtml" />
     <Content Include="Scripts\SlickGrid\Controls\slick.columnpicker.js" />
     <Content Include="Scripts\SlickGrid\Controls\slick.pager.js" />
     <Content Include="Scripts\SlickGrid\MIT-LICENSE.txt" />
@@ -1060,7 +1067,37 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Administration.PermissionKeys.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.BranchMasterColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.CustomerColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.CustomerMasterColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.DestinationColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.DistictColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.EmployeesColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ExpenseColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.FinancialYearColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Default.GenreColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ItemMasterColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.LoadingTripColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Default.MovieCastColumns.ts">
@@ -1078,15 +1115,40 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Default.PersonColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PlantColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.StateMasterColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.VehicleMasterColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Modules.Default.CustomerMaster.IdentityType.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Modules.Default.Movie.MovieKind.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Modules.Default.Person.Gender.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Modules.Default.VehicleMaster.FuelType.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Modules.Default.VehicleMaster.VehicleType.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Texts.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\_references.ts" />
+    <TypeScriptCompile Include="Modules\Administration\UserPermission\CustomPermissionEditor.ts" />
+    <TypeScriptCompile Include="Modules\Administration\UserPermission\NewUserPermissionDilog.ts" />
+    <TypeScriptCompile Include="Modules\Administration\UserPermission\PermissionEditor.ts" />
+    <TypeScriptCompile Include="Modules\Default\BranchMaster\BranchMasterDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\BranchMaster\BranchMasterGrid.ts" />
+    <TypeScriptCompile Include="Modules\Default\LoadingTrip\VehicleDetails.ts" />
     <TypeScriptCompile Include="Modules\Default\MovieCast\MovieCastEditDialog.ts" />
     <TypeScriptCompile Include="Modules\Default\MovieCast\MovieCastEditorDialog.ts" />
     <TypeScriptCompile Include="Modules\Default\MovieCast\MovieCastEditor.ts" />
@@ -1103,10 +1165,6 @@
     <TypeScriptCompile Include="node_modules\%40types\toastr\index.d.ts" />
     <Content Include="Content\site\images\accordion-arrows.png" />
     <Content Include="Modules\Membership\Account\SignUp\AccountSignUp.AdminLTE.cshtml" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Imports\Web.config" />
     <Content Include="Migrations\Web.config" />
     <Content Include="Content\site\CssBundles.json" />
@@ -1549,8 +1607,6 @@
     <Content Include="Scripts\site\texts\site.texts.vi-VN.json" />
     <Content Include="package.json" />
     <Content Include="Scripts\site\texts\site.texts.ru.json" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Scripts\jvectormap\jquery-jvectormap-1.2.2.css" />
     <Content Include="Scripts\jvectormap\jquery-jvectormap-1.2.2.min.js" />
     <Content Include="Scripts\jvectormap\jquery-jvectormap-world-mill-en.js" />
@@ -1612,7 +1668,14 @@
     <Content Include="Views\Errors\AccessDenied.cshtml" />
     <Content Include="Views\Shared\_LayoutSlim.cshtml" />
     <Content Include="Views\Shared\_LayoutSlimHead.cshtml" />
+    <Content Include="Views\CustomerVehicleReport\Index.cshtml" />
+    <Content Include="Views\CustomerVehicleReport\GetCustId.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="tools\Node\lessc.cmd" />
+    <Content Include="tools\JsEngine\lib.d.ts_" />
+    <Content Include="Scripts\SlickGrid\README.md" />
     <Content Include="Scripts\serenity\widget\serenity-widget.js.map" />
     <Content Include="Scripts\serenity\texts\serenity.texts.zh-CN.json" />
     <Content Include="Scripts\serenity\texts\serenity.texts.vi-VN.json" />
@@ -1634,9 +1697,6 @@
     <Content Include="Scripts\serenity\editors\serenity-editors.js.map" />
     <Content Include="Scripts\serenity\dialogs\serenity-dialogs.js.map" />
     <Content Include="Scripts\serenity\core\serenity-core.js.map" />
-    <Content Include="Scripts\SlickGrid\README.md" />
-    <Content Include="tools\Node\lessc.cmd" />
-    <Content Include="tools\JsEngine\lib.d.ts_" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1653,17 +1713,6 @@
     <TypeScriptCompile Include="Modules\Common\Helpers\ExcelExportHelper.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\BasicProgressDialog.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\BulkServiceAction.ts" />
-    <TypeScriptCompile Include="Scripts\serenity\core\serenity-core.d.ts" />
-    <TypeScriptCompile Include="Scripts\serenity\dialogs\serenity-dialogs.d.ts" />
-    <TypeScriptCompile Include="Scripts\serenity\editors\serenity-editors.d.ts" />
-    <TypeScriptCompile Include="Scripts\serenity\filterpanel\serenity-filterpanel.d.ts" />
-    <TypeScriptCompile Include="Scripts\serenity\forms\serenity-forms.d.ts" />
-    <TypeScriptCompile Include="Scripts\serenity\grids\serenity-grids.d.ts" />
-    <TypeScriptCompile Include="Scripts\serenity\quickfilter\serenity-quickfilter.d.ts" />
-    <TypeScriptCompile Include="Scripts\serenity\Serenity.CoreLib.d.ts" />
-    <TypeScriptCompile Include="Scripts\serenity\slick\serenity-slick.d.ts" />
-    <TypeScriptCompile Include="Scripts\serenity\widget\serenity-widget.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\serenity\Serenity.CoreLib.d.ts" />
     <TypeScriptCompile Include="Imports\ServerTypings\Default.MovieRow.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1713,6 +1762,169 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Default.MovieCastService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.EmployeesRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.EmployeesService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\Employees\EmployeesIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\Employees\EmployeesDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Employees\EmployeesGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.EmployeesForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PlantRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PlantService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\Plant\PlantIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\Plant\PlantDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Plant\PlantGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PlantForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.DistictRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.DistictService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\Distict\DistictIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\Distict\DistictDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Distict\DistictGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.DistictForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.DestinationRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.DestinationService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\Destination\DestinationIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\Destination\DestinationDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Destination\DestinationGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.DestinationForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ExpenseRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ExpenseService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ExpenseForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\Expense\ExpenseIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\Expense\ExpenseDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Expense\ExpenseGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.VehicleMasterRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.VehicleMasterService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\VehicleMaster\VehicleMasterIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\VehicleMaster\VehicleMasterDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\VehicleMaster\VehicleMasterGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.VehicleMasterForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.CustomerMasterRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.CustomerMasterService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\CustomerMaster\CustomerMasterIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\CustomerMaster\CustomerMasterDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\CustomerMaster\CustomerMasterGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.CustomerMasterForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.BranchMasterRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.BranchMasterService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.BranchMasterForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.StateMasterRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.StateMasterService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\StateMaster\StateMasterIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\StateMaster\StateMasterDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\StateMaster\StateMasterGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.StateMasterForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ItemMasterRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ItemMasterService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\ItemMaster\ItemMasterIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\ItemMaster\ItemMasterDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\ItemMaster\ItemMasterGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ItemMasterForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.LoadingTripRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.LoadingTripService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\LoadingTrip\LoadingTripIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\LoadingTrip\LoadingTripDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\LoadingTrip\LoadingTripGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.LoadingTripForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.FinancialYearRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.FinancialYearService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\FinancialYear\FinancialYearIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\FinancialYear\FinancialYearDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\FinancialYear\FinancialYearGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.FinancialYearForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\serenity\core\serenity-core.d.ts" />
+    <TypeScriptCompile Include="Scripts\serenity\dialogs\serenity-dialogs.d.ts" />
+    <TypeScriptCompile Include="Scripts\serenity\editors\serenity-editors.d.ts" />
+    <TypeScriptCompile Include="Scripts\serenity\filterpanel\serenity-filterpanel.d.ts" />
+    <TypeScriptCompile Include="Scripts\serenity\forms\serenity-forms.d.ts" />
+    <TypeScriptCompile Include="Scripts\serenity\grids\serenity-grids.d.ts" />
+    <TypeScriptCompile Include="Scripts\serenity\quickfilter\serenity-quickfilter.d.ts" />
+    <TypeScriptCompile Include="Scripts\serenity\Serenity.CoreLib.d.ts" />
+    <TypeScriptCompile Include="Scripts\serenity\slick\serenity-slick.d.ts" />
+    <TypeScriptCompile Include="Scripts\serenity\widget\serenity-widget.d.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.CustomerRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.CustomerService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\Customer\CustomerIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\Customer\CustomerDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Customer\CustomerGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.CustomerForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1730,19 +1942,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Imports\ClientTypes\Administration.CustomPermissionEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Administration.PermissionCheckEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Administration.PermissionEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Administration.RoleCheckEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
     <Compile Include="Imports\ClientTypes\Default.GenreListFormatterAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Imports\ClientTypes\Default.MovieCastEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20221114_170300_MovieData.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20221114_150500_MovieTable.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20221122_115100_PersonMovieImages.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20221115_161200_PersonAndMovieCast.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20221115_140500_MovieGenres.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20221114_183600_GenreTable.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20221114_182500_MovieKind.cs" />
     <Compile Include="Modules\Administration\AdministrationNavigation.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
@@ -1767,23 +1984,13 @@
     <Compile Include="Modules\Common\Dashboard\DashboardPageModel.cs" />
     <Compile Include="Modules\Common\File\FilePage.cs" />
     <Compile Include="Modules\Common\Helpers\DetailListSaveHandler.cs" />
-    <Compile Include="Imports\ClientTypes\Administration.PermissionCheckEditorAttribute.cs">
-      <DependentUpon>ClientTypes.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Imports\ClientTypes\Administration.RoleCheckEditorAttribute.cs">
-      <DependentUpon>ClientTypes.tt</DependentUpon>
-    </Compile>
     <Compile Include="Imports\ClientTypes\Common.EnumSelectFormatterAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Imports\ClientTypes\StaticTextBlockAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20160515_072600_UserPreferences.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20161029_130000_ExceptionLog.cs" />
     <Compile Include="Migrations\MigrationUtils.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20141111_113000_Permissions.cs" />
-    <Compile Include="Migrations\DefaultDB\DefaultDB_20141103_140000_Initial.cs" />
     <Compile Include="Modules\Administration\Translation\TranslationUpdateRequest.cs" />
     <Compile Include="Modules\Administration\Translation\TranslationListRequest.cs" />
     <Compile Include="Modules\Administration\Translation\TranslationItem.cs" />
@@ -1798,6 +2005,16 @@
     <Compile Include="Modules\Common\Navigation\NavigationModel.cs" />
     <Compile Include="Modules\Common\Reporting\DynamicDataReport.cs" />
     <Compile Include="Modules\Common\Reporting\ExcelReportGenerator.cs" />
+    <Compile Include="Modules\Default\BranchMaster\BranchMasterColumns.cs" />
+    <Compile Include="Modules\Default\BranchMaster\BranchMasterEndpoint.cs" />
+    <Compile Include="Modules\Default\BranchMaster\BranchMasterForm.cs" />
+    <Compile Include="Modules\Default\BranchMaster\BranchMasterPage.cs" />
+    <Compile Include="Modules\Default\BranchMaster\BranchMasterRepository.cs" />
+    <Compile Include="Modules\Default\BranchMaster\BranchMasterRow.cs" />
+    <Compile Include="Modules\Default\Customer\CustomerCityLookup.cs" />
+    <Compile Include="Modules\Default\Customer\CustomerCountryLookup.cs" />
+    <Compile Include="Reports\CustomerVehicleReportController.cs" />
+    <Compile Include="Reports\CustomerVehicleReportModel.cs" />
     <Content Include="Modules\Common\Reporting\ReportPage.cshtml" />
     <Compile Include="Modules\Common\Reporting\ReportTree.cs" />
     <Compile Include="Modules\Common\Reporting\ReportController.cs" />
@@ -1805,11 +2022,13 @@
     <Compile Include="Modules\Common\UserPreference\UserPreferenceModels.cs" />
     <Compile Include="Modules\Common\UserPreference\UserPreferenceEndpoint.cs" />
     <Compile Include="Modules\Common\UserPreference\UserPreferenceRepository.cs" />
+    <Compile Include="Modules\Default\CustomerMaster\IdentityType.cs" />
     <Compile Include="Modules\Default\MovieCast\MovieCastColumns.cs" />
     <Compile Include="Modules\Default\MovieCast\MovieCastForm.cs" />
     <Compile Include="Modules\Default\Movie\MovieKind.cs" />
     <Compile Include="Modules\Default\Person\Gender.cs" />
     <Compile Include="Modules\Default\Person\PersonMovieColumns.cs" />
+    <Compile Include="Modules\Default\VehicleMaster\VehicleType.cs" />
     <Compile Include="Modules\Membership\Account\ChangePassword\AccountPage.ChangePassword.cs" />
     <Compile Include="Modules\Membership\Account\EnvironmentSettings.cs" />
     <Compile Include="Modules\Membership\Account\ForgotPassword\AccountPage.ForgotPassword.cs" />
@@ -1889,6 +2108,78 @@
     <Compile Include="Modules\Default\MovieCast\MovieCastRow.cs" />
     <Compile Include="Modules\Default\MovieCast\MovieCastRepository.cs" />
     <Compile Include="Modules\Default\MovieCast\MovieCastEndpoint.cs" />
+    <Compile Include="Modules\Default\Employees\EmployeesRow.cs" />
+    <Compile Include="Modules\Default\Employees\EmployeesRepository.cs" />
+    <Compile Include="Modules\Default\Employees\EmployeesEndpoint.cs" />
+    <Compile Include="Modules\Default\Employees\EmployeesPage.cs" />
+    <Compile Include="Modules\Default\Employees\EmployeesColumns.cs" />
+    <Compile Include="Modules\Default\Employees\EmployeesForm.cs" />
+    <Compile Include="Modules\Default\Plant\PlantRow.cs" />
+    <Compile Include="Modules\Default\Plant\PlantRepository.cs" />
+    <Compile Include="Modules\Default\Plant\PlantEndpoint.cs" />
+    <Compile Include="Modules\Default\Plant\PlantPage.cs" />
+    <Compile Include="Modules\Default\Plant\PlantColumns.cs" />
+    <Compile Include="Modules\Default\Plant\PlantForm.cs" />
+    <Compile Include="Modules\Default\Distict\DistictRow.cs" />
+    <Compile Include="Modules\Default\Distict\DistictRepository.cs" />
+    <Compile Include="Modules\Default\Distict\DistictEndpoint.cs" />
+    <Compile Include="Modules\Default\Distict\DistictPage.cs" />
+    <Compile Include="Modules\Default\Distict\DistictColumns.cs" />
+    <Compile Include="Modules\Default\Distict\DistictForm.cs" />
+    <Compile Include="Modules\Default\Destination\DestinationRow.cs" />
+    <Compile Include="Modules\Default\Destination\DestinationRepository.cs" />
+    <Compile Include="Modules\Default\Destination\DestinationEndpoint.cs" />
+    <Compile Include="Modules\Default\Destination\DestinationPage.cs" />
+    <Compile Include="Modules\Default\Destination\DestinationColumns.cs" />
+    <Compile Include="Modules\Default\Destination\DestinationForm.cs" />
+    <Compile Include="Modules\Default\Expense\ExpenseRow.cs" />
+    <Compile Include="Modules\Default\Expense\ExpenseRepository.cs" />
+    <Compile Include="Modules\Default\Expense\ExpenseEndpoint.cs" />
+    <Compile Include="Modules\Default\Expense\ExpensePage.cs" />
+    <Compile Include="Modules\Default\Expense\ExpenseColumns.cs" />
+    <Compile Include="Modules\Default\Expense\ExpenseForm.cs" />
+    <Compile Include="Modules\Default\VehicleMaster\VehicleMasterRow.cs" />
+    <Compile Include="Modules\Default\VehicleMaster\VehicleMasterRepository.cs" />
+    <Compile Include="Modules\Default\VehicleMaster\VehicleMasterEndpoint.cs" />
+    <Compile Include="Modules\Default\VehicleMaster\VehicleMasterPage.cs" />
+    <Compile Include="Modules\Default\VehicleMaster\VehicleMasterColumns.cs" />
+    <Compile Include="Modules\Default\VehicleMaster\VehicleMasterForm.cs" />
+    <Compile Include="Modules\Default\CustomerMaster\CustomerMasterRow.cs" />
+    <Compile Include="Modules\Default\CustomerMaster\CustomerMasterRepository.cs" />
+    <Compile Include="Modules\Default\CustomerMaster\CustomerMasterEndpoint.cs" />
+    <Compile Include="Modules\Default\CustomerMaster\CustomerMasterPage.cs" />
+    <Compile Include="Modules\Default\CustomerMaster\CustomerMasterColumns.cs" />
+    <Compile Include="Modules\Default\CustomerMaster\CustomerMasterForm.cs" />
+    <Compile Include="Modules\Default\StateMaster\StateMasterRow.cs" />
+    <Compile Include="Modules\Default\StateMaster\StateMasterRepository.cs" />
+    <Compile Include="Modules\Default\StateMaster\StateMasterEndpoint.cs" />
+    <Compile Include="Modules\Default\StateMaster\StateMasterPage.cs" />
+    <Compile Include="Modules\Default\StateMaster\StateMasterColumns.cs" />
+    <Compile Include="Modules\Default\StateMaster\StateMasterForm.cs" />
+    <Compile Include="Modules\Default\ItemMaster\ItemMasterRow.cs" />
+    <Compile Include="Modules\Default\ItemMaster\ItemMasterRepository.cs" />
+    <Compile Include="Modules\Default\ItemMaster\ItemMasterEndpoint.cs" />
+    <Compile Include="Modules\Default\ItemMaster\ItemMasterPage.cs" />
+    <Compile Include="Modules\Default\ItemMaster\ItemMasterColumns.cs" />
+    <Compile Include="Modules\Default\ItemMaster\ItemMasterForm.cs" />
+    <Compile Include="Modules\Default\LoadingTrip\LoadingTripRow.cs" />
+    <Compile Include="Modules\Default\LoadingTrip\LoadingTripRepository.cs" />
+    <Compile Include="Modules\Default\LoadingTrip\LoadingTripEndpoint.cs" />
+    <Compile Include="Modules\Default\LoadingTrip\LoadingTripPage.cs" />
+    <Compile Include="Modules\Default\LoadingTrip\LoadingTripColumns.cs" />
+    <Compile Include="Modules\Default\LoadingTrip\LoadingTripForm.cs" />
+    <Compile Include="Modules\Default\FinancialYear\FinancialYearRow.cs" />
+    <Compile Include="Modules\Default\FinancialYear\FinancialYearRepository.cs" />
+    <Compile Include="Modules\Default\FinancialYear\FinancialYearEndpoint.cs" />
+    <Compile Include="Modules\Default\FinancialYear\FinancialYearPage.cs" />
+    <Compile Include="Modules\Default\FinancialYear\FinancialYearColumns.cs" />
+    <Compile Include="Modules\Default\FinancialYear\FinancialYearForm.cs" />
+    <Compile Include="Modules\Default\Customer\CustomerRow.cs" />
+    <Compile Include="Modules\Default\Customer\CustomerRepository.cs" />
+    <Compile Include="Modules\Default\Customer\CustomerEndpoint.cs" />
+    <Compile Include="Modules\Default\Customer\CustomerPage.cs" />
+    <Compile Include="Modules\Default\Customer\CustomerColumns.cs" />
+    <Compile Include="Modules\Default\Customer\CustomerForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2022,7 +2313,6 @@
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Common\Reporting\PdfExportHelper.ts" />
-    <TypeScriptCompile Include="Scripts\typings\jspdf\jspdf.autotable.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

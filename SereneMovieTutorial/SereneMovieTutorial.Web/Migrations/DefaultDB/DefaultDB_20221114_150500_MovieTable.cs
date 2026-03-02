@@ -19,6 +19,7 @@ namespace SereneMovieTutorial.Migrations.DefaultDB
                 .WithColumn("Year").AsInt32().Nullable()
                 .WithColumn("ReleaseDate").AsDateTime().Nullable()
                 .WithColumn("Runtime").AsInt32().Nullable();
+           
         }
     }
 }

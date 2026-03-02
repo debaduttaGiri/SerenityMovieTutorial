@@ -442,6 +442,476 @@ declare namespace SereneMovieTutorial.Common {
 declare namespace SereneMovieTutorial.Default {
 }
 declare namespace SereneMovieTutorial.Default {
+    interface BranchMasterForm {
+        BranchName: Serenity.StringEditor;
+        BranchCode: Serenity.StringEditor;
+        GstNo: Serenity.IntegerEditor;
+        PanNo: Serenity.IntegerEditor;
+        PhoneNumber: Serenity.IntegerEditor;
+        PinCode: Serenity.IntegerEditor;
+        Address: Serenity.TextAreaEditor;
+        StateId: Serenity.LookupEditor;
+        Remarks: Serenity.StringEditor;
+    }
+    class BranchMasterForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    interface BranchMasterRow {
+        Id?: number;
+        BranchName?: string;
+        BranchCode?: string;
+        GstNo?: number;
+        PanNo?: number;
+        PhoneNumber?: number;
+        PinCode?: number;
+        Address?: string;
+        State?: string;
+        Remarks?: string;
+        StateId?: number;
+        State1?: string;
+        StateStateCode?: string;
+        StateRemarks?: string;
+    }
+    namespace BranchMasterRow {
+        const idProperty = "Id";
+        const nameProperty = "BranchName";
+        const localTextPrefix = "Default.BranchMaster";
+        const lookupKey = "Default.BranchMaster";
+        function getLookup(): Q.Lookup<BranchMasterRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            BranchName = "BranchName",
+            BranchCode = "BranchCode",
+            GstNo = "GstNo",
+            PanNo = "PanNo",
+            PhoneNumber = "PhoneNumber",
+            PinCode = "PinCode",
+            Address = "Address",
+            State = "State",
+            Remarks = "Remarks",
+            StateId = "StateId",
+            State1 = "State1",
+            StateStateCode = "StateStateCode",
+            StateRemarks = "StateRemarks"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    namespace BranchMasterService {
+        const baseUrl = "Default/BranchMaster";
+        function Create(request: Serenity.SaveRequest<BranchMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<BranchMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<BranchMasterRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<BranchMasterRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/BranchMaster/Create",
+            Update = "Default/BranchMaster/Update",
+            Delete = "Default/BranchMaster/Delete",
+            Retrieve = "Default/BranchMaster/Retrieve",
+            List = "Default/BranchMaster/List"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+}
+declare namespace SereneMovieTutorial.Default {
+    interface CustomerMasterForm {
+        CustomerCode: Serenity.StringEditor;
+        FirstName: Serenity.StringEditor;
+        LastName: Serenity.StringEditor;
+        MobileNumber: Serenity.StringEditor;
+        Email: Serenity.StringEditor;
+        AddressLine1: Serenity.StringEditor;
+        AddressLine2: Serenity.StringEditor;
+        City: Serenity.StringEditor;
+        State: Serenity.StringEditor;
+        Pincode: Serenity.StringEditor;
+        IdentityType: Serenity.EnumEditor;
+        IdentityNumber: Serenity.StringEditor;
+        DateOfBirth: Serenity.DateEditor;
+        IsActive: Serenity.BooleanEditor;
+        CreatedDate: Serenity.DateEditor;
+    }
+    class CustomerMasterForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    interface CustomerMasterRow {
+        CustomerId?: number;
+        CustomerCode?: string;
+        FirstName?: string;
+        LastName?: string;
+        MobileNumber?: string;
+        Email?: string;
+        AddressLine1?: string;
+        AddressLine2?: string;
+        City?: string;
+        State?: string;
+        Pincode?: string;
+        IdentityType?: Modules.Default.CustomerMaster.IdentityType;
+        IdentityNumber?: string;
+        DateOfBirth?: string;
+        IsActive?: boolean;
+        CreatedDate?: string;
+    }
+    namespace CustomerMasterRow {
+        const idProperty = "CustomerId";
+        const nameProperty = "CustomerCode";
+        const localTextPrefix = "Default.CustomerMaster";
+        const lookupKey = "Default.CustomerMaster";
+        function getLookup(): Q.Lookup<CustomerMasterRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            CustomerId = "CustomerId",
+            CustomerCode = "CustomerCode",
+            FirstName = "FirstName",
+            LastName = "LastName",
+            MobileNumber = "MobileNumber",
+            Email = "Email",
+            AddressLine1 = "AddressLine1",
+            AddressLine2 = "AddressLine2",
+            City = "City",
+            State = "State",
+            Pincode = "Pincode",
+            IdentityType = "IdentityType",
+            IdentityNumber = "IdentityNumber",
+            DateOfBirth = "DateOfBirth",
+            IsActive = "IsActive",
+            CreatedDate = "CreatedDate"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    namespace CustomerMasterService {
+        const baseUrl = "Default/CustomerMaster";
+        function Create(request: Serenity.SaveRequest<CustomerMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<CustomerMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<CustomerMasterRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<CustomerMasterRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/CustomerMaster/Create",
+            Update = "Default/CustomerMaster/Update",
+            Delete = "Default/CustomerMaster/Delete",
+            Retrieve = "Default/CustomerMaster/Retrieve",
+            List = "Default/CustomerMaster/List"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+}
+declare namespace SereneMovieTutorial.Default {
+    interface DestinationForm {
+        Plant: Serenity.LookupEditor;
+        Distict: Serenity.LookupEditor;
+        Destination: Serenity.StringEditor;
+        Remarks: Serenity.StringEditor;
+    }
+    class DestinationForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    interface DestinationRow {
+        Id?: number;
+        Plant?: number;
+        Distict?: number;
+        Destination?: string;
+        Remarks?: string;
+        Plant1?: string;
+        PlantRemarks?: string;
+        DistictPlant?: number;
+        Distict1?: string;
+        DistictRemarks?: string;
+    }
+    namespace DestinationRow {
+        const idProperty = "Id";
+        const nameProperty = "Destination";
+        const localTextPrefix = "Default.Destination";
+        const lookupKey = "Default.Destination";
+        function getLookup(): Q.Lookup<DestinationRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            Plant = "Plant",
+            Distict = "Distict",
+            Destination = "Destination",
+            Remarks = "Remarks",
+            Plant1 = "Plant1",
+            PlantRemarks = "PlantRemarks",
+            DistictPlant = "DistictPlant",
+            Distict1 = "Distict1",
+            DistictRemarks = "DistictRemarks"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    namespace DestinationService {
+        const baseUrl = "Default/Destination";
+        function Create(request: Serenity.SaveRequest<DestinationRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<DestinationRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<DestinationRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<DestinationRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/Destination/Create",
+            Update = "Default/Destination/Update",
+            Delete = "Default/Destination/Delete",
+            Retrieve = "Default/Destination/Retrieve",
+            List = "Default/Destination/List"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+}
+declare namespace SereneMovieTutorial.Default {
+    interface DistictForm {
+        Plant: Serenity.LookupEditor;
+        Distict: Serenity.StringEditor;
+        Remarks: Serenity.StringEditor;
+    }
+    class DistictForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    interface DistictRow {
+        Id?: number;
+        Plant?: number;
+        Distict?: string;
+        Remarks?: string;
+        Plant1?: string;
+        PlantRemarks?: string;
+    }
+    namespace DistictRow {
+        const idProperty = "Id";
+        const nameProperty = "Distict";
+        const localTextPrefix = "Default.Distict";
+        const lookupKey = "Default.Distict";
+        function getLookup(): Q.Lookup<DistictRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            Plant = "Plant",
+            Distict = "Distict",
+            Remarks = "Remarks",
+            Plant1 = "Plant1",
+            PlantRemarks = "PlantRemarks"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    namespace DistictService {
+        const baseUrl = "Default/Distict";
+        function Create(request: Serenity.SaveRequest<DistictRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<DistictRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<DistictRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<DistictRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/Distict/Create",
+            Update = "Default/Distict/Update",
+            Delete = "Default/Distict/Delete",
+            Retrieve = "Default/Distict/Retrieve",
+            List = "Default/Distict/List"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+}
+declare namespace SereneMovieTutorial.Default {
+    interface EmployeesForm {
+        FullName: Serenity.StringEditor;
+        Title: Serenity.StringEditor;
+        TitleOfCourtesy: Serenity.StringEditor;
+        BirthDate: Serenity.DateEditor;
+        HireDate: Serenity.DateEditor;
+        Address: Serenity.StringEditor;
+        City: Serenity.StringEditor;
+        Region: Serenity.StringEditor;
+        PostalCode: Serenity.StringEditor;
+        Country: Serenity.StringEditor;
+        HomePhone: Serenity.StringEditor;
+        Extension: Serenity.StringEditor;
+    }
+    class EmployeesForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    interface EmployeesRow {
+        EmployeeId?: number;
+        FullName?: string;
+        Title?: string;
+        TitleOfCourtesy?: string;
+        BirthDate?: string;
+        HireDate?: string;
+        Address?: string;
+        City?: string;
+        Region?: string;
+        PostalCode?: string;
+        Country?: string;
+        HomePhone?: string;
+        Extension?: string;
+    }
+    namespace EmployeesRow {
+        const idProperty = "EmployeeId";
+        const nameProperty = "FullName";
+        const localTextPrefix = "Default.Employees";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            EmployeeId = "EmployeeId",
+            FullName = "FullName",
+            Title = "Title",
+            TitleOfCourtesy = "TitleOfCourtesy",
+            BirthDate = "BirthDate",
+            HireDate = "HireDate",
+            Address = "Address",
+            City = "City",
+            Region = "Region",
+            PostalCode = "PostalCode",
+            Country = "Country",
+            HomePhone = "HomePhone",
+            Extension = "Extension"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    namespace EmployeesService {
+        const baseUrl = "Default/Employees";
+        function Create(request: Serenity.SaveRequest<EmployeesRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<EmployeesRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<EmployeesRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<EmployeesRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/Employees/Create",
+            Update = "Default/Employees/Update",
+            Delete = "Default/Employees/Delete",
+            Retrieve = "Default/Employees/Retrieve",
+            List = "Default/Employees/List"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+}
+declare namespace SereneMovieTutorial.Default {
+    interface ExpenseForm {
+        Plant: Serenity.LookupEditor;
+        District: Serenity.LookupEditor;
+        Destination: Serenity.LookupEditor;
+        Expense: Serenity.DecimalEditor;
+        Weight: Serenity.DecimalEditor;
+        Wheels: Serenity.IntegerEditor;
+        Remarks: Serenity.StringEditor;
+    }
+    class ExpenseForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    interface ExpenseRow {
+        ExpenseId?: number;
+        Plant?: number;
+        District?: number;
+        Destination?: number;
+        Expense?: number;
+        Remarks?: string;
+        Plant1?: string;
+        PlantRemarks?: string;
+        DistrictPlant?: number;
+        DistrictDistict?: string;
+        DistrictRemarks?: string;
+        DestinationPlant?: number;
+        DestinationDistict?: number;
+        Destination1?: string;
+        DestinationRemarks?: string;
+        Weight?: number;
+        Wheels?: number;
+    }
+    namespace ExpenseRow {
+        const idProperty = "ExpenseId";
+        const nameProperty = "Remarks";
+        const localTextPrefix = "Default.Expense";
+        const lookupKey = "Default.Expense";
+        function getLookup(): Q.Lookup<ExpenseRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            ExpenseId = "ExpenseId",
+            Plant = "Plant",
+            District = "District",
+            Destination = "Destination",
+            Expense = "Expense",
+            Remarks = "Remarks",
+            Plant1 = "Plant1",
+            PlantRemarks = "PlantRemarks",
+            DistrictPlant = "DistrictPlant",
+            DistrictDistict = "DistrictDistict",
+            DistrictRemarks = "DistrictRemarks",
+            DestinationPlant = "DestinationPlant",
+            DestinationDistict = "DestinationDistict",
+            Destination1 = "Destination1",
+            DestinationRemarks = "DestinationRemarks",
+            Weight = "Weight",
+            Wheels = "Wheels"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    namespace ExpenseService {
+        const baseUrl = "Default/Expense";
+        function Create(request: Serenity.SaveRequest<ExpenseRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ExpenseRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ExpenseRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ExpenseRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/Expense/Create",
+            Update = "Default/Expense/Update",
+            Delete = "Default/Expense/Delete",
+            Retrieve = "Default/Expense/Retrieve",
+            List = "Default/Expense/List"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+}
+declare namespace SereneMovieTutorial.Default {
     interface GenreForm {
         Name: Serenity.StringEditor;
     }
@@ -486,6 +956,169 @@ declare namespace SereneMovieTutorial.Default {
             Delete = "Default/Genre/Delete",
             Retrieve = "Default/Genre/Retrieve",
             List = "Default/Genre/List"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+}
+declare namespace SereneMovieTutorial.Default {
+    interface ItemMasterForm {
+        ItemName: Serenity.StringEditor;
+        Remarks: Serenity.StringEditor;
+    }
+    class ItemMasterForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    interface ItemMasterRow {
+        Id?: number;
+        ItemName?: string;
+        Remarks?: string;
+    }
+    namespace ItemMasterRow {
+        const idProperty = "Id";
+        const nameProperty = "ItemName";
+        const localTextPrefix = "Default.ItemMaster";
+        const lookupKey = "Default.ItemMaster";
+        function getLookup(): Q.Lookup<ItemMasterRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            ItemName = "ItemName",
+            Remarks = "Remarks"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    namespace ItemMasterService {
+        const baseUrl = "Default/ItemMaster";
+        function Create(request: Serenity.SaveRequest<ItemMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ItemMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ItemMasterRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ItemMasterRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/ItemMaster/Create",
+            Update = "Default/ItemMaster/Update",
+            Delete = "Default/ItemMaster/Delete",
+            Retrieve = "Default/ItemMaster/Retrieve",
+            List = "Default/ItemMaster/List"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+}
+declare namespace SereneMovieTutorial.Default {
+    interface LoadingTripForm {
+        TripNo: Serenity.StringEditor;
+        TripDate: Serenity.DateEditor;
+        StateId: Serenity.LookupEditor;
+        ItemId: Serenity.LookupEditor;
+        BranchId: Serenity.LookupEditor;
+        PlantId: Serenity.LookupEditor;
+        VehicleId: Serenity.LookupEditor;
+        DistrictId: Serenity.LookupEditor;
+        CustomerId: Serenity.LookupEditor;
+        DestinationId: Serenity.LookupEditor;
+        Wheels: Serenity.IntegerEditor;
+        Weight: Serenity.DecimalEditor;
+        CreatedDate: Serenity.DateEditor;
+        ExpenseAmount: Serenity.DecimalEditor;
+        Remarks: Serenity.TextAreaEditor;
+    }
+    class LoadingTripForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    interface LoadingTripRow {
+        LoadingTripId?: number;
+        TripNo?: string;
+        TripDate?: string;
+        PlantId?: number;
+        Plant?: string;
+        DistrictId?: number;
+        District?: string;
+        DestinationId?: number;
+        Destination?: string;
+        ExpenseAmount?: number;
+        VehicleId?: number;
+        VehicleNumber?: string;
+        CustomerId?: number;
+        Customer?: string;
+        BranchId?: number;
+        Branch?: string;
+        StateId?: number;
+        State?: string;
+        ItemId?: number;
+        ItemName?: string;
+        Weight?: number;
+        Wheels?: number;
+        Remarks?: string;
+        CreatedDate?: string;
+    }
+    namespace LoadingTripRow {
+        const idProperty = "LoadingTripId";
+        const nameProperty = "TripNo";
+        const localTextPrefix = "Default.LoadingTrip";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            LoadingTripId = "LoadingTripId",
+            TripNo = "TripNo",
+            TripDate = "TripDate",
+            PlantId = "PlantId",
+            Plant = "Plant",
+            DistrictId = "DistrictId",
+            District = "District",
+            DestinationId = "DestinationId",
+            Destination = "Destination",
+            ExpenseAmount = "ExpenseAmount",
+            VehicleId = "VehicleId",
+            VehicleNumber = "VehicleNumber",
+            CustomerId = "CustomerId",
+            Customer = "Customer",
+            BranchId = "BranchId",
+            Branch = "Branch",
+            StateId = "StateId",
+            State = "State",
+            ItemId = "ItemId",
+            ItemName = "ItemName",
+            Weight = "Weight",
+            Wheels = "Wheels",
+            Remarks = "Remarks",
+            CreatedDate = "CreatedDate"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    namespace LoadingTripService {
+        const baseUrl = "Default/LoadingTrip";
+        function Create(request: Serenity.SaveRequest<LoadingTripRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<LoadingTripRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<LoadingTripRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<LoadingTripRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function GetVehicleDetails(request: VehicleDetailsRequest, onSuccess?: (response: VehicleDetailsResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function GetExpenseByRoute(request: ExpenseLookupRequest, onSuccess?: (response: ExpenseLookupResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/LoadingTrip/Create",
+            Update = "Default/LoadingTrip/Update",
+            Delete = "Default/LoadingTrip/Delete",
+            Retrieve = "Default/LoadingTrip/Retrieve",
+            List = "Default/LoadingTrip/List",
+            GetVehicleDetails = "Default/LoadingTrip/GetVehicleDetails",
+            GetExpenseByRoute = "Default/LoadingTrip/GetExpenseByRoute"
         }
     }
 }
@@ -651,6 +1284,7 @@ declare namespace SereneMovieTutorial.Default {
     interface MovieRow {
         MovieId?: number;
         Title?: string;
+        Actors?: string;
         Description?: string;
         Storyline?: string;
         Year?: number;
@@ -673,6 +1307,7 @@ declare namespace SereneMovieTutorial.Default {
         const enum Fields {
             MovieId = "MovieId",
             Title = "Title",
+            Actors = "Actors",
             Description = "Description",
             Storyline = "Storyline",
             Year = "Year",
@@ -778,6 +1413,209 @@ declare namespace SereneMovieTutorial.Default {
         }
     }
 }
+declare namespace SereneMovieTutorial.Default {
+}
+declare namespace SereneMovieTutorial.Default {
+    interface PlantForm {
+        Plant: Serenity.StringEditor;
+        Remarks: Serenity.StringEditor;
+    }
+    class PlantForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    interface PlantRow {
+        Id?: number;
+        Plant?: string;
+        Remarks?: string;
+    }
+    namespace PlantRow {
+        const idProperty = "Id";
+        const nameProperty = "Plant";
+        const localTextPrefix = "Default.Plant";
+        const lookupKey = "Default.Plant";
+        function getLookup(): Q.Lookup<PlantRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            Plant = "Plant",
+            Remarks = "Remarks"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    namespace PlantService {
+        const baseUrl = "Default/Plant";
+        function Create(request: Serenity.SaveRequest<PlantRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<PlantRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<PlantRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<PlantRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/Plant/Create",
+            Update = "Default/Plant/Update",
+            Delete = "Default/Plant/Delete",
+            Retrieve = "Default/Plant/Retrieve",
+            List = "Default/Plant/List"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+}
+declare namespace SereneMovieTutorial.Default {
+    interface StateMasterForm {
+        State: Serenity.StringEditor;
+        StateCode: Serenity.StringEditor;
+        Remarks: Serenity.StringEditor;
+    }
+    class StateMasterForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    interface StateMasterRow {
+        Id?: number;
+        State?: string;
+        StateCode?: string;
+        Remarks?: string;
+    }
+    namespace StateMasterRow {
+        const idProperty = "Id";
+        const nameProperty = "State";
+        const localTextPrefix = "Default.StateMaster";
+        const lookupKey = "Default.StateMaster";
+        function getLookup(): Q.Lookup<StateMasterRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            State = "State",
+            StateCode = "StateCode",
+            Remarks = "Remarks"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    namespace StateMasterService {
+        const baseUrl = "Default/StateMaster";
+        function Create(request: Serenity.SaveRequest<StateMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<StateMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<StateMasterRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<StateMasterRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/StateMaster/Create",
+            Update = "Default/StateMaster/Update",
+            Delete = "Default/StateMaster/Delete",
+            Retrieve = "Default/StateMaster/Retrieve",
+            List = "Default/StateMaster/List"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+}
+declare namespace SereneMovieTutorial.Default {
+    interface VehicleMasterForm {
+        VehicleNumber: Serenity.StringEditor;
+        VehicleType: Serenity.EnumEditor;
+        Brand: Serenity.StringEditor;
+        Model: Serenity.StringEditor;
+        ManufacturingYear: Serenity.IntegerEditor;
+        FuelType: Serenity.EnumEditor;
+        EngineNumber: Serenity.StringEditor;
+        ChassisNumber: Serenity.StringEditor;
+        Color: Serenity.StringEditor;
+        SeatingCapacity: Serenity.IntegerEditor;
+        CustomerId: Serenity.LookupEditor;
+        InsuranceExpiryDate: Serenity.DateEditor;
+        Wheels: Serenity.StringEditor;
+        IsActive: Serenity.BooleanEditor;
+        CreatedDate: Serenity.DateEditor;
+    }
+    class VehicleMasterForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    interface VehicleMasterRow {
+        VehicleId?: number;
+        VehicleNumber?: string;
+        VehicleType?: Modules.Default.VehicleMaster.VehicleType;
+        Brand?: string;
+        Model?: string;
+        ManufacturingYear?: number;
+        FuelType?: Modules.Default.VehicleMaster.FuelType;
+        EngineNumber?: string;
+        ChassisNumber?: string;
+        Color?: string;
+        SeatingCapacity?: number;
+        CustomerId?: number;
+        CustomerName?: string;
+        InsuranceExpiryDate?: string;
+        IsActive?: boolean;
+        Wheels?: number;
+        CreatedDate?: string;
+    }
+    namespace VehicleMasterRow {
+        const idProperty = "VehicleId";
+        const nameProperty = "VehicleNumber";
+        const localTextPrefix = "Default.VehicleMaster";
+        const lookupKey = "Default.VehicleMaster";
+        function getLookup(): Q.Lookup<VehicleMasterRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            VehicleId = "VehicleId",
+            VehicleNumber = "VehicleNumber",
+            VehicleType = "VehicleType",
+            Brand = "Brand",
+            Model = "Model",
+            ManufacturingYear = "ManufacturingYear",
+            FuelType = "FuelType",
+            EngineNumber = "EngineNumber",
+            ChassisNumber = "ChassisNumber",
+            Color = "Color",
+            SeatingCapacity = "SeatingCapacity",
+            CustomerId = "CustomerId",
+            CustomerName = "CustomerName",
+            InsuranceExpiryDate = "InsuranceExpiryDate",
+            IsActive = "IsActive",
+            Wheels = "Wheels",
+            CreatedDate = "CreatedDate"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    namespace VehicleMasterService {
+        const baseUrl = "Default/VehicleMaster";
+        function Create(request: Serenity.SaveRequest<VehicleMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<VehicleMasterRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<VehicleMasterRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<VehicleMasterRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Default/VehicleMaster/Create",
+            Update = "Default/VehicleMaster/Update",
+            Delete = "Default/VehicleMaster/Delete",
+            Retrieve = "Default/VehicleMaster/Retrieve",
+            List = "Default/VehicleMaster/List"
+        }
+    }
+}
 declare namespace SereneMovieTutorial {
     interface ExcelImportRequest extends Serenity.ServiceRequest {
         FileName?: string;
@@ -840,6 +1678,7 @@ declare namespace SereneMovieTutorial.Membership {
     interface LoginForm {
         Username: Serenity.StringEditor;
         Password: Serenity.PasswordEditor;
+        BranchId: Serenity.LookupEditor;
     }
     class LoginForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -851,6 +1690,7 @@ declare namespace SereneMovieTutorial.Membership {
     interface LoginRequest extends Serenity.ServiceRequest {
         Username?: string;
         Password?: string;
+        BranchId?: number;
     }
 }
 declare namespace SereneMovieTutorial.Membership {
@@ -892,6 +1732,13 @@ declare namespace SereneMovieTutorial.Membership {
         Password?: string;
     }
 }
+declare namespace SereneMovieTutorial.Modules.Default.CustomerMaster {
+    enum IdentityType {
+        PAN = 1,
+        Aadhar = 2,
+        DrivingLicence = 3
+    }
+}
 declare namespace SereneMovieTutorial.Modules.Default.Movie {
     enum MovieKind {
         Film = 1,
@@ -903,6 +1750,22 @@ declare namespace SereneMovieTutorial.Modules.Default.Person {
     enum Gender {
         Male = 1,
         Female = 2
+    }
+}
+declare namespace SereneMovieTutorial.Modules.Default.VehicleMaster {
+    enum FuelType {
+        Petrol = 1,
+        Diesel = 2,
+        CNG = 3,
+        LPG = 4
+    }
+}
+declare namespace SereneMovieTutorial.Modules.Default.VehicleMaster {
+    enum VehicleType {
+        Truck = 1,
+        Bus = 2,
+        Van = 3,
+        Car = 4
     }
 }
 declare namespace SereneMovieTutorial {
@@ -1349,6 +2212,158 @@ declare namespace SereneMovieTutorial.Common {
     }
 }
 declare namespace SereneMovieTutorial.Default {
+    class BranchMasterDialog extends Serenity.EntityDialog<BranchMasterRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: BranchMasterForm;
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class BranchMasterGrid extends Serenity.EntityGrid<BranchMasterRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof BranchMasterDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getColumns(): Slick.Column[];
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class CustomerMasterDialog extends Serenity.EntityDialog<CustomerMasterRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected getToolbarButtons(): Serenity.ToolButton[];
+        protected form: CustomerMasterForm;
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class CustomerMasterGrid extends Serenity.EntityGrid<CustomerMasterRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof CustomerMasterDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getColumns(): Slick.Column[];
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class DestinationDialog extends Serenity.EntityDialog<DestinationRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: DestinationForm;
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class DestinationGrid extends Serenity.EntityGrid<DestinationRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof DestinationDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getColumns(): Slick.Column[];
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class DistictDialog extends Serenity.EntityDialog<DistictRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: DistictForm;
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class DistictGrid extends Serenity.EntityGrid<DistictRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof DistictDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getColumns(): Slick.Column[];
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class EmployeesDialog extends Serenity.EntityDialog<EmployeesRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: EmployeesForm;
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class EmployeesGrid extends Serenity.EntityGrid<EmployeesRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof EmployeesDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getColumns(): Slick.Column[];
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class ExpenseDialog extends Serenity.EntityDialog<ExpenseRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: ExpenseForm;
+        protected getToolbarButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class ExpenseGrid extends Serenity.EntityGrid<ExpenseRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ExpenseDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getColumns(): Slick.Column[];
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
     class GenreDialog extends Serenity.EntityDialog<GenreRow, any> {
         protected getFormKey(): string;
         protected getIdProperty(): string;
@@ -1369,7 +2384,84 @@ declare namespace SereneMovieTutorial.Default {
         protected getInsertPermission(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
+        protected getColumns(): Slick.Column[];
         constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class ItemMasterDialog extends Serenity.EntityDialog<ItemMasterRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: ItemMasterForm;
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class ItemMasterGrid extends Serenity.EntityGrid<ItemMasterRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ItemMasterDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getColumns(): Slick.Column[];
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class LoadingTripDialog extends Serenity.EntityDialog<LoadingTripRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: LoadingTripForm;
+        protected afterLoadEntity(): void;
+        private loadExpense;
+        private clearExpenseFields;
+        private getVehicleOwners;
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class LoadingTripGrid extends Serenity.EntityGrid<LoadingTripRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof LoadingTripDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getColumns(): Slick.Column[];
+        protected getSlickOptions(): Slick.GridOptions;
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    interface VehicleDetailsRequest extends Serenity.ServiceRequest {
+        VehicleId?: number;
+    }
+    interface VehicleDetailsResponse extends Serenity.ServiceResponse {
+        Details?: VehicleDetailsDto;
+    }
+    interface VehicleDetailsDto {
+        CustomerId?: number;
+        Wheels?: number;
+    }
+    interface ExpenseLookupRequest extends Serenity.ServiceRequest {
+        PlantId?: number;
+        DistrictId?: number;
+        DestinationId?: number;
+        Weight: number;
+    }
+    interface ExpenseLookupResponse extends Serenity.ServiceResponse {
+        ExpenseAmount?: number;
     }
 }
 declare namespace SereneMovieTutorial.Default {
@@ -1398,6 +2490,7 @@ declare namespace SereneMovieTutorial.Default {
         protected getInsertPermission(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
+        protected getColumns(): Slick.Column[];
         constructor(container: JQuery);
         protected getQuickSearchFields(): Serenity.QuickSearchField[];
     }
@@ -1455,6 +2548,7 @@ declare namespace SereneMovieTutorial.Default {
         protected getInsertPermission(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
+        protected getColumns(): Slick.Column[];
         constructor(container: JQuery);
     }
 }
@@ -1474,12 +2568,88 @@ declare namespace SereneMovieTutorial.Default {
         set personID(value: number);
     }
 }
+declare namespace SereneMovieTutorial.Default {
+    class PlantDialog extends Serenity.EntityDialog<PlantRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: PlantForm;
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class PlantGrid extends Serenity.EntityGrid<PlantRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof PlantDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class StateMasterDialog extends Serenity.EntityDialog<StateMasterRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: StateMasterForm;
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class StateMasterGrid extends Serenity.EntityGrid<StateMasterRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof StateMasterDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getColumns(): Slick.Column[];
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class VehicleMasterDialog extends Serenity.EntityDialog<VehicleMasterRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected getToolbarButtons(): Serenity.ToolButton[];
+        protected form: VehicleMasterForm;
+    }
+}
+declare namespace SereneMovieTutorial.Default {
+    class VehicleMasterGrid extends Serenity.EntityGrid<VehicleMasterRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof VehicleMasterDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected getColumns(): Slick.Column[];
+        constructor(container: JQuery);
+    }
+}
 declare namespace SereneMovieTutorial.Membership {
     class LoginPanel extends Serenity.PropertyPanel<LoginRequest, any> {
         protected getFormKey(): string;
         constructor(container: JQuery);
         protected redirectToReturnUrl(): void;
         protected getTemplate(): string;
+        protected afterLoadEntity(): void;
     }
 }
 declare namespace SereneMovieTutorial.Membership {

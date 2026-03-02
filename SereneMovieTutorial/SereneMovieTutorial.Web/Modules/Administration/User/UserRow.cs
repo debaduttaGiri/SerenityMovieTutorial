@@ -71,7 +71,7 @@ namespace SereneMovieTutorial.Administration.Entities
             set { Fields.UserImage[this] = value; }
         }
 
-        [DisplayName("Password"), Size(50), NotMapped]
+        [DisplayName("Password"), Size(50)]
         public String Password
         {
             get { return Fields.Password[this]; }

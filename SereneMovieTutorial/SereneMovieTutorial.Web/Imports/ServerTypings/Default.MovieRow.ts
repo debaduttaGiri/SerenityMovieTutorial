@@ -2,12 +2,13 @@
     export interface MovieRow {
         MovieId?: number;
         Title?: string;
+        Actors?: string;
         Description?: string;
         Storyline?: string;
         Year?: number;
         ReleaseDate?: string;
         Runtime?: number;
-        Kind?: Modules.Default.Movie.MovieKind;
+        Kind?: number;
         GenreList?: number[];
         CastList?: MovieCastRow[];
         PrimaryImage?: string;
@@ -26,6 +27,7 @@
         export declare const enum Fields {
             MovieId = "MovieId",
             Title = "Title",
+            Actors = "Actors",
             Description = "Description",
             Storyline = "Storyline",
             Year = "Year",
