@@ -17,10 +17,10 @@
         export const idProperty = 'CustomerId';
         export const nameProperty = 'CustomerId';
         export const localTextPrefix = 'Default.Customer';
-        export const deletePermission = 'Default:Customer:Delete';
-        export const insertPermission = 'Default:Customer:Insert';
-        export const readPermission = 'Administration:General';
-        export const updatePermission = 'Default:Customer:Modify';
+        export const deletePermission = null;
+        export const insertPermission = null;
+        export const readPermission = '';
+        export const updatePermission = null;
 
         export declare const enum Fields {
             CustomerId = "CustomerId",

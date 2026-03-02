@@ -20,7 +20,8 @@
                 Key: key,
                 ParentKey: this.getParentKey(key),
                 Title: titleByKey[key],
-                IsGroup: key.charAt(key.length - 1) === ':',
+                //IsGroup: key.charAt(key.length - 1) === ':',
+                IsGroup: false, // temporary
                 HasActions: this.hasActionMap[key] === true,
                 Insert: false,
                 Read: false,
@@ -28,43 +29,87 @@
                 Delete: false,
                 Grant: false
             });
+            let parentMap: Q.Dictionary<boolean> = {};
+
+            for (let item of items) {
+                if (item.ParentKey) {
+                    parentMap[item.ParentKey] = true;
+                }
+            }
+
+            for (let item of items) {
+                if (parentMap[item.Key]) {
+                    item.IsGroup = true;
+                }
+            }
 
             this.byParentKey = Q.toGrouping(items, x => x.ParentKey);
             this.setItems(items);
         }
+        public setItems(items: PermissionItem[]): void {
 
+            this.byParentKey = Q.toGrouping(items, x => x.ParentKey);
+
+            Serenity.SlickTreeHelper.setIndents(
+                items,
+                x => x.Key,
+                x => x.ParentKey,
+                true
+            );
+            for (let item of items) {
+                if (item.IsGroup) {
+                    (item as any)._collapsed = false;
+                }
+            }
+
+            this.view.setItems(items, true);
+        }
+        protected onViewFilter(item: PermissionItem): boolean {
+
+            if (!super.onViewFilter(item))
+                return false;
+
+            if (!Serenity.SlickTreeHelper.filterById(
+                item,
+                this.view,
+                x => x.ParentKey))
+                return false;
+
+            return true;
+        }
+
+       
         protected getColumns(): Slick.Column[] {
+
             return [
 
                 {
                     name: "Permission",
                     field: "Title",
-                    format: ctx => {
+                    format: Serenity.SlickFormatting.treeToggle(
+                        () => this.view,
+                        x => x.Key,
+                        ctx => {
 
-                        let key = ctx.item.Key;
+                            let klass = this.getEffectiveClass(ctx.item);
 
-                        let inherited =
-                            this._rolePermissions[key] ||
-                            this._rolePermissions[key + ":Insert"] ||
-                            this._rolePermissions[key + ":Read"] ||
-                            this._rolePermissions[key + ":Modify"] ||
-                            this._rolePermissions[key + ":Delete"];
-
-                        let icon = inherited
-                            ? "<i class='fa fa-check text-success'></i> "
-                            : "<i class='fa fa-ban text-danger'></i> ";
-
-                        return icon + Q.htmlEncode(ctx.value);
-                    },
+                            return `<span class="effective-permission ${klass}">
+                        ${Q.htmlEncode(ctx.value)}
+                    </span>`;
+                        }
+                    ),
                     width: 550
                 },
+                   
 
                 {
                     name: "Grant",
                     field: "Grant",
                     format: ctx => {
-                        if (ctx.item.IsGroup) return "";
-                        return `<span class='check-box grant ${ctx.item.Grant ? "checked" : ""}'></span>`;
+
+                        return "<span class='check-box grant " +
+                            (ctx.item.Grant ? "checked" : "") +
+                            "'></span>";
                     },
                     width: 70,
                     cssClass: "align-center"
@@ -116,9 +161,20 @@
             ];
         }
 
-        protected onClick(e, row, cell): void {
+        /*protected onClick(e, row, cell): void {
 
             super.onClick(e, row, cell);
+
+            if (!e.isDefaultPrevented()) {
+                Serenity.SlickTreeHelper.toggleClick(
+                    e, row, cell, this.view, x => x.Key
+                );
+            }
+
+            if (e.isDefaultPrevented())
+                return;
+
+            
 
             let target = $(e.target);
             let item = this.itemAt(row);
@@ -151,49 +207,199 @@
             }
 
             this.slickGrid.invalidate();
+        }*/
+
+        protected onClick(e, row, cell): void {
+
+            super.onClick(e, row, cell);
+            console.log("Clicked:", e.target);
+            if (!e.isDefaultPrevented()) {
+                Serenity.SlickTreeHelper.toggleClick(
+                    e, row, cell, this.view, x => x.Key
+                );
+            }
+
+            if (e.isDefaultPrevented())
+                return;
+
+            //let target = $(e.target);
+            let item = this.itemAt(row);
+
+            if (!item)
+                return;
+
+            let target = $(e.target).closest(".check-box");
+
+            if (!target.length)
+                return;
+
+            let field: string = null;
+
+            if (target.hasClass("grant")) field = "Grant";
+            else if (target.hasClass("insert")) field = "Insert";
+            else if (target.hasClass("read")) field = "Read";
+            else if (target.hasClass("modify")) field = "Modify";
+            else if (target.hasClass("delete")) field = "Delete";
+
+            if (!field) return;
+
+            e.preventDefault();
+
+            let value = !item[field];
+            item[field] = value;
+
+            // 🔥 If parent clicked → update all children
+            if (item.IsGroup && field === "Grant") {
+
+                let descendants = this.getDescendants(item);
+
+                for (let d of descendants) {
+
+                    d.Grant = value;
+
+                    if (d.HasActions) {
+                        d.Insert = value;
+                        d.Read = value;
+                        d.Modify = value;
+                        d.Delete = value;
+                    }
+                }
+            }
+
+            
+            if (field === "Grant") {
+
+                if (item.IsGroup) {
+
+                    let descendants = this.getDescendants(item);
+
+                    console.log(descendants);
+                    for (let d of descendants) {
+
+                        d.Grant = value;
+
+                        if (d.HasActions) {
+                            d.Insert = value;
+                            d.Read = value;
+                            d.Modify = value;
+                            d.Delete = value;
+                        }
+
+                        // 🔥 VERY IMPORTANT
+                        this.view.updateItem(d.Key, d);
+                    }
+                }
+                else if (item.HasActions) {
+
+                    item.Insert = value;
+                    item.Read = value;
+                    item.Modify = value;
+                    item.Delete = value;
+                }
+
+                // 🔥 update parent also
+                this.view.updateItem(item.Key, item);
+            }
+            //this.expandParents(item);
+
+            
+            this.view.refresh();
+            this.slickGrid.invalidateAllRows();
+            this.slickGrid.render();
         }
+        //private expandParents(item: PermissionItem): void {
+
+        //    let current = item;
+
+        //    while (current.ParentKey) {
+
+        //        let parent = this.view.getItemById(current.ParentKey);
+        //        if (!parent)
+        //            break;
+
+        //        // find row index of parent
+        //        let row = this.view.getIdxById(parent.Key);
+
+        //        // if collapsed, simulate toggle click
+        //        if ((parent as any)._collapsed === true) {
+
+        //            Serenity.SlickTreeHelper.toggleClick(
+        //                { preventDefault: function () { }, isDefaultPrevented: () => false } as any,
+        //                row,
+        //                0,
+        //                this.view,
+        //                x => x.Key
+        //            );
+        //        }
+
+        //        current = parent;
+        //    }
+
+        //    this.slickGrid.invalidateAllRows();
+        //    this.slickGrid.render();
+        //}
 
         private getParentKey(key: string): string {
-            if (key.charAt(key.length - 1) === ':')
-                key = key.slice(0, -1);
 
             let idx = key.lastIndexOf(':');
-            return idx >= 0 ? key.substring(0, idx + 1) : null;
+
+            if (idx <= 0)
+                return null;
+
+            return key.substring(0, idx);
         }
 
         private getSortedGroupAndPermissionKeys(titleByKey: Q.Dictionary<string>): string[] {
 
-            let keys = <string[]>Q.getRemoteData('Administration.PermissionKeys').Entities;
+            let rawKeys = <string[]>Q.getRemoteData('Administration.PermissionKeys').Entities;
 
-            let entityKeys: Q.Dictionary<boolean> = {};
+            let baseKeys: Q.Dictionary<boolean> = {};
             let hasAction: Q.Dictionary<boolean> = {};
 
-            for (let k of keys) {
+            for (let k of rawKeys) {
 
                 if (!k) continue;
 
                 let parts = k.split(':');
 
+                // Action level permission
                 if (parts.length > 2) {
+
                     let baseKey = parts.slice(0, parts.length - 1).join(':');
-                    entityKeys[baseKey] = true;
+                    baseKeys[baseKey] = true;
                     hasAction[baseKey] = true;
                 }
                 else {
-                    entityKeys[k] = true;
-                    if (!hasAction[k])
-                        hasAction[k] = false;
+                    baseKeys[k] = true;
                 }
             }
 
+            // 🔥 Now build full parent chain
+            let allKeys: Q.Dictionary<boolean> = {};
+
+            for (let k of Object.keys(baseKeys)) {
+
+                let parts = k.split(':');
+                let current = "";
+
+                for (let i = 0; i < parts.length; i++) {
+
+                    current += (i === 0 ? parts[i] : ":" + parts[i]);
+                    allKeys[current] = true;
+                }
+            }
+
+            // Save action map
             this.hasActionMap = hasAction;
 
-            keys = Object.keys(entityKeys);
+            let keys = Object.keys(allKeys);
 
-            for (let k of keys)
-                titleByKey[k] = Q.coalesce(Q.tryGetText('Permission.' + k), k);
+            // Set titles
+            for (let k of keys) {
+                titleByKey[k] = Q.tryGetText("Permission." + k) || k;
+            }
 
-            return keys.sort((x, y) => Q.turkishLocaleCompare(titleByKey[x], titleByKey[y]));
+            return keys.sort((x, y) => Q.turkishLocaleCompare(x, y));
         }
 
         get value(): UserPermissionRow[] {
@@ -276,6 +482,71 @@
 
             this.view.refresh();
             this.slickGrid.invalidate();
+        }
+
+        private getDescendants(item: PermissionItem): PermissionItem[] {
+
+            let result: PermissionItem[] = [];
+            let stack = [item];
+
+            while (stack.length > 0) {
+
+                let current = stack.pop();
+                let children = this.view.getItems()
+                    .filter(x => x.ParentKey === current.Key);
+
+                for (let child of children) {
+                    result.push(child);
+                    stack.push(child);
+                }
+            }
+
+            return result;
+        }
+
+        private getEffectiveClass(item: PermissionItem): string {
+
+            // 🔥 If group → calculate based on children
+            if (item.IsGroup) {
+
+                let descendants = this.getDescendants(item)
+                    .filter(x => !x.IsGroup);
+
+                if (!descendants.length)
+                    return "";
+
+                let allowCount = 0;
+                let denyCount = 0;
+
+                for (let d of descendants) {
+
+                    let granted =
+                        d.Grant === true ||
+                        this._rolePermissions[d.Key];
+
+                    if (granted)
+                        allowCount++;
+                    else
+                        denyCount++;
+                }
+
+                if (allowCount === descendants.length)
+                    return "allow";
+
+                if (denyCount === descendants.length)
+                    return "deny";
+
+                return "partial";
+            }
+
+            // 🔥 Normal row
+            if (item.Grant === true || this._rolePermissions[item.Key])
+                return "allow";
+
+            if (item.Grant === false)
+                return "deny";
+
+            return "";
         }
        
     }

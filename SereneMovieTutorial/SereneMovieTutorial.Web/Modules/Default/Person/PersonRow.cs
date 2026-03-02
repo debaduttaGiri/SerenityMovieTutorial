@@ -12,8 +12,10 @@ namespace SereneMovieTutorial.Default.Entities
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[Person]")]
     [DisplayName("Person"), InstanceName("Person")]
-    [ReadPermission("Administration:General")]
-    [ModifyPermission("Administration:General")]
+    [ReadPermission("Administration:General:Read")]
+    [ModifyPermission("Administration:General:Modify")]
+    [InsertPermission("Administration:General:Insert")]
+    [DeletePermission("Administration:General:Delete")]
     [LookupScript]
     public sealed class PersonRow : Row, IIdRow, INameRow
     {

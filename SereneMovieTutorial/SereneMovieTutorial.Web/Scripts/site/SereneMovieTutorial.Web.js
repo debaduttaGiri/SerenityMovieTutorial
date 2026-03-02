@@ -535,10 +535,10 @@ var SereneMovieTutorial;
                 return Q.getLookup('Default.CustomerMaster');
             }
             CustomerMasterRow.getLookup = getLookup;
-            CustomerMasterRow.deletePermission = 'Administration:General';
-            CustomerMasterRow.insertPermission = 'Administration:General';
-            CustomerMasterRow.readPermission = 'Administration:General';
-            CustomerMasterRow.updatePermission = 'Administration:General';
+            CustomerMasterRow.deletePermission = 'Administration:General:Delete';
+            CustomerMasterRow.insertPermission = 'Administration:General:Insert';
+            CustomerMasterRow.readPermission = 'Administration:General:Read';
+            CustomerMasterRow.updatePermission = 'Administration:General:Modify';
         })(CustomerMasterRow = Default.CustomerMasterRow || (Default.CustomerMasterRow = {}));
     })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
@@ -572,10 +572,10 @@ var SereneMovieTutorial;
             CustomerRow.idProperty = 'CustomerId';
             CustomerRow.nameProperty = 'CustomerId';
             CustomerRow.localTextPrefix = 'Default.Customer';
-            CustomerRow.deletePermission = 'Default:Customer:Delete';
-            CustomerRow.insertPermission = 'Default:Customer:Insert';
-            CustomerRow.readPermission = 'Administration:General';
-            CustomerRow.updatePermission = 'Default:Customer:Modify';
+            CustomerRow.deletePermission = null;
+            CustomerRow.insertPermission = null;
+            CustomerRow.readPermission = '';
+            CustomerRow.updatePermission = null;
         })(CustomerRow = Default.CustomerRow || (Default.CustomerRow = {}));
     })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
@@ -1409,10 +1409,10 @@ var SereneMovieTutorial;
                 return Q.getLookup('Default.Person');
             }
             PersonRow.getLookup = getLookup;
-            PersonRow.deletePermission = 'Administration:General';
-            PersonRow.insertPermission = 'Administration:General';
-            PersonRow.readPermission = 'Administration:General';
-            PersonRow.updatePermission = 'Administration:General';
+            PersonRow.deletePermission = 'Administration:General:Delete';
+            PersonRow.insertPermission = 'Administration:General:Insert';
+            PersonRow.readPermission = 'Administration:General:Read';
+            PersonRow.updatePermission = 'Administration:General:Modify';
         })(PersonRow = Default.PersonRow || (Default.PersonRow = {}));
     })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
@@ -2410,7 +2410,8 @@ var SereneMovieTutorial;
                     Key: key,
                     ParentKey: _this.getParentKey(key),
                     Title: titleByKey[key],
-                    IsGroup: key.charAt(key.length - 1) === ':',
+                    //IsGroup: key.charAt(key.length - 1) === ':',
+                    IsGroup: false,
                     HasActions: _this.hasActionMap[key] === true,
                     Insert: false,
                     Read: false,
@@ -2418,38 +2419,61 @@ var SereneMovieTutorial;
                     Delete: false,
                     Grant: false
                 }); });
+                var parentMap = {};
+                for (var _i = 0, items_1 = items; _i < items_1.length; _i++) {
+                    var item = items_1[_i];
+                    if (item.ParentKey) {
+                        parentMap[item.ParentKey] = true;
+                    }
+                }
+                for (var _a = 0, items_2 = items; _a < items_2.length; _a++) {
+                    var item = items_2[_a];
+                    if (parentMap[item.Key]) {
+                        item.IsGroup = true;
+                    }
+                }
                 _this.byParentKey = Q.toGrouping(items, function (x) { return x.ParentKey; });
                 _this.setItems(items);
                 return _this;
             }
             CustomPermissionEditor.prototype.getIdProperty = function () { return "Key"; };
+            CustomPermissionEditor.prototype.setItems = function (items) {
+                this.byParentKey = Q.toGrouping(items, function (x) { return x.ParentKey; });
+                Serenity.SlickTreeHelper.setIndents(items, function (x) { return x.Key; }, function (x) { return x.ParentKey; }, true);
+                for (var _i = 0, items_3 = items; _i < items_3.length; _i++) {
+                    var item = items_3[_i];
+                    if (item.IsGroup) {
+                        item._collapsed = false;
+                    }
+                }
+                this.view.setItems(items, true);
+            };
+            CustomPermissionEditor.prototype.onViewFilter = function (item) {
+                if (!_super.prototype.onViewFilter.call(this, item))
+                    return false;
+                if (!Serenity.SlickTreeHelper.filterById(item, this.view, function (x) { return x.ParentKey; }))
+                    return false;
+                return true;
+            };
             CustomPermissionEditor.prototype.getColumns = function () {
                 var _this = this;
                 return [
                     {
                         name: "Permission",
                         field: "Title",
-                        format: function (ctx) {
-                            var key = ctx.item.Key;
-                            var inherited = _this._rolePermissions[key] ||
-                                _this._rolePermissions[key + ":Insert"] ||
-                                _this._rolePermissions[key + ":Read"] ||
-                                _this._rolePermissions[key + ":Modify"] ||
-                                _this._rolePermissions[key + ":Delete"];
-                            var icon = inherited
-                                ? "<i class='fa fa-check text-success'></i> "
-                                : "<i class='fa fa-ban text-danger'></i> ";
-                            return icon + Q.htmlEncode(ctx.value);
-                        },
+                        format: Serenity.SlickFormatting.treeToggle(function () { return _this.view; }, function (x) { return x.Key; }, function (ctx) {
+                            var klass = _this.getEffectiveClass(ctx.item);
+                            return "<span class=\"effective-permission " + klass + "\">\n                        " + Q.htmlEncode(ctx.value) + "\n                    </span>";
+                        }),
                         width: 550
                     },
                     {
                         name: "Grant",
                         field: "Grant",
                         format: function (ctx) {
-                            if (ctx.item.IsGroup)
-                                return "";
-                            return "<span class='check-box grant " + (ctx.item.Grant ? "checked" : "") + "'></span>";
+                            return "<span class='check-box grant " +
+                                (ctx.item.Grant ? "checked" : "") +
+                                "'></span>";
                         },
                         width: 70,
                         cssClass: "align-center"
@@ -2500,11 +2524,67 @@ var SereneMovieTutorial;
                     }
                 ];
             };
+            /*protected onClick(e, row, cell): void {
+    
+                super.onClick(e, row, cell);
+    
+                if (!e.isDefaultPrevented()) {
+                    Serenity.SlickTreeHelper.toggleClick(
+                        e, row, cell, this.view, x => x.Key
+                    );
+                }
+    
+                if (e.isDefaultPrevented())
+                    return;
+    
+                
+    
+                let target = $(e.target);
+                let item = this.itemAt(row);
+    
+                if (!item || item.IsGroup)
+                    return;
+    
+                let field: string = null;
+    
+                if (target.hasClass("grant")) field = "Grant";
+                else if (target.hasClass("insert")) field = "Insert";
+                else if (target.hasClass("read")) field = "Read";
+                else if (target.hasClass("modify")) field = "Modify";
+                else if (target.hasClass("delete")) field = "Delete";
+    
+                if (!field) return;
+    
+                e.preventDefault();
+    
+                let value = !item[field];
+                item[field] = value;
+    
+               
+                if (field === "Grant" && item.HasActions) {
+    
+                    item.Insert = value;
+                    item.Read = value;
+                    item.Modify = value;
+                    item.Delete = value;
+                }
+    
+                this.slickGrid.invalidate();
+            }*/
             CustomPermissionEditor.prototype.onClick = function (e, row, cell) {
                 _super.prototype.onClick.call(this, e, row, cell);
-                var target = $(e.target);
+                console.log("Clicked:", e.target);
+                if (!e.isDefaultPrevented()) {
+                    Serenity.SlickTreeHelper.toggleClick(e, row, cell, this.view, function (x) { return x.Key; });
+                }
+                if (e.isDefaultPrevented())
+                    return;
+                //let target = $(e.target);
                 var item = this.itemAt(row);
-                if (!item || item.IsGroup)
+                if (!item)
+                    return;
+                var target = $(e.target).closest(".check-box");
+                if (!target.length)
                     return;
                 var field = null;
                 if (target.hasClass("grant"))
@@ -2522,47 +2602,119 @@ var SereneMovieTutorial;
                 e.preventDefault();
                 var value = !item[field];
                 item[field] = value;
-                if (field === "Grant" && item.HasActions) {
-                    item.Insert = value;
-                    item.Read = value;
-                    item.Modify = value;
-                    item.Delete = value;
+                // 🔥 If parent clicked → update all children
+                if (item.IsGroup && field === "Grant") {
+                    var descendants = this.getDescendants(item);
+                    for (var _i = 0, descendants_1 = descendants; _i < descendants_1.length; _i++) {
+                        var d = descendants_1[_i];
+                        d.Grant = value;
+                        if (d.HasActions) {
+                            d.Insert = value;
+                            d.Read = value;
+                            d.Modify = value;
+                            d.Delete = value;
+                        }
+                    }
                 }
-                this.slickGrid.invalidate();
+                if (field === "Grant") {
+                    if (item.IsGroup) {
+                        var descendants = this.getDescendants(item);
+                        console.log(descendants);
+                        for (var _a = 0, descendants_2 = descendants; _a < descendants_2.length; _a++) {
+                            var d = descendants_2[_a];
+                            d.Grant = value;
+                            if (d.HasActions) {
+                                d.Insert = value;
+                                d.Read = value;
+                                d.Modify = value;
+                                d.Delete = value;
+                            }
+                            // 🔥 VERY IMPORTANT
+                            this.view.updateItem(d.Key, d);
+                        }
+                    }
+                    else if (item.HasActions) {
+                        item.Insert = value;
+                        item.Read = value;
+                        item.Modify = value;
+                        item.Delete = value;
+                    }
+                    // 🔥 update parent also
+                    this.view.updateItem(item.Key, item);
+                }
+                //this.expandParents(item);
+                this.view.refresh();
+                this.slickGrid.invalidateAllRows();
+                this.slickGrid.render();
             };
+            //private expandParents(item: PermissionItem): void {
+            //    let current = item;
+            //    while (current.ParentKey) {
+            //        let parent = this.view.getItemById(current.ParentKey);
+            //        if (!parent)
+            //            break;
+            //        // find row index of parent
+            //        let row = this.view.getIdxById(parent.Key);
+            //        // if collapsed, simulate toggle click
+            //        if ((parent as any)._collapsed === true) {
+            //            Serenity.SlickTreeHelper.toggleClick(
+            //                { preventDefault: function () { }, isDefaultPrevented: () => false } as any,
+            //                row,
+            //                0,
+            //                this.view,
+            //                x => x.Key
+            //            );
+            //        }
+            //        current = parent;
+            //    }
+            //    this.slickGrid.invalidateAllRows();
+            //    this.slickGrid.render();
+            //}
             CustomPermissionEditor.prototype.getParentKey = function (key) {
-                if (key.charAt(key.length - 1) === ':')
-                    key = key.slice(0, -1);
                 var idx = key.lastIndexOf(':');
-                return idx >= 0 ? key.substring(0, idx + 1) : null;
+                if (idx <= 0)
+                    return null;
+                return key.substring(0, idx);
             };
             CustomPermissionEditor.prototype.getSortedGroupAndPermissionKeys = function (titleByKey) {
-                var keys = Q.getRemoteData('Administration.PermissionKeys').Entities;
-                var entityKeys = {};
+                var rawKeys = Q.getRemoteData('Administration.PermissionKeys').Entities;
+                var baseKeys = {};
                 var hasAction = {};
-                for (var _i = 0, keys_1 = keys; _i < keys_1.length; _i++) {
-                    var k = keys_1[_i];
+                for (var _i = 0, rawKeys_1 = rawKeys; _i < rawKeys_1.length; _i++) {
+                    var k = rawKeys_1[_i];
                     if (!k)
                         continue;
                     var parts = k.split(':');
+                    // Action level permission
                     if (parts.length > 2) {
                         var baseKey = parts.slice(0, parts.length - 1).join(':');
-                        entityKeys[baseKey] = true;
+                        baseKeys[baseKey] = true;
                         hasAction[baseKey] = true;
                     }
                     else {
-                        entityKeys[k] = true;
-                        if (!hasAction[k])
-                            hasAction[k] = false;
+                        baseKeys[k] = true;
                     }
                 }
-                this.hasActionMap = hasAction;
-                keys = Object.keys(entityKeys);
-                for (var _a = 0, keys_2 = keys; _a < keys_2.length; _a++) {
-                    var k = keys_2[_a];
-                    titleByKey[k] = Q.coalesce(Q.tryGetText('Permission.' + k), k);
+                // 🔥 Now build full parent chain
+                var allKeys = {};
+                for (var _a = 0, _b = Object.keys(baseKeys); _a < _b.length; _a++) {
+                    var k = _b[_a];
+                    var parts = k.split(':');
+                    var current = "";
+                    for (var i = 0; i < parts.length; i++) {
+                        current += (i === 0 ? parts[i] : ":" + parts[i]);
+                        allKeys[current] = true;
+                    }
                 }
-                return keys.sort(function (x, y) { return Q.turkishLocaleCompare(titleByKey[x], titleByKey[y]); });
+                // Save action map
+                this.hasActionMap = hasAction;
+                var keys = Object.keys(allKeys);
+                // Set titles
+                for (var _c = 0, keys_1 = keys; _c < keys_1.length; _c++) {
+                    var k = keys_1[_c];
+                    titleByKey[k] = Q.tryGetText("Permission." + k) || k;
+                }
+                return keys.sort(function (x, y) { return Q.turkishLocaleCompare(x, y); });
             };
             Object.defineProperty(CustomPermissionEditor.prototype, "value", {
                 get: function () {
@@ -2644,6 +2796,56 @@ var SereneMovieTutorial;
                 enumerable: true,
                 configurable: true
             });
+            CustomPermissionEditor.prototype.getDescendants = function (item) {
+                var result = [];
+                var stack = [item];
+                var _loop_1 = function () {
+                    var current = stack.pop();
+                    var children = this_1.view.getItems()
+                        .filter(function (x) { return x.ParentKey === current.Key; });
+                    for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
+                        var child = children_1[_i];
+                        result.push(child);
+                        stack.push(child);
+                    }
+                };
+                var this_1 = this;
+                while (stack.length > 0) {
+                    _loop_1();
+                }
+                return result;
+            };
+            CustomPermissionEditor.prototype.getEffectiveClass = function (item) {
+                // 🔥 If group → calculate based on children
+                if (item.IsGroup) {
+                    var descendants = this.getDescendants(item)
+                        .filter(function (x) { return !x.IsGroup; });
+                    if (!descendants.length)
+                        return "";
+                    var allowCount = 0;
+                    var denyCount = 0;
+                    for (var _i = 0, descendants_3 = descendants; _i < descendants_3.length; _i++) {
+                        var d = descendants_3[_i];
+                        var granted = d.Grant === true ||
+                            this._rolePermissions[d.Key];
+                        if (granted)
+                            allowCount++;
+                        else
+                            denyCount++;
+                    }
+                    if (allowCount === descendants.length)
+                        return "allow";
+                    if (denyCount === descendants.length)
+                        return "deny";
+                    return "partial";
+                }
+                // 🔥 Normal row
+                if (item.Grant === true || this._rolePermissions[item.Key])
+                    return "allow";
+                if (item.Grant === false)
+                    return "deny";
+                return "";
+            };
             CustomPermissionEditor = __decorate([
                 Serenity.Decorators.registerEditor([Serenity.IGetEditValue, Serenity.ISetEditValue])
             ], CustomPermissionEditor);
@@ -2871,8 +3073,8 @@ var SereneMovieTutorial;
                     var children = this.byParentKey[i.Key];
                     if (!children)
                         continue;
-                    for (var _i = 0, children_1 = children; _i < children_1.length; _i++) {
-                        var child = children_1[_i];
+                    for (var _i = 0, children_2 = children; _i < children_2.length; _i++) {
+                        var child = children_2[_i];
                         if (!excludeGroups || !child.IsGroup) {
                             result.push(child);
                         }
@@ -2936,8 +3138,8 @@ var SereneMovieTutorial;
             PermissionCheckEditor.prototype.getSortedGroupAndPermissionKeys = function (titleByKey) {
                 var keys = Q.getRemoteData('Administration.PermissionKeys').Entities;
                 var titleWithGroup = {};
-                for (var _i = 0, keys_3 = keys; _i < keys_3.length; _i++) {
-                    var k = keys_3[_i];
+                for (var _i = 0, keys_2 = keys; _i < keys_2.length; _i++) {
+                    var k = keys_2[_i];
                     var s = k;
                     if (!s) {
                         continue;
@@ -3191,8 +3393,8 @@ var SereneMovieTutorial;
                     var children = this.byParentKey[i.Key];
                     if (!children)
                         continue;
-                    for (var _i = 0, children_2 = children; _i < children_2.length; _i++) {
-                        var child = children_2[_i];
+                    for (var _i = 0, children_3 = children; _i < children_3.length; _i++) {
+                        var child = children_3[_i];
                         if (!excludeGroups || !child.IsGroup) {
                             result.push(child);
                         }
@@ -3256,8 +3458,8 @@ var SereneMovieTutorial;
             PermissionEditor.prototype.getSortedGroupAndPermissionKeys = function (titleByKey) {
                 var keys = Q.getRemoteData('Administration.PermissionKeys').Entities;
                 var titleWithGroup = {};
-                for (var _i = 0, keys_4 = keys; _i < keys_4.length; _i++) {
-                    var k = keys_4[_i];
+                for (var _i = 0, keys_3 = keys; _i < keys_3.length; _i++) {
+                    var k = keys_3[_i];
                     var s = k;
                     if (!s) {
                         continue;
@@ -5044,7 +5246,7 @@ var SereneMovieTutorial;
                 var klass = 'edit';
                 var item = ctx.item;
                 var pending = this.pendingChanges[item.Id];
-                var column = ctx.column;
+                //var column = ctx.column as Slick.Column;
                 if (pending && pending[idField] !== undefined) {
                     klass += ' dirty';
                 }
@@ -5144,8 +5346,8 @@ var SereneMovieTutorial;
                 if (keys.length === 0)
                     return;
                 var completed = 0;
-                for (var _i = 0, keys_5 = keys; _i < keys_5.length; _i++) {
-                    var id = keys_5[_i];
+                for (var _i = 0, keys_4 = keys; _i < keys_4.length; _i++) {
+                    var id = keys_4[_i];
                     Default.DistictService.Update({
                         EntityId: id,
                         Entity: this.pendingChanges[id]
@@ -5599,7 +5801,7 @@ var SereneMovieTutorial;
                 });
                 if (this.isNew()) {
                     var user = Q.Authorization.userDefinition;
-                    //this.form.BranchId.value = user.BranchId;
+                    //this.form.BranchId.value = user.Permissions.BranchId;
                     this.form.Branch.value = user.BranchName;
                 }
             };

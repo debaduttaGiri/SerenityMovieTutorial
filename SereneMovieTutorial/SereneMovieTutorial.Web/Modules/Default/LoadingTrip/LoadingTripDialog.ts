@@ -67,7 +67,7 @@
 
                 let user = Q.Authorization.userDefinition;
 
-                //this.form.BranchId.value = user.BranchId;
+                //this.form.BranchId.value = user.Permissions.BranchId;
                 this.form.Branch.value = user.BranchName;
             }
             

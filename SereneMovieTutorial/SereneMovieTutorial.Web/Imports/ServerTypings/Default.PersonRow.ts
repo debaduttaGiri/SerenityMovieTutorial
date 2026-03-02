@@ -21,10 +21,10 @@
         export function getLookup(): Q.Lookup<PersonRow> {
             return Q.getLookup<PersonRow>('Default.Person');
         }
-        export const deletePermission = 'Administration:General';
-        export const insertPermission = 'Administration:General';
-        export const readPermission = 'Administration:General';
-        export const updatePermission = 'Administration:General';
+        export const deletePermission = 'Administration:General:Delete';
+        export const insertPermission = 'Administration:General:Insert';
+        export const readPermission = 'Administration:General:Read';
+        export const updatePermission = 'Administration:General:Modify';
 
         export declare const enum Fields {
             PersonId = "PersonId",

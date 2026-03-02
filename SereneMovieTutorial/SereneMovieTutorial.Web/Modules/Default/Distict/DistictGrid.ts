@@ -49,7 +49,7 @@ namespace SereneMovieTutorial.Default {
             var klass = 'edit';
             var item = ctx.item as PlantRow;
             var pending = this.pendingChanges[item.Id];
-            var column = ctx.column as Slick.Column;
+            //var column = ctx.column as Slick.Column;
 
             if (pending && pending[idField] !== undefined) {
                 klass += ' dirty';
