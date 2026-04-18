@@ -844,6 +844,7 @@
     <Content Include="wkhtmltopdf-license.txt" />
     <Content Include="Modules\Default\VoucherPrint\VoucherPrint.cshtml" />
     <Content Include="Modules\Default\Plant\PlantIndex.cshtml" />
+    <None Include="Properties\PublishProfiles\site64137-WebDeploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Readme.CodeGenerator.txt" />
     <Content Include="Scripts\bootstrap.js" />

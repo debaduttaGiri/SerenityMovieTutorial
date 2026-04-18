@@ -32,6 +32,12 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.Plant[this]; }
             set { Fields.Plant[this] = value; }
         }
+        [Expression("jPlant.Plant")]
+        public string PlantName
+        {
+            get { return Fields.PlantName[this]; }
+            set { Fields.PlantName[this] = value; }
+        }
 
         [DisplayName("Distict"), Size(20), QuickSearch,NotNull]
         public String Distict
@@ -82,6 +88,7 @@ namespace SereneMovieTutorial.Default.Entities
         {
             public Int32Field Id;
             public Int32Field Plant;
+            public StringField PlantName;
             public StringField Distict;
             public StringField Remarks;
 
