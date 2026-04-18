@@ -1,0 +1,264 @@
+﻿@model SereneMovieTutorial.Modules.Default.UnloadTrip.UnloadTripModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+
+body{
+    font-family: Arial;
+}
+
+/* VOUCHER CONTAINER */
+
+.voucher{
+    width:1000px;
+    margin:40px auto;
+    border:1px solid black;
+    position:relative;
+}
+
+/* BUTTON BAR */
+
+.voucher-buttons{
+    position:absolute;
+    top:-27px;
+    width:100%;
+}
+
+.btn-original{
+    float:left;
+    background:#17a2b8;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    border-radius:4px;
+    font-size:13px;
+   
+}
+
+.btn-receivable{
+    float:right;
+    background:#17a2b8;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    border-radius:4px;
+    font-size:13px;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    padding:10px;
+}
+
+.header h2{
+    margin:0;
+}
+
+/* SUB HEADER */
+
+.subheader{
+    text-align:center;
+    font-weight:bold;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    padding:5px;
+}
+
+/* TABLE */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+td{
+    border:1px solid black;
+    padding:6px;
+}
+
+/* SIGN AREA */
+
+.sign{
+    height:120px;
+}
+
+/* RECEIVER */
+
+.receiver-container{
+    width:120px;
+    float:right;
+    text-align:center;
+}
+
+.receiver-box{
+    width:80px;
+    height:80px;
+    border:1px solid black;
+    margin:auto;
+}
+
+.receiver-text{
+    margin-top:6px;
+    font-weight:bold;
+}
+
+/* PRINT */
+
+@@media print{
+
+    button{
+        display:none;
+    }
+
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="voucher">
+
+        <!-- BUTTONS -->
+        <div class="voucher-buttons">
+
+            <button onclick="printOriginal()" class="btn-original">
+                Print Original
+            </button>
+
+            <button onclick="printReceivable()" class="btn-receivable">
+                Print Receivable
+            </button>
+
+        </div>
+
+        <!-- HEADER -->
+        <div class="header">
+
+            <h2>SHREE CHADDA ROADLINES</h2>
+
+            <div style="font-size:12px">
+                Near M.I.D.C Ghugus Road, khutala, Chandrapur - 442406(M.S.)
+            </div>
+
+        </div>
+
+        <div class="subheader">
+            DA VOUCHER
+        </div>
+
+        <table>
+
+            <tr>
+
+                <td colspan="3">
+                    <b>Voucher Ref No :</b>
+                    SCR/25-26/ACC/LT/@Model.UnloadTrip.LoadingTripId
+                </td>
+
+                <td colspan="2" style="text-align:right">
+                    <b>Date :</b>
+                    @Model.UnloadTrip.UpdatedDate
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td colspan="3">
+                    <b>Account Name :</b>
+                    @Model.UnloadTrip.CustomerName
+                </td>
+
+                <td colspan="2" style="text-align:right">
+                    <b>Truck No :</b>
+                    @Model.UnloadTrip.VehicleName
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td colspan="3">
+                    <b>Driver Name :</b>
+                    @Model.UnloadTrip.CustomerName
+                </td>
+
+                <td colspan="2" style="text-align:right">
+                    <b>EGP No :</b>
+                    NF22272512012041
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td colspan="5">
+                    <b>Being Paid Against :</b> DA to Driver
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td colspan="5">
+                    <b>AMOUNT : Rs.</b>
+                    @((Model.UnloadTrip.ExpenseAmount ?? 0).ToString("0.00"))
+                </td>
+
+            </tr>
+
+            <tr class="sign">
+
+                <td colspan="3">
+
+                    <br><br><br>
+
+                    <b>Cashier</b>
+
+                </td>
+
+                <td colspan="2">
+
+                    <div class="receiver-container">
+
+                        <div class="receiver-box"></div>
+
+                        <div class="receiver-text">
+                            Receiver
+                        </div>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <script>
+
+        function printOriginal() {
+            window.print();
+        }
+
+        function printReceivable() {
+            window.print();
+        }
+
+    </script>
+
+</body>
+</html>

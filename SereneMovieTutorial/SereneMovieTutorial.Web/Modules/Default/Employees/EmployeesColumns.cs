@@ -18,6 +18,7 @@ namespace SereneMovieTutorial.Default.Columns
         public Int32 EmployeeId { get; set; }
         [EditLink]
         public String FullName { get; set; }
+        [EditLink]
         public String Title { get; set; }
         public String TitleOfCourtesy { get; set; }
         public DateTime BirthDate { get; set; }

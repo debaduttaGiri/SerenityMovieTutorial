@@ -34,6 +34,7 @@ namespace SereneMovieTutorial.Default.Entities
 
         [DisplayName("Vehicle Type")]
         [NotNull]
+        
         [EnumEditor]
         public VehicleType? VehicleType
         {
@@ -139,7 +140,7 @@ namespace SereneMovieTutorial.Default.Entities
         }
 
         [DisplayName("Created Date"), NotNull]
-        [Insertable(false),Updatable(false)]
+        //[Updatable(false)]
         public DateTime? CreatedDate
         {
             get { return Fields.CreatedDate[this]; }
@@ -155,6 +156,7 @@ namespace SereneMovieTutorial.Default.Entities
         {
             get { return Fields.VehicleNumber; }
         }
+
 
         public static readonly RowFields Fields = new RowFields().Init();
 

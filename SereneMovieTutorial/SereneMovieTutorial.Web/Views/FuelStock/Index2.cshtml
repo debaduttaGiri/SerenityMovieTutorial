@@ -1,0 +1,397 @@
+﻿@model SereneMovieTutorial.Reports.FuelStockModel
+
+@{
+    ViewBag.Title = "fuel-stock-report";
+}
+<style>
+    .filter-box {
+        background: #f5f5f5;
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+    }
+
+    .report-box {
+        background: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
+    .report-title {
+        text-align: center;
+        font-weight: bold;
+        border: 1px solid #000;
+        padding: 5px;
+    }
+
+    .report-subtitle {
+        text-align: center;
+        border: 1px solid #000;
+        border-top: none;
+        padding: 5px;
+        font-weight: 500;
+    }
+
+    .report-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+    }
+
+        .report-table th {
+            background-color: #00a65a;
+            color: white;
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .report-table td {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .total-row {
+        font-weight: bold;
+        background: #f2f2f2;
+    }
+
+        .total-row td {
+            font-weight: bold;
+            background: #f2f2f2;
+            text-align: right;
+        }
+
+    #err {
+        color: red;
+        font-size: 12px;
+        display: block;
+        margin-top: 1px;
+    }
+
+    .select2-container, .select2-container * {
+        box-sizing: unset;
+    }
+</style>
+
+<form method="get">
+    <div class="filter-box row">
+
+        <div class="col-md-12">
+            <h4 style="margin-top:0; font-weight:bold;">Stock Report</h4>
+        </div>
+
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label>From Date</label>
+
+                <div style="display:flex; align-items:center; gap:5px;">
+                    <input type="text" id="FromDate" name="FromDate" value="@Model.FromDate" class="form-control" />
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label>To Date</label>
+
+                <div style="display:flex; align-items:center; gap:5px;">
+                    <input type="text" id="ToDate" name="ToDate" value="@Model.ToDate" class="form-control" />
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-2 ">
+            <div class="form-group">
+                <label>Is Summary</label>
+                <select id="IsSummary" name="IsSummary" class="form-control" style="border-radius:5px;">
+                    <option value="true" @(Model.IsSummary ? "selected" : "")>Yes</option>
+                    <option value="false" @(!Model.IsSummary ? "selected" : "")>No</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group">
+                <label>Pump Name</label>
+                <select id="PumpId" name="PumpId" class="form-control">
+                    <option></option>
+                </select>
+            </div>
+        </div>
+
+
+        <!-- Submit -->
+        <div class="col-md-2" style="margin-top:23px;">
+            <button type="submit" class="btn btn-info">🔍</button>
+        </div>
+
+        @if (Model.Data != null && Model.DailyData == null)
+        {
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+                <a onclick="tableToExcel('tblStock', 'Stock Report')" style="cursor:pointer; margin-right:8px;">
+                    <img src="~/content/serenity/images/xlsx.png" title="Download as Excel">
+                </a>
+
+                <a onclick="printDiv('div1')" style="cursor:pointer; margin-right:8px;">
+                    <img src="~/content/serenity/images/printer.png" title="Print">
+                </a>
+            </div>
+        }
+        @if (Model.DailyData != null)
+        {
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+                <a onclick="tableToExcel('tblDailyStock', 'Daily Stock Report')" style="cursor:pointer; margin-right:8px;">
+                    <img src="~/content/serenity/images/xlsx.png" title="Download as Excel">
+                </a>
+
+                <a onclick="alert('Use Chrome Print → Save as PDF')" style="cursor:pointer; margin-right:8px;">
+                    <img src="~/content/serenity/images/pdf.png" title="Download as PDF">
+                </a>
+
+                <a onclick="printDiv('div2')" style="cursor:pointer; margin-right:8px;">
+                    <img src="~/content/serenity/images/printer.png" title="Print">
+                </a>
+            </div>
+        }
+    </div>
+</form>
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="border-radius:10px;">
+            <div class="modal-header bg-danger text-white" style="background-color:blueviolet;color:white">
+                <h4 class="modal-title" id="errorModalLabel">Validation Error</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="err">
+                <h3 style="color:black;">User Must Select a Pump</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.Data != null && Model.DailyData == null)
+{
+    decimal totalOpening = 0, totalInward = 0, totalOutward = 0, totalBalance = 0;
+
+    <div id="tblStock" class="report-box">
+
+        <div class="report-title">STOCK REPORT</div>
+
+        <div class="report-subtitle">
+            For the Period:
+            @(Model.FromDate != null ? Model.FromDate : "")
+            to
+            @(Model.ToDate != null ? Model.ToDate : "")
+        </div>
+
+        <table class="report-table table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>SNo</th>
+                    <th>Pump Name</th>
+                    <th>Opening Stock</th>
+                    <th>Inward</th>
+                    <th>Outward</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @for (int i = 0; i < Model.Data.Count; i++)
+                {
+                    var row = Model.Data[i];
+
+                    totalOpening += row.OpeningStock;
+                    totalInward += row.Inward;
+                    totalOutward += row.Outward;
+                    totalBalance += row.Balance;
+
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>@row.PumpName</td>
+                        <td class="text-right">@row.OpeningStock.ToString("0.00")</td>
+                        <td class="text-right">@row.Inward.ToString("0.00")</td>
+                        <td class="text-right">@row.Outward.ToString("0.00")</td>
+                        <td class="text-right">@row.Balance.ToString("0.00")</td>
+                    </tr>
+                }
+
+                <tr class="total-row">
+                    <td></td>
+                    <td>Total</td>
+                    <td class="text-right">@totalOpening.ToString("0.00")</td>
+                    <td class="text-right">@totalInward.ToString("0.00")</td>
+                    <td class="text-right">@totalOutward.ToString("0.00")</td>
+                    <td class="text-right">@totalBalance.ToString("0.00")</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+}
+else
+{
+    {
+        decimal totalOpening = 0, totalInward = 0, totalOutward = 0, totalBalance = 0;
+
+        <div id="tblDailyStock" class="report-box">
+
+            <div class="report-title">DAILY STOCK REPORT</div>
+
+            <div class="report-subtitle">
+                For the Period:
+                @(Model.FromDate != null ? Model.FromDate : "")
+                to
+                @(Model.ToDate != null ? Model.ToDate : "")
+            </div>
+
+            <table class="report-table table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th>SNo</th>
+                        <th>Date</th>
+                        <th>Pump Name</th>
+                        <th>Opening Stock</th>
+                        <th>Inward</th>
+                        <th>Outward</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for (int i = 0; i < Model.DailyData.Count; i++)
+                    {
+                        var row = Model.DailyData[i];
+
+                        totalOpening += row.OpeningStock;
+                        totalInward += row.Inward;
+                        totalOutward += row.Outward;
+                        totalBalance += row.Balance;
+
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@row.ReportDate.ToString("dd-MM-yyyy")</td>
+                            <td>@row.PumpName</td>
+                            <td class="text-right">@row.OpeningStock.ToString("0.00")</td>
+                            <td class="text-right">@row.Inward.ToString("0.00")</td>
+                            <td class="text-right">@row.Outward.ToString("0.00")</td>
+                            <td class="text-right">@row.Balance.ToString("0.00")</td>
+                        </tr>
+                    }
+
+                    <tr class="total-row">
+                        <td></td>
+                        <td></td>
+                        <td>Total</td>
+                        <td class="text-right">@totalOpening.ToString("0.00")</td>
+                        <td class="text-right">@totalInward.ToString("0.00")</td>
+                        <td class="text-right">@totalOutward.ToString("0.00")</td>
+                        <td class="text-right">@totalBalance.ToString("0.00")</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    }
+}
+
+
+<script type="text/javascript">
+
+        $("#FromDate").datepicker({
+            //format: 'dd-mm-yyyy',
+            autoclose: true,
+
+        });
+        $("#ToDate").datepicker({
+            //format: 'dd-mm-yyyy',
+            autoclose: true,
+
+        });
+
+
+    $.each(Q.getLookup("master.Pump").items, function (index, value) {
+
+         $('#PumpId').append($('<option>', {
+         value: value.Id
+         , text: value.Name
+         }));
+     });
+
+    $("#PumpId").select2(
+      {
+          placeholder: "-- Pump --",
+          allowClear: true,
+          minimumResultsForSearch: 2
+     }).select2("val", '@Model.PumpId');
+
+    @*$("#IsSummary").select2(
+        {
+            placeholder: "-- Auto Generated --",
+            allowClear: true,
+            minimumResultsForSearch: 10
+        })
+        .select2("val", '@Model.IsSummary');*@
+
+    $(document).ready(function () {
+        $("form").on("submit", function (e) {
+            var isSummary = $("#IsSummary").val(); // "true"/"false"
+            var pumpId = $("#PumpId").val();
+
+            console.log("IsSummary:", isSummary);
+            console.log("PumpId:", pumpId);
+
+            // Clear previous error
+            //$("#err").text("");
+
+            // 🔥 Validation
+            if (isSummary === "false") {
+                if (!pumpId || pumpId === "" || pumpId === "0") {
+                    e.preventDefault();
+
+                    // Inject error message into modal body
+                    //$("#err").text("Please select a Pump");
+
+                    // Highlight select2 box
+                    $('#PumpId').next('.select2')
+                        .find('.select2-selection')
+                        .css('border', '1px solid red');
+
+                    // Show Bootstrap modal
+                    $("#errorModal").modal("show");
+
+                    return false;
+                }
+            }
+
+            return true;
+        });
+    });
+    $("#PumpId").on("change", function () {
+
+        $("#err").text("");
+
+        $('#PumpId').next('.select2')
+            .find('.select2-selection')
+            .css('border', '');
+    });
+</script>
+<script src="~/Scripts/Custom.js"></script>
+
+

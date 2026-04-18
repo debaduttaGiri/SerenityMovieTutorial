@@ -8,12 +8,13 @@ namespace SereneMovieTutorial.Default.Entities
     using System;
     using System.ComponentModel;
     using System.IO;
+    using System.Web.Mvc;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[Customer]")]
-    [DisplayName("Customer"), InstanceName("Customer")]
+    [DisplayName("Customer "), InstanceName("Customer")]
     //[ReadPermission("Administration:General")]
     //[ModifyPermission("Administration:General")]
-
+    [Authorize]
     [ReadPermission("Default:Customer:View")]
     [InsertPermission("Default:Customer:Insert")]
     [UpdatePermission("Default:Customer:Modify")]

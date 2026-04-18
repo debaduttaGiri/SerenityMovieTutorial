@@ -14,6 +14,7 @@
         DestinationId: Serenity.LookupEditor;
         Wheels: Serenity.IntegerEditor;
         Weight: Serenity.DecimalEditor;
+        freightRate: Serenity.IntegerEditor;
         ExpenseAmount: Serenity.DecimalEditor;
         Remarks: Serenity.TextAreaEditor;
     }
@@ -51,6 +52,7 @@
                     'DestinationId', w3,
                     'Wheels', w0,
                     'Weight', w4,
+                    'freightRate', w0,
                     'ExpenseAmount', w4,
                     'Remarks', w5
                 ]);

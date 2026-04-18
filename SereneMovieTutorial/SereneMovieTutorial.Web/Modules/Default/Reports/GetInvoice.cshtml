@@ -1,0 +1,317 @@
+﻿@model SereneMovieTutorial.Modules.Default.Reports.ManageInvoiceModel
+
+@{
+    ViewBag.Title = "GetInvoice";
+}
+<button onclick="printTable()" class="btn btn-danger">Print</button>
+
+<table id="invoiceTable" style="border: 1px solid black; border-collapse: collapse; width: 100%;">
+    <tr>
+        <th style="border: 1px solid black; text-align: center;" colspan="2">
+            <h4 style="margin: 0;padding-top:15px;">@Model.BranchMasterRow.BranchName</h4><br />
+            <h5> @Model.BranchMasterRow.Address</h5>
+            <h5>Mob: @Model.BranchMasterRow.PhoneNumber  ,   EmailNo: src.kfc@gmail.com</h5>
+
+        </th>
+    </tr>
+    <tr>
+        <th style="border: 1px solid black; text-align: center;" colspan="2">
+            <h4>TAX Invoice</h4>
+        </th>
+    </tr>
+    <tr>
+        <th style="border: 1px solid black; width: 60%; text-align: left; padding-left:1em;">
+            <div>
+
+                <p>
+                    To<br>
+                    @Model.PlantRow.Plant<br>
+                    CHANDA CEMENT WORKS<br>
+                    Maharashtra 442502<br />
+                    <br />
+                    <br />
+                    <br />
+                </p>
+            </div>
+        </th>
+        <th style="border: 1px solid black; width: 40%; text-align: left;">
+            <div style="display: flex; width: 100%;">
+                <div style=" flex: 10; border: 1px solid black; border-left: 0px; border-top: 0px; padding: 5px;">
+                    BILL NO:
+                </div>
+                <div style="flex: 10; border: 1px solid black; border-left: 0px; border-right: 0px; border-top: 0px; padding: 5px; ">
+                    SCR-26-27-149
+                </div>
+            </div>
+
+            <div style="display: flex; width: 100%;">
+                <div style=" flex: 10; border: 1px solid black; border-left: 0px; border-top: 0px; padding: 5px;">
+                    Date:
+                </div>
+                <div style="flex: 10; border: 1px solid black; border-left: 0px; border-right: 0px; border-top: 0px; padding: 5px; ">
+                    23-3-3933
+                </div>
+            </div>
+
+            <div style="display: flex; width: 100%; padding-left:1em;">
+                <h6 style="padding:1px;font-weight:bold;">Weather the TAX is payable or reverse change basic: No</h6>
+            </div>
+
+            <div style="display: flex; width: 100%;">
+                <div style=" flex: 10; border: 1px solid black; border-left:0px; padding: 5px;">
+                    GST NO
+                </div>
+                <div style="flex: 10; border: 1px solid black; border-left: 0px; border-right: 0px; padding: 5px; ">
+                    @Model.BranchMasterRow.GstNo
+                </div>
+            </div>
+
+            <div style="display: flex; width: 100%;">
+                <div style=" flex: 10; border: 1px solid black; border-left: 0px; border-top: 0px; padding: 5px;">
+                    STATE
+                </div>
+                <div style="flex: 10; border: 1px solid black; border-left: 0px; border-right: 0px; border-top: 0px; padding: 5px; ">
+                    @Model.BranchMasterRow.State
+                </div>
+            </div>
+
+            <div style="display: flex; width: 100%;">
+                <div style=" flex: 10; border: 1px solid black; border-left: 0px; border-top: 0px; padding: 5px;">
+                    STATE CODE
+                </div>
+                <div style="flex: 10; border: 1px solid black; border-left: 0px; border-right: 0px; border-top: 0px; padding: 5px; ">
+                    @Model.BranchMasterRow.StateStateCode
+                </div>
+            </div>
+
+            <div style="display: flex; width: 100%;">
+                <div style="flex: 10; border: 1px solid black; border-left: 0px; border-top: 0px; border-bottom: 0px; padding: 5px; ">
+                    PAN NO
+                </div>
+                <div style="flex: 10; border: 1px solid black; border-left: 0px; border-right: 0px; border-top: 0px; border-bottom: 0px; padding: 5px; ">
+                    @Model.BranchMasterRow.PanNo
+                </div>
+            </div>
+        </th>
+
+    </tr>
+    <tr>
+        <th style="border: 1px solid black;height:40px; text-align: center;" colspan="2">
+
+        </th>
+    </tr>
+    <tr>
+        <th style="border: 1px solid black; text-align: center;" colspan="2">
+
+            <table style=" border-collapse: collapse; width:100%">
+                <tr>
+                    <th style="border: 1px solid black; padding: 5px;">Sl No.</th>
+                    <th style="border: 1px solid black; padding: 5px;">Do/Challan No</th>
+                    <th style="border: 1px solid black; padding: 5px;">Challan Date</th>
+                    <th style="border: 1px solid black; padding: 5px;">Vehicle No</th>
+                    <th style="border: 1px solid black; padding: 5px;">Destination</th>
+                    <th style="border: 1px solid black; padding: 5px;">LR/GR No</th>
+                    <th style="border: 1px solid black; padding: 5px;">Dsp Qty.</th>
+                    <th style="border: 1px solid black; padding: 5px;">Del. Qty</th>
+                    <th style="border: 1px solid black; padding: 5px;">Claimed Ammount</th>
+                    <th style="border: 1px solid black; padding: 5px;">Actual Ammount</th>
+                </tr>
+                <tr>
+
+                    
+                    @{
+                        int i = Model.ManageinvoiceRow.InvoiceDetails.Count();
+                        int j = 0;
+                    }
+                    @foreach (var e in Model.ManageinvoiceRow.InvoiceDetails)
+                    {
+                        if(j <= i)
+                        {
+                            j++;
+                        }
+                        <td style="border: 1px solid black; padding: 5px;">@j</td>
+                        <td style="border: 1px solid black; padding: 5px;">@e.Challan</td>
+                        <td style="border: 1px solid black; padding: 5px;">@e.Invoicedate</td>
+                        <td style="border: 1px solid black; padding: 5px;">@e.VehicleNumber</td>
+                        <td style="border: 1px solid black; padding: 5px;"></td>
+                        <td style="border: 1px solid black; padding: 5px;"></td>
+                        <td style="border: 1px solid black; padding: 5px;">@e.Weight</td>
+                        <td style="border: 1px solid black; padding: 5px;"></td>
+                        <td style="border: 1px solid black; padding: 5px;">@e.Billingamount</td>
+                        <td style="border: 1px solid black; padding: 5px;">@e.Billingamount</td>
+                    }
+                </tr>
+            </table>
+
+
+        </th>
+
+    </tr>
+
+
+    <tr>
+        <!-- Take full width using colspan -->
+        <th colspan="2" style="border: 1px solid black; padding: 0;">
+
+            <div style="display: flex; width: 100%;">
+
+                <!-- Left side (Total label) -->
+                <div style="width: 71.5%; text-align: right; padding: 10px; border-right: 1px solid black;">
+                    <b>Total:</b>
+                </div>
+
+                <!-- Right side (amount + actual) -->
+                <div style="width: 27.3%; ">
+                    <div style="display: flex;">
+
+                        <div style="width: 55%; padding: 10px; border-right: 1px solid black;">
+                            0.00
+                        </div>
+
+                        <div style="width: 45%; padding: 5px;">
+                            @Model.ManageinvoiceRow.Totalinvoiceamount
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </th>
+    </tr>
+
+    <tr>
+        <!-- Take full width using colspan -->
+        <th colspan="2" style="border: 1px solid black; padding: 0;">
+
+            <div style="display: flex; width: 100%;">
+
+                <!-- Left side (Total label) -->
+                <div style="width: 71.5%; text-align: right; padding: 10px; border-right: 1px solid black;">
+                    <b>CGST</b>
+                </div>
+
+                <!-- Right side (amount + actual) -->
+                <div style="width: 27.3%; ">
+                    <div style="display: flex;">
+
+                        <div style="width: 55%; padding: 10px; border-right: 1px solid black;">
+                            @Model.ManageinvoiceRow.Cgstrate%
+                        </div>
+
+                        <div style="width: 45%; padding: 5px;">
+                            @Model.ManageinvoiceRow.Cgstamount
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </th>
+    </tr>
+
+    <tr>
+        <!-- Take full width using colspan -->
+        <th colspan="2" style="border: 1px solid black; padding: 0;">
+
+            <div style="display: flex; width: 100%;">
+
+                <!-- Left side (Total label) -->
+                <div style="width: 71.5%; text-align: right; padding: 10px; border-right: 1px solid black;">
+                    <b>SGST</b>
+                </div>
+
+                <!-- Right side (amount + actual) -->
+                <div style="width: 27.3%; ">
+                    <div style="display: flex;">
+
+                        <div style="width: 55%; padding: 10px; border-right: 1px solid black;">
+                            @Model.ManageinvoiceRow.Sgstrate%
+                        </div>
+
+                        <div style="width: 45%; padding: 5px;">
+                            @Model.ManageinvoiceRow.Sgstamount
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </th>
+    </tr>
+
+
+    <tr>
+        <!-- Take full width using colspan -->
+        <th colspan="3" style="border: 1px solid black; padding: 0;">
+
+            <div style="display: flex; width: 100%;">
+
+                <!-- Left side (Total label) -->
+                <div style="width: 62%; text-align: right; padding: 10px; border-right: 1px solid black;">
+                    <b></b>
+                </div>
+
+                <!-- Right side (amount + actual) -->
+                <div style="width: 35%; padding: 10px; border-right: 1px solid black;">
+                    <b>Total Bill Ammount</b>
+                </div>
+                <div style="width: 15%; padding: 10px; ">
+                    <b>@Model.ManageinvoiceRow.Totalinvoiceamount</b>
+                </div>
+
+            </div>
+
+        </th>
+    </tr>
+
+    <tr>
+        <th style="border: 1px solid black;height:40px; text-align: center;" colspan="2">
+
+        </th>
+    </tr>
+
+
+    <tr>
+        <!-- Take full width using colspan -->
+        <th colspan="3" style="border: 1px solid black; padding: 0;">
+            <div style="display: flex; width: 100%;">
+                <div style="width: 50%;  padding: 10px; border-right: 1px solid black;">
+                    <b style="text-align:left">Bank Details:</b><br />
+                    <h5>@Model.BranchMasterRow.BranchName</h5><br />
+                    <b>Account No:  2628929309387</b><br />
+                    <b>Branch: @Model.BranchMasterRow.Address</b><br />
+                </div>
+                <div style="width: 50%; text-align:left end; padding: 10px; border-right: 1px solid black;">
+                    <b>For, @Model.BranchMasterRow.BranchName</b>
+                </div>
+
+            </div>
+
+        </th>
+    </tr>
+
+</table>
+
+<script>
+    function printTable() {
+        // Grab the table element
+        var table = document.getElementById("invoiceTable");
+
+        // Open a new window
+        var newWin = window.open("", "", "width=1000,height=1000");
+
+        // Write the table’s HTML into the new window
+        newWin.document.write("<html><head><title>Print Table</title></head><body>");
+        newWin.document.write(table.outerHTML);
+        newWin.document.write("</body></html>");
+
+        // Close the document to finish writing
+        newWin.document.close();
+
+        // Trigger print
+        newWin.print();
+    }
+</script>

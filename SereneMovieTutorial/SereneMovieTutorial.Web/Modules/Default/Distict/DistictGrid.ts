@@ -28,6 +28,7 @@ namespace SereneMovieTutorial.Default {
                 name: "S. No",
                 format: ctx => (ctx.row + 1).toString()
             });
+            
 
             var supplier = Q.tryFirst(columns, x => x.field === fld.Plant1);
             if (supplier) {
@@ -37,6 +38,7 @@ namespace SereneMovieTutorial.Default {
 
             return columns;
         }
+        
         private pendingChanges: Q.Dictionary<any> = {};
 
         constructor(container: JQuery) {

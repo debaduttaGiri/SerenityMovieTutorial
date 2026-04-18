@@ -1,0 +1,42 @@
+﻿
+namespace SereneMovieTutorial.Default {
+    export interface MaintenanceHeadRow {
+        Id?: number;
+        Head?: string;
+        Remarks?: string;
+        CreatedBy?: number;
+        UpdatedBy?: number;
+        CreatedDate?: string;
+        UpdatedDate?: string;
+    }
+
+    export namespace MaintenanceHeadRow {
+        export const idProperty = 'Id';
+        export const nameProperty = 'Head';
+        export const localTextPrefix = 'Default.MaintenanceHead';
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
+
+        export namespace Fields {
+            export declare const Id;
+            export declare const Head;
+            export declare const Remarks;
+            export declare const CreatedBy;
+            export declare const UpdatedBy;
+            export declare const CreatedDate;
+            export declare const UpdatedDate;
+        }
+
+        [
+            'Id',
+            'Head',
+            'Remarks',
+            'CreatedBy',
+            'UpdatedBy',
+            'CreatedDate',
+            'UpdatedDate'
+        ].forEach(x => (<any>Fields)[x] = x);
+    }
+}

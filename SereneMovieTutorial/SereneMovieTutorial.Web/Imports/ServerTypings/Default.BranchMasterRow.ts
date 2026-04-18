@@ -3,9 +3,9 @@
         Id?: number;
         BranchName?: string;
         BranchCode?: string;
-        GstNo?: number;
-        PanNo?: number;
-        PhoneNumber?: number;
+        GstNo?: string;
+        PanNo?: string;
+        PhoneNumber?: string;
         PinCode?: number;
         Address?: string;
         State?: string;

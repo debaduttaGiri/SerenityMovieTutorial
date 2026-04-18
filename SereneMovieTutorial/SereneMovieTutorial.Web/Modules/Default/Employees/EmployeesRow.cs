@@ -15,7 +15,7 @@ namespace SereneMovieTutorial.Default.Entities
     [ModifyPermission("Administration:General")]
     public sealed class EmployeesRow : Row, IIdRow, INameRow
     {
-        [DisplayName("S No."), Column("EmployeeID"), PrimaryKey]
+        [DisplayName("S No."), Column("EmployeeID"), PrimaryKey,Identity]
         [SortOrder(1,descending:true)]
         public Int32? EmployeeId
         {

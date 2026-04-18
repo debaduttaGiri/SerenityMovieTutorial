@@ -2,6 +2,7 @@
     export interface GenreRow {
         GenreId?: number;
         Name?: string;
+        Dates?: string;
     }
 
     export namespace GenreRow {
@@ -20,7 +21,8 @@
 
         export declare const enum Fields {
             GenreId = "GenreId",
-            Name = "Name"
+            Name = "Name",
+            Dates = "Dates"
         }
     }
 }

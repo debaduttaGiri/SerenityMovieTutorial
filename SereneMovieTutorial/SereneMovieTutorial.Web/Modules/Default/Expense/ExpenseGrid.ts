@@ -1,6 +1,7 @@
 ﻿
 namespace SereneMovieTutorial.Default {
 
+    import fld = ExpenseRow.Fields;
     @Serenity.Decorators.registerClass()
     export class ExpenseGrid extends Serenity.EntityGrid<ExpenseRow, any> {
         protected getColumnsKey() { return 'Default.Expense'; }
@@ -9,6 +10,7 @@ namespace SereneMovieTutorial.Default {
         protected getInsertPermission() { return ExpenseRow.insertPermission; }
         protected getLocalTextPrefix() { return ExpenseRow.localTextPrefix; }
         protected getService() { return ExpenseService.baseUrl; }
+        
         protected getColumns() {
             var columns = super.getColumns();
 
@@ -27,36 +29,26 @@ namespace SereneMovieTutorial.Default {
         }
         protected getSlickOptions(): Slick.GridOptions {
             let opt = super.getSlickOptions();
+            opt.enableTextSelectionOnCells = true;
             opt.showFooterRow = true;   
             return opt;
         }
 
-
-
-        protected createSlickGrid(): Slick.Grid {
-            let grid = super.createSlickGrid();
-
+        //protected getSlickOptions() {
+        //    var opt = super.getSlickOptions();
+        //    opt.enableTextSelectionOnCells = true;
+        //    opt.showFooterRow = true;
+        //    return opt;
+        //}
+        protected createSlickGrid() {
+            var grid = super.createSlickGrid();
+            grid.registerPlugin(new Slick.Data.GroupItemMetadataProvider());
             this.view.setSummaryOptions({
                 aggregators: [
-                    new Slick.Aggregators.Sum('Expense'),
-                    new Slick.Aggregators.Avg('Weight')
+                    new Slick.Aggregators.Sum(fld.Expense),
+                    new Slick.Aggregators.Avg(fld.Weight)
                 ]
             });
-
-         
-            grid.onFooterRowCellRendered.subscribe((e, args) => {
-                if (args.column.field === 'Expense') {
-                    let totals = this.view.getSummary();
-                    let sum = totals['Expense']?.sum ?? 0;
-                    args.node.innerHTML = `<b>Total: ${sum}</b>`;
-                }
-                if (args.column.field === 'Weight') {
-                    let totals = this.view.getSummary();
-                    let Avg = totals['Weight']?.sum ?? 0;
-                    args.node.innerHTML = `<b>Total: ${Avg}</b>`;
-                }
-            });
-
             return grid;
         }
 

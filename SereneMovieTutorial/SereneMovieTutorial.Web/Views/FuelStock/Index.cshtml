@@ -1,0 +1,280 @@
+﻿@model SereneMovieTutorial.Reports.FuelStockModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Stock Report</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- Datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+
+    <!-- Select2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+    <style>
+        .filter-box {
+            background: #f5f5f5;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .datepicker {
+            z-index: 9999 !important;
+        }
+
+        /* REPORT STYLES */
+        .report-box {
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .report-title {
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #000;
+            padding: 5px;
+        }
+
+        .report-subtitle {
+            text-align: center;
+            border: 1px solid #000;
+            border-top: none;
+            padding: 5px;
+            font-weight: 500;
+        }
+
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+            .report-table th {
+                background-color: #00a65a;
+                color: white;
+                border: 1px solid #000;
+                padding: 5px;
+                text-align: center;
+            }
+
+            .report-table td {
+                border: 1px solid #000;
+                padding: 5px;
+            }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .total-row {
+            font-weight: bold;
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form method="get">
+        <div class="filter-box row">
+
+            <div class="col-md-12">
+                <h4 style="margin-top:0; font-weight:bold;">Stock Report</h4>
+            </div>
+
+            <!-- From Date -->
+            <div class="col-md-2">
+                <label>From Date</label>
+                <div class="input-group">
+                    <input type="text" id="FromDate" name="FromDate" class="form-control" />
+                    <span class="input-group-addon" id="fromIcon">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- To Date -->
+            <div class="col-md-2">
+                <label>To Date</label>
+                <div class="input-group">
+                    <input type="text" id="ToDate" name="ToDate" class="form-control" />
+                    <span class="input-group-addon" id="toIcon">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Is Summary -->
+            <div class="col-md-2">
+                <label>Is Summary</label>
+                <select id="IsSummary" name="IsSummary" class="form-control">
+                    <option value="">All</option>
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                </select>
+            </div>
+
+            <!-- Pump -->
+            <div class="col-md-2">
+                <label>Pump Name</label>
+                <select id="PumpId" name="PumpId" class="form-control">
+                    <option value="">-- Pump --</option>
+                </select>
+            </div>
+
+            <!-- Submit -->
+            <div class="col-md-2" style="margin-top:25px;">
+                <button type="submit" class="btn btn-info">🔍 Search</button>
+            </div>
+
+        </div>
+    </form>
+
+    <!-- REPORT -->
+    @if (Model.Data != null && Model.Data.Any())
+    {
+        decimal totalOpening = 0, totalInward = 0, totalOutward = 0, totalBalance = 0;
+
+        <div class="report-box">
+
+            <div class="report-title">STOCK REPORT</div>
+
+            <div class="report-subtitle">
+                For the Period:
+                @(Model.FromDate != null ? Model.FromDate.Value.ToString("dd-MM-yyyy") : "")
+                to
+                @(Model.ToDate != null ? Model.ToDate.Value.ToString("dd-MM-yyyy") : "")
+            </div>
+
+            <table class="report-table table table-bordered table-condensed">
+                <thead>
+                    <tr>
+                        <th>SNo</th>
+                        <th>Pump Name</th>
+                        <th>Opening Stock</th>
+                        <th>Inward</th>
+                        <th>Outward</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @for (int i = 0; i < Model.Data.Count; i++)
+                    {
+                        var row = Model.Data[i];
+
+                        totalOpening += row.OpeningStock;
+                        totalInward += row.Inward;
+                        totalOutward += row.Outward;
+                        totalBalance += row.Balance;
+
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@row.PumpName</td>
+                            <td class="text-right">@row.OpeningStock.ToString("0.00")</td>
+                            <td class="text-right">@row.Inward.ToString("0.00")</td>
+                            <td class="text-right">@row.Outward.ToString("0.00")</td>
+                            <td class="text-right">@row.Balance.ToString("0.00")</td>
+                        </tr>
+                    }
+
+                    <tr class="total-row">
+                        <td></td>
+                        <td>Total</td>
+                        <td class="text-right">@totalOpening.ToString("0.00")</td>
+                        <td class="text-right">@totalInward.ToString("0.00")</td>
+                        <td class="text-right">@totalOutward.ToString("0.00")</td>
+                        <td class="text-right">@totalBalance.ToString("0.00")</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    }
+
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+    <script type="text/javascript">
+    $("#FromDate").datepicker();
+    $("#ToDate").datepicker();
+    $(function () {
+        // Set default FromDate only if empty
+        if (!$('#FromDate').val()) {
+            $('#FromDate').val('01-04-2025');
+        }
+
+        // Set default ToDate to today only if empty
+        if (!$('#ToDate').val()) {
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0');
+            var yyyy = today.getFullYear();
+            var formattedToday = dd + '-' + mm + '-' + yyyy;
+            $('#ToDate').val(formattedToday);
+        }
+
+        // Set default IsSummary only if empty
+        if (!$('#IsSummary').val()) {
+            $('#IsSummary').val('1').trigger('change');
+        }
+    });
+        $.each(Q.getLookup("master.Pump").items, function (index, value) {
+         $('#PumpId').append($('<option>', {
+         value: value.Id
+         , text: value.VendorName
+          }));
+     });
+
+    $("#PumpId").select2(
+      {
+          placeholder: "-- Pump --",
+          allowClear: true,
+          minimumResultsForSearch: 10
+     }).select2("val", '@Model.PumpId');
+
+    $("#IsSummary").select2(
+      {
+          placeholder: "-- Auto Generated --",
+          allowClear: true,
+          minimumResultsForSearch: 10
+        })
+        .select2("val", '@Model.IsSummary')
+    $(document).ready(function () {
+        $("form").submit(function (e) {
+            var pumpId = $("#PumpId").val().trim();
+            var Type = $("#IsSummary").val().trim();
+
+            if (Type === "2") {
+                if (pumpId === "") {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Missing Field',
+                        text: 'Please select Pump!',
+                    });
+                    $("#PumpId").focus();
+                    return false;
+                }
+            }
+            return true; // Proceed with form submission if all fields are valid
+        });
+    });
+    </script>
+
+</body>
+</html>

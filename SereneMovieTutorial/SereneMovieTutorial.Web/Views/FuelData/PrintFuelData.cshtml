@@ -1,0 +1,297 @@
+﻿@model SereneMovieTutorial.FuelManagement.Entities.FuelDataRow
+
+@{
+    ViewBag.Title = "PrintFuelData";
+}
+<style>
+    .voucher {
+        width: 100%;
+        border: 2px solid #000;
+        border-collapse: collapse;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .label-box {
+        display: inline-block;
+        width: 160px; /* same width for all */
+        padding: 6px 10px;
+        border: 1px solid #000;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-bottom: 6px;
+    }
+
+    .voucher td {
+        border: 1px solid #000;
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .voucher .title {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .voucher .subtitle {
+        text-align: center;
+        font-size: 13px;
+    }
+
+    .voucher .section {
+        text-align: center;
+        font-weight: 700;
+        font-size: 15px;
+    }
+
+    .voucher .label {
+        font-weight: 700;
+        width: 180px;
+        color: black;
+        display: block; /* fill the cell */
+        padding: 6px 10px;
+        margin: 2px; /* remove spacing */
+        box-sizing: border-box;
+    }
+
+    .voucher td {
+        vertical-align: middle; /* align properly in row */
+    }
+
+    .voucher .right {
+        text-align: right;
+    }
+
+    .voucher .sign {
+        height: 90px;
+        vertical-align: bottom;
+        font-weight: 600;
+    }
+
+    .btn-original {
+        float: left;
+        background: #17a2b8;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 13px;
+    }
+
+    .btn-receivable {
+        float: right;
+        background: #17a2b8;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 13px;
+    }
+
+    @@media print {
+
+    .no-print{
+        display:none !important;
+    }
+
+    .print-section{
+        display:none;
+    }
+
+    .print-original #originalVoucher{
+        display:block;
+    }
+
+    .print-finance #financeVoucher{
+        display:block;
+    }
+
+}
+
+
+</style>
+<!-- BUTTONS -->
+<div class="voucher-buttons">
+
+    <button onclick="printOriginal()" class="btn-original no-print">
+        Print Original
+    </button>
+
+    <button onclick="printReceivable()" class="btn-receivable no-print">
+        Print Receivable
+    </button>
+
+</div>
+<div id="originalVoucher" class="print-section">
+    <table class="voucher">
+
+        <tr>
+            <td colspan="4" class="title">SHREE CHADDA ROADLINES</td>
+        </tr>
+
+        <tr>
+            <td colspan="4" class="subtitle">
+                Near M.I.D.C Ghugus Road, Khutala, Chandrapur - 442406 (M.S.)
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="4" class="section">DA VOUCHER</td>
+        </tr>
+
+        <tr>
+            <td class="label">Voucher Invoice No</td>
+            <td>@Model.InvoiceNo</td>
+
+            <td class="label right">Date</td>
+            <td>@Model.InvoiceDate</td>
+        </tr>
+
+        <tr>
+            <td class="label">Account Id</td>
+            <td>0192 @Model.Id</td>
+
+            <td class="label right">Tanker No</td>
+            <td>@Model.TankerNo</td>
+        </tr>
+
+        <tr>
+            <td class="label">Qty / KL</td>
+            <td>@Model.QtyKl</td>
+
+            <td class="label right">Rate / KL</td>
+            <td>@Model.RateKl</td>
+        </tr>
+
+        <tr>
+            <td class="label">Basic Amount</td>
+            <td colspan="3">@Model.BasicAmount</td>
+        </tr>
+
+        <tr>
+            <td class="label">Transport Amount</td>
+            <td colspan="3">@Model.TransportationAmt</td>
+        </tr>
+
+        <tr>
+            <td class="label">Receipt Date</td>
+            <td colspan="3">@Model.ReceiptDate</td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="sign">Cashier</td>
+            <td colspan="2" class="sign right">Receiver</td>
+        </tr>
+
+    </table>
+</div>
+
+
+
+<br />
+<br />
+
+
+<div class="voucher-buttons">
+
+    <button onclick="printOriginal2()" class="btn-original no-print">
+        Print Original
+    </button>
+
+    <button onclick="printReceivable2()" class="btn-receivable no-print">
+        Print Receivable
+    </button>
+
+</div>
+<div id="financeVoucher" class="print-section">
+
+    <table class="voucher" style="margin-top:10px;">
+
+        <tr>
+            <td colspan="4" style="text-align:center; font-weight:700; font-size:15px;">
+                FINANCE DETAILS
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label">Transporter Id</td>
+            <td>049AD1232</td>
+
+            <td class="label right">Party Id</td>
+            <td>258769</td>
+        </tr>
+
+        <tr>
+            <td class="label">Tds Payable</td>
+            <td>1813838203.54</td>
+
+            <td class="label right">Tds Account Id</td>
+            <td>45789545214</td>
+        </tr>
+        <tr>
+            <td class="label">Tds Payable</td>
+            <td>1813838203.54</td>
+        </tr>
+        <tr>
+            <td class="label right">
+                Tds Percent
+            </td>
+            <td>24%</td>
+        </tr>
+        <tr>
+            <td class="label right">
+                Tds Amount
+            </td>
+            <td>4566541</td>
+        </tr>
+
+        <tr>
+            <td class="label">Total Amount</td>
+            <td colspan="3" style="font-weight:bold;">
+                20251562648
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+
+<!--ssssssssssssssssssssssssssssssssss-->
+
+
+
+
+<script>
+
+    function printOriginal() {
+
+        document.body.classList.remove("print-finance");
+        document.body.classList.add("print-original");
+
+        window.print();
+    }
+
+    function printReceivable() {
+
+        document.body.classList.remove("print-finance");
+        document.body.classList.add("print-original");
+
+        window.print();
+    }
+    function printOriginal2() {
+
+        document.body.classList.remove("print-original");
+        document.body.classList.add("print-finance");
+
+        window.print();
+    }
+
+    function printReceivable2() {
+
+        document.body.classList.remove("print-original");
+        document.body.classList.add("print-finance");
+
+        window.print();
+    }
+
+</script>

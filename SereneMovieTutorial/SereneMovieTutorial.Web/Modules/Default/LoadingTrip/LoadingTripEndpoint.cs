@@ -10,6 +10,7 @@ namespace SereneMovieTutorial.Default.Endpoints
     using System.Data;
     using System.Linq;
     using System.Web.Mvc;
+    using System.Web.Security;
     using MyRepository = Repositories.LoadingTripRepository;
     using MyRow = Entities.LoadingTripRow;
 
@@ -59,34 +60,34 @@ namespace SereneMovieTutorial.Default.Endpoints
             return response;
         }
 
-        
-        public class VehicleDetailsRequest : ServiceRequest
-        {
-            public int VehicleId { get; set; }
-        }
 
 
-        public class VehicleDetailsResponse : ServiceResponse
-        {
-            public VehicleMasterRow Details { get; set; }
-        }
 
         public BranchResponse GetBranch()
         {
-            var response = new BranchResponse
-            {
-                BranchName = (string)Session["BranchName"],
-                BranchId = (int)Session["BranchId"]
-            };
+            var response = new BranchResponse();
+                // Fallback: read from FormsAuthentication cookie
+                var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+                if (authCookie != null)
+                {
+                    var ticket = FormsAuthentication.Decrypt(authCookie.Value);
+                    if (!string.IsNullOrEmpty(ticket.UserData))
+                    {
+                        var parts = ticket.UserData.Split('|');
+                        if (parts.Length >= 2)
+                        {
+                            response.BranchId = int.Parse(parts[0]);
+                            response.BranchName = parts[1];
+                            // optional: if you also stored financial year
+                            // response.FinancialYear = parts.Length > 2 ? parts[2] : null;
+                        }
+                    }
+                }
+
             return response;
         }
-        public class BranchResponse: ServiceResponse
-        {
-            public String BranchName { get; set; }
-            public int BranchId { get; set; }
-        }
 
-     
+
 
 
         [HttpPost]
@@ -113,30 +114,92 @@ namespace SereneMovieTutorial.Default.Endpoints
             }
             return response;
         }
-        public class ExpenseRequest : ServiceRequest
+
+
+        //[HttpPost]
+        //public object GetWeightSummary(IUnitOfWork uow)
+        //{
+        //    return new LoadingTripRepository().GetWeightSummary(uow.Connection);
+        //}
+        public LoadingDetailsResponses GetLoadingTripDetails(
+   IDbConnection connection, LoadingTripDetailsRequests request)
         {
-            public int PlantId { get; set; }
-            public int DistrictId { get; set; }
-            public int DestinationId { get; set; }
-            public int Wheels { get; set; }
-            public decimal Weight { get; set; }
+            var response = new LoadingDetailsResponses();
+
+            try
+            {
+                var fld = LoadingTripRow.Fields;
+
+                var loadingTripData = connection.TryFirst<LoadingTripRow>(
+                    fld.LoadingTripId == request.LoadingTripId &&
+                    fld.VehicleId == request.VehicleId);
+
+                if (loadingTripData != null)
+                {
+                    response.Details = loadingTripData;
+                }
+                else
+                {
+                    response.ErrorMsg = "Vehicle does not match this trip!";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.ErrorMsg = ex.Message;
+            }
+
+            return response;
         }
 
-        public class ExpenseResponse : ServiceResponse
-        {
-              public ExpenseRow Details { get; set; }
-            public string ErrorMsg { get; internal set; }
 
-        }
-
-        [HttpPost]
-        public object GetWeightSummary(IUnitOfWork uow)
-        {
-            return new LoadingTripRepository().GetWeightSummary(uow.Connection);
-        }
 
 
 
 
     }
+    public class ExpenseRequest : ServiceRequest
+    {
+        public int PlantId { get; set; }
+        public int DistrictId { get; set; }
+        public int DestinationId { get; set; }
+        public int Wheels { get; set; }
+        public decimal Weight { get; set; }
+    }
+
+    public class ExpenseResponse : ServiceResponse
+    {
+        public ExpenseRow Details { get; set; }
+        public string ErrorMsg { get; internal set; }
+
+    }
+    public class BranchResponse : ServiceResponse
+    {
+        public String BranchName { get; set; }
+        public int BranchId { get; set; }
+    }
+    public class VehicleDetailsRequest : ServiceRequest
+    {
+        public int VehicleId { get; set; }
+    }
+
+
+    public class VehicleDetailsResponse : ServiceResponse
+    {
+        public VehicleMasterRow Details { get; set; }
+    }
+    public class LoadingTripDetailsRequests : ServiceRequest
+    {
+        public int LoadingTripId { get; set; }
+        public int VehicleId { get; set; }
+    }
+
+    public class LoadingDetailsResponses : ServiceResponse
+    {
+        public LoadingTripRow Details { get; set; }
+        public string ErrorMsg { get; set; }
+    }
+
+
+
+
 }

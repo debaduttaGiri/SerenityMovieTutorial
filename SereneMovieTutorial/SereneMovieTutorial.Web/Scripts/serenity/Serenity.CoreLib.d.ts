@@ -2696,6 +2696,7 @@ declare namespace Slick {
 }
 declare namespace Slick {
     class Grid {
+        slickGrid: any;
         constructor(container: JQuery, data: any, columns: Column[], options: GridOptions);
     }
     interface ColumnSort {

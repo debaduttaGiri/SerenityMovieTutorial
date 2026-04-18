@@ -1,9 +1,11 @@
 ﻿using Serenity.Navigation;
 using MyPages = SereneMovieTutorial.Default.Pages;
+using MyPage = SereneMovieTutorial.FuelManagement.Pages;
 using myController = SereneMovieTutorial.Reports;
 //[assembly: NavigationMenu(int.MaxValue, "Movie Database", icon: "fa-film")]
-[assembly: NavigationMenu(int.MaxValue -1, "DailyWork", icon: "glyphicon glyphicon-tasks")]
+[assembly: NavigationMenu(int.MaxValue -1, "DailyWork", icon: "fa-line-chart")]
 [assembly: NavigationLink(int.MaxValue, "DailyWork/Loading Trip", typeof(MyPages.LoadingTripController), icon: "fas fa-truck")]
+[assembly: NavigationLink(int.MaxValue-1, "Fuel Management", typeof(MyPage.FuelDataController), icon: "fa fa-tint")]
 [assembly: NavigationMenu(int.MaxValue - 1, "Movie", icon: "glyphicon glyphicon-film")]
 [assembly: NavigationLink(int.MaxValue, "Movie/Movies", typeof(MyPages.MovieController), icon: "fa-video-camera")]
 [assembly: NavigationLink(int.MaxValue , "Movie/Genre", typeof(MyPages.GenreController), icon: "fa-thumb-tack")]
@@ -14,14 +16,26 @@ using myController = SereneMovieTutorial.Reports;
 [assembly: NavigationLink(int.MaxValue, "Master/Distict", typeof(MyPages.DistictController), icon: "fa fa-map-marker")]
 [assembly: NavigationLink(int.MaxValue, "Master/Destination", typeof(MyPages.DestinationController), icon: "fa fa-location-arrow")]
 [assembly: NavigationLink(int.MaxValue, "Master/Expense", typeof(MyPages.ExpenseController), icon: "fa fa-money")]
-[assembly: NavigationMenu(int.MaxValue - 1, "Reports", icon: "fas fa-file")]
+//[assembly: NavigationMenu(int.MaxValue - 1, "Reports", icon: "fas fa-file")]
+
 [assembly: NavigationLink(int.MaxValue, "Master/Vehicle ", typeof(MyPages.VehicleMasterController), icon: "fas fa-truck")]
 [assembly: NavigationLink(int.MaxValue, "Master/Owner ", typeof(MyPages.CustomerMasterController), icon: "fas fa-address-card")]
-[assembly: NavigationLink(int.MaxValue - 1, "Reports/Generate Report", url: "~/Reports/CustomerVehicleReport/GetCustId", permission: "Reports:CustomerVehicle", icon: "fas fa-address-card")]
-[assembly: NavigationLink(int.MaxValue, "Master/Branch", typeof(MyPages.BranchMasterController), icon: "fa fa-industry")]
+//[assembly: NavigationLink(int.MaxValue-1 , "Reports/Generate Report", url: "~/Reports/CustomerVehicleReport/GetCustId", permission: "*", icon: "fas fa-address-card")]
+
+[assembly: NavigationLink(int.MaxValue, "Master/Branch", typeof(MyPages.BranchMasterController), icon: "fa-building-o")]
 [assembly: NavigationLink(int.MaxValue, "Master/State", typeof(MyPages.StateMasterController), icon: "fa fa-map")]
 [assembly: NavigationLink(int.MaxValue, "Master/Item", typeof(MyPages.ItemMasterController), icon: "fa fa-cube")]
 [assembly: NavigationLink(int.MaxValue, "Master/Financial Year", typeof(MyPages.FinancialYearController), icon: "glyphicon glyphicon-calendar")]
-[assembly: NavigationLink(int.MaxValue, "Default/Customer", typeof(MyPages.CustomerController), icon: null)]
+//[assembly: NavigationLink(int.MaxValue, "Default/Customer", typeof(MyPages.CustomerController), icon: "fa-optin-monster")]
 //[assembly: NavigationMenu(2000, "Default", icon: "fa-folder")]
 //[assembly: NavigationLink(2100, "Default/Customer",typeof(MyPages.CustomerController),icon: "fa-users", permission: "Default:Customer:View")]
+[assembly: NavigationLink(int.MaxValue, "Master/Pump", typeof(MyPages.PumpmasterController), icon: "fa-fire-extinguisher")]
+[assembly: NavigationLink(int.MaxValue, "Master/Party", typeof(MyPages.PartyMasterController), icon: "fa-industry")]
+[assembly: NavigationLink(int.MaxValue, "DailyWork/PendingUnload Trip", typeof(MyPages.VLoadingTripDetailsController), icon: "fa-gg-circle")]
+[assembly: NavigationLink(int.MaxValue, "DailyWork/Unload Trip", typeof(MyPages.UnloadTripController), icon: "fa-check-circle-o")]
+[assembly: NavigationLink(int.MaxValue, "Master/Unit", typeof(MyPages.UnitController), icon: "fa fa-cube")]
+[assembly: NavigationLink(int.MaxValue, "DailyWork/Pending Trip Details Invoice", typeof(MyPages.PendingTripDetailsInvoiceController), icon: "fa-hourglass-half")]
+[assembly: NavigationLink(int.MaxValue, "DailyWork/ManageInvoice", typeof(MyPages.ManageinvoiceController), icon: "fa fa-paperclip")]
+//[assembly: NavigationLink(int.MaxValue, "DailyWork/InvoiceDetails", typeof(MyPages.InvoicedetailsController), icon: "fa fa-book")]
+[assembly: NavigationLink(int.MaxValue, "Master/Tax", typeof(MyPages.TaxController), icon: "fa fa-clipboard-list")]
+[assembly: NavigationLink(int.MaxValue, "Master/Maintenance Head", typeof(MyPages.MaintenanceHeadController), icon: "fa fa-cube")]

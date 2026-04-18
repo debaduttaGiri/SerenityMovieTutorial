@@ -10,7 +10,7 @@
         export declare function GetVehicleDetails(request: VehicleDetailsRequest, onSuccess?: (response: VehicleDetailsResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function GetBranch(request: Serenity.ServiceRequest, onSuccess?: (response: BranchResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function GetExpenseByRoute(request: ExpenseRequest, onSuccess?: (response: ExpenseResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        export declare function GetWeightSummary(request: Serenity.ServiceRequest, onSuccess?: (response: System.Object) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        export declare function GetLoadingTripDetails(request: LoadingTripDetailsRequests, onSuccess?: (response: LoadingDetailsResponses) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
 
         export declare const enum Methods {
             Create = "Default/LoadingTrip/Create",
@@ -21,7 +21,7 @@
             GetVehicleDetails = "Default/LoadingTrip/GetVehicleDetails",
             GetBranch = "Default/LoadingTrip/GetBranch",
             GetExpenseByRoute = "Default/LoadingTrip/GetExpenseByRoute",
-            GetWeightSummary = "Default/LoadingTrip/GetWeightSummary"
+            GetLoadingTripDetails = "Default/LoadingTrip/GetLoadingTripDetails"
         }
 
         [
@@ -33,7 +33,7 @@
             'GetVehicleDetails', 
             'GetBranch', 
             'GetExpenseByRoute', 
-            'GetWeightSummary'
+            'GetLoadingTripDetails'
         ].forEach(x => {
             (<any>LoadingTripService)[x] = function (r, s, o) {
                 return Q.serviceRequest(baseUrl + '/' + x, r, s, o);

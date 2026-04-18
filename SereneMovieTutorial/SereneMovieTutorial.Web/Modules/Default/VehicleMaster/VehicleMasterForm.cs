@@ -27,7 +27,8 @@ namespace SereneMovieTutorial.Default.Forms
         public DateTime InsuranceExpiryDate { get; set; }
         public Int32Field Wheels { get; set; }
         public Boolean IsActive { get; set; }
-        [Hidden]
-        public DateTime CreatedDate { get; set; } = DateTime.Now.Date;
+        [ReadOnly(true)]
+        [DefaultValue("today")]
+        public DateTime CreatedDate { get; set; }//= DateTime.Now;//DateTime.Now.Date;
     }
 }

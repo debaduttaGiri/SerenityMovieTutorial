@@ -1,6 +1,7 @@
 ﻿namespace SereneMovieTutorial.Default {
     export interface GenreForm {
         Name: Serenity.StringEditor;
+        Dates: Serenity.StringEditor;
     }
 
     export class GenreForm extends Serenity.PrefixedContext {
@@ -17,7 +18,8 @@
                 var w0 = s.StringEditor;
 
                 Q.initFormType(GenreForm, [
-                    'Name', w0
+                    'Name', w0,
+                    'Dates', w0
                 ]);
             }
         }

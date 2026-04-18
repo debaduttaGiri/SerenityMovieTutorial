@@ -1,0 +1,63 @@
+﻿
+namespace SereneMovieTutorial.Inventry {
+    export interface ItemRow {
+        Id?: number;
+        Partnumber?: string;
+        Partname?: string;
+        Openingstock?: number;
+        Rate?: number;
+        Stocklvlminimum?: number;
+        Stocklvlmaximum?: number;
+        Purchasestock?: number;
+        GrossPrice?: number;
+        Balancestock?: number;
+        Createdby?: number;
+        Createdat?: string;
+        Updatedby?: number;
+        Updatedat?: number;
+    }
+
+    export namespace ItemRow {
+        export const idProperty = 'Id';
+        export const nameProperty = 'Partnumber';
+        export const localTextPrefix = 'Inventry.Item';
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
+
+        export namespace Fields {
+            export declare const Id;
+            export declare const Partnumber;
+            export declare const Partname;
+            export declare const Openingstock;
+            export declare const Rate;
+            export declare const Stocklvlminimum;
+            export declare const Stocklvlmaximum;
+            export declare const Purchasestock;
+            export declare const GrossPrice;
+            export declare const Balancestock;
+            export declare const Createdby;
+            export declare const Createdat;
+            export declare const Updatedby;
+            export declare const Updatedat;
+        }
+
+        [
+            'Id',
+            'Partnumber',
+            'Partname',
+            'Openingstock',
+            'Rate',
+            'Stocklvlminimum',
+            'Stocklvlmaximum',
+            'Purchasestock',
+            'GrossPrice',
+            'Balancestock',
+            'Createdby',
+            'Createdat',
+            'Updatedby',
+            'Updatedat'
+        ].forEach(x => (<any>Fields)[x] = x);
+    }
+}

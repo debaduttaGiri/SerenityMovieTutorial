@@ -13,7 +13,7 @@ using System.Web.Mvc;
 
 namespace SereneMovieTutorial.Reports
 {
-    [RoutePrefix("Reports/CustomerVehicleReport")]
+    [RoutePrefix("Default/Reports/CustomerVehicleReport")]
     //[Route("{action=GetCustId}")]
     public class CustomerVehicleReportController : Controller
     {
@@ -51,7 +51,18 @@ namespace SereneMovieTutorial.Reports
                 SqlCommand cmd = new SqlCommand("sp_CustomerVehicleReport", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id", id);
+                if (id != 0)
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+                }
+                else
+                {
+                    return View(new CustomerSelectionViewModel
+                    {
+                        Customers = list,
+                        Vehicles = new List<CustomerVehicleReportModel>()
+                    });
+                }
 
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();

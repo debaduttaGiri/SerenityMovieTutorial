@@ -5,14 +5,14 @@
     }
 
     export interface VehicleDetailsResponse extends Serenity.ServiceResponse {
-        Details?: VehicleDetailsDto;
+        Details?: VehicleMasterRow;
     }
 
-    export interface VehicleDetailsDto {
-        CustomerId?: number;
-        Wheels?: number;
-        //Weight?: number;
-    }
+    //export interface VehicleDetailsDto {
+    //    CustomerId?: number;
+    //    Wheels?: number;
+    //    Weight?: number;
+    //}
     export interface ExpenseLookupRequest extends Serenity.ServiceRequest {
         PlantId?: number;
         DistrictId?: number;

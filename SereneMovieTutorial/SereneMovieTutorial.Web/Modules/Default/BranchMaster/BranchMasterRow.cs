@@ -38,22 +38,22 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.BranchCode[this] = value; }
         }
 
-        [DisplayName("Gst No")]
-        public Int32? GstNo
+        [DisplayName("GST No"), Size(15),NotNull]
+        public string GstNo
         {
             get { return Fields.GstNo[this]; }
             set { Fields.GstNo[this] = value; }
         }
 
-        [DisplayName("Pan No"), NotNull]
-        public Int32? PanNo
+        [DisplayName("PAN No"), Size(10),NotNull]
+        public string PanNo
         {
             get { return Fields.PanNo[this]; }
             set { Fields.PanNo[this] = value; }
         }
 
-        [DisplayName("Phone Number")]
-        public Int32? PhoneNumber
+        [DisplayName("Phone Number"), Size(15)]
+        public string PhoneNumber
         {
             get { return Fields.PhoneNumber[this]; }
             set { Fields.PhoneNumber[this] = value; }
@@ -87,7 +87,7 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Remarks[this] = value; }
         }
 
-        [DisplayName("State"), NotNull, ForeignKey("[dbo].[StateMaster]", "Id"), LeftJoin("jState"), TextualField("State1")]
+        [DisplayName("State"), NotNull, ForeignKey("[dbo].[StateMaster]", "Id"), LeftJoin("jState"), TextualField("State1")][LookupInclude]
         public Int32? StateId
         {
             get { return Fields.StateId[this]; }
@@ -137,9 +137,9 @@ namespace SereneMovieTutorial.Default.Entities
             public Int32Field Id;
             public StringField BranchName;
             public StringField BranchCode;
-            public Int32Field GstNo;
-            public Int32Field PanNo;
-            public Int32Field PhoneNumber;
+            public StringField GstNo;
+            public StringField PanNo;
+            public StringField PhoneNumber;
             public Int32Field PinCode;
             public StringField Address;
             public StringField State;

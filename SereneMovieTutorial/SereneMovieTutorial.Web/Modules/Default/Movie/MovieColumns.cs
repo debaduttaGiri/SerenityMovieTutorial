@@ -29,8 +29,12 @@ namespace SereneMovieTutorial.Default.Columns
         public MovieKind Kind { get; set; }
         //[QuickFilter]
         //public string GenreName { get; set; }
-        [Width(200), GenreListFormatter,QuickFilter]
+        //[Width(200), GenreListFormatter,QuickFilter]
+        //public List<int> GenreList { get; set; }
+        [Width(200)]
+        [GenreListFormatter]
+        [QuickFilter]
         public List<int> GenreList { get; set; }
-        
+
     }
 }

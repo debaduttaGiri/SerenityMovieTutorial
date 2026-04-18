@@ -1,6 +1,8 @@
 ﻿{
   "compileOnSave": true,
   "compilerOptions": {
+    //"esModuleInterop": true,
+    //"allowSyntheticDefaultImports": true,
     "preserveConstEnums": true,
     "experimentalDecorators": true,
     "declaration": true,
@@ -9,21 +11,20 @@
     "sourceMap": true,
     "outFile": "Scripts/site/SereneMovieTutorial.Web.js",
     "target": "es5",
-    "module": "system", //added
+    "module": "system",
+    "skipLibCheck": true,
+    "types": [],
     "typeRoots": [
       "./node_modules/@types/"
     ]
   },
-  //"include": [
-  //  "./Imports/",
-  //  "./Modules/",
-  //  "./Scripts/typings/"
-  //]
   "include": [
     "./Imports/",
     "./Modules/",
     "./Scripts/typings/",
-    "./Serenity.CoreLib/" 
-
+    "./Serenity.CoreLib/"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

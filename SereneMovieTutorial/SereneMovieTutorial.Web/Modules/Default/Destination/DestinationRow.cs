@@ -24,7 +24,7 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Plant"), NotNull, ForeignKey("[dbo].[Plant]", "Id"), LeftJoin("jPlant"), TextualField("Plant1")]
+        [DisplayName("Plant"), NotNull, ForeignKey("[dbo].[Plant]", "Id"), LeftJoin("jPlant"), TextualField("Plant")]
         [LookupEditor(typeof(PlantRow))]
         public Int32? Plant
         {
@@ -32,7 +32,7 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Plant[this] = value; }
         }
 
-        [DisplayName("Distict"), NotNull, ForeignKey("[dbo].[Distict]", "Id"), LeftJoin("jDistict"), TextualField("Distict1"),LookupInclude]
+        [DisplayName("Distict"), NotNull, ForeignKey("[dbo].[Distict]", "Id"), LeftJoin("jDistict"), TextualField("Distict"),LookupInclude]
         [LookupEditor(typeof(DistictRow), CascadeFrom = "Plant", CascadeField = "Plant")]
         public Int32? Distict
         {
@@ -54,40 +54,40 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Remarks[this] = value; }
         }
 
-        [DisplayName("Plant"), Expression("jPlant.[Plant]")]
-        public String Plant1
-        {
-            get { return Fields.Plant1[this]; }
-            set { Fields.Plant1[this] = value; }
-        }
+        //[DisplayName("Plant"), Expression("jPlant.[Plant]")]
+        //public String Plant1
+        //{
+        //    get { return Fields.Plant1[this]; }
+        //    set { Fields.Plant1[this] = value; }
+        //}
 
-        [DisplayName("Plant Remarks"), Expression("jPlant.[Remarks]")]
-        public String PlantRemarks
-        {
-            get { return Fields.PlantRemarks[this]; }
-            set { Fields.PlantRemarks[this] = value; }
-        }
+        //[DisplayName("Plant Remarks"), Expression("jPlant.[Remarks]")]
+        //public String PlantRemarks
+        //{
+        //    get { return Fields.PlantRemarks[this]; }
+        //    set { Fields.PlantRemarks[this] = value; }
+        //}
 
-        [DisplayName("Distict Plant"), Expression("jDistict.[Plant]")]
-        public Int32? DistictPlant
-        {
-            get { return Fields.DistictPlant[this]; }
-            set { Fields.DistictPlant[this] = value; }
-        }
+        //[DisplayName("Distict Plant"), Expression("jDistict.[Plant]")]
+        //public Int32? DistictPlant
+        //{
+        //    get { return Fields.DistictPlant[this]; }
+        //    set { Fields.DistictPlant[this] = value; }
+        //}
 
-        [DisplayName("Distict"), Expression("jDistict.[Distict]")]
-        public String Distict1
-        {
-            get { return Fields.Distict1[this]; }
-            set { Fields.Distict1[this] = value; }
-        }
+        //[DisplayName("Distict"), Expression("jDistict.[Distict]")]
+        //public String Distict1
+        //{
+        //    get { return Fields.Distict1[this]; }
+        //    set { Fields.Distict1[this] = value; }
+        //}
 
-        [DisplayName("Distict Remarks"), Expression("jDistict.[Remarks]")]
-        public String DistictRemarks
-        {
-            get { return Fields.DistictRemarks[this]; }
-            set { Fields.DistictRemarks[this] = value; }
-        }
+        //[DisplayName("Distict Remarks"), Expression("jDistict.[Remarks]")]
+        //public String DistictRemarks
+        //{
+        //    get { return Fields.DistictRemarks[this]; }
+        //    set { Fields.DistictRemarks[this] = value; }
+        //}
 
         IIdField IIdRow.IdField
         {
@@ -114,12 +114,12 @@ namespace SereneMovieTutorial.Default.Entities
             public StringField Destination;
             public StringField Remarks;
 
-            public StringField Plant1;
-            public StringField PlantRemarks;
+            //public StringField Plant1;
+            //public StringField PlantRemarks;
 
-            public Int32Field DistictPlant;
-            public StringField Distict1;
-            public StringField DistictRemarks;
+            //public Int32Field DistictPlant;
+            //public StringField Distict1;
+            //public StringField DistictRemarks;
         }
     }
 }

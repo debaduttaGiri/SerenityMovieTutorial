@@ -18,13 +18,14 @@ namespace SereneMovieTutorial.Default.Entities
     {
         [DisplayName("Id"), Identity]
         [SortOrder(1,descending:true)]
+        [LookupEditor(typeof(PlantRow))]
         public Int32? Id
         {
             get { return Fields.Id[this]; }
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Plant"), NotNull, ForeignKey("[dbo].[Plant]", "Id"), LeftJoin("jPlant"), TextualField("Plant1"),LookupInclude]
+        [DisplayName("Plant"), NotNull, ForeignKey("[dbo].[Plant]", "Id"), LeftJoin("jPlant"), TextualField("Plant"),LookupInclude]
         [LookupEditor(typeof(PlantRow))]
         public Int32? Plant
         {
@@ -46,19 +47,19 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Remarks[this] = value; }
         }
 
-        [DisplayName("Plant"), Expression("jPlant.[Plant]")]
-        public String Plant1
-        {
-            get { return Fields.Plant1[this]; }
-            set { Fields.Plant1[this] = value; }
-        }
+        //[DisplayName("Plant"), Expression("jPlant.[Plant]")]
+        //public String Plant1
+        //{
+        //    get { return Fields.Plant1[this]; }
+        //    set { Fields.Plant1[this] = value; }
+        //}
 
-        [DisplayName("Plant Remarks"), Expression("jPlant.[Remarks]")]
-        public String PlantRemarks
-        {
-            get { return Fields.PlantRemarks[this]; }
-            set { Fields.PlantRemarks[this] = value; }
-        }
+        //[DisplayName("Plant Remarks"), Expression("jPlant.[Remarks]")]
+        //public String PlantRemarks
+        //{
+        //    get { return Fields.PlantRemarks[this]; }
+        //    set { Fields.PlantRemarks[this] = value; }
+        //}
 
         IIdField IIdRow.IdField
         {
@@ -84,8 +85,7 @@ namespace SereneMovieTutorial.Default.Entities
             public StringField Distict;
             public StringField Remarks;
 
-            public StringField Plant1;
-            public StringField PlantRemarks;
+            
         }
     }
 }

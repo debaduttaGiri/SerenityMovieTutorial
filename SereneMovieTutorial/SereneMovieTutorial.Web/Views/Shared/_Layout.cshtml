@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Security;
+<!DOCTYPE html>
 @{
     Func<string, IHtmlString> json = x => new HtmlString(Serenity.JSON.Stringify(x));
     var hideNav = Request["hideNav"] == "1";
@@ -30,7 +31,7 @@
         $.datepicker.setDefaults({
             showOn: "both",
             buttonImageOnly: true,
-            buttonImage: "../../Content/serenity/images/calendar-day.png",
+            buttonImage: "../../Content/serenity/images/datepicker.png",
             buttonText: "Calendar",
             dateFormat: "dd-mm-yy"
         });
@@ -62,7 +63,7 @@
                     <span class="logo-lg" style="display:flex; align-items:center; gap:8px;">
                         <img src="~/Content/site/images/Tranzol.jpeg"
                              alt="Logo"
-                             style="height:30px;" />
+                             style="height:33px; border-radius:11px;" />
 
                         <span style="font-size:25px; font-weight:600;padding:16px;">
                             Tranzol
@@ -75,9 +76,31 @@
                         <span class="sr-only">Toggle navigation</span>
 
                     </a>
+                    @*@{
+                            var branchName = Session["BranchName"] as string;
+                        }*@
                     @{
-                        var branchName = Session["BranchName"] as string;
+                        var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+                        string branchId = "";
+                        string branchName = "";
+                        string financialYear = "";
+
+                        if (authCookie != null)
+                        {
+                            var ticket = FormsAuthentication.Decrypt(authCookie.Value);
+                            var parts = ticket.UserData.Split('|');
+                            if (parts.Length == 3)
+                            {
+                                branchId = parts[0];
+                                branchName = parts[1];
+                                financialYear = parts[2];
+                            }
+                        }
                     }
+
+                    @*<span>Branch: @branchName (@branchId)</span>
+                        <span>Year: @financialYear</span>*@
+
 
                     <ul class="nav navbar-nav">
                         @if (!string.IsNullOrEmpty(branchName))
@@ -88,19 +111,19 @@
                         }
                     </ul>
 
-                    
+
                     @{
-                        var FinancialYear = Session["FinancialYear"] as string;
+                        var FinancialYear = financialYear; //Session["FinancialYear"] as string;
                     }
 
                     @*<ul class="nav navbar-nav">
-                        @if (!string.IsNullOrEmpty(FinancialYear))
-                        {
-                            <li class="navbar-Year-right">
-                                <span class="year-text">@FinancialYear</span>
-                            </li>
-                        }
-                    </ul>*@
+                            @if (!string.IsNullOrEmpty(FinancialYear))
+                            {
+                                <li class="navbar-Year-right">
+                                    <span class="year-text">@FinancialYear</span>
+                                </li>
+                            }
+                        </ul>*@
 
 
 
@@ -109,11 +132,12 @@
                         <ul class="nav navbar-nav">
                             @if (!string.IsNullOrEmpty(FinancialYear))
                             {
-                             <li>
-                                 <a href="#" class="year-text" style="pointer-events:none;">
-                                    @FinancialYear
-                                  </a>
-                              </li>}
+                                <li>
+                                    <a href="#" class="year-text" style="pointer-events:none;">
+                                        @FinancialYear
+                                    </a>
+                                </li>
+                            }
 
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -232,7 +256,7 @@
         doLayout();
     });
         </script>
-       
+
     }
 </body>
 </html>

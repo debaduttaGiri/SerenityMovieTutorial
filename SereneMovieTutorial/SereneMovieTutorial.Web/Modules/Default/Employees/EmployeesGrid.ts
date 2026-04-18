@@ -17,9 +17,15 @@ namespace SereneMovieTutorial.Default {
                 name: "S. No",
                 format: ctx => (ctx.row + 1).toString()
             });
+            var employee = Q.first(columns, x => x.field == "FullName");
+
+            employee.format = ctx => {
+                return "<i class='fa fa-user text-danger'></i> " + ctx.value;
+            };
 
             return columns;
         }
+        
 
 
         constructor(container: JQuery) {

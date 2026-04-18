@@ -123,7 +123,7 @@ namespace SereneMovieTutorial.Default.Endpoints
                     BaseColor bg = alternate ? rowColor1 : rowColor2;
 
                     AddCell(table, serial.ToString(), bodyFont, bg);
-                    AddCell(table, item.Plant1 ?? "", bodyFont, bg);
+                    //AddCell(table, item.Plant ?? "", bodyFont, bg);
                     AddCell(table, item.Distict ?? "", bodyFont, bg);
                     AddCell(table, item.Remarks ?? "", bodyFont, bg);
 

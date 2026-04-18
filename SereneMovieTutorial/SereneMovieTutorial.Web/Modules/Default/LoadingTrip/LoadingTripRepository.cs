@@ -45,13 +45,13 @@ namespace SereneMovieTutorial.Default.Repositories
         }
         private class MyDeleteHandler : DeleteRequestHandler<MyRow> { }
         private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> {
-            protected override void OnReturn()
-            {
-                base.OnReturn();
+            //protected override void OnReturn()
+            //{
+            //    base.OnReturn();
 
-                var branch = System.Web.HttpContext.Current.Session["BranchName"];
-                       Response.Entity.Branch = branch.ToString();
-            }
+            //    var branch = System.Web.HttpContext.Current.Session["BranchName"];
+            //           Response.Entity.Branch = branch.ToString();
+            //}
         }
         private class MyListHandler : ListRequestHandler<MyRow> {
             protected override void ApplyFilters(SqlQuery query)

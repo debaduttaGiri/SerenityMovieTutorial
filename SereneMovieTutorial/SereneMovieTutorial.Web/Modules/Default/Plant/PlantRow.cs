@@ -18,6 +18,7 @@ namespace SereneMovieTutorial.Default.Entities
     {
         [DisplayName("Id"), Identity,LookupInclude]
         [SortOrder(1, descending: true)]
+        [LookupEditor(typeof(PlantRow))]
         public Int32? Id
         {
             get { return Fields.Id[this]; }
@@ -25,6 +26,7 @@ namespace SereneMovieTutorial.Default.Entities
         }
 
         [DisplayName("Plant"), Size(20), QuickSearch,NotNull]
+        
         public String Plant
         {
             get { return Fields.Plant[this]; }

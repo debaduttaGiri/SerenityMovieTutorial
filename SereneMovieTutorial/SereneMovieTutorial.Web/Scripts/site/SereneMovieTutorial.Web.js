@@ -388,8 +388,8 @@ var SereneMovieTutorial;
                     Q.initFormType(BranchMasterForm, [
                         'BranchName', w0,
                         'BranchCode', w0,
-                        'GstNo', w1,
-                        'PanNo', w1,
+                        'GstNo', w0,
+                        'PanNo', w0,
                         'PhoneNumber', w1,
                         'PinCode', w1,
                         'Address', w2,
@@ -535,10 +535,10 @@ var SereneMovieTutorial;
                 return Q.getLookup('Default.CustomerMaster');
             }
             CustomerMasterRow.getLookup = getLookup;
-            CustomerMasterRow.deletePermission = 'Administration:General:Delete';
-            CustomerMasterRow.insertPermission = 'Administration:General:Insert';
-            CustomerMasterRow.readPermission = 'Administration:General:Read';
-            CustomerMasterRow.updatePermission = 'Administration:General:Modify';
+            CustomerMasterRow.deletePermission = 'Administration:General';
+            CustomerMasterRow.insertPermission = 'Administration:General';
+            CustomerMasterRow.readPermission = 'Administration:General';
+            CustomerMasterRow.updatePermission = 'Administration:General';
         })(CustomerMasterRow = Default.CustomerMasterRow || (Default.CustomerMasterRow = {}));
     })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
@@ -572,10 +572,10 @@ var SereneMovieTutorial;
             CustomerRow.idProperty = 'CustomerId';
             CustomerRow.nameProperty = 'CustomerId';
             CustomerRow.localTextPrefix = 'Default.Customer';
-            CustomerRow.deletePermission = null;
-            CustomerRow.insertPermission = null;
-            CustomerRow.readPermission = '';
-            CustomerRow.updatePermission = null;
+            CustomerRow.deletePermission = 'Default:Customer:Delete';
+            CustomerRow.insertPermission = 'Default:Customer:Insert';
+            CustomerRow.readPermission = 'Default:Customer:View';
+            CustomerRow.updatePermission = 'Default:Customer:Modify';
         })(CustomerRow = Default.CustomerRow || (Default.CustomerRow = {}));
     })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
@@ -971,7 +971,8 @@ var SereneMovieTutorial;
                     var s = Serenity;
                     var w0 = s.StringEditor;
                     Q.initFormType(GenreForm, [
-                        'Name', w0
+                        'Name', w0,
+                        'Dates', w0
                     ]);
                 }
                 return _this;
@@ -1022,6 +1023,78 @@ var SereneMovieTutorial;
                 };
             });
         })(GenreService = Default.GenreService || (Default.GenreService = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var InvoicedetailsForm = /** @class */ (function (_super) {
+            __extends(InvoicedetailsForm, _super);
+            function InvoicedetailsForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!InvoicedetailsForm.init) {
+                    InvoicedetailsForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.IntegerEditor;
+                    var w1 = s.StringEditor;
+                    var w2 = s.DecimalEditor;
+                    var w3 = s.DateEditor;
+                    Q.initFormType(InvoicedetailsForm, [
+                        'Challan', w0,
+                        'Lrno', w1,
+                        'Vehicleid', w0,
+                        'VehicleNumber', w1,
+                        'freightRate', w0,
+                        'Weight', w2,
+                        'Billingamount', w2,
+                        'Invoicedate', w3,
+                        'LoadingTripId', w0
+                    ]);
+                }
+                return _this;
+            }
+            InvoicedetailsForm.formKey = 'Default.Invoicedetails';
+            return InvoicedetailsForm;
+        }(Serenity.PrefixedContext));
+        Default.InvoicedetailsForm = InvoicedetailsForm;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var InvoicedetailsRow;
+        (function (InvoicedetailsRow) {
+            InvoicedetailsRow.idProperty = 'Id';
+            InvoicedetailsRow.nameProperty = 'Lrno';
+            InvoicedetailsRow.localTextPrefix = 'Default.Invoicedetails';
+            InvoicedetailsRow.deletePermission = 'Administration:General';
+            InvoicedetailsRow.insertPermission = 'Administration:General';
+            InvoicedetailsRow.readPermission = 'Administration:General';
+            InvoicedetailsRow.updatePermission = 'Administration:General';
+        })(InvoicedetailsRow = Default.InvoicedetailsRow || (Default.InvoicedetailsRow = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var InvoicedetailsService;
+        (function (InvoicedetailsService) {
+            InvoicedetailsService.baseUrl = 'Default/Invoicedetails';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                InvoicedetailsService[x] = function (r, s, o) {
+                    return Q.serviceRequest(InvoicedetailsService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(InvoicedetailsService = Default.InvoicedetailsService || (Default.InvoicedetailsService = {}));
     })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
 var SereneMovieTutorial;
@@ -1123,6 +1196,7 @@ var SereneMovieTutorial;
                         'DestinationId', w3,
                         'Wheels', w0,
                         'Weight', w4,
+                        'freightRate', w0,
                         'ExpenseAmount', w4,
                         'Remarks', w5
                     ]);
@@ -1144,6 +1218,11 @@ var SereneMovieTutorial;
             LoadingTripRow.idProperty = 'LoadingTripId';
             LoadingTripRow.nameProperty = 'TripNo';
             LoadingTripRow.localTextPrefix = 'Default.LoadingTrip';
+            LoadingTripRow.lookupKey = 'Default.LoadingTrip';
+            function getLookup() {
+                return Q.getLookup('Default.LoadingTrip');
+            }
+            LoadingTripRow.getLookup = getLookup;
             LoadingTripRow.deletePermission = 'Administration:General';
             LoadingTripRow.insertPermission = 'Administration:General';
             LoadingTripRow.readPermission = 'Administration:General';
@@ -1167,13 +1246,173 @@ var SereneMovieTutorial;
                 'GetVehicleDetails',
                 'GetBranch',
                 'GetExpenseByRoute',
-                'GetWeightSummary'
+                'GetLoadingTripDetails'
             ].forEach(function (x) {
                 LoadingTripService[x] = function (r, s, o) {
                     return Q.serviceRequest(LoadingTripService.baseUrl + '/' + x, r, s, o);
                 };
             });
         })(LoadingTripService = Default.LoadingTripService || (Default.LoadingTripService = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var MaintenanceHeadForm = /** @class */ (function (_super) {
+            __extends(MaintenanceHeadForm, _super);
+            function MaintenanceHeadForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!MaintenanceHeadForm.init) {
+                    MaintenanceHeadForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    var w1 = s.IntegerEditor;
+                    var w2 = s.DateEditor;
+                    Q.initFormType(MaintenanceHeadForm, [
+                        'Head', w0,
+                        'Remarks', w0,
+                        'CreatedBy', w1,
+                        'UpdatedBy', w1,
+                        'CreatedDate', w2,
+                        'UpdatedDate', w2
+                    ]);
+                }
+                return _this;
+            }
+            MaintenanceHeadForm.formKey = 'Default.MaintenanceHead';
+            return MaintenanceHeadForm;
+        }(Serenity.PrefixedContext));
+        Default.MaintenanceHeadForm = MaintenanceHeadForm;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var MaintenanceHeadRow;
+        (function (MaintenanceHeadRow) {
+            MaintenanceHeadRow.idProperty = 'Id';
+            MaintenanceHeadRow.nameProperty = 'Head';
+            MaintenanceHeadRow.localTextPrefix = 'Default.MaintenanceHead';
+            MaintenanceHeadRow.lookupKey = 'Default.MaintenanceHead';
+            function getLookup() {
+                return Q.getLookup('Default.MaintenanceHead');
+            }
+            MaintenanceHeadRow.getLookup = getLookup;
+            MaintenanceHeadRow.deletePermission = 'Administration:General';
+            MaintenanceHeadRow.insertPermission = 'Administration:General';
+            MaintenanceHeadRow.readPermission = 'Administration:General';
+            MaintenanceHeadRow.updatePermission = 'Administration:General';
+        })(MaintenanceHeadRow = Default.MaintenanceHeadRow || (Default.MaintenanceHeadRow = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var MaintenanceHeadService;
+        (function (MaintenanceHeadService) {
+            MaintenanceHeadService.baseUrl = 'Default/MaintenanceHead';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                MaintenanceHeadService[x] = function (r, s, o) {
+                    return Q.serviceRequest(MaintenanceHeadService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(MaintenanceHeadService = Default.MaintenanceHeadService || (Default.MaintenanceHeadService = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var ManageinvoiceForm = /** @class */ (function (_super) {
+            __extends(ManageinvoiceForm, _super);
+            function ManageinvoiceForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!ManageinvoiceForm.init) {
+                    ManageinvoiceForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.LookupEditor;
+                    var w1 = s.IntegerEditor;
+                    var w2 = s.StringEditor;
+                    var w3 = s.DateEditor;
+                    var w4 = s.BooleanEditor;
+                    var w5 = s.DecimalEditor;
+                    var w6 = Default.ExInvoiceDetailsEditor;
+                    Q.initFormType(ManageinvoiceForm, [
+                        'Plantid', w0,
+                        'LoadingTripId', w0,
+                        'Branchid', w0,
+                        'Totaltrips', w1,
+                        'Invoiceno', w2,
+                        'Pono', w1,
+                        'Invoicedate', w3,
+                        'Fromdate', w3,
+                        'Todate', w3,
+                        'Addgst', w4,
+                        'Saccode', w1,
+                        'Tax', w0,
+                        'Cgstrate', w5,
+                        'Sgstrate', w5,
+                        'Igstrate', w5,
+                        'Cgstamount', w5,
+                        'Sgstamount', w5,
+                        'Igstamount', w5,
+                        'Totalgstamount', w5,
+                        'InvoiceDetails', w6,
+                        'Totalinvoiceamount', w5
+                    ]);
+                }
+                return _this;
+            }
+            ManageinvoiceForm.formKey = 'Default.Manageinvoice';
+            return ManageinvoiceForm;
+        }(Serenity.PrefixedContext));
+        Default.ManageinvoiceForm = ManageinvoiceForm;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var ManageinvoiceRow;
+        (function (ManageinvoiceRow) {
+            ManageinvoiceRow.idProperty = 'Id';
+            ManageinvoiceRow.nameProperty = 'Invoiceno';
+            ManageinvoiceRow.localTextPrefix = 'Default.Manageinvoice';
+            ManageinvoiceRow.deletePermission = 'Administration:General';
+            ManageinvoiceRow.insertPermission = 'Administration:General';
+            ManageinvoiceRow.readPermission = 'Administration:General';
+            ManageinvoiceRow.updatePermission = 'Administration:General';
+        })(ManageinvoiceRow = Default.ManageinvoiceRow || (Default.ManageinvoiceRow = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var ManageinvoiceService;
+        (function (ManageinvoiceService) {
+            ManageinvoiceService.baseUrl = 'Default/Manageinvoice';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                ManageinvoiceService[x] = function (r, s, o) {
+                    return Q.serviceRequest(ManageinvoiceService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(ManageinvoiceService = Default.ManageinvoiceService || (Default.ManageinvoiceService = {}));
     })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
 var SereneMovieTutorial;
@@ -1363,6 +1602,171 @@ var SereneMovieTutorial;
 (function (SereneMovieTutorial) {
     var Default;
     (function (Default) {
+        var PartyMasterForm = /** @class */ (function (_super) {
+            __extends(PartyMasterForm, _super);
+            function PartyMasterForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!PartyMasterForm.init) {
+                    PartyMasterForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    var w1 = s.LookupEditor;
+                    Q.initFormType(PartyMasterForm, [
+                        'Name', w0,
+                        'Email', w0,
+                        'PhoneNumber', w0,
+                        'Gst', w0,
+                        'Pan', w0,
+                        'StateId', w1,
+                        'Address', w0
+                    ]);
+                }
+                return _this;
+            }
+            PartyMasterForm.formKey = 'Default.PartyMaster';
+            return PartyMasterForm;
+        }(Serenity.PrefixedContext));
+        Default.PartyMasterForm = PartyMasterForm;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var PartyMasterRow;
+        (function (PartyMasterRow) {
+            PartyMasterRow.idProperty = 'Id';
+            PartyMasterRow.nameProperty = 'Name';
+            PartyMasterRow.localTextPrefix = 'Default.PartyMaster';
+            PartyMasterRow.lookupKey = 'Default.PartyMaster';
+            function getLookup() {
+                return Q.getLookup('Default.PartyMaster');
+            }
+            PartyMasterRow.getLookup = getLookup;
+            PartyMasterRow.deletePermission = 'Administration:General';
+            PartyMasterRow.insertPermission = 'Administration:General';
+            PartyMasterRow.readPermission = 'Administration:General';
+            PartyMasterRow.updatePermission = 'Administration:General';
+        })(PartyMasterRow = Default.PartyMasterRow || (Default.PartyMasterRow = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var PartyMasterService;
+        (function (PartyMasterService) {
+            PartyMasterService.baseUrl = 'Default/PartyMaster';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                PartyMasterService[x] = function (r, s, o) {
+                    return Q.serviceRequest(PartyMasterService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(PartyMasterService = Default.PartyMasterService || (Default.PartyMasterService = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var PendingTripDetailsInvoiceForm = /** @class */ (function (_super) {
+            __extends(PendingTripDetailsInvoiceForm, _super);
+            function PendingTripDetailsInvoiceForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!PendingTripDetailsInvoiceForm.init) {
+                    PendingTripDetailsInvoiceForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    var w1 = s.DateEditor;
+                    var w2 = s.IntegerEditor;
+                    var w3 = s.DecimalEditor;
+                    Q.initFormType(PendingTripDetailsInvoiceForm, [
+                        'TripNo', w0,
+                        'TripDate', w1,
+                        'PlantId', w2,
+                        'PlantName', w0,
+                        'DistrictId', w2,
+                        'DistrictName', w0,
+                        'DestinationId', w2,
+                        'DestinationName', w0,
+                        'VehicleId', w2,
+                        'VehicleNumber', w0,
+                        'CustomerId', w2,
+                        'CustomerName', w0,
+                        'BranchId', w2,
+                        'BranchName', w0,
+                        'StateId', w2,
+                        'StateName', w0,
+                        'ItemId', w2,
+                        'ItemName', w0,
+                        'Weight', w3,
+                        'Wheels', w2,
+                        'FreightRate', w2,
+                        'ExpenseAmount', w3,
+                        'Remarks', w0,
+                        'CreatedDate', w1,
+                        'Createdate', w1,
+                        'Createdby', w2,
+                        'Updatedby', w2,
+                        'Updateddate', w1
+                    ]);
+                }
+                return _this;
+            }
+            PendingTripDetailsInvoiceForm.formKey = 'Default.PendingTripDetailsInvoice';
+            return PendingTripDetailsInvoiceForm;
+        }(Serenity.PrefixedContext));
+        Default.PendingTripDetailsInvoiceForm = PendingTripDetailsInvoiceForm;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var PendingTripDetailsInvoiceRow;
+        (function (PendingTripDetailsInvoiceRow) {
+            PendingTripDetailsInvoiceRow.idProperty = 'LoadingTripId';
+            PendingTripDetailsInvoiceRow.nameProperty = 'TripNo';
+            PendingTripDetailsInvoiceRow.localTextPrefix = 'Default.PendingTripDetailsInvoice';
+            PendingTripDetailsInvoiceRow.deletePermission = 'Administration:General';
+            PendingTripDetailsInvoiceRow.insertPermission = 'Administration:General';
+            PendingTripDetailsInvoiceRow.readPermission = 'Administration:General';
+            PendingTripDetailsInvoiceRow.updatePermission = 'Administration:General';
+        })(PendingTripDetailsInvoiceRow = Default.PendingTripDetailsInvoiceRow || (Default.PendingTripDetailsInvoiceRow = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var PendingTripDetailsInvoiceService;
+        (function (PendingTripDetailsInvoiceService) {
+            PendingTripDetailsInvoiceService.baseUrl = 'Default/PendingTripDetailsInvoice';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List',
+                'GetSelectedTrips'
+            ].forEach(function (x) {
+                PendingTripDetailsInvoiceService[x] = function (r, s, o) {
+                    return Q.serviceRequest(PendingTripDetailsInvoiceService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(PendingTripDetailsInvoiceService = Default.PendingTripDetailsInvoiceService || (Default.PendingTripDetailsInvoiceService = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
         var PersonForm = /** @class */ (function (_super) {
             __extends(PersonForm, _super);
             function PersonForm(prefix) {
@@ -1508,6 +1912,81 @@ var SereneMovieTutorial;
 (function (SereneMovieTutorial) {
     var Default;
     (function (Default) {
+        var PumpmasterForm = /** @class */ (function (_super) {
+            __extends(PumpmasterForm, _super);
+            function PumpmasterForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!PumpmasterForm.init) {
+                    PumpmasterForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    var w1 = s.DecimalEditor;
+                    var w2 = s.EnumEditor;
+                    var w3 = s.TextAreaEditor;
+                    Q.initFormType(PumpmasterForm, [
+                        'Name', w0,
+                        'Stock', w1,
+                        'Gst', w0,
+                        'Pan', w0,
+                        'Type', w2,
+                        'Address', w3
+                    ]);
+                }
+                return _this;
+            }
+            PumpmasterForm.formKey = 'Default.Pumpmaster';
+            return PumpmasterForm;
+        }(Serenity.PrefixedContext));
+        Default.PumpmasterForm = PumpmasterForm;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var PumpmasterRow;
+        (function (PumpmasterRow) {
+            PumpmasterRow.idProperty = 'Id';
+            PumpmasterRow.nameProperty = 'Name';
+            PumpmasterRow.localTextPrefix = 'Default.Pumpmaster';
+            PumpmasterRow.lookupKey = 'master.Pump';
+            function getLookup() {
+                return Q.getLookup('master.Pump');
+            }
+            PumpmasterRow.getLookup = getLookup;
+            PumpmasterRow.deletePermission = 'Administration:General';
+            PumpmasterRow.insertPermission = 'Administration:General';
+            PumpmasterRow.readPermission = 'Administration:General';
+            PumpmasterRow.updatePermission = 'Administration:General';
+        })(PumpmasterRow = Default.PumpmasterRow || (Default.PumpmasterRow = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var PumpmasterService;
+        (function (PumpmasterService) {
+            PumpmasterService.baseUrl = 'Default/Pumpmaster';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List',
+                'GetPumpStock'
+            ].forEach(function (x) {
+                PumpmasterService[x] = function (r, s, o) {
+                    return Q.serviceRequest(PumpmasterService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(PumpmasterService = Default.PumpmasterService || (Default.PumpmasterService = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
         var StateMasterForm = /** @class */ (function (_super) {
             __extends(StateMasterForm, _super);
             function StateMasterForm(prefix) {
@@ -1570,6 +2049,300 @@ var SereneMovieTutorial;
                 };
             });
         })(StateMasterService = Default.StateMasterService || (Default.StateMasterService = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var TaxForm = /** @class */ (function (_super) {
+            __extends(TaxForm, _super);
+            function TaxForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!TaxForm.init) {
+                    TaxForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.IntegerEditor;
+                    var w1 = s.StringEditor;
+                    Q.initFormType(TaxForm, [
+                        'TaxAmount', w0,
+                        'Remarks', w1
+                    ]);
+                }
+                return _this;
+            }
+            TaxForm.formKey = 'Default.Tax';
+            return TaxForm;
+        }(Serenity.PrefixedContext));
+        Default.TaxForm = TaxForm;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var TaxRow;
+        (function (TaxRow) {
+            TaxRow.idProperty = 'Id';
+            TaxRow.nameProperty = 'TaxAmountText';
+            TaxRow.localTextPrefix = 'Default.Tax';
+            TaxRow.lookupKey = 'Default.Tax';
+            function getLookup() {
+                return Q.getLookup('Default.Tax');
+            }
+            TaxRow.getLookup = getLookup;
+            TaxRow.deletePermission = 'Administration:General';
+            TaxRow.insertPermission = 'Administration:General';
+            TaxRow.readPermission = 'Administration:General';
+            TaxRow.updatePermission = 'Administration:General';
+        })(TaxRow = Default.TaxRow || (Default.TaxRow = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var TaxService;
+        (function (TaxService) {
+            TaxService.baseUrl = 'Default/Tax';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                TaxService[x] = function (r, s, o) {
+                    return Q.serviceRequest(TaxService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(TaxService = Default.TaxService || (Default.TaxService = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var UnitForm = /** @class */ (function (_super) {
+            __extends(UnitForm, _super);
+            function UnitForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!UnitForm.init) {
+                    UnitForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    Q.initFormType(UnitForm, [
+                        'UnitName', w0
+                    ]);
+                }
+                return _this;
+            }
+            UnitForm.formKey = 'Default.Unit';
+            return UnitForm;
+        }(Serenity.PrefixedContext));
+        Default.UnitForm = UnitForm;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var UnitRow;
+        (function (UnitRow) {
+            UnitRow.idProperty = 'Id';
+            UnitRow.nameProperty = 'UnitName';
+            UnitRow.localTextPrefix = 'Default.Unit';
+            UnitRow.lookupKey = 'Default.Unit';
+            function getLookup() {
+                return Q.getLookup('Default.Unit');
+            }
+            UnitRow.getLookup = getLookup;
+            UnitRow.deletePermission = 'Administration:General';
+            UnitRow.insertPermission = 'Administration:General';
+            UnitRow.readPermission = 'Administration:General';
+            UnitRow.updatePermission = 'Administration:General';
+        })(UnitRow = Default.UnitRow || (Default.UnitRow = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var UnitService;
+        (function (UnitService) {
+            UnitService.baseUrl = 'Default/Unit';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                UnitService[x] = function (r, s, o) {
+                    return Q.serviceRequest(UnitService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(UnitService = Default.UnitService || (Default.UnitService = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var UnloadTripForm = /** @class */ (function (_super) {
+            __extends(UnloadTripForm, _super);
+            function UnloadTripForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!UnloadTripForm.init) {
+                    UnloadTripForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.IntegerEditor;
+                    var w1 = s.StringEditor;
+                    var w2 = s.DateEditor;
+                    var w3 = s.DecimalEditor;
+                    Q.initFormType(UnloadTripForm, [
+                        'LoadingTripId', w0,
+                        'TripNo', w1,
+                        'TripDate', w2,
+                        'Plant', w1,
+                        'District', w1,
+                        'Destination', w1,
+                        'VehicleName', w1,
+                        'CustomerName', w1,
+                        'Branch', w1,
+                        'State', w1,
+                        'Item', w1,
+                        'Weight', w3,
+                        'Wheels', w0,
+                        'ExpenseAmount', w3,
+                        'UnloadWeight', w3,
+                        'UnloadDate', w2,
+                        'Remarks', w1,
+                        'CreatedDate', w2
+                    ]);
+                }
+                return _this;
+            }
+            UnloadTripForm.formKey = 'Default.UnloadTrip';
+            return UnloadTripForm;
+        }(Serenity.PrefixedContext));
+        Default.UnloadTripForm = UnloadTripForm;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var UnloadTripRow;
+        (function (UnloadTripRow) {
+            UnloadTripRow.idProperty = 'UnloadTripId';
+            UnloadTripRow.nameProperty = 'TripNo';
+            UnloadTripRow.localTextPrefix = 'Default.UnloadTrip';
+            UnloadTripRow.deletePermission = 'Administration:General';
+            UnloadTripRow.insertPermission = 'Administration:General';
+            UnloadTripRow.readPermission = 'Administration:General';
+            UnloadTripRow.updatePermission = 'Administration:General';
+        })(UnloadTripRow = Default.UnloadTripRow || (Default.UnloadTripRow = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var UnloadTripService;
+        (function (UnloadTripService) {
+            UnloadTripService.baseUrl = 'Default/UnloadTrip';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                UnloadTripService[x] = function (r, s, o) {
+                    return Q.serviceRequest(UnloadTripService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(UnloadTripService = Default.UnloadTripService || (Default.UnloadTripService = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var VLoadingTripDetailsForm = /** @class */ (function (_super) {
+            __extends(VLoadingTripDetailsForm, _super);
+            function VLoadingTripDetailsForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!VLoadingTripDetailsForm.init) {
+                    VLoadingTripDetailsForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.IntegerEditor;
+                    var w1 = s.StringEditor;
+                    var w2 = s.DateEditor;
+                    var w3 = s.DecimalEditor;
+                    Q.initFormType(VLoadingTripDetailsForm, [
+                        'LoadingTripId', w0,
+                        'TripNo', w1,
+                        'TripDate', w2,
+                        'PlantName', w1,
+                        'DistrictName', w1,
+                        'DestinationName', w1,
+                        'VehicleNumber', w1,
+                        'CustomerName', w1,
+                        'BranchName', w1,
+                        'StateName', w1,
+                        'ItemName', w1,
+                        'Weight', w3,
+                        'Wheels', w0,
+                        'ExpenseAmount', w3,
+                        'Remarks', w1,
+                        'CreatedDate', w2
+                    ]);
+                }
+                return _this;
+            }
+            VLoadingTripDetailsForm.formKey = 'Default.VLoadingTripDetails';
+            return VLoadingTripDetailsForm;
+        }(Serenity.PrefixedContext));
+        Default.VLoadingTripDetailsForm = VLoadingTripDetailsForm;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var VLoadingTripDetailsRow;
+        (function (VLoadingTripDetailsRow) {
+            VLoadingTripDetailsRow.idProperty = 'LoadingTripId';
+            VLoadingTripDetailsRow.nameProperty = 'TripNo';
+            VLoadingTripDetailsRow.localTextPrefix = 'Default.VLoadingTripDetails';
+            VLoadingTripDetailsRow.deletePermission = 'Administration:General';
+            VLoadingTripDetailsRow.insertPermission = 'Administration:General';
+            VLoadingTripDetailsRow.readPermission = 'Administration:General';
+            VLoadingTripDetailsRow.updatePermission = 'Administration:General';
+        })(VLoadingTripDetailsRow = Default.VLoadingTripDetailsRow || (Default.VLoadingTripDetailsRow = {}));
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var VLoadingTripDetailsService;
+        (function (VLoadingTripDetailsService) {
+            VLoadingTripDetailsService.baseUrl = 'Default/VLoadingTripDetails';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                VLoadingTripDetailsService[x] = function (r, s, o) {
+                    return Q.serviceRequest(VLoadingTripDetailsService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(VLoadingTripDetailsService = Default.VLoadingTripDetailsService || (Default.VLoadingTripDetailsService = {}));
     })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
 var SereneMovieTutorial;
@@ -1656,6 +2429,831 @@ var SereneMovieTutorial;
             });
         })(VehicleMasterService = Default.VehicleMasterService || (Default.VehicleMasterService = {}));
     })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var DieselissueForm = /** @class */ (function (_super) {
+            __extends(DieselissueForm, _super);
+            function DieselissueForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!DieselissueForm.init) {
+                    DieselissueForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.LookupEditor;
+                    var w1 = s.DecimalEditor;
+                    var w2 = s.DateEditor;
+                    Q.initFormType(DieselissueForm, [
+                        'VehicleId', w0,
+                        'Tripno', w0,
+                        'Plant', w0,
+                        'Distict', w0,
+                        'Destination', w0,
+                        'Pumpid', w0,
+                        'Stock', w1,
+                        'Today', w2,
+                        'Rateofdiesel', w1,
+                        'Diesel', w1,
+                        'Totalprice', w1
+                    ]);
+                }
+                return _this;
+            }
+            DieselissueForm.formKey = 'FuelManagement.Dieselissue';
+            return DieselissueForm;
+        }(Serenity.PrefixedContext));
+        FuelManagement.DieselissueForm = DieselissueForm;
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var DieselissueRow;
+        (function (DieselissueRow) {
+            DieselissueRow.idProperty = 'Id';
+            DieselissueRow.nameProperty = 'Vehiclenumber';
+            DieselissueRow.localTextPrefix = 'FuelManagement.Dieselissue';
+            DieselissueRow.deletePermission = 'Administration:General';
+            DieselissueRow.insertPermission = 'Administration:General';
+            DieselissueRow.readPermission = 'Administration:General';
+            DieselissueRow.updatePermission = 'Administration:General';
+        })(DieselissueRow = FuelManagement.DieselissueRow || (FuelManagement.DieselissueRow = {}));
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var DieselissueService;
+        (function (DieselissueService) {
+            DieselissueService.baseUrl = 'FuelManagement/Dieselissue';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List',
+                'GetDieselRate',
+                'GetTripDetails'
+            ].forEach(function (x) {
+                DieselissueService[x] = function (r, s, o) {
+                    return Q.serviceRequest(DieselissueService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(DieselissueService = FuelManagement.DieselissueService || (FuelManagement.DieselissueService = {}));
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var FuelDataForm = /** @class */ (function (_super) {
+            __extends(FuelDataForm, _super);
+            function FuelDataForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!FuelDataForm.init) {
+                    FuelDataForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    var w1 = s.DateEditor;
+                    var w2 = s.DecimalEditor;
+                    var w3 = s.IntegerEditor;
+                    var w4 = s.BooleanEditor;
+                    var w5 = s.EnumEditor;
+                    var w6 = FuelManagement.FuelDetailsEditor;
+                    Q.initFormType(FuelDataForm, [
+                        'InwardNo', w0,
+                        'InvoiceNo', w0,
+                        'InvoiceDate', w1,
+                        'TankerNo', w0,
+                        'QtyKl', w2,
+                        'RateKl', w2,
+                        'BasicAmount', w2,
+                        'TotalAmount', w2,
+                        'QuantityLtr', w2,
+                        'RateLtr', w2,
+                        'TransportationRate', w2,
+                        'TransportationAmt', w2,
+                        'ShortageKl', w2,
+                        'ShortageLtr', w2,
+                        'ShortageAmt', w2,
+                        'ReceiptDate', w1,
+                        'TransporterId', w3,
+                        'PartyId', w3,
+                        'TdsPayable', w4,
+                        'TdsAccountId', w3,
+                        'TdsSection', w0,
+                        'TdsPercent', w2,
+                        'TdsAmount', w2,
+                        'DrAccountId', w3,
+                        'ShortageDrAccount', w3,
+                        'ShortageCrAccount', w3,
+                        'ShowFuelDetails', w5,
+                        'FuelDetails', w6,
+                        'AllottedQuantity', w2
+                    ]);
+                }
+                return _this;
+            }
+            FuelDataForm.formKey = 'FuelManagement.FuelData';
+            return FuelDataForm;
+        }(Serenity.PrefixedContext));
+        FuelManagement.FuelDataForm = FuelDataForm;
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var FuelDataRow;
+        (function (FuelDataRow) {
+            FuelDataRow.idProperty = 'Id';
+            FuelDataRow.nameProperty = 'InwardNo';
+            FuelDataRow.localTextPrefix = 'FuelManagement.FuelData';
+            FuelDataRow.deletePermission = 'Administration:General';
+            FuelDataRow.insertPermission = 'Administration:General';
+            FuelDataRow.readPermission = 'Administration:General';
+            FuelDataRow.updatePermission = 'Administration:General';
+        })(FuelDataRow = FuelManagement.FuelDataRow || (FuelManagement.FuelDataRow = {}));
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var FuelDataService;
+        (function (FuelDataService) {
+            FuelDataService.baseUrl = 'FuelManagement/FuelData';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                FuelDataService[x] = function (r, s, o) {
+                    return Q.serviceRequest(FuelDataService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(FuelDataService = FuelManagement.FuelDataService || (FuelManagement.FuelDataService = {}));
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var FuelDetailsForm = /** @class */ (function (_super) {
+            __extends(FuelDetailsForm, _super);
+            function FuelDetailsForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!FuelDetailsForm.init) {
+                    FuelDetailsForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.LookupEditor;
+                    var w1 = s.StringEditor;
+                    var w2 = s.DateEditor;
+                    var w3 = s.DecimalEditor;
+                    Q.initFormType(FuelDetailsForm, [
+                        'PumpId', w0,
+                        'TankerNo', w1,
+                        'ReceiptDate', w2,
+                        'Quantity', w3
+                    ]);
+                }
+                return _this;
+            }
+            FuelDetailsForm.formKey = 'FuelManagement.FuelDetails';
+            return FuelDetailsForm;
+        }(Serenity.PrefixedContext));
+        FuelManagement.FuelDetailsForm = FuelDetailsForm;
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var FuelDetailsRow;
+        (function (FuelDetailsRow) {
+            FuelDetailsRow.idProperty = 'Id';
+            FuelDetailsRow.localTextPrefix = 'FuelManagement.FuelDetails';
+            FuelDetailsRow.deletePermission = 'Administration:General';
+            FuelDetailsRow.insertPermission = 'Administration:General';
+            FuelDetailsRow.readPermission = 'Administration:General';
+            FuelDetailsRow.updatePermission = 'Administration:General';
+        })(FuelDetailsRow = FuelManagement.FuelDetailsRow || (FuelManagement.FuelDetailsRow = {}));
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var FuelDetailsService;
+        (function (FuelDetailsService) {
+            FuelDetailsService.baseUrl = 'FuelManagement/FuelDetails';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                FuelDetailsService[x] = function (r, s, o) {
+                    return Q.serviceRequest(FuelDetailsService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(FuelDetailsService = FuelManagement.FuelDetailsService || (FuelManagement.FuelDetailsService = {}));
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var ExItemForm = /** @class */ (function (_super) {
+            __extends(ExItemForm, _super);
+            function ExItemForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!ExItemForm.init) {
+                    ExItemForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.ImageUploadEditor;
+                    Q.initFormType(ExItemForm, [
+                        'FileName', w0
+                    ]);
+                }
+                return _this;
+            }
+            ExItemForm.formKey = 'Inventry.ExItem';
+            return ExItemForm;
+        }(Serenity.PrefixedContext));
+        Inventry.ExItemForm = ExItemForm;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var ItemForm = /** @class */ (function (_super) {
+            __extends(ItemForm, _super);
+            function ItemForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!ItemForm.init) {
+                    ItemForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    var w1 = s.IntegerEditor;
+                    var w2 = s.DecimalEditor;
+                    Q.initFormType(ItemForm, [
+                        'Partnumber', w0,
+                        'Partname', w0,
+                        'Openingstock', w1,
+                        'Rate', w2,
+                        'Stocklvlminimum', w2,
+                        'Stocklvlmaximum', w2,
+                        'Purchasestock', w2,
+                        'GrossPrice', w2,
+                        'Balancestock', w2
+                    ]);
+                }
+                return _this;
+            }
+            ItemForm.formKey = 'Inventry.Item';
+            return ItemForm;
+        }(Serenity.PrefixedContext));
+        Inventry.ItemForm = ItemForm;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var ItemRow;
+        (function (ItemRow) {
+            ItemRow.idProperty = 'Id';
+            ItemRow.nameProperty = 'Partname';
+            ItemRow.localTextPrefix = 'Inventry.Item';
+            ItemRow.lookupKey = 'Inventry.Item';
+            function getLookup() {
+                return Q.getLookup('Inventry.Item');
+            }
+            ItemRow.getLookup = getLookup;
+            ItemRow.deletePermission = 'Administration:General';
+            ItemRow.insertPermission = 'Administration:General';
+            ItemRow.readPermission = 'Administration:General';
+            ItemRow.updatePermission = 'Administration:General';
+        })(ItemRow = Inventry.ItemRow || (Inventry.ItemRow = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var ItemService;
+        (function (ItemService) {
+            ItemService.baseUrl = 'Inventry/Item';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List',
+                'ExcelImport'
+            ].forEach(function (x) {
+                ItemService[x] = function (r, s, o) {
+                    return Q.serviceRequest(ItemService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(ItemService = Inventry.ItemService || (Inventry.ItemService = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PendingPurchaseOrderForm = /** @class */ (function (_super) {
+            __extends(PendingPurchaseOrderForm, _super);
+            function PendingPurchaseOrderForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!PendingPurchaseOrderForm.init) {
+                    PendingPurchaseOrderForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    var w1 = s.DateEditor;
+                    var w2 = s.IntegerEditor;
+                    var w3 = s.DecimalEditor;
+                    Q.initFormType(PendingPurchaseOrderForm, [
+                        'PoNo', w0,
+                        'OrderDate', w1,
+                        'PartyId', w2,
+                        'BranchId', w2,
+                        'DetailId', w2,
+                        'ItemId', w2,
+                        'PartNo', w0,
+                        'PreviousRate', w3,
+                        'CurrentRate', w3,
+                        'Quantity', w3,
+                        'UnitId', w2,
+                        'TotalAmount', w3
+                    ]);
+                }
+                return _this;
+            }
+            PendingPurchaseOrderForm.formKey = 'Inventry.PendingPurchaseOrder';
+            return PendingPurchaseOrderForm;
+        }(Serenity.PrefixedContext));
+        Inventry.PendingPurchaseOrderForm = PendingPurchaseOrderForm;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PendingPurchaseOrderRow;
+        (function (PendingPurchaseOrderRow) {
+            PendingPurchaseOrderRow.idProperty = 'DetailId';
+            PendingPurchaseOrderRow.nameProperty = 'PoNo';
+            PendingPurchaseOrderRow.localTextPrefix = 'Inventry.PendingPurchaseOrder';
+            PendingPurchaseOrderRow.deletePermission = 'Administration:General';
+            PendingPurchaseOrderRow.insertPermission = 'Administration:General';
+            PendingPurchaseOrderRow.readPermission = 'Administration:General';
+            PendingPurchaseOrderRow.updatePermission = 'Administration:General';
+        })(PendingPurchaseOrderRow = Inventry.PendingPurchaseOrderRow || (Inventry.PendingPurchaseOrderRow = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PendingPurchaseOrderService;
+        (function (PendingPurchaseOrderService) {
+            PendingPurchaseOrderService.baseUrl = 'Inventry/PendingPurchaseOrder';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List',
+                'GetSelectedTrips'
+            ].forEach(function (x) {
+                PendingPurchaseOrderService[x] = function (r, s, o) {
+                    return Q.serviceRequest(PendingPurchaseOrderService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(PendingPurchaseOrderService = Inventry.PendingPurchaseOrderService || (Inventry.PendingPurchaseOrderService = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseBillDetailForm = /** @class */ (function (_super) {
+            __extends(PurchaseBillDetailForm, _super);
+            function PurchaseBillDetailForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!PurchaseBillDetailForm.init) {
+                    PurchaseBillDetailForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.IntegerEditor;
+                    var w1 = s.StringEditor;
+                    var w2 = s.DecimalEditor;
+                    Q.initFormType(PurchaseBillDetailForm, [
+                        'PurchaseBillId', w0,
+                        'PurchaseOrderId', w0,
+                        'ItemId', w0,
+                        'ItemName', w1,
+                        'Quantity', w2,
+                        'CurrentRate', w2,
+                        'PreviousRate', w2,
+                        'Discount', w2,
+                        'TaxableAmount', w2,
+                        'CgstRate', w2,
+                        'SgstRate', w2,
+                        'IgstRate', w2,
+                        'CgstAmount', w2,
+                        'SgstAmount', w2,
+                        'IgstAmount', w2,
+                        'TotalAmount', w2,
+                        'Remarks', w1
+                    ]);
+                }
+                return _this;
+            }
+            PurchaseBillDetailForm.formKey = 'Inventry.PurchaseBillDetail';
+            return PurchaseBillDetailForm;
+        }(Serenity.PrefixedContext));
+        Inventry.PurchaseBillDetailForm = PurchaseBillDetailForm;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseBillDetailRow;
+        (function (PurchaseBillDetailRow) {
+            PurchaseBillDetailRow.idProperty = 'Id';
+            PurchaseBillDetailRow.nameProperty = 'ItemName';
+            PurchaseBillDetailRow.localTextPrefix = 'Inventry.PurchaseBillDetail';
+            PurchaseBillDetailRow.deletePermission = 'Administration:General';
+            PurchaseBillDetailRow.insertPermission = 'Administration:General';
+            PurchaseBillDetailRow.readPermission = 'Administration:General';
+            PurchaseBillDetailRow.updatePermission = 'Administration:General';
+        })(PurchaseBillDetailRow = Inventry.PurchaseBillDetailRow || (Inventry.PurchaseBillDetailRow = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseBillDetailService;
+        (function (PurchaseBillDetailService) {
+            PurchaseBillDetailService.baseUrl = 'Inventry/PurchaseBillDetail';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                PurchaseBillDetailService[x] = function (r, s, o) {
+                    return Q.serviceRequest(PurchaseBillDetailService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(PurchaseBillDetailService = Inventry.PurchaseBillDetailService || (Inventry.PurchaseBillDetailService = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseBillForm = /** @class */ (function (_super) {
+            __extends(PurchaseBillForm, _super);
+            function PurchaseBillForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!PurchaseBillForm.init) {
+                    PurchaseBillForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.LookupEditor;
+                    var w1 = s.IntegerEditor;
+                    var w2 = s.StringEditor;
+                    var w3 = s.DateEditor;
+                    var w4 = s.DecimalEditor;
+                    var w5 = Inventry.ExPurchaseBillDetailEditor;
+                    Q.initFormType(PurchaseBillForm, [
+                        'PartyId', w0,
+                        'DebitLedgerId', w1,
+                        'BillNo', w2,
+                        'BillDate', w3,
+                        'Gstin', w2,
+                        'PoNumber', w2,
+                        'RoundOff', w4,
+                        'TotalBillAmount', w4,
+                        'StockInDate', w3,
+                        'PurchaseDetails', w5,
+                        'TaxableAmount', w4,
+                        'CgstAmount', w4,
+                        'SgstAmount', w4,
+                        'IgstAmount', w4,
+                        'TdsSection', w2,
+                        'TdsRate', w4,
+                        'TdsAmount', w4,
+                        'Remarks', w2,
+                        'LedgerTypeId', w1,
+                        'TDSLedger', w1,
+                        'CgstLedger', w1,
+                        'SgstLedger', w1,
+                        'IgstLedger', w1
+                    ]);
+                }
+                return _this;
+            }
+            PurchaseBillForm.formKey = 'Inventry.PurchaseBill';
+            return PurchaseBillForm;
+        }(Serenity.PrefixedContext));
+        Inventry.PurchaseBillForm = PurchaseBillForm;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseBillRow;
+        (function (PurchaseBillRow) {
+            PurchaseBillRow.idProperty = 'Id';
+            PurchaseBillRow.nameProperty = 'BillNo';
+            PurchaseBillRow.localTextPrefix = 'Inventry.PurchaseBill';
+            PurchaseBillRow.deletePermission = 'Administration:General';
+            PurchaseBillRow.insertPermission = 'Administration:General';
+            PurchaseBillRow.readPermission = 'Administration:General';
+            PurchaseBillRow.updatePermission = 'Administration:General';
+        })(PurchaseBillRow = Inventry.PurchaseBillRow || (Inventry.PurchaseBillRow = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseBillService;
+        (function (PurchaseBillService) {
+            PurchaseBillService.baseUrl = 'Inventry/PurchaseBill';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                PurchaseBillService[x] = function (r, s, o) {
+                    return Q.serviceRequest(PurchaseBillService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(PurchaseBillService = Inventry.PurchaseBillService || (Inventry.PurchaseBillService = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseOrderForm = /** @class */ (function (_super) {
+            __extends(PurchaseOrderForm, _super);
+            function PurchaseOrderForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!PurchaseOrderForm.init) {
+                    PurchaseOrderForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    var w1 = s.DateEditor;
+                    var w2 = s.LookupEditor;
+                    var w3 = Inventry.PurchaseRequestDetailEditor;
+                    Q.initFormType(PurchaseOrderForm, [
+                        'PoNo', w0,
+                        'OrderDate', w1,
+                        'PartyId', w2,
+                        'BranchId', w2,
+                        'Remarks', w0,
+                        'DetailList', w3
+                    ]);
+                }
+                return _this;
+            }
+            PurchaseOrderForm.formKey = 'Inventry.PurchaseOrder';
+            return PurchaseOrderForm;
+        }(Serenity.PrefixedContext));
+        Inventry.PurchaseOrderForm = PurchaseOrderForm;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseOrderRow;
+        (function (PurchaseOrderRow) {
+            PurchaseOrderRow.idProperty = 'Id';
+            PurchaseOrderRow.nameProperty = 'PoNo';
+            PurchaseOrderRow.localTextPrefix = 'Inventry.PurchaseOrder';
+            PurchaseOrderRow.lookupKey = 'Inventry.PurchaseOrder';
+            function getLookup() {
+                return Q.getLookup('Inventry.PurchaseOrder');
+            }
+            PurchaseOrderRow.getLookup = getLookup;
+            PurchaseOrderRow.deletePermission = 'Administration:General';
+            PurchaseOrderRow.insertPermission = 'Administration:General';
+            PurchaseOrderRow.readPermission = 'Administration:General';
+            PurchaseOrderRow.updatePermission = 'Administration:General';
+        })(PurchaseOrderRow = Inventry.PurchaseOrderRow || (Inventry.PurchaseOrderRow = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseOrderService;
+        (function (PurchaseOrderService) {
+            PurchaseOrderService.baseUrl = 'Inventry/PurchaseOrder';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                PurchaseOrderService[x] = function (r, s, o) {
+                    return Q.serviceRequest(PurchaseOrderService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(PurchaseOrderService = Inventry.PurchaseOrderService || (Inventry.PurchaseOrderService = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseRequestDetailForm = /** @class */ (function (_super) {
+            __extends(PurchaseRequestDetailForm, _super);
+            function PurchaseRequestDetailForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!PurchaseRequestDetailForm.init) {
+                    PurchaseRequestDetailForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    var w1 = s.IntegerEditor;
+                    var w2 = s.LookupEditor;
+                    var w3 = s.DecimalEditor;
+                    Q.initFormType(PurchaseRequestDetailForm, [
+                        'PoNo', w0,
+                        'PurchaseOrderId', w1,
+                        'ItemId', w2,
+                        'PartNo', w0,
+                        'PreviousRate', w3,
+                        'BalanceStock', w3,
+                        'StockLevelMax', w3,
+                        'StockLevelMin', w3,
+                        'CurrentRate', w3,
+                        'Quantity', w3,
+                        'UnitId', w2,
+                        'BasicAmount', w3,
+                        'CgstRate', w3,
+                        'SgstRate', w3,
+                        'IgstRate', w3,
+                        'CgstAmount', w3,
+                        'SgstAmount', w3,
+                        'IgstAmount', w3,
+                        'TotalAmount', w3
+                    ]);
+                }
+                return _this;
+            }
+            PurchaseRequestDetailForm.formKey = 'Inventry.PurchaseRequestDetail';
+            return PurchaseRequestDetailForm;
+        }(Serenity.PrefixedContext));
+        Inventry.PurchaseRequestDetailForm = PurchaseRequestDetailForm;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseRequestDetailRow;
+        (function (PurchaseRequestDetailRow) {
+            PurchaseRequestDetailRow.idProperty = 'Id';
+            PurchaseRequestDetailRow.nameProperty = 'PartNo';
+            PurchaseRequestDetailRow.localTextPrefix = 'Inventry.PurchaseRequestDetail';
+            PurchaseRequestDetailRow.lookupKey = 'Inventry.PurchaseRequestDetail';
+            function getLookup() {
+                return Q.getLookup('Inventry.PurchaseRequestDetail');
+            }
+            PurchaseRequestDetailRow.getLookup = getLookup;
+            PurchaseRequestDetailRow.deletePermission = 'Administration:General';
+            PurchaseRequestDetailRow.insertPermission = 'Administration:General';
+            PurchaseRequestDetailRow.readPermission = 'Administration:General';
+            PurchaseRequestDetailRow.updatePermission = 'Administration:General';
+        })(PurchaseRequestDetailRow = Inventry.PurchaseRequestDetailRow || (Inventry.PurchaseRequestDetailRow = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseRequestDetailService;
+        (function (PurchaseRequestDetailService) {
+            PurchaseRequestDetailService.baseUrl = 'Inventry/PurchaseRequestDetail';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List',
+                'GetItemDetails'
+            ].forEach(function (x) {
+                PurchaseRequestDetailService[x] = function (r, s, o) {
+                    return Q.serviceRequest(PurchaseRequestDetailService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(PurchaseRequestDetailService = Inventry.PurchaseRequestDetailService || (Inventry.PurchaseRequestDetailService = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var MaintenanceModule;
+    (function (MaintenanceModule) {
+        var MaintenanceForm = /** @class */ (function (_super) {
+            __extends(MaintenanceForm, _super);
+            function MaintenanceForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!MaintenanceForm.init) {
+                    MaintenanceForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.IntegerEditor;
+                    var w1 = s.DateEditor;
+                    var w2 = s.LookupEditor;
+                    var w3 = s.EnumEditor;
+                    var w4 = s.StringEditor;
+                    Q.initFormType(MaintenanceForm, [
+                        'EntryNumber', w0,
+                        'EntryDate', w1,
+                        'HeadId', w2,
+                        'TruckId', w2,
+                        'TruckType', w3,
+                        'Owner', w2,
+                        'ModelNumber', w4,
+                        'LastMaintenance', w1,
+                        'PeriodTill', w4,
+                        'EstimatedPeriod', w0,
+                        'DueDate', w1,
+                        'Narration', w4
+                    ]);
+                }
+                return _this;
+            }
+            MaintenanceForm.formKey = 'MaintenanceModule.Maintenance';
+            return MaintenanceForm;
+        }(Serenity.PrefixedContext));
+        MaintenanceModule.MaintenanceForm = MaintenanceForm;
+    })(MaintenanceModule = SereneMovieTutorial.MaintenanceModule || (SereneMovieTutorial.MaintenanceModule = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var MaintenanceModule;
+    (function (MaintenanceModule) {
+        var MaintenanceRow;
+        (function (MaintenanceRow) {
+            MaintenanceRow.idProperty = 'Id';
+            MaintenanceRow.nameProperty = 'TruckNumber';
+            MaintenanceRow.localTextPrefix = 'MaintenanceModule.Maintenance';
+            MaintenanceRow.lookupKey = 'MaintenanceModule.Maintenance';
+            function getLookup() {
+                return Q.getLookup('MaintenanceModule.Maintenance');
+            }
+            MaintenanceRow.getLookup = getLookup;
+            MaintenanceRow.deletePermission = 'Administration:General';
+            MaintenanceRow.insertPermission = 'Administration:General';
+            MaintenanceRow.readPermission = 'Administration:General';
+            MaintenanceRow.updatePermission = 'Administration:General';
+        })(MaintenanceRow = MaintenanceModule.MaintenanceRow || (MaintenanceModule.MaintenanceRow = {}));
+    })(MaintenanceModule = SereneMovieTutorial.MaintenanceModule || (SereneMovieTutorial.MaintenanceModule = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var MaintenanceModule;
+    (function (MaintenanceModule) {
+        var MaintenanceService;
+        (function (MaintenanceService) {
+            MaintenanceService.baseUrl = 'MaintenanceModule/Maintenance';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List',
+                'GetDetails',
+                'GetLatestMaintenance'
+            ].forEach(function (x) {
+                MaintenanceService[x] = function (r, s, o) {
+                    return Q.serviceRequest(MaintenanceService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(MaintenanceService = MaintenanceModule.MaintenanceService || (MaintenanceModule.MaintenanceService = {}));
+    })(MaintenanceModule = SereneMovieTutorial.MaintenanceModule || (SereneMovieTutorial.MaintenanceModule = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
 var SereneMovieTutorial;
 (function (SereneMovieTutorial) {
@@ -1853,6 +3451,24 @@ var SereneMovieTutorial;
     (function (Modules) {
         var Default;
         (function (Default) {
+            var Pumpmaster;
+            (function (Pumpmaster) {
+                var TypeState;
+                (function (TypeState) {
+                    TypeState[TypeState["Company"] = 1] = "Company";
+                    TypeState[TypeState["Party"] = 2] = "Party";
+                })(TypeState = Pumpmaster.TypeState || (Pumpmaster.TypeState = {}));
+                Serenity.Decorators.registerEnumType(TypeState, 'SereneMovieTutorial.Modules.Default.Pumpmaster.TypeState');
+            })(Pumpmaster = Default.Pumpmaster || (Default.Pumpmaster = {}));
+        })(Default = Modules.Default || (Modules.Default = {}));
+    })(Modules = SereneMovieTutorial.Modules || (SereneMovieTutorial.Modules = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Modules;
+    (function (Modules) {
+        var Default;
+        (function (Default) {
             var VehicleMaster;
             (function (VehicleMaster) {
                 var FuelType;
@@ -1889,9 +3505,27 @@ var SereneMovieTutorial;
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
 var SereneMovieTutorial;
 (function (SereneMovieTutorial) {
+    var Modules;
+    (function (Modules) {
+        var FuelManagement;
+        (function (FuelManagement) {
+            var FuelData;
+            (function (FuelData) {
+                var YesNo;
+                (function (YesNo) {
+                    YesNo[YesNo["No"] = 0] = "No";
+                    YesNo[YesNo["Yes"] = 1] = "Yes";
+                })(YesNo = FuelData.YesNo || (FuelData.YesNo = {}));
+                Serenity.Decorators.registerEnumType(YesNo, 'SereneMovieTutorial.Modules.FuelManagement.FuelData.YesNo');
+            })(FuelData = FuelManagement.FuelData || (FuelManagement.FuelData = {}));
+        })(FuelManagement = Modules.FuelManagement || (Modules.FuelManagement = {}));
+    })(Modules = SereneMovieTutorial.Modules || (SereneMovieTutorial.Modules = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
     var Texts;
     (function (Texts) {
-        SereneMovieTutorial['Texts'] = Q.proxyTexts(Texts, '', { Db: { Administration: { Language: { Id: 1, LanguageId: 1, LanguageName: 1 }, Role: { RoleId: 1, RoleName: 1 }, RolePermission: { PermissionKey: 1, RoleId: 1, RolePermissionId: 1, RoleRoleName: 1 }, Translation: { CustomText: 1, EntityPlural: 1, Key: 1, OverrideConfirmation: 1, SaveChangesButton: 1, SourceLanguage: 1, SourceText: 1, TargetLanguage: 1, TargetText: 1 }, User: { DisplayName: 1, Email: 1, InsertDate: 1, InsertUserId: 1, IsActive: 1, LastDirectoryUpdate: 1, Password: 1, PasswordConfirm: 1, PasswordHash: 1, PasswordSalt: 1, Source: 1, UpdateDate: 1, UpdateUserId: 1, UserId: 1, UserImage: 1, Username: 1 }, UserPermission: { Granted: 1, PermissionKey: 1, User: 1, UserId: 1, UserPermissionId: 1, Username: 1 }, UserRole: { RoleId: 1, User: 1, UserId: 1, UserRoleId: 1, Username: 1 } }, Common: { UserPreference: { Name: 1, PreferenceType: 1, UserId: 1, UserPreferenceId: 1, Value: 1 } }, Default: { BranchMaster: { Address: 1, BranchCode: 1, BranchName: 1, GstNo: 1, Id: 1, PanNo: 1, PhoneNumber: 1, PinCode: 1, Remarks: 1, State: 1, State1: 1, StateId: 1, StateRemarks: 1, StateStateCode: 1 }, Customer: { Address: 1, City: 1, CompanyName: 1, ContactName: 1, ContactTitle: 1, Country: 1, CustomerId: 1, Fax: 1, Phone: 1, PostalCode: 1, Region: 1 }, CustomerMaster: { AddressLine1: 1, AddressLine2: 1, City: 1, CreatedDate: 1, CustomerCode: 1, CustomerId: 1, DateOfBirth: 1, Email: 1, FirstName: 1, IdentityNumber: 1, IdentityType: 1, IsActive: 1, LastName: 1, MobileNumber: 1, Pincode: 1, State: 1 }, Destination: { Destination: 1, Distict: 1, Distict1: 1, DistictPlant: 1, DistictRemarks: 1, Id: 1, Plant: 1, Plant1: 1, PlantRemarks: 1, Remarks: 1 }, Distict: { Distict: 1, Id: 1, Plant: 1, Plant1: 1, PlantRemarks: 1, Remarks: 1 }, Employees: { Address: 1, BirthDate: 1, City: 1, Country: 1, EmployeeId: 1, Extension: 1, FullName: 1, HireDate: 1, HomePhone: 1, PostalCode: 1, Region: 1, Title: 1, TitleOfCourtesy: 1 }, Expense: { Destination: 1, Destination1: 1, DestinationDistict: 1, DestinationPlant: 1, DestinationRemarks: 1, District: 1, DistrictDistict: 1, DistrictPlant: 1, DistrictRemarks: 1, Expense: 1, ExpenseId: 1, Plant: 1, Plant1: 1, PlantRemarks: 1, Remarks: 1, Weight: 1, Wheels: 1 }, FinancialYear: { EndDate: 1, Id: 1, Name: 1, NameOfInvoice: 1, Remarks: 1, StartDate: 1 }, Genre: { GenreId: 1, Name: 1 }, ItemMaster: { Id: 1, ItemName: 1, Remarks: 1 }, LoadingTrip: { Branch: 1, BranchId: 1, CreatedDate: 1, Customer: 1, CustomerId: 1, Destination: 1, DestinationId: 1, District: 1, DistrictId: 1, ExpenseAmount: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, Plant: 1, PlantId: 1, Remarks: 1, State: 1, StateId: 1, TripDate: 1, TripNo: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1 }, Movie: { Actors: 1, CastList: 1, Description: 1, GalleryImages: 1, GenreList: 1, Kind: 1, MovieId: 1, PrimaryImage: 1, ReleaseDate: 1, Runtime: 1, Storyline: 1, Title: 1, Year: 1 }, MovieCast: { Character: 1, MovieCastId: 1, MovieDescription: 1, MovieId: 1, MovieKind: 1, MovieReleaseDate: 1, MovieRuntime: 1, MovieStoryline: 1, MovieTitle: 1, MovieYear: 1, PersonBirthDate: 1, PersonBirthPlace: 1, PersonFirstName: 1, PersonFullName: 1, PersonGender: 1, PersonHeight: 1, PersonId: 1, PersonLastName: 1 }, MovieGenres: { GenreId: 1, GenreName: 1, MovieDescription: 1, MovieGenreId: 1, MovieId: 1, MovieKind: 1, MovieReleaseDate: 1, MovieRuntime: 1, MovieStoryline: 1, MovieTitle: 1, MovieYear: 1 }, Person: { BirthDate: 1, BirthPlace: 1, FirstName: 1, FullName: 1, GalleryImages: 1, Gender: 1, Height: 1, LastName: 1, PersonId: 1, PrimaryImage: 1 }, Plant: { Id: 1, Plant: 1, Remarks: 1 }, StateMaster: { Id: 1, Remarks: 1, State: 1, StateCode: 1 }, VehicleMaster: { Brand: 1, ChassisNumber: 1, Color: 1, CreatedDate: 1, CustomerId: 1, CustomerName: 1, EngineNumber: 1, FuelType: 1, InsuranceExpiryDate: 1, IsActive: 1, ManufacturingYear: 1, Model: 1, SeatingCapacity: 1, VehicleId: 1, VehicleNumber: 1, VehicleType: 1, Wheels: 1 } } }, Forms: { Membership: { ChangePassword: { FormTitle: 1, SubmitButton: 1, Success: 1 }, ForgotPassword: { BackToLogin: 1, FormInfo: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, Login: { FacebookButton: 1, ForgotPassword: 1, FormTitle: 1, GoogleButton: 1, OR: 1, RememberMe: 1, SignInButton: 1, SignUpButton: 1 }, ResetPassword: { BackToLogin: 1, EmailSubject: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, SignUp: { AcceptTerms: 1, ActivateEmailSubject: 1, ActivationCompleteMessage: 1, BackToLogin: 1, ConfirmEmail: 1, ConfirmPassword: 1, DisplayName: 1, Email: 1, FormInfo: 1, FormTitle: 1, Password: 1, SubmitButton: 1, Success: 1 } } }, Site: { AccessDenied: { ClickToChangeUser: 1, ClickToLogin: 1, LackPermissions: 1, NotLoggedIn: 1, PageTitle: 1 }, BasicProgressDialog: { CancelTitle: 1, PleaseWait: 1 }, BulkServiceAction: { AllHadErrorsFormat: 1, AllSuccessFormat: 1, ConfirmationFormat: 1, ErrorCount: 1, NothingToProcess: 1, SomeHadErrorsFormat: 1, SuccessCount: 1 }, Dashboard: { ContentDescription: 1 }, Layout: { FooterCopyright: 1, FooterInfo: 1, FooterRights: 1, GeneralSettings: 1, Language: 1, Theme: 1, ThemeBlack: 1, ThemeBlackLight: 1, ThemeBlue: 1, ThemeBlueLight: 1, ThemeGreen: 1, ThemeGreenLight: 1, ThemePurple: 1, ThemePurpleLight: 1, ThemeRed: 1, ThemeRedLight: 1, ThemeYellow: 1, ThemeYellowLight: 1 }, RolePermissionDialog: { DialogTitle: 1, EditButton: 1, SaveSuccess: 1 }, UserDialog: { EditPermissionsButton: 1, EditRolesButton: 1 }, UserPermissionDialog: { DialogTitle: 1, Grant: 1, Permission: 1, Revoke: 1, SaveSuccess: 1 }, UserRoleDialog: { DialogTitle: 1, SaveSuccess: 1 }, ValidationError: { Title: 1 } }, Validation: { AuthenticationError: 1, CantFindUserWithEmail: 1, CurrentPasswordMismatch: 1, DeleteForeignKeyError: 1, EmailConfirm: 1, EmailInUse: 1, InvalidActivateToken: 1, InvalidResetToken: 1, MinRequiredPasswordLength: 1, SavePrimaryKeyError: 1 } });
+        SereneMovieTutorial['Texts'] = Q.proxyTexts(Texts, '', { Db: { Administration: { Language: { Id: 1, LanguageId: 1, LanguageName: 1 }, Role: { RoleId: 1, RoleName: 1 }, RolePermission: { PermissionKey: 1, RoleId: 1, RolePermissionId: 1, RoleRoleName: 1 }, Translation: { CustomText: 1, EntityPlural: 1, Key: 1, OverrideConfirmation: 1, SaveChangesButton: 1, SourceLanguage: 1, SourceText: 1, TargetLanguage: 1, TargetText: 1 }, User: { DisplayName: 1, Email: 1, InsertDate: 1, InsertUserId: 1, IsActive: 1, LastDirectoryUpdate: 1, Password: 1, PasswordConfirm: 1, PasswordHash: 1, PasswordSalt: 1, Source: 1, UpdateDate: 1, UpdateUserId: 1, UserId: 1, UserImage: 1, Username: 1 }, UserPermission: { Granted: 1, PermissionKey: 1, User: 1, UserId: 1, UserPermissionId: 1, Username: 1 }, UserRole: { RoleId: 1, User: 1, UserId: 1, UserRoleId: 1, Username: 1 } }, Common: { UserPreference: { Name: 1, PreferenceType: 1, UserId: 1, UserPreferenceId: 1, Value: 1 } }, Default: { BranchMaster: { Address: 1, BranchCode: 1, BranchName: 1, GstNo: 1, Id: 1, PanNo: 1, PhoneNumber: 1, PinCode: 1, Remarks: 1, State: 1, State1: 1, StateId: 1, StateRemarks: 1, StateStateCode: 1 }, Customer: { Address: 1, City: 1, CompanyName: 1, ContactName: 1, ContactTitle: 1, Country: 1, CustomerId: 1, Fax: 1, Phone: 1, PostalCode: 1, Region: 1 }, CustomerMaster: { AddressLine1: 1, AddressLine2: 1, City: 1, CreatedDate: 1, CustomerCode: 1, CustomerId: 1, DateOfBirth: 1, Email: 1, FirstName: 1, IdentityNumber: 1, IdentityType: 1, IsActive: 1, LastName: 1, MobileNumber: 1, Pincode: 1, State: 1 }, Destination: { Destination: 1, Distict: 1, Distict1: 1, DistictPlant: 1, DistictRemarks: 1, Id: 1, Plant: 1, Plant1: 1, PlantRemarks: 1, Remarks: 1 }, Distict: { Distict: 1, Id: 1, Plant: 1, Plant1: 1, PlantRemarks: 1, Remarks: 1 }, Employees: { Address: 1, BirthDate: 1, City: 1, Country: 1, EmployeeId: 1, Extension: 1, FullName: 1, HireDate: 1, HomePhone: 1, PostalCode: 1, Region: 1, Title: 1, TitleOfCourtesy: 1 }, Expense: { Destination: 1, Destination1: 1, DestinationDistict: 1, DestinationPlant: 1, DestinationRemarks: 1, District: 1, DistrictDistict: 1, DistrictPlant: 1, DistrictRemarks: 1, Expense: 1, ExpenseId: 1, Plant: 1, Plant1: 1, PlantRemarks: 1, Remarks: 1, Weight: 1, Wheels: 1 }, FinancialYear: { EndDate: 1, Id: 1, Name: 1, NameOfInvoice: 1, Remarks: 1, StartDate: 1 }, Genre: { Dates: 1, GenreId: 1, Name: 1 }, Invoicedetails: { Billingamount: 1, Challan: 1, Id: 1, Invoicedate: 1, LoadingTripId: 1, Lrno: 1, ManageInvoiceId: 1, VehicleNumber: 1, Vehicleid: 1, Weight: 1, freightRate: 1 }, ItemMaster: { Id: 1, ItemName: 1, Remarks: 1 }, LoadingTrip: { Branch: 1, BranchId: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Customer: 1, CustomerId: 1, Destination: 1, DestinationId: 1, District: 1, DistrictId: 1, ExpenseAmount: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, Plant: 1, PlantId: 1, Remarks: 1, State: 1, StateId: 1, TripDate: 1, TripNo: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1, freightRate: 1 }, MaintenanceHead: { CreatedBy: 1, CreatedDate: 1, Head: 1, Id: 1, Remarks: 1, UpdatedBy: 1, UpdatedDate: 1 }, Manageinvoice: { Addgst: 1, Branch: 1, Branchid: 1, Cgstamount: 1, Cgstrate: 1, Fromdate: 1, Id: 1, Igstamount: 1, Igstrate: 1, InvoiceDetails: 1, Invoicedate: 1, Invoiceno: 1, LoadingTripId: 1, Localgst: 1, Plant: 1, Plantid: 1, Pono: 1, Saccode: 1, Sgstamount: 1, Sgstrate: 1, Tax: 1, Todate: 1, Totalgstamount: 1, Totalinvoiceamount: 1, Totaltrips: 1, TripNo: 1 }, Movie: { Actors: 1, CastList: 1, Description: 1, GalleryImages: 1, GenreList: 1, Kind: 1, MovieId: 1, PrimaryImage: 1, ReleaseDate: 1, Runtime: 1, Storyline: 1, Title: 1, Year: 1 }, MovieCast: { Character: 1, MovieCastId: 1, MovieDescription: 1, MovieId: 1, MovieKind: 1, MovieReleaseDate: 1, MovieRuntime: 1, MovieStoryline: 1, MovieTitle: 1, MovieYear: 1, PersonBirthDate: 1, PersonBirthPlace: 1, PersonFirstName: 1, PersonFullName: 1, PersonGender: 1, PersonHeight: 1, PersonId: 1, PersonLastName: 1 }, MovieGenres: { GenreId: 1, GenreName: 1, MovieDescription: 1, MovieGenreId: 1, MovieId: 1, MovieKind: 1, MovieReleaseDate: 1, MovieRuntime: 1, MovieStoryline: 1, MovieTitle: 1, MovieYear: 1 }, PartyMaster: { Address: 1, Email: 1, Gst: 1, Id: 1, Name: 1, Pan: 1, PhoneNumber: 1, StateId: 1, StateName: 1 }, PendingTripDetailsInvoice: { BranchId: 1, BranchName: 1, CreatedDate: 1, Createdate: 1, Createdby: 1, CustomerId: 1, CustomerName: 1, DestinationId: 1, DestinationName: 1, DistrictId: 1, DistrictName: 1, ExpenseAmount: 1, FreightRate: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, PlantId: 1, PlantName: 1, Remarks: 1, StateId: 1, StateName: 1, TripDate: 1, TripNo: 1, Updatedby: 1, Updateddate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1 }, Person: { BirthDate: 1, BirthPlace: 1, FirstName: 1, FullName: 1, GalleryImages: 1, Gender: 1, Height: 1, LastName: 1, PersonId: 1, PrimaryImage: 1 }, Plant: { Id: 1, Plant: 1, Remarks: 1 }, Pumpmaster: { Address: 1, Gst: 1, Id: 1, Name: 1, Pan: 1, Stock: 1, Type: 1 }, StateMaster: { Id: 1, Remarks: 1, State: 1, StateCode: 1 }, Tax: { Id: 1, Remarks: 1, TaxAmount: 1, TaxAmountText: 1 }, Unit: { Id: 1, UnitName: 1 }, UnloadTrip: { Branch: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, CustomerName: 1, Destination: 1, District: 1, ExpenseAmount: 1, Item: 1, LoadingTripId: 1, Plant: 1, Remarks: 1, State: 1, TripDate: 1, TripNo: 1, UnloadDate: 1, UnloadTripId: 1, UnloadWeight: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleName: 1, Weight: 1, Wheels: 1 }, VLoadingTripDetails: { BranchId: 1, BranchName: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, CustomerId: 1, CustomerName: 1, DestinationId: 1, DestinationName: 1, DistrictId: 1, DistrictName: 1, ExpenseAmount: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, PlantId: 1, PlantName: 1, Remarks: 1, StateId: 1, StateName: 1, TripDate: 1, TripNo: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1 }, VehicleMaster: { Brand: 1, ChassisNumber: 1, Color: 1, CreatedDate: 1, CustomerId: 1, CustomerName: 1, EngineNumber: 1, FuelType: 1, InsuranceExpiryDate: 1, IsActive: 1, ManufacturingYear: 1, Model: 1, SeatingCapacity: 1, VehicleId: 1, VehicleNumber: 1, VehicleType: 1, Wheels: 1 } }, FuelManagement: { Dieselissue: { CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Destination: 1, DestinationName: 1, Diesel: 1, Distict: 1, DistrictName: 1, Id: 1, Plant: 1, PlantName: 1, PumpName: 1, Pumpid: 1, Rateofdiesel: 1, Stock: 1, Today: 1, Totalprice: 1, TripNumber: 1, Tripno: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, Vehiclenumber: 1 }, FuelData: { AllottedQuantity: 1, BasicAmount: 1, DrAccountId: 1, FuelDetails: 1, Id: 1, InvoiceDate: 1, InvoiceNo: 1, InwardNo: 1, PartyId: 1, QtyKl: 1, QuantityLtr: 1, RateKl: 1, RateLtr: 1, ReceiptDate: 1, ShortageAmt: 1, ShortageCrAccount: 1, ShortageDrAccount: 1, ShortageKl: 1, ShortageLtr: 1, ShowFuelDetails: 1, TankerNo: 1, TdsAccountId: 1, TdsAmount: 1, TdsPayable: 1, TdsPercent: 1, TdsSection: 1, TotalAmount: 1, TransportationAmt: 1, TransportationRate: 1, TransporterId: 1 }, FuelDetails: { FuelDataId: 1, Id: 1, PumpId: 1, PumpName: 1, Quantity: 1, ReceiptDate: 1, TankerNo: 1 } }, Inventry: { Item: { Balancestock: 1, CreatedByUsername: 1, Createdat: 1, Createdby: 1, GrossPrice: 1, Id: 1, Openingstock: 1, Partname: 1, Partnumber: 1, Purchasestock: 1, Rate: 1, Stocklvlmaximum: 1, Stocklvlminimum: 1, UpdatedByUsername: 1, Updatedat: 1, Updatedby: 1 }, PendingPurchaseOrder: { BalanceStock: 1, BasicAmount: 1, BranchId: 1, BranchName: 1, CGSTRate: 1, CgstAmount: 1, CurrentRate: 1, DetailId: 1, IGSTRate: 1, Id: 1, IgstAmount: 1, ItemId: 1, OrderDate: 1, PartNo: 1, Partname: 1, Party: 1, PartyId: 1, PoNo: 1, PreviousRate: 1, PurchaseOrderId: 1, Quantity: 1, SGSTRate: 1, SgstAmount: 1, StockLevelMax: 1, StockLevelMin: 1, TotalAmount: 1, UnitId: 1, UnitName: 1 }, PurchaseBill: { BillDate: 1, BillNo: 1, CgstAmount: 1, CgstLedger: 1, DebitLedgerId: 1, Gstin: 1, Id: 1, IgstAmount: 1, IgstLedger: 1, LedgerTypeId: 1, PartyId: 1, PartyName: 1, PoNumber: 1, PurchaseDetails: 1, Remarks: 1, RoundOff: 1, SgstAmount: 1, SgstLedger: 1, StockInDate: 1, TDSLedger: 1, TaxableAmount: 1, TdsAmount: 1, TdsRate: 1, TdsSection: 1, TotalBillAmount: 1 }, PurchaseBillDetail: { CgstAmount: 1, CgstRate: 1, CurrentRate: 1, Discount: 1, Id: 1, IgstAmount: 1, IgstRate: 1, ItemId: 1, ItemName: 1, PreviousRate: 1, PurchaseBillId: 1, PurchaseOrderId: 1, Quantity: 1, Remarks: 1, SgstAmount: 1, SgstRate: 1, TaxableAmount: 1, TotalAmount: 1 }, PurchaseOrder: { BranchId: 1, BranchName: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, DetailList: 1, Id: 1, OrderDate: 1, PartyId: 1, PartyName: 1, PoNo: 1, Remarks: 1, UpdateDate: 1, UpdatedBy: 1, UpdatedByUsername: 1 }, PurchaseRequestDetail: { BalanceStock: 1, BasicAmount: 1, CgstAmount: 1, CgstRate: 1, CurrentRate: 1, Id: 1, IgstAmount: 1, IgstRate: 1, ItemId: 1, PartName: 1, PartNo: 1, PoNo: 1, PreviousRate: 1, PurchaseOrderId: 1, Quantity: 1, SgstAmount: 1, SgstRate: 1, StockLevelMax: 1, StockLevelMin: 1, TotalAmount: 1, UnitId: 1, UnitName: 1 } }, MaintenanceModule: { Maintenance: { CustomerName: 1, DueDate: 1, EntryDate: 1, EntryNumber: 1, EstimatedPeriod: 1, Head: 1, HeadId: 1, Id: 1, LastMaintenance: 1, ModelNumber: 1, Narration: 1, Owner: 1, PeriodTill: 1, TruckId: 1, TruckNumber: 1, TruckType: 1 } } }, Forms: { Membership: { ChangePassword: { FormTitle: 1, SubmitButton: 1, Success: 1 }, ForgotPassword: { BackToLogin: 1, FormInfo: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, Login: { FacebookButton: 1, ForgotPassword: 1, FormTitle: 1, GoogleButton: 1, OR: 1, RememberMe: 1, SignInButton: 1, SignUpButton: 1 }, ResetPassword: { BackToLogin: 1, EmailSubject: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, SignUp: { AcceptTerms: 1, ActivateEmailSubject: 1, ActivationCompleteMessage: 1, BackToLogin: 1, ConfirmEmail: 1, ConfirmPassword: 1, DisplayName: 1, Email: 1, FormInfo: 1, FormTitle: 1, Password: 1, SubmitButton: 1, Success: 1 } } }, Site: { AccessDenied: { ClickToChangeUser: 1, ClickToLogin: 1, LackPermissions: 1, NotLoggedIn: 1, PageTitle: 1 }, BasicProgressDialog: { CancelTitle: 1, PleaseWait: 1 }, BulkServiceAction: { AllHadErrorsFormat: 1, AllSuccessFormat: 1, ConfirmationFormat: 1, ErrorCount: 1, NothingToProcess: 1, SomeHadErrorsFormat: 1, SuccessCount: 1 }, Dashboard: { ContentDescription: 1 }, Layout: { FooterCopyright: 1, FooterInfo: 1, FooterRights: 1, GeneralSettings: 1, Language: 1, Theme: 1, ThemeBlack: 1, ThemeBlackLight: 1, ThemeBlue: 1, ThemeBlueLight: 1, ThemeGreen: 1, ThemeGreenLight: 1, ThemePurple: 1, ThemePurpleLight: 1, ThemeRed: 1, ThemeRedLight: 1, ThemeYellow: 1, ThemeYellowLight: 1 }, RolePermissionDialog: { DialogTitle: 1, EditButton: 1, SaveSuccess: 1 }, UserDialog: { EditPermissionsButton: 1, EditRolesButton: 1 }, UserPermissionDialog: { DialogTitle: 1, Grant: 1, Permission: 1, Revoke: 1, SaveSuccess: 1 }, UserRoleDialog: { DialogTitle: 1, SaveSuccess: 1 }, ValidationError: { Title: 1 } }, Validation: { AuthenticationError: 1, CantFindUserWithEmail: 1, CurrentPasswordMismatch: 1, DeleteForeignKeyError: 1, EmailConfirm: 1, EmailInUse: 1, InvalidActivateToken: 1, InvalidResetToken: 1, MinRequiredPasswordLength: 1, SavePrimaryKeyError: 1 } });
     })(Texts = SereneMovieTutorial.Texts || (SereneMovieTutorial.Texts = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
 var SereneMovieTutorial;
@@ -4365,13 +5999,13 @@ var SereneMovieTutorial;
             function LanguageSelection(select, currentLanguage) {
                 var _this = _super.call(this, select) || this;
                 currentLanguage = Q.coalesce(currentLanguage, 'en');
-                _this.change(function (e) {
-                    $.cookie('LanguagePreference', select.val(), {
-                        path: Q.Config.applicationPath,
-                        expires: 365
-                    });
-                    window.location.reload(true);
-                });
+                //this.change(e => {
+                //    $.cookie('LanguagePreference', select.val(), {
+                //        path: Q.Config.applicationPath,
+                //        expires: 365
+                //    });
+                //    window.location.reload();
+                //});
                 Q.getLookupAsync('Administration.Language').then(function (x) {
                     if (!Q.any(x.items, function (z) { return z.LanguageId === currentLanguage; })) {
                         var idx = currentLanguage.lastIndexOf('-');
@@ -5437,6 +7071,10 @@ var SereneMovieTutorial;
                     name: "S. No",
                     format: function (ctx) { return (ctx.row + 1).toString(); }
                 });
+                var employee = Q.first(columns, function (x) { return x.field == "FullName"; });
+                employee.format = function (ctx) {
+                    return "<i class='fa fa-user text-danger'></i> " + ctx.value;
+                };
                 return columns;
             };
             EmployeesGrid = __decorate([
@@ -5512,30 +7150,24 @@ var SereneMovieTutorial;
             };
             ExpenseGrid.prototype.getSlickOptions = function () {
                 var opt = _super.prototype.getSlickOptions.call(this);
+                opt.enableTextSelectionOnCells = true;
                 opt.showFooterRow = true;
                 return opt;
             };
+            //protected getSlickOptions() {
+            //    var opt = super.getSlickOptions();
+            //    opt.enableTextSelectionOnCells = true;
+            //    opt.showFooterRow = true;
+            //    return opt;
+            //}
             ExpenseGrid.prototype.createSlickGrid = function () {
-                var _this = this;
                 var grid = _super.prototype.createSlickGrid.call(this);
+                grid.registerPlugin(new Slick.Data.GroupItemMetadataProvider());
                 this.view.setSummaryOptions({
                     aggregators: [
-                        new Slick.Aggregators.Sum('Expense'),
-                        new Slick.Aggregators.Avg('Weight')
+                        new Slick.Aggregators.Sum("Expense" /* Expense */),
+                        new Slick.Aggregators.Avg("Weight" /* Weight */)
                     ]
-                });
-                grid.onFooterRowCellRendered.subscribe(function (e, args) {
-                    var _a, _b, _c, _d;
-                    if (args.column.field === 'Expense') {
-                        var totals = _this.view.getSummary();
-                        var sum = (_b = (_a = totals['Expense']) === null || _a === void 0 ? void 0 : _a.sum, (_b !== null && _b !== void 0 ? _b : 0));
-                        args.node.innerHTML = "<b>Total: " + sum + "</b>";
-                    }
-                    if (args.column.field === 'Weight') {
-                        var totals = _this.view.getSummary();
-                        var Avg = (_d = (_c = totals['Weight']) === null || _c === void 0 ? void 0 : _c.sum, (_d !== null && _d !== void 0 ? _d : 0));
-                        args.node.innerHTML = "<b>Total: " + Avg + "</b>";
-                    }
                 });
                 return grid;
             };
@@ -5681,6 +7313,194 @@ var SereneMovieTutorial;
 (function (SereneMovieTutorial) {
     var Default;
     (function (Default) {
+        var MultipleDateEditor = /** @class */ (function (_super) {
+            __extends(MultipleDateEditor, _super);
+            function MultipleDateEditor(input) {
+                var _this = _super.call(this, input) || this;
+                var picker = input.datepicker({
+                    format: "yyyy-mm-dd",
+                    multidate: true,
+                    todayHighlight: true,
+                    autoclose: false
+                });
+                input.on("changeDate", function () {
+                    var dates = picker.datepicker("getDates");
+                    var result = [];
+                    for (var i = 0; i < dates.length; i++) {
+                        result.push(Q.formatDate(dates[i], "yyyy-MM-dd"));
+                    }
+                    console.log(result);
+                    input.val(result.join(","));
+                });
+                return _this;
+            }
+            MultipleDateEditor.prototype.get_value = function () {
+                return this.element.val();
+            };
+            MultipleDateEditor.prototype.set_value = function (value) {
+                this.element.val(value);
+                if (value) {
+                    var dates = value.split(",");
+                    this.element.datepicker("setDates", dates);
+                }
+            };
+            MultipleDateEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], MultipleDateEditor);
+            return MultipleDateEditor;
+        }(Serenity.StringEditor));
+        Default.MultipleDateEditor = MultipleDateEditor;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var ExInvoiceDetailsDialog = /** @class */ (function (_super) {
+            __extends(ExInvoiceDetailsDialog, _super);
+            function ExInvoiceDetailsDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                // public parentDialog: FuelDataDialog;
+                //private applyParentTanker: boolean = false;
+                _this.form = new Default.InvoicedetailsForm(_this.idPrefix);
+                return _this;
+            }
+            //public static Parent: FuelDataDialog;
+            ExInvoiceDetailsDialog.prototype.getFormKey = function () { return Default.InvoicedetailsForm.formKey; };
+            ExInvoiceDetailsDialog.prototype.getIdProperty = function () { return Default.InvoicedetailsRow.idProperty; };
+            ExInvoiceDetailsDialog.prototype.getLocalTextPrefix = function () { return Default.InvoicedetailsRow.localTextPrefix; };
+            ExInvoiceDetailsDialog.prototype.getService = function () { return Default.InvoicedetailsService.baseUrl; };
+            ExInvoiceDetailsDialog.prototype.getSaveEntity = function () {
+                var entity = _super.prototype.getSaveEntity.call(this);
+                //entity.TankerNo = this.form.TankerNo.value;
+                //// store PumpName so GridEditor can display it
+                //let lookup = Default.PumpmasterRow.getLookup();
+                //if (entity.PumpId && lookup.itemById[entity.PumpId])
+                //    entity.PumpName = lookup.itemById[entity.PumpId].Name;
+                return entity;
+            };
+            ExInvoiceDetailsDialog.prototype.afterLoadEntity = function () {
+                _super.prototype.afterLoadEntity.call(this);
+                var parent = this.parentDialog;
+                //if (parent) {
+                //    let latest = parent.getTankerNo();
+                //    this.form.TankerNo.value = latest;
+                //}
+            };
+            ExInvoiceDetailsDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ExInvoiceDetailsDialog);
+            return ExInvoiceDetailsDialog;
+        }(SereneMovieTutorial.Common.GridEditorDialog));
+        Default.ExInvoiceDetailsDialog = ExInvoiceDetailsDialog;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var ExInvoiceDetailsEditor = /** @class */ (function (_super) {
+            __extends(ExInvoiceDetailsEditor, _super);
+            function ExInvoiceDetailsEditor() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            ExInvoiceDetailsEditor.prototype.getColumnsKey = function () { return "Default.Invoicedetails"; };
+            ExInvoiceDetailsEditor.prototype.getDialogType = function () { return Default.ExInvoiceDetailsDialog; };
+            ExInvoiceDetailsEditor.prototype.getLocalTextPrefix = function () { return Default.InvoicedetailsRow.localTextPrefix; };
+            ExInvoiceDetailsEditor.prototype.getIdProperty = function () { return Default.InvoicedetailsRow.idProperty; };
+            ExInvoiceDetailsEditor.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "ID",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            ExInvoiceDetailsEditor.prototype.getButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons[0].onClick = function () {
+                    _this.createEntityDialog(_this.getItemType(), function (dlg) {
+                        var dialog = dlg;
+                        // ✅ pass parent
+                        //dialog.parentDialog = this.parentDialog;
+                        dialog.onSave = function (opt, callback) { return _this.save(opt, callback); };
+                        var entity = _this.getNewEntity();
+                        // ✅ set tanker
+                        //entity.TankerNo = this.TankerName;
+                        dialog.loadEntityAndOpenDialog(entity);
+                    });
+                };
+                return buttons;
+            };
+            ExInvoiceDetailsEditor.prototype.initEntityDialog = function (itemType, dialog) {
+                _super.prototype.initEntityDialog.call(this, itemType, dialog);
+                // ✅ THIS ALWAYS RUNS (new + edit)
+                dialog.parentDialog = this.parentDialog;
+            };
+            ExInvoiceDetailsEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], ExInvoiceDetailsEditor);
+            return ExInvoiceDetailsEditor;
+        }(SereneMovieTutorial.Common.GridEditorBase));
+        Default.ExInvoiceDetailsEditor = ExInvoiceDetailsEditor;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var InvoicedetailsDialog = /** @class */ (function (_super) {
+            __extends(InvoicedetailsDialog, _super);
+            function InvoicedetailsDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.InvoicedetailsForm(_this.idPrefix);
+                return _this;
+            }
+            InvoicedetailsDialog.prototype.getFormKey = function () { return Default.InvoicedetailsForm.formKey; };
+            InvoicedetailsDialog.prototype.getIdProperty = function () { return Default.InvoicedetailsRow.idProperty; };
+            InvoicedetailsDialog.prototype.getLocalTextPrefix = function () { return Default.InvoicedetailsRow.localTextPrefix; };
+            InvoicedetailsDialog.prototype.getNameProperty = function () { return Default.InvoicedetailsRow.nameProperty; };
+            InvoicedetailsDialog.prototype.getService = function () { return Default.InvoicedetailsService.baseUrl; };
+            InvoicedetailsDialog.prototype.getDeletePermission = function () { return Default.InvoicedetailsRow.deletePermission; };
+            InvoicedetailsDialog.prototype.getInsertPermission = function () { return Default.InvoicedetailsRow.insertPermission; };
+            InvoicedetailsDialog.prototype.getUpdatePermission = function () { return Default.InvoicedetailsRow.updatePermission; };
+            InvoicedetailsDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], InvoicedetailsDialog);
+            return InvoicedetailsDialog;
+        }(Serenity.EntityDialog));
+        Default.InvoicedetailsDialog = InvoicedetailsDialog;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var InvoicedetailsGrid = /** @class */ (function (_super) {
+            __extends(InvoicedetailsGrid, _super);
+            function InvoicedetailsGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            InvoicedetailsGrid.prototype.getColumnsKey = function () { return 'Default.Invoicedetails'; };
+            InvoicedetailsGrid.prototype.getDialogType = function () { return Default.InvoicedetailsDialog; };
+            InvoicedetailsGrid.prototype.getIdProperty = function () { return Default.InvoicedetailsRow.idProperty; };
+            InvoicedetailsGrid.prototype.getInsertPermission = function () { return Default.InvoicedetailsRow.insertPermission; };
+            InvoicedetailsGrid.prototype.getLocalTextPrefix = function () { return Default.InvoicedetailsRow.localTextPrefix; };
+            InvoicedetailsGrid.prototype.getService = function () { return Default.InvoicedetailsService.baseUrl; };
+            InvoicedetailsGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], InvoicedetailsGrid);
+            return InvoicedetailsGrid;
+        }(Serenity.EntityGrid));
+        Default.InvoicedetailsGrid = InvoicedetailsGrid;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
         var ItemMasterDialog = /** @class */ (function (_super) {
             __extends(ItemMasterDialog, _super);
             function ItemMasterDialog() {
@@ -5758,70 +7578,30 @@ var SereneMovieTutorial;
             LoadingTripDialog.prototype.afterLoadEntity = function () {
                 var _this = this;
                 _super.prototype.afterLoadEntity.call(this);
+                // Load branch info
                 Default.LoadingTripService.GetBranch({
                     BranchName: this.form.Branch.value,
                     BranchId: this.form.BranchId.value
                 }, function (res) {
-                    _this.form.Branch.value = res.BranchName,
-                        _this.form.BranchId.value = res.BranchId;
+                    _this.form.Branch.value = res.BranchName;
+                    _this.form.BranchId.value = res.BranchId;
                 });
+                // Vehicle change
                 this.form.VehicleId.changeSelect2(function () {
                     _this.getVehicleOwners();
                     if (!_this.form.VehicleId.value) {
                         _this.form.CustomerId.value = null;
                         _this.form.Wheels.value = null;
+                        _this.form.ExpenseAmount.value = null;
                     }
                 });
-                this.form.Wheels.change(function () {
-                    _this.getExpense();
-                });
-                this.form.PlantId.changeSelect2(function () {
-                    _this.getExpense();
-                    if (!_this.form.PlantId.value) {
-                        _this.clearExpenseFields();
-                    }
-                });
-                this.form.DistrictId.changeSelect2(function () {
-                    _this.getExpense();
-                    if (!_this.form.DistrictId.value) {
-                        _this.clearExpenseFields();
-                    }
-                });
-                this.form.DestinationId.changeSelect2(function () {
-                    _this.getExpense();
-                    if (!_this.form.DestinationId.value) {
-                        _this.clearExpenseFields();
-                    }
-                });
-                this.form.Weight.changeSelect2(function () {
-                    _this.getExpense();
-                    if (!_this.form.Weight.value) {
-                        _this.clearExpenseFields();
-                    }
-                });
-                if (this.isNew()) {
-                    var user = Q.Authorization.userDefinition;
-                    //this.form.BranchId.value = user.Permissions.BranchId;
-                    this.form.Branch.value = user.BranchName;
-                }
-            };
-            LoadingTripDialog.prototype.loadExpense = function () {
-                var _this = this;
-                //debugger
-                if (!this.form.PlantId.value ||
-                    !this.form.DistrictId.value ||
-                    !this.form.DestinationId.value ||
-                    !this.form.Weight.value)
-                    return;
-                Default.LoadingTripService.GetExpenseByRoute({
-                    PlantId: Q.toId(this.form.PlantId.value),
-                    DistrictId: Q.toId(this.form.DistrictId.value),
-                    DestinationId: Q.toId(this.form.DestinationId.value),
-                    Weight: this.form.Weight.value
-                }, function (res) {
-                    _this.form.ExpenseAmount.value = res.ExpenseAmount;
-                    //this.form.Weight.value = res.weight;
-                });
+                // Wheels change
+                this.form.Wheels.change(function () { return _this.getExpense(); });
+                //Plant/District/Destination/Weight changes
+                this.form.PlantId.changeSelect2(function () { return _this.getExpense(); });
+                this.form.DistrictId.changeSelect2(function () { return _this.getExpense(); });
+                this.form.DestinationId.changeSelect2(function () { return _this.getExpense(); });
+                this.form.Weight.changeSelect2(function () { return _this.getExpense(); });
             };
             LoadingTripDialog.prototype.clearExpenseFields = function () {
                 this.form.ExpenseAmount.value = null;
@@ -5833,34 +7613,39 @@ var SereneMovieTutorial;
                 Default.LoadingTripService.GetVehicleDetails({
                     VehicleId: Q.toId(this.form.VehicleId.value)
                 }, function (res) {
+                    var _a;
                     if (!res.Details) {
                         _this.form.CustomerId.value = null;
                         _this.form.Wheels.value = null;
-                        //this.form.Weight.value = null;
+                        _this.form.ExpenseAmount.value = null;
                         return;
                     }
-                    _this.form.CustomerId.value = res.Details.CustomerId.toString();
+                    _this.form.CustomerId.value = ((_a = res.Details.CustomerId) === null || _a === void 0 ? void 0 : _a.toString()) || null;
                     _this.form.Wheels.value = res.Details.Wheels;
-                    //this.form.Weight.value = res.Details.Weight;
                 });
             };
             LoadingTripDialog.prototype.getExpense = function () {
                 var _this = this;
-                if (this.form.PlantId.value) {
-                    Default.LoadingTripService.GetExpenseByRoute({
-                        PlantId: this.form.PlantId.value,
-                        DistrictId: this.form.DistrictId.value,
-                        DestinationId: this.form.DestinationId.value,
-                        Wheels: this.form.Wheels.value,
-                        Weight: this.form.Weight.value,
-                    }, function (res) {
-                        if (!res.Details) {
-                            _this.form.ExpenseAmount.value = null;
-                            return;
-                        }
-                        _this.form.ExpenseAmount.value = res.Details.Expense.toString();
-                    });
+                if (!this.form.PlantId.value ||
+                    !this.form.DistrictId.value ||
+                    !this.form.DestinationId.value ||
+                    !this.form.Weight.value) {
+                    this.clearExpenseFields();
+                    return;
                 }
+                Default.LoadingTripService.GetExpenseByRoute({
+                    PlantId: Q.toId(this.form.PlantId.value),
+                    DistrictId: Q.toId(this.form.DistrictId.value),
+                    DestinationId: Q.toId(this.form.DestinationId.value),
+                    Wheels: this.form.Wheels.value,
+                    Weight: this.form.Weight.value
+                }, function (res) {
+                    if (!res.Details) {
+                        _this.clearExpenseFields();
+                        return;
+                    }
+                    _this.form.ExpenseAmount.value = res.Details.Expense;
+                });
             };
             LoadingTripDialog = __decorate([
                 Serenity.Decorators.panel(),
@@ -5980,6 +7765,257 @@ var SereneMovieTutorial;
 (function (SereneMovieTutorial) {
     var Default;
     (function (Default) {
+        var MaintenanceHeadDialog = /** @class */ (function (_super) {
+            __extends(MaintenanceHeadDialog, _super);
+            function MaintenanceHeadDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.MaintenanceHeadForm(_this.idPrefix);
+                return _this;
+            }
+            MaintenanceHeadDialog.prototype.getFormKey = function () { return Default.MaintenanceHeadForm.formKey; };
+            MaintenanceHeadDialog.prototype.getIdProperty = function () { return Default.MaintenanceHeadRow.idProperty; };
+            MaintenanceHeadDialog.prototype.getLocalTextPrefix = function () { return Default.MaintenanceHeadRow.localTextPrefix; };
+            MaintenanceHeadDialog.prototype.getNameProperty = function () { return Default.MaintenanceHeadRow.nameProperty; };
+            MaintenanceHeadDialog.prototype.getService = function () { return Default.MaintenanceHeadService.baseUrl; };
+            MaintenanceHeadDialog.prototype.getDeletePermission = function () { return Default.MaintenanceHeadRow.deletePermission; };
+            MaintenanceHeadDialog.prototype.getInsertPermission = function () { return Default.MaintenanceHeadRow.insertPermission; };
+            MaintenanceHeadDialog.prototype.getUpdatePermission = function () { return Default.MaintenanceHeadRow.updatePermission; };
+            MaintenanceHeadDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], MaintenanceHeadDialog);
+            return MaintenanceHeadDialog;
+        }(Serenity.EntityDialog));
+        Default.MaintenanceHeadDialog = MaintenanceHeadDialog;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var MaintenanceHeadGrid = /** @class */ (function (_super) {
+            __extends(MaintenanceHeadGrid, _super);
+            function MaintenanceHeadGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            MaintenanceHeadGrid.prototype.getColumnsKey = function () { return 'Default.MaintenanceHead'; };
+            MaintenanceHeadGrid.prototype.getDialogType = function () { return Default.MaintenanceHeadDialog; };
+            MaintenanceHeadGrid.prototype.getIdProperty = function () { return Default.MaintenanceHeadRow.idProperty; };
+            MaintenanceHeadGrid.prototype.getInsertPermission = function () { return Default.MaintenanceHeadRow.insertPermission; };
+            MaintenanceHeadGrid.prototype.getLocalTextPrefix = function () { return Default.MaintenanceHeadRow.localTextPrefix; };
+            MaintenanceHeadGrid.prototype.getService = function () { return Default.MaintenanceHeadService.baseUrl; };
+            MaintenanceHeadGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], MaintenanceHeadGrid);
+            return MaintenanceHeadGrid;
+        }(Serenity.EntityGrid));
+        Default.MaintenanceHeadGrid = MaintenanceHeadGrid;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var ManageinvoiceDialog = /** @class */ (function (_super) {
+            __extends(ManageinvoiceDialog, _super);
+            function ManageinvoiceDialog(rows) {
+                var _this = _super.call(this) || this;
+                _this.form = new Default.ManageinvoiceForm(_this.idPrefix);
+                _this.rows = rows || [];
+                console.log(rows);
+                return _this;
+            }
+            ManageinvoiceDialog.prototype.getFormKey = function () { return Default.ManageinvoiceForm.formKey; };
+            ManageinvoiceDialog.prototype.getIdProperty = function () { return Default.ManageinvoiceRow.idProperty; };
+            ManageinvoiceDialog.prototype.getLocalTextPrefix = function () { return Default.ManageinvoiceRow.localTextPrefix; };
+            ManageinvoiceDialog.prototype.getNameProperty = function () { return Default.ManageinvoiceRow.nameProperty; };
+            ManageinvoiceDialog.prototype.getService = function () { return Default.ManageinvoiceService.baseUrl; };
+            ManageinvoiceDialog.prototype.getDeletePermission = function () { return Default.ManageinvoiceRow.deletePermission; };
+            ManageinvoiceDialog.prototype.getInsertPermission = function () { return Default.ManageinvoiceRow.insertPermission; };
+            ManageinvoiceDialog.prototype.getUpdatePermission = function () { return Default.ManageinvoiceRow.updatePermission; };
+            ManageinvoiceDialog.prototype.loadEntity = function (entity) {
+                _super.prototype.loadEntity.call(this, entity);
+                //this.form.LoadingTripId.value = this.LoadingTripId.toString();
+                if (this.rows && this.rows.length > 0) {
+                    this.form.InvoiceDetails.value = this.rows;
+                }
+                if (this.isNew()) {
+                    entity.Plantid = this.Plant_Id;
+                    this.form.Plantid.value = this.Plant_Id.toString();
+                    entity.Branchid = this.Branch_id;
+                    this.form.Branchid.value = this.Branch_id.toString();
+                    this.form.Totaltrips.value = this.totTrips;
+                    this.form.Invoiceno.value = this.invoice.toString();
+                    this.form.Saccode.value = this.sac;
+                    this.form.LoadingTripId.value = this.LoadingTripId.toString();
+                }
+            };
+            ManageinvoiceDialog.prototype.getBranchStateId = function () {
+                var lookup = Default.BranchMasterRow.getLookup();
+                if (!lookup || !lookup.items)
+                    return null;
+                for (var i = 0; i < lookup.items.length; i++) {
+                    var item = lookup.items[i];
+                    //console.log("Item Id " +item.Id);
+                    if (item.Id == this.Branch_id) {
+                        console.log("inside if " + item.StateId);
+                        return item.StateId;
+                    }
+                }
+                return null;
+            };
+            ManageinvoiceDialog.prototype.afterLoadEntity = function () {
+                var _this = this;
+                _super.prototype.afterLoadEntity.call(this);
+                if (!this.isNew()) {
+                    this.form.InvoiceDetails.value = this.entity.InvoiceDetails || [];
+                }
+                this.form.Addgst.change(function (e) {
+                    if (_this.form.Addgst.value == true) {
+                        // Enable TAX field
+                        _this.form.Tax.getGridField().toggleClass('readonly', false);
+                        _this.form.Tax.readOnly = false;
+                    }
+                    else {
+                        // Disable TAX field
+                        _this.form.Tax.readOnly = true;
+                    }
+                });
+                this.form.Tax.change(function (e) {
+                    var taxval = 0;
+                    // If Tax is a lookup editor
+                    var lookup = Default.TaxRow.getLookup();
+                    var taxid = Number(_this.form.Tax.value) || 0;
+                    for (var i = 0; i < lookup.items.length; i++) {
+                        var item = lookup.items[i];
+                        if (item.Id == taxid) {
+                            taxval = item.TaxAmount;
+                        }
+                    }
+                    console.log(taxval);
+                    var freightRate = _this.totalFreightAmount || 0;
+                    var weight = _this.TotalWeight || 0;
+                    var basicAmount = freightRate * weight;
+                    // Get states
+                    var branchStateId = _this.getBranchStateId();
+                    //console.log("state id " + this.stateid)
+                    //console.log("lookup state id " + branchStateId)
+                    //console.log("Totweight" + this.TotalWeight)
+                    //console.log("Totamount" + this.totalFreightAmount)
+                    //console.log("branch id" + this.Branch_id)
+                    if (!branchStateId || !_this.stateid) {
+                        Q.notifyWarning("State not found");
+                        return;
+                    }
+                    // RESET
+                    _this.form.Cgstrate.value = 0;
+                    _this.form.Sgstrate.value = 0;
+                    _this.form.Igstrate.value = 0;
+                    _this.form.Cgstamount.value = 0;
+                    _this.form.Sgstamount.value = 0;
+                    _this.form.Igstamount.value = 0;
+                    if (branchStateId === _this.stateid) {
+                        // CGST + SGST
+                        var halfTax = taxval / 2;
+                        _this.form.Cgstrate.value = halfTax;
+                        _this.form.Sgstrate.value = halfTax;
+                        var cgstAmt = (basicAmount * halfTax) / 100;
+                        var sgstAmt = (basicAmount * halfTax) / 100;
+                        _this.form.Cgstamount.value = cgstAmt;
+                        _this.form.Sgstamount.value = sgstAmt;
+                    }
+                    else {
+                        // IGST
+                        _this.form.Igstrate.value = taxval;
+                        var igstAmt = (basicAmount * taxval / 100);
+                        _this.form.Igstamount.value = igstAmt;
+                    }
+                    // TOTAL GST
+                    var totalGST = (_this.form.Cgstamount.value || 0) +
+                        (_this.form.Sgstamount.value || 0) +
+                        (_this.form.Igstamount.value || 0);
+                    _this.form.Totalgstamount.value = totalGST;
+                    var totalInvoice = _this.totalFreightAmount + totalGST;
+                    _this.form.Totalinvoiceamount.value = totalInvoice;
+                });
+            };
+            ManageinvoiceDialog = __decorate([
+                Serenity.Decorators.panel(),
+                Serenity.Decorators.registerClass()
+            ], ManageinvoiceDialog);
+            return ManageinvoiceDialog;
+        }(Serenity.EntityDialog));
+        Default.ManageinvoiceDialog = ManageinvoiceDialog;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var ManageinvoiceGrid = /** @class */ (function (_super) {
+            __extends(ManageinvoiceGrid, _super);
+            function ManageinvoiceGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            ManageinvoiceGrid.prototype.getColumnsKey = function () { return 'Default.Manageinvoice'; };
+            ManageinvoiceGrid.prototype.getDialogType = function () { return Default.ManageinvoiceDialog; };
+            ManageinvoiceGrid.prototype.getIdProperty = function () { return Default.ManageinvoiceRow.idProperty; };
+            ManageinvoiceGrid.prototype.getInsertPermission = function () { return Default.ManageinvoiceRow.insertPermission; };
+            ManageinvoiceGrid.prototype.getLocalTextPrefix = function () { return Default.ManageinvoiceRow.localTextPrefix; };
+            ManageinvoiceGrid.prototype.getService = function () { return Default.ManageinvoiceService.baseUrl; };
+            ManageinvoiceGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                columns.splice(0, 0);
+                columns.unshift({
+                    field: 'Print',
+                    name: '',
+                    format: function (ctx) {
+                        return '<a class="inline-action print-voucher-row" title="Print">' +
+                            '<i class="fa fa-print text-red"></i></a>';
+                    },
+                    width: 24,
+                    minWidth: 24,
+                    maxWidth: 24
+                });
+                return columns;
+            };
+            ManageinvoiceGrid.prototype.onClick = function (e, row, cell) {
+                _super.prototype.onClick.call(this, e, row, cell);
+                if (e.isDefaultPrevented())
+                    return;
+                var item = this.itemAt(row);
+                var target = $(e.target);
+                if (target.parent().hasClass('inline-action'))
+                    target = target.parent();
+                if (target.hasClass('inline-action')) {
+                    e.preventDefault();
+                    if (target.hasClass('print-voucher-row')) {
+                        Q.postToUrl({
+                            url: "~/Default/Reports/TripInvoice/GetInvoice",
+                            params: {
+                                'id': item.Id
+                            },
+                            target: '_blank'
+                        });
+                    }
+                }
+            };
+            ManageinvoiceGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ManageinvoiceGrid);
+            return ManageinvoiceGrid;
+        }(Serenity.EntityGrid));
+        Default.ManageinvoiceGrid = ManageinvoiceGrid;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
         var GenreListFormatter = /** @class */ (function () {
             function GenreListFormatter() {
             }
@@ -6058,15 +8094,26 @@ var SereneMovieTutorial;
                     name: "S. No",
                     format: function (ctx) { return (ctx.row + 1).toString(); }
                 });
-                //columns.splice(1, 0, {
-                //    field: 'Print Invoice',
-                //    name: '',
-                //    format: ctx => '<a class="inline-action print-invoice" title="invoice">' +
-                //        '<i class="fa fa-file-pdf-o text-red"></i></a>',
-                //    width: 24,
-                //    minWidth: 24,
-                //    maxWidth: 24
-                //});
+                //columns.
+                var downloadColumn = {
+                    field: "Download",
+                    name: "",
+                    format: function (ctx) {
+                        var file = ctx.item.PrimaryImage;
+                        if (!file)
+                            return "<i class=\"fa fa-download text-muted\"></i>";
+                        var url = Q.resolveUrl("~/upload/") + file;
+                        return "<a href=\"" + url + "\" download target=\"_blank\">\n                <i class=\"fa fa-download text-blue\"></i>\n            </a>";
+                    },
+                    width: 40,
+                    minWidth: 40,
+                    maxWidth: 40
+                };
+                // insert before Title column
+                var titleIndex = columns.map(function (x) { return x.field; })
+                    .indexOf("Title" /* Title */);
+                if (titleIndex >= 0)
+                    columns.splice(titleIndex, 0, downloadColumn);
                 columns.forEach(function (c) {
                     if (c.field === "Kind" /* Kind */) {
                         c.editor = Serenity.EnumEditor;
@@ -6115,12 +8162,12 @@ var SereneMovieTutorial;
                         }
                     }
                 }));
-                buttons.push({
-                    title: 'Save Changes',
-                    cssClass: 'apply-changes-button disabled',
-                    //onClick: this.
-                    separator: true
-                });
+                //buttons.push({
+                //    title: 'Save Changes',
+                //    cssClass: 'apply-changes-button disabled',
+                //    //onClick: this.
+                //    separator: true
+                //});
                 return buttons;
             };
             MovieGrid.prototype.getSlickOptions = function () {
@@ -6135,20 +8182,13 @@ var SereneMovieTutorial;
                 return opt;
             };
             MovieGrid.prototype.createSlickGrid = function () {
-                var _this = this;
                 var grid = _super.prototype.createSlickGrid.call(this);
+                grid.registerPlugin(new Slick.Data.GroupItemMetadataProvider());
                 this.view.setSummaryOptions({
                     aggregators: [
-                        new Slick.Aggregators.Avg('Runtime')
+                        //new Slick.Aggregators.Sum(fld.),
+                        new Slick.Aggregators.Avg("Runtime" /* Runtime */)
                     ]
-                });
-                grid.onFooterRowCellRendered.subscribe(function (e, args) {
-                    var _a, _b;
-                    if (args.column.field === 'Runtime') {
-                        var totals = _this.view.sortBy.length;
-                        var Avg = (_b = (_a = totals['Runtime']) === null || _a === void 0 ? void 0 : _a.sum, (_b !== null && _b !== void 0 ? _b : 0));
-                        args.node.innerHTML = "<b>Avg: " + Avg.toFixed(2) + "</b>";
-                    }
                 });
                 return grid;
             };
@@ -6258,6 +8298,261 @@ var SereneMovieTutorial;
             return MovieCastEditorDialog;
         }(SereneMovieTutorial.Common.GridEditorDialog));
         Default.MovieCastEditorDialog = MovieCastEditorDialog;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var PartyMasterDialog = /** @class */ (function (_super) {
+            __extends(PartyMasterDialog, _super);
+            function PartyMasterDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.PartyMasterForm(_this.idPrefix);
+                return _this;
+            }
+            PartyMasterDialog.prototype.getFormKey = function () { return Default.PartyMasterForm.formKey; };
+            PartyMasterDialog.prototype.getIdProperty = function () { return Default.PartyMasterRow.idProperty; };
+            PartyMasterDialog.prototype.getLocalTextPrefix = function () { return Default.PartyMasterRow.localTextPrefix; };
+            PartyMasterDialog.prototype.getNameProperty = function () { return Default.PartyMasterRow.nameProperty; };
+            PartyMasterDialog.prototype.getService = function () { return Default.PartyMasterService.baseUrl; };
+            PartyMasterDialog.prototype.getDeletePermission = function () { return Default.PartyMasterRow.deletePermission; };
+            PartyMasterDialog.prototype.getInsertPermission = function () { return Default.PartyMasterRow.insertPermission; };
+            PartyMasterDialog.prototype.getUpdatePermission = function () { return Default.PartyMasterRow.updatePermission; };
+            PartyMasterDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PartyMasterDialog);
+            return PartyMasterDialog;
+        }(Serenity.EntityDialog));
+        Default.PartyMasterDialog = PartyMasterDialog;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var PartyMasterGrid = /** @class */ (function (_super) {
+            __extends(PartyMasterGrid, _super);
+            function PartyMasterGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            PartyMasterGrid.prototype.getColumnsKey = function () { return 'Default.PartyMaster'; };
+            PartyMasterGrid.prototype.getDialogType = function () { return Default.PartyMasterDialog; };
+            PartyMasterGrid.prototype.getIdProperty = function () { return Default.PartyMasterRow.idProperty; };
+            PartyMasterGrid.prototype.getInsertPermission = function () { return Default.PartyMasterRow.insertPermission; };
+            PartyMasterGrid.prototype.getLocalTextPrefix = function () { return Default.PartyMasterRow.localTextPrefix; };
+            PartyMasterGrid.prototype.getService = function () { return Default.PartyMasterService.baseUrl; };
+            PartyMasterGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            PartyMasterGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PartyMasterGrid);
+            return PartyMasterGrid;
+        }(Serenity.EntityGrid));
+        Default.PartyMasterGrid = PartyMasterGrid;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var PendingTripDetailsInvoiceDialog = /** @class */ (function (_super) {
+            __extends(PendingTripDetailsInvoiceDialog, _super);
+            function PendingTripDetailsInvoiceDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.PendingTripDetailsInvoiceForm(_this.idPrefix);
+                return _this;
+            }
+            PendingTripDetailsInvoiceDialog.prototype.getFormKey = function () { return Default.PendingTripDetailsInvoiceForm.formKey; };
+            PendingTripDetailsInvoiceDialog.prototype.getIdProperty = function () { return Default.PendingTripDetailsInvoiceRow.idProperty; };
+            PendingTripDetailsInvoiceDialog.prototype.getLocalTextPrefix = function () { return Default.PendingTripDetailsInvoiceRow.localTextPrefix; };
+            PendingTripDetailsInvoiceDialog.prototype.getNameProperty = function () { return Default.PendingTripDetailsInvoiceRow.nameProperty; };
+            PendingTripDetailsInvoiceDialog.prototype.getService = function () { return Default.PendingTripDetailsInvoiceService.baseUrl; };
+            PendingTripDetailsInvoiceDialog.prototype.getDeletePermission = function () { return Default.PendingTripDetailsInvoiceRow.deletePermission; };
+            PendingTripDetailsInvoiceDialog.prototype.getInsertPermission = function () { return Default.PendingTripDetailsInvoiceRow.insertPermission; };
+            PendingTripDetailsInvoiceDialog.prototype.getUpdatePermission = function () { return Default.PendingTripDetailsInvoiceRow.updatePermission; };
+            PendingTripDetailsInvoiceDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PendingTripDetailsInvoiceDialog);
+            return PendingTripDetailsInvoiceDialog;
+        }(Serenity.EntityDialog));
+        Default.PendingTripDetailsInvoiceDialog = PendingTripDetailsInvoiceDialog;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var PendingTripDetailsInvoiceGrid = /** @class */ (function (_super) {
+            __extends(PendingTripDetailsInvoiceGrid, _super);
+            function PendingTripDetailsInvoiceGrid(container) {
+                var _this = _super.call(this, container) || this;
+                _this.totalTrip = 0;
+                _this.Invoice = Math.floor(Math.random() * 1000000);
+                _this.SAC = Math.floor(100000 + Math.random() * 900000);
+                _this.TotAmount = 0;
+                _this.TotWeight = 0;
+                return _this;
+            }
+            PendingTripDetailsInvoiceGrid.prototype.getColumnsKey = function () { return 'Default.PendingTripDetailsInvoice'; };
+            PendingTripDetailsInvoiceGrid.prototype.getDialogType = function () { return Default.PendingTripDetailsInvoiceDialog; };
+            PendingTripDetailsInvoiceGrid.prototype.getIdProperty = function () { return Default.PendingTripDetailsInvoiceRow.idProperty; };
+            PendingTripDetailsInvoiceGrid.prototype.getInsertPermission = function () { return Default.PendingTripDetailsInvoiceRow.insertPermission; };
+            PendingTripDetailsInvoiceGrid.prototype.getLocalTextPrefix = function () { return Default.PendingTripDetailsInvoiceRow.localTextPrefix; };
+            PendingTripDetailsInvoiceGrid.prototype.getService = function () { return Default.PendingTripDetailsInvoiceService.baseUrl; };
+            PendingTripDetailsInvoiceGrid.prototype.getColumns = function () {
+                var _this = this;
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                columns.splice(0, 0, Serenity.GridRowSelectionMixin.createSelectColumn(function () { return _this.rowSelection; }));
+                return columns;
+            };
+            PendingTripDetailsInvoiceGrid.prototype.createToolbarExtensions = function () {
+                _super.prototype.createToolbarExtensions.call(this);
+                this.rowSelection = new Serenity.GridRowSelectionMixin(this);
+                this.addQuickFilter({
+                    field: "LoadingTripId" /* LoadingTripId */,
+                    title: "TripNo",
+                    type: Serenity.LookupEditor,
+                    options: {
+                        lookupKey: SereneMovieTutorial.Default.LoadingTripRow.lookupKey,
+                    }
+                });
+                this.addQuickFilter({
+                    field: "PlantId" /* PlantId */,
+                    type: Serenity.LookupEditor,
+                    options: {
+                        lookupKey: SereneMovieTutorial.Default.PlantRow.lookupKey,
+                    }
+                });
+                this.addDateRangeFilter("TripDate" /* TripDate */);
+                this.addQuickFilter({
+                    field: "VehicleId" /* VehicleId */,
+                    title: "Vehicle",
+                    type: Serenity.LookupEditor,
+                    options: {
+                        lookupKey: SereneMovieTutorial.Default.VehicleMasterRow.lookupKey,
+                    }
+                });
+                this.addQuickFilter({
+                    field: "BranchId" /* BranchId */,
+                    type: Serenity.LookupEditor,
+                    options: {
+                        lookupKey: SereneMovieTutorial.Default.BranchMasterRow.lookupKey,
+                    }
+                });
+            };
+            PendingTripDetailsInvoiceGrid.prototype.addButtonClick = function () {
+                var _this = this;
+                var rows = [];
+                var selectedKeys = this.rowSelection.getSelectedKeys();
+                var TripFilter = this.findQuickFilter(Serenity.LookupEditor, "LoadingTripId" /* LoadingTripId */);
+                var PlantFilter = this.findQuickFilter(Serenity.LookupEditor, "PlantId" /* PlantId */);
+                var BranchFilter = this.findQuickFilter(Serenity.LookupEditor, "BranchId" /* BranchId */);
+                var VehicleFilter = this.findQuickFilter(Serenity.LookupEditor, "VehicleId" /* VehicleId */);
+                //  Validations
+                if (Q.isEmptyOrNull(TripFilter.value)) {
+                    Q.alert('Give Tripno as filter criteria.');
+                    this.rowSelection.resetCheckedAndRefresh();
+                    return;
+                }
+                //if (Q.isEmptyOrNull(PlantFilter.value)) {
+                //    Q.alert('Select plant name as filter criteria.');
+                //    this.rowSelection.resetCheckedAndRefresh();
+                //    return;
+                //}
+                //if (Q.isEmptyOrNull(BranchFilter.value)) {
+                //    Q.alert('Select branch name as filter criteria.');
+                //    this.rowSelection.resetCheckedAndRefresh();
+                //    return;
+                //}
+                //if (Q.isEmptyOrNull(VehicleFilter.value)) {
+                //    Q.alert('Select VehicleNo as filter criteria.');
+                //    this.rowSelection.resetCheckedAndRefresh();
+                //    return;
+                //}
+                if (!selectedKeys || selectedKeys.length === 0) {
+                    Q.alert('Select at least one item to create Bill.');
+                    this.rowSelection.resetCheckedAndRefresh();
+                    return;
+                }
+                //  Async call (correct way)
+                Default.PendingTripDetailsInvoiceService.GetSelectedTrips({
+                    Ids: selectedKeys
+                }, function (res) {
+                    if (res.ErrorMsg) {
+                        Q.alert(res.ErrorMsg);
+                        return;
+                    }
+                    var TripCollection = res.Trips || [];
+                    if (!TripCollection.length) {
+                        Q.alert('No data returned from server.');
+                        return;
+                    }
+                    //dlg.CgstAmmount = TripCollection.filter(r => r.CgstAmount);
+                    for (var _i = 0, TripCollection_1 = TripCollection; _i < TripCollection_1.length; _i++) {
+                        var trip = TripCollection_1[_i];
+                        _this.LoadingTripId = trip.LoadingTripId;
+                        _this.plant = trip.PlantId;
+                        _this.branch = trip.BranchId;
+                        _this.totalTrip += 1;
+                        _this.TotAmount += trip.FreightRate;
+                        _this.TotWeight += trip.Weight;
+                        _this.stateId = trip.StateId;
+                        rows.push({
+                            LoadingTripId: trip.LoadingTripId,
+                            //VehicleId: trip.VehicleId,
+                            VehicleNumber: trip.VehicleNumber,
+                            Weight: trip.Weight,
+                            freightRate: trip.FreightRate,
+                            Billingamount: (trip.FreightRate * trip.Weight),
+                        });
+                    }
+                    // Dialog creation (fixed order)
+                    var dlg = new Default.ManageinvoiceDialog(rows);
+                    dlg.Plant_Id = _this.plant;
+                    dlg.Branch_id = _this.branch;
+                    dlg.totTrips = _this.totalTrip;
+                    dlg.sac = _this.SAC;
+                    dlg.invoice = _this.Invoice;
+                    dlg.stateid = _this.stateId;
+                    dlg.totalFreightAmount = _this.TotAmount * _this.TotWeight;
+                    dlg.TotalWeight = _this.TotWeight;
+                    dlg.LoadingTripId = _this.LoadingTripId;
+                    dlg.id = _this.manageinvoiceId;
+                    _this.initDialog(dlg);
+                    dlg.loadNewAndOpenDialog();
+                    _this.rowSelection.resetCheckedAndRefresh();
+                });
+            };
+            PendingTripDetailsInvoiceGrid.prototype.getButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons.push(SereneMovieTutorial.Common.ExcelExportHelper.createToolButton({
+                    grid: this,
+                    service: Default.PendingTripDetailsInvoiceService.baseUrl + '/ListExcel',
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    separator: true
+                }));
+                return buttons;
+            };
+            PendingTripDetailsInvoiceGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PendingTripDetailsInvoiceGrid);
+            return PendingTripDetailsInvoiceGrid;
+        }(Serenity.EntityGrid));
+        Default.PendingTripDetailsInvoiceGrid = PendingTripDetailsInvoiceGrid;
     })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
 var SereneMovieTutorial;
@@ -6428,6 +8723,65 @@ var SereneMovieTutorial;
 (function (SereneMovieTutorial) {
     var Default;
     (function (Default) {
+        var PumpmasterDialog = /** @class */ (function (_super) {
+            __extends(PumpmasterDialog, _super);
+            function PumpmasterDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.PumpmasterForm(_this.idPrefix);
+                return _this;
+            }
+            PumpmasterDialog.prototype.getFormKey = function () { return Default.PumpmasterForm.formKey; };
+            PumpmasterDialog.prototype.getIdProperty = function () { return Default.PumpmasterRow.idProperty; };
+            PumpmasterDialog.prototype.getLocalTextPrefix = function () { return Default.PumpmasterRow.localTextPrefix; };
+            PumpmasterDialog.prototype.getNameProperty = function () { return Default.PumpmasterRow.nameProperty; };
+            PumpmasterDialog.prototype.getService = function () { return Default.PumpmasterService.baseUrl; };
+            PumpmasterDialog.prototype.getDeletePermission = function () { return Default.PumpmasterRow.deletePermission; };
+            PumpmasterDialog.prototype.getInsertPermission = function () { return Default.PumpmasterRow.insertPermission; };
+            PumpmasterDialog.prototype.getUpdatePermission = function () { return Default.PumpmasterRow.updatePermission; };
+            PumpmasterDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PumpmasterDialog);
+            return PumpmasterDialog;
+        }(Serenity.EntityDialog));
+        Default.PumpmasterDialog = PumpmasterDialog;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var PumpmasterGrid = /** @class */ (function (_super) {
+            __extends(PumpmasterGrid, _super);
+            function PumpmasterGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            PumpmasterGrid.prototype.getColumnsKey = function () { return 'Default.Pumpmaster'; };
+            PumpmasterGrid.prototype.getDialogType = function () { return Default.PumpmasterDialog; };
+            PumpmasterGrid.prototype.getIdProperty = function () { return Default.PumpmasterRow.idProperty; };
+            PumpmasterGrid.prototype.getInsertPermission = function () { return Default.PumpmasterRow.insertPermission; };
+            PumpmasterGrid.prototype.getLocalTextPrefix = function () { return Default.PumpmasterRow.localTextPrefix; };
+            PumpmasterGrid.prototype.getService = function () { return Default.PumpmasterService.baseUrl; };
+            PumpmasterGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            PumpmasterGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PumpmasterGrid);
+            return PumpmasterGrid;
+        }(Serenity.EntityGrid));
+        Default.PumpmasterGrid = PumpmasterGrid;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
         var StateMasterDialog = /** @class */ (function (_super) {
             __extends(StateMasterDialog, _super);
             function StateMasterDialog() {
@@ -6481,6 +8835,406 @@ var SereneMovieTutorial;
             return StateMasterGrid;
         }(Serenity.EntityGrid));
         Default.StateMasterGrid = StateMasterGrid;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var TaxDialog = /** @class */ (function (_super) {
+            __extends(TaxDialog, _super);
+            function TaxDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.TaxForm(_this.idPrefix);
+                return _this;
+            }
+            TaxDialog.prototype.getFormKey = function () { return Default.TaxForm.formKey; };
+            TaxDialog.prototype.getIdProperty = function () { return Default.TaxRow.idProperty; };
+            TaxDialog.prototype.getLocalTextPrefix = function () { return Default.TaxRow.localTextPrefix; };
+            TaxDialog.prototype.getNameProperty = function () { return Default.TaxRow.nameProperty; };
+            TaxDialog.prototype.getService = function () { return Default.TaxService.baseUrl; };
+            TaxDialog.prototype.getDeletePermission = function () { return Default.TaxRow.deletePermission; };
+            TaxDialog.prototype.getInsertPermission = function () { return Default.TaxRow.insertPermission; };
+            TaxDialog.prototype.getUpdatePermission = function () { return Default.TaxRow.updatePermission; };
+            TaxDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], TaxDialog);
+            return TaxDialog;
+        }(Serenity.EntityDialog));
+        Default.TaxDialog = TaxDialog;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var TaxGrid = /** @class */ (function (_super) {
+            __extends(TaxGrid, _super);
+            function TaxGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            TaxGrid.prototype.getColumnsKey = function () { return 'Default.Tax'; };
+            TaxGrid.prototype.getDialogType = function () { return Default.TaxDialog; };
+            TaxGrid.prototype.getIdProperty = function () { return Default.TaxRow.idProperty; };
+            TaxGrid.prototype.getInsertPermission = function () { return Default.TaxRow.insertPermission; };
+            TaxGrid.prototype.getLocalTextPrefix = function () { return Default.TaxRow.localTextPrefix; };
+            TaxGrid.prototype.getService = function () { return Default.TaxService.baseUrl; };
+            TaxGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], TaxGrid);
+            return TaxGrid;
+        }(Serenity.EntityGrid));
+        Default.TaxGrid = TaxGrid;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var UnitDialog = /** @class */ (function (_super) {
+            __extends(UnitDialog, _super);
+            function UnitDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.UnitForm(_this.idPrefix);
+                return _this;
+            }
+            UnitDialog.prototype.getFormKey = function () { return Default.UnitForm.formKey; };
+            UnitDialog.prototype.getIdProperty = function () { return Default.UnitRow.idProperty; };
+            UnitDialog.prototype.getLocalTextPrefix = function () { return Default.UnitRow.localTextPrefix; };
+            UnitDialog.prototype.getNameProperty = function () { return Default.UnitRow.nameProperty; };
+            UnitDialog.prototype.getService = function () { return Default.UnitService.baseUrl; };
+            UnitDialog.prototype.getDeletePermission = function () { return Default.UnitRow.deletePermission; };
+            UnitDialog.prototype.getInsertPermission = function () { return Default.UnitRow.insertPermission; };
+            UnitDialog.prototype.getUpdatePermission = function () { return Default.UnitRow.updatePermission; };
+            UnitDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], UnitDialog);
+            return UnitDialog;
+        }(Serenity.EntityDialog));
+        Default.UnitDialog = UnitDialog;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var UnitGrid = /** @class */ (function (_super) {
+            __extends(UnitGrid, _super);
+            function UnitGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            UnitGrid.prototype.getColumnsKey = function () { return 'Default.Unit'; };
+            UnitGrid.prototype.getDialogType = function () { return Default.UnitDialog; };
+            UnitGrid.prototype.getIdProperty = function () { return Default.UnitRow.idProperty; };
+            UnitGrid.prototype.getInsertPermission = function () { return Default.UnitRow.insertPermission; };
+            UnitGrid.prototype.getLocalTextPrefix = function () { return Default.UnitRow.localTextPrefix; };
+            UnitGrid.prototype.getService = function () { return Default.UnitService.baseUrl; };
+            UnitGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], UnitGrid);
+            return UnitGrid;
+        }(Serenity.EntityGrid));
+        Default.UnitGrid = UnitGrid;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var DownloadFormatter = /** @class */ (function () {
+            function DownloadFormatter() {
+            }
+            DownloadFormatter.prototype.format = function (ctx) {
+                return "<a class='download-voucher'>" +
+                    "<i class='fa fa-print text-green'></i>" +
+                    "</a>";
+            };
+            DownloadFormatter = __decorate([
+                Serenity.Decorators.registerFormatter()
+            ], DownloadFormatter);
+            return DownloadFormatter;
+        }());
+        Default.DownloadFormatter = DownloadFormatter;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var UnloadTripDialog = /** @class */ (function (_super) {
+            __extends(UnloadTripDialog, _super);
+            function UnloadTripDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.UnloadTripForm(_this.idPrefix);
+                return _this;
+            }
+            UnloadTripDialog.prototype.getFormKey = function () { return Default.UnloadTripForm.formKey; };
+            UnloadTripDialog.prototype.getIdProperty = function () { return Default.UnloadTripRow.idProperty; };
+            UnloadTripDialog.prototype.getLocalTextPrefix = function () { return Default.UnloadTripRow.localTextPrefix; };
+            UnloadTripDialog.prototype.getNameProperty = function () { return Default.UnloadTripRow.nameProperty; };
+            UnloadTripDialog.prototype.getService = function () { return Default.UnloadTripService.baseUrl; };
+            UnloadTripDialog.prototype.getDeletePermission = function () { return Default.UnloadTripRow.deletePermission; };
+            UnloadTripDialog.prototype.getInsertPermission = function () { return Default.UnloadTripRow.insertPermission; };
+            UnloadTripDialog.prototype.getUpdatePermission = function () { return Default.UnloadTripRow.updatePermission; };
+            UnloadTripDialog.prototype.getToolbarButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getToolbarButtons.call(this);
+                buttons.push({
+                    title: "Print Voucher",
+                    icon: "fa fa-print",
+                    onClick: function () {
+                        var id = _this.entityId;
+                        window.open(Q.resolveUrl("~/VoucherPrint/Print?id=" + id), "_blank");
+                    }
+                });
+                return buttons;
+            };
+            UnloadTripDialog.prototype.updateInterface = function () {
+                _super.prototype.updateInterface.call(this);
+                Serenity.EditorUtils.setReadOnly(this.form.LoadingTripId, true);
+                Serenity.EditorUtils.setReadOnly(this.form.TripNo, true);
+                Serenity.EditorUtils.setReadOnly(this.form.TripDate, true);
+                Serenity.EditorUtils.setReadOnly(this.form.Plant, true);
+                Serenity.EditorUtils.setReadOnly(this.form.District, true);
+                Serenity.EditorUtils.setReadOnly(this.form.Destination, true);
+                Serenity.EditorUtils.setReadOnly(this.form.VehicleName, true);
+                Serenity.EditorUtils.setReadOnly(this.form.CustomerName, true);
+                Serenity.EditorUtils.setReadOnly(this.form.Branch, true);
+                Serenity.EditorUtils.setReadOnly(this.form.State, true);
+                Serenity.EditorUtils.setReadOnly(this.form.Item, true);
+                Serenity.EditorUtils.setReadOnly(this.form.Weight, true);
+                Serenity.EditorUtils.setReadOnly(this.form.Wheels, true);
+                Serenity.EditorUtils.setReadOnly(this.form.ExpenseAmount, true);
+                //Serenity.EditorUtils.setReadOnly(this.form.UnloadWeight, true);
+                //Serenity.EditorUtils.setReadOnly(this.form.UnloadDate, true);
+            };
+            UnloadTripDialog.prototype.loadTripData = function (d) {
+                console.log(d);
+                this.loadEntity({});
+                this.form.LoadingTripId.value = d.LoadingTripId;
+                this.form.TripNo.value = d.TripNo;
+                this.form.TripDate.value = d.TripDate;
+                this.form.Plant.value = d.PlantName;
+                this.form.District.value = d.DistrictName;
+                this.form.Destination.value = d.DestinationName;
+                this.form.VehicleName.value = d.VehicleNumber;
+                this.form.CustomerName.value = d.CustomerName;
+                this.form.Branch.value = d.BranchName;
+                this.form.State.value = d.StateName;
+                this.form.Item.value = d.ItemName;
+                this.form.Weight.value = d.Weight;
+                this.form.Wheels.value = d.Wheels;
+                this.form.ExpenseAmount.value = d.ExpenseAmount;
+                this.form.CreatedDate.value = d.CreatedDate;
+                this.form.Remarks.value = d.Remarks;
+                this.setReadonlyFields();
+            };
+            UnloadTripDialog.prototype.setReadonlyFields = function () {
+                Serenity.EditorUtils.setReadonly(this.form.LoadingTripId.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.TripNo.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.TripDate.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.Plant.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.District.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.Destination.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.VehicleName.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.CustomerName.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.Branch.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.State.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.Item.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.Weight.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.Wheels.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.ExpenseAmount.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.CreatedDate.element, true);
+                Serenity.EditorUtils.setReadonly(this.form.Remarks.element, true);
+            };
+            UnloadTripDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], UnloadTripDialog);
+            return UnloadTripDialog;
+        }(Serenity.EntityDialog));
+        Default.UnloadTripDialog = UnloadTripDialog;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var UnloadTripGrid = /** @class */ (function (_super) {
+            __extends(UnloadTripGrid, _super);
+            function UnloadTripGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            UnloadTripGrid.prototype.getColumnsKey = function () { return 'Default.UnloadTrip'; };
+            UnloadTripGrid.prototype.getDialogType = function () { return Default.UnloadTripDialog; };
+            UnloadTripGrid.prototype.getIdProperty = function () { return Default.UnloadTripRow.idProperty; };
+            UnloadTripGrid.prototype.getInsertPermission = function () { return Default.UnloadTripRow.insertPermission; };
+            UnloadTripGrid.prototype.getLocalTextPrefix = function () { return Default.UnloadTripRow.localTextPrefix; };
+            UnloadTripGrid.prototype.getService = function () { return Default.UnloadTripService.baseUrl; };
+            UnloadTripGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                columns.splice(0, 0);
+                columns.unshift({
+                    field: 'Print',
+                    name: '',
+                    format: function (ctx) {
+                        return '<a class="inline-action print-voucher-row" title="Print">' +
+                            '<i class="fa fa-print text-red"></i></a>';
+                    },
+                    width: 24,
+                    minWidth: 24,
+                    maxWidth: 24
+                });
+                return columns;
+            };
+            UnloadTripGrid.prototype.onClick = function (e, row, cell) {
+                _super.prototype.onClick.call(this, e, row, cell);
+                //var item = this.itemAt(row);
+                //if ($(e.target).closest('.download-voucher').length > 0) {
+                //    e.preventDefault();
+                //    window.location.href = Q.resolveUrl('~/Default/UnloadTrip/Print?id=' + item.UnloadTripId);
+                //}
+                if (e.isDefaultPrevented())
+                    return;
+                var item = this.itemAt(row);
+                var target = $(e.target);
+                if (target.parent().hasClass('inline-action'))
+                    target = target.parent();
+                if (target.hasClass('inline-action')) {
+                    e.preventDefault();
+                    if (target.hasClass('print-voucher-row')) {
+                        Q.postToUrl({
+                            url: "~/Default/UnloadTrip/Print",
+                            params: {
+                                'id': item.UnloadTripId
+                            },
+                            target: '_blank'
+                        });
+                    }
+                }
+            };
+            UnloadTripGrid.prototype.getSlickOptions = function () {
+                var opt = _super.prototype.getSlickOptions.call(this);
+                opt.showFooterRow = true;
+                return opt;
+            };
+            UnloadTripGrid.prototype.createSlickGrid = function () {
+                var grid = _super.prototype.createSlickGrid.call(this);
+                grid.registerPlugin(new Slick.Data.GroupItemMetadataProvider());
+                this.view.setSummaryOptions({
+                    aggregators: [
+                        //new Slick.Aggregators.Sum(fld.),
+                        new Slick.Aggregators.Sum("ExpenseAmount" /* ExpenseAmount */)
+                    ]
+                });
+                return grid;
+            };
+            UnloadTripGrid.prototype.getButtons = function () {
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons = buttons.filter(function (b) { return b.cssClass !== "add-button"; });
+                return buttons;
+            };
+            UnloadTripGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], UnloadTripGrid);
+            return UnloadTripGrid;
+        }(Serenity.EntityGrid));
+        Default.UnloadTripGrid = UnloadTripGrid;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var VLoadingTripDetailsDialog = /** @class */ (function (_super) {
+            __extends(VLoadingTripDetailsDialog, _super);
+            function VLoadingTripDetailsDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Default.VLoadingTripDetailsForm(_this.idPrefix);
+                return _this;
+            }
+            VLoadingTripDetailsDialog.prototype.getFormKey = function () { return Default.VLoadingTripDetailsForm.formKey; };
+            VLoadingTripDetailsDialog.prototype.getIdProperty = function () { return Default.VLoadingTripDetailsRow.idProperty; };
+            VLoadingTripDetailsDialog.prototype.getLocalTextPrefix = function () { return Default.VLoadingTripDetailsRow.localTextPrefix; };
+            VLoadingTripDetailsDialog.prototype.getNameProperty = function () { return Default.VLoadingTripDetailsRow.nameProperty; };
+            VLoadingTripDetailsDialog.prototype.getService = function () { return Default.VLoadingTripDetailsService.baseUrl; };
+            VLoadingTripDetailsDialog.prototype.getDeletePermission = function () { return Default.VLoadingTripDetailsRow.deletePermission; };
+            VLoadingTripDetailsDialog.prototype.getInsertPermission = function () { return Default.VLoadingTripDetailsRow.insertPermission; };
+            VLoadingTripDetailsDialog.prototype.getUpdatePermission = function () { return Default.VLoadingTripDetailsRow.updatePermission; };
+            VLoadingTripDetailsDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], VLoadingTripDetailsDialog);
+            return VLoadingTripDetailsDialog;
+        }(Serenity.EntityDialog));
+        Default.VLoadingTripDetailsDialog = VLoadingTripDetailsDialog;
+    })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Default;
+    (function (Default) {
+        var VLoadingTripDetailsGrid = /** @class */ (function (_super) {
+            __extends(VLoadingTripDetailsGrid, _super);
+            function VLoadingTripDetailsGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            VLoadingTripDetailsGrid.prototype.getColumnsKey = function () { return 'Default.VLoadingTripDetails'; };
+            VLoadingTripDetailsGrid.prototype.getDialogType = function () { return Default.VLoadingTripDetailsDialog; };
+            VLoadingTripDetailsGrid.prototype.getIdProperty = function () { return Default.VLoadingTripDetailsRow.idProperty; };
+            VLoadingTripDetailsGrid.prototype.getInsertPermission = function () { return Default.VLoadingTripDetailsRow.insertPermission; };
+            VLoadingTripDetailsGrid.prototype.getLocalTextPrefix = function () { return Default.VLoadingTripDetailsRow.localTextPrefix; };
+            VLoadingTripDetailsGrid.prototype.getService = function () { return Default.VLoadingTripDetailsService.baseUrl; };
+            VLoadingTripDetailsGrid.prototype.editItem = function (entityOrId) {
+                var entity = this.view.getItemById(entityOrId);
+                var dlg = new Default.UnloadTripDialog();
+                dlg.loadTripData(entity);
+                dlg.loadingTripDataRow = entity;
+                dlg.dialogOpen();
+                this.refresh();
+            };
+            VLoadingTripDetailsGrid.prototype.getButtons = function () {
+                var buttons = _super.prototype.getButtons.call(this);
+                // Example: remove the "New Record" button
+                buttons = buttons.filter(function (b) { return b.cssClass !== "add-button"; });
+                // Example: remove the "Open Dialog" button if it has a custom cssClass
+                //buttons = buttons.filter(b => b.cssClass !== "open-dialog-button");
+                return buttons;
+            };
+            VLoadingTripDetailsGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            VLoadingTripDetailsGrid.prototype.getSlickOptions = function () {
+                var opt = _super.prototype.getSlickOptions.call(this);
+                opt.showFooterRow = true;
+                return opt;
+            };
+            VLoadingTripDetailsGrid.prototype.createSlickGrid = function () {
+                var grid = _super.prototype.createSlickGrid.call(this);
+                grid.registerPlugin(new Slick.Data.GroupItemMetadataProvider());
+                this.view.setSummaryOptions({
+                    aggregators: [
+                        //new Slick.Aggregators.Sum(fld.),
+                        new Slick.Aggregators.Sum("ExpenseAmount" /* ExpenseAmount */)
+                    ]
+                });
+                return grid;
+            };
+            VLoadingTripDetailsGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], VLoadingTripDetailsGrid);
+            return VLoadingTripDetailsGrid;
+        }(Serenity.EntityGrid));
+        Default.VLoadingTripDetailsGrid = VLoadingTripDetailsGrid;
     })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
 var SereneMovieTutorial;
@@ -6553,6 +9307,1613 @@ var SereneMovieTutorial;
         }(Serenity.EntityGrid));
         Default.VehicleMasterGrid = VehicleMasterGrid;
     })(Default = SereneMovieTutorial.Default || (SereneMovieTutorial.Default = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var DieselissueDialog = /** @class */ (function (_super) {
+            __extends(DieselissueDialog, _super);
+            function DieselissueDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new FuelManagement.DieselissueForm(_this.idPrefix);
+                if (_this.isNew()) {
+                    _this.form.Today.valueAsDate = new Date();
+                }
+                _this.form.Pumpid.changeSelect2(function (e) {
+                    if (!_this.form.Pumpid.value)
+                        return;
+                    // Only when inserting
+                    if (_this.isNew()) {
+                        SereneMovieTutorial.Default.PumpmasterService.GetPumpStock({
+                            PumpId: Number(_this.form.Pumpid.value)
+                        }, function (response) {
+                            _this.form.Stock.value = response.Stock;
+                        });
+                    }
+                });
+                _this.form.Diesel.change(function (e) { return _this.calculateTotal(); });
+                _this.form.Rateofdiesel.change(function (e) { return _this.calculateTotal(); });
+                _this.form.Today.change(function (e) {
+                    FuelManagement.DieselissueService.GetDieselRate({
+                        Date: _this.form.Today.value //.valueAsDate
+                    }, function (response) {
+                        _this.form.Rateofdiesel.value = response;
+                    });
+                });
+                return _this;
+            }
+            DieselissueDialog.prototype.getFormKey = function () { return FuelManagement.DieselissueForm.formKey; };
+            DieselissueDialog.prototype.getIdProperty = function () { return FuelManagement.DieselissueRow.idProperty; };
+            DieselissueDialog.prototype.getLocalTextPrefix = function () { return FuelManagement.DieselissueRow.localTextPrefix; };
+            DieselissueDialog.prototype.getNameProperty = function () { return FuelManagement.DieselissueRow.nameProperty; };
+            DieselissueDialog.prototype.getService = function () { return FuelManagement.DieselissueService.baseUrl; };
+            DieselissueDialog.prototype.getDeletePermission = function () { return FuelManagement.DieselissueRow.deletePermission; };
+            DieselissueDialog.prototype.getInsertPermission = function () { return FuelManagement.DieselissueRow.insertPermission; };
+            DieselissueDialog.prototype.getUpdatePermission = function () { return FuelManagement.DieselissueRow.updatePermission; };
+            DieselissueDialog.prototype.calculateTotal = function () {
+                var diesel = Q.toId(this.form.Diesel.value);
+                var rate = Q.toId(this.form.Rateofdiesel.value);
+                if (diesel && rate)
+                    this.form.Totalprice.value = diesel * rate;
+            };
+            DieselissueDialog.prototype.clearTripFields = function () {
+                this.form.Plant.value = null;
+                this.form.Distict.value = null;
+                this.form.Destination.value = null;
+            };
+            /*--------------------------------------------------------------------------------------------*/
+            DieselissueDialog.prototype.fillTripDetails = function () {
+                var _this = this;
+                if (!this.form.Tripno.value || !this.form.VehicleId.value) {
+                    this.clearTripFields();
+                    return;
+                }
+                FuelManagement.DieselissueService.GetTripDetails({
+                    VehicleId: Number(this.form.VehicleId.value),
+                    Tripid: Number(this.form.Tripno.value)
+                }, function (response) {
+                    var _a, _b, _c;
+                    if (response.ErrorMsg) {
+                        Q.notifyWarning(response.ErrorMsg);
+                        _this.clearTripFields();
+                        return;
+                    }
+                    _this.form.Plant.value = (_a = response.Details.PlantId) === null || _a === void 0 ? void 0 : _a.toString();
+                    _this.form.Distict.value = (_b = response.Details.DistrictId) === null || _b === void 0 ? void 0 : _b.toString();
+                    _this.form.Destination.value = (_c = response.Details.DestinationId) === null || _c === void 0 ? void 0 : _c.toString();
+                });
+            };
+            DieselissueDialog.prototype.afterLoadEntity = function () {
+                var _this = this;
+                _super.prototype.afterLoadEntity.call(this);
+                this.form.Tripno.changeSelect2(function () {
+                    _this.fillTripDetails();
+                    if (!_this.form.VehicleId.value) {
+                        return;
+                    }
+                });
+                if (!this.isNew()) {
+                    this.form.Pumpid.readOnly = true;
+                }
+                if (!this.isNew()) {
+                    // show stored stock from DieselIssue
+                    this.form.Stock.value = this.entity.Stock;
+                }
+            };
+            DieselissueDialog = __decorate([
+                Serenity.Decorators.panel(),
+                Serenity.Decorators.registerClass()
+            ], DieselissueDialog);
+            return DieselissueDialog;
+        }(Serenity.EntityDialog));
+        FuelManagement.DieselissueDialog = DieselissueDialog;
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var DieselissueGrid = /** @class */ (function (_super) {
+            __extends(DieselissueGrid, _super);
+            function DieselissueGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            DieselissueGrid.prototype.getColumnsKey = function () { return 'FuelManagement.Dieselissue'; };
+            DieselissueGrid.prototype.getDialogType = function () { return FuelManagement.DieselissueDialog; };
+            DieselissueGrid.prototype.getIdProperty = function () { return FuelManagement.DieselissueRow.idProperty; };
+            DieselissueGrid.prototype.getInsertPermission = function () { return FuelManagement.DieselissueRow.insertPermission; };
+            DieselissueGrid.prototype.getLocalTextPrefix = function () { return FuelManagement.DieselissueRow.localTextPrefix; };
+            DieselissueGrid.prototype.getService = function () { return FuelManagement.DieselissueService.baseUrl; };
+            DieselissueGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            DieselissueGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], DieselissueGrid);
+            return DieselissueGrid;
+        }(Serenity.EntityGrid));
+        FuelManagement.DieselissueGrid = DieselissueGrid;
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var FuelDataDialog = /** @class */ (function (_super) {
+            __extends(FuelDataDialog, _super);
+            function FuelDataDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new FuelManagement.FuelDataForm(_this.idPrefix);
+                //let editor = this.form.FuelDetails as FuelDetailsEditor;
+                //// ✅ set parent reference
+                //editor.parentDialog = this;
+                _this.form.FuelDetails.view.onDataChanged.subscribe(function () {
+                    _this.updateAllottedQty();
+                });
+                _this.form.QtyKl.change(function (e) {
+                    _this.calculateQuantityLtr();
+                    //this.calculateTransportationAmount();
+                });
+                _this.form.TotalAmount.change(function (e) {
+                    _this.calculateRateKl();
+                    _this.calculateRateLtr();
+                });
+                //this.form.RateKl.change(e => {
+                //    this.calculateRateLtr();
+                //});
+                _this.form.TransportationRate.change(function (e) {
+                    _this.calculateTransportationAmount();
+                });
+                return _this;
+                //this.form.TankerNo.changeSelect2(() => {
+                //    (this.form.FuelDetails as FuelDetailsEditor).TankerName = this.form.TankerNo.value;
+                //    console.log(this.form.FuelDetails as FuelDetailsEditor);
+                //});
+            }
+            FuelDataDialog.prototype.getFormKey = function () { return FuelManagement.FuelDataForm.formKey; };
+            FuelDataDialog.prototype.getIdProperty = function () { return FuelManagement.FuelDataRow.idProperty; };
+            FuelDataDialog.prototype.getLocalTextPrefix = function () { return FuelManagement.FuelDataRow.localTextPrefix; };
+            FuelDataDialog.prototype.getNameProperty = function () { return FuelManagement.FuelDataRow.nameProperty; };
+            FuelDataDialog.prototype.getService = function () { return FuelManagement.FuelDataService.baseUrl; };
+            FuelDataDialog.prototype.getDeletePermission = function () { return FuelManagement.FuelDataRow.deletePermission; };
+            FuelDataDialog.prototype.getInsertPermission = function () { return FuelManagement.FuelDataRow.insertPermission; };
+            FuelDataDialog.prototype.getUpdatePermission = function () { return FuelManagement.FuelDataRow.updatePermission; };
+            //public currentTankerNo: string;
+            FuelDataDialog.prototype.updateAllottedQty = function () {
+                var total = 0;
+                var items = this.form.FuelDetails.getItems();
+                for (var _i = 0, items_4 = items; _i < items_4.length; _i++) {
+                    var item = items_4[_i];
+                    total += item.Quantity || 0;
+                }
+                this.form.AllottedQuantity.value = total;
+            };
+            FuelDataDialog.prototype.calculateQuantityLtr = function () {
+                var qtykl = this.form.QtyKl.value || 0;
+                this.form.QuantityLtr.value = qtykl * 1000;
+            };
+            FuelDataDialog.prototype.calculateRateLtr = function () {
+                var totalAmount = this.form.TotalAmount.value || 0;
+                var qtyLtr = this.form.QuantityLtr.value || 0;
+                this.form.RateLtr.value = totalAmount / qtyLtr;
+                //this.form.RateLtr.value = ratekl / 1000;
+                console.log(this.form.RateLtr + ' // ' + this.form.RateKl);
+            };
+            FuelDataDialog.prototype.calculateRateKl = function () {
+                //let ratekl = this.form.RateKl.value || 0;
+                var TotalAmount = this.form.TotalAmount.value || 0;
+                var qtyKl = this.form.QtyKl.value || 0;
+                this.form.RateKl.value = TotalAmount / qtyKl;
+            };
+            FuelDataDialog.prototype.calculateTransportationAmount = function () {
+                var qtykl = this.form.QtyKl.value || 0;
+                var rate = this.form.TransportationRate.value || 0;
+                this.form.TransportationAmt.value = qtykl * rate;
+            };
+            FuelDataDialog.prototype.validateBeforeSave = function () {
+                this.updateAllottedQty();
+                var allotted = this.form.AllottedQuantity.value || 0;
+                var qtyLtr = this.form.QuantityLtr.value || 0;
+                if (allotted !== qtyLtr) {
+                    Q.alert("Allotted Quantity must be equal to Quantity LTR");
+                    return false;
+                }
+                return _super.prototype.validateBeforeSave.call(this);
+            };
+            FuelDataDialog.prototype.getTankerNo = function () {
+                return this.form.TankerNo.value;
+            };
+            //protected afterLoadEntity() {
+            //    super.afterLoadEntity();
+            //    let editor = this.form.FuelDetails as FuelDetailsEditor;
+            //    editor.parentDialog = this;
+            //    this.handleFuelDetailsVisibility();
+            //    this.form.ShowFuelDetails.changeSelect2(e => {
+            //        this.handleFuelDetailsVisibility();
+            //    });
+            //}
+            FuelDataDialog.prototype.afterLoadEntity = function () {
+                var _this = this;
+                _super.prototype.afterLoadEntity.call(this);
+                var editor = this.form.FuelDetails;
+                editor.parentDialog = this;
+                if (this.isNew() || !this.form.ShowFuelDetails.value) {
+                    this.form.ShowFuelDetails.value = "1";
+                }
+                this.form.ShowFuelDetails.changeSelect2(function (e) {
+                    var val = _this.form.ShowFuelDetails.value;
+                    // If user selects "No"
+                    if (val === "0" && _this.hasFuelDetailsData()) {
+                        Q.alert("You cannot select 'No' because Fuel Details contains data.");
+                        // revert back to Yes
+                        _this.form.ShowFuelDetails.value = "1";
+                        return;
+                    }
+                    _this.handleFuelDetailsVisibility();
+                });
+                this.handleFuelDetailsVisibility();
+            };
+            FuelDataDialog.prototype.hasFuelDetailsData = function () {
+                var editor = this.form.FuelDetails;
+                return editor.view.getItems().length > 0;
+            };
+            //private handleFuelDetailsVisibility() {
+            //    let show = !! Number(this.form.ShowFuelDetails.value);
+            //    this.form.FuelDetails.getGridField().toggle(show);
+            //}
+            FuelDataDialog.prototype.handleFuelDetailsVisibility = function () {
+                var field = this.byId("FuelDetails").closest(".field");
+                if (this.form.ShowFuelDetails.value === "1") {
+                    field.show();
+                }
+                else {
+                    field.hide();
+                }
+            };
+            FuelDataDialog = __decorate([
+                Serenity.Decorators.panel(),
+                Serenity.Decorators.registerClass()
+            ], FuelDataDialog);
+            return FuelDataDialog;
+        }(Serenity.EntityDialog));
+        FuelManagement.FuelDataDialog = FuelDataDialog;
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var FuelDataGrid = /** @class */ (function (_super) {
+            __extends(FuelDataGrid, _super);
+            function FuelDataGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            FuelDataGrid.prototype.getColumnsKey = function () { return 'FuelManagement.FuelData'; };
+            FuelDataGrid.prototype.getDialogType = function () { return FuelManagement.FuelDataDialog; };
+            FuelDataGrid.prototype.getIdProperty = function () { return FuelManagement.FuelDataRow.idProperty; };
+            FuelDataGrid.prototype.getInsertPermission = function () { return FuelManagement.FuelDataRow.insertPermission; };
+            FuelDataGrid.prototype.getLocalTextPrefix = function () { return FuelManagement.FuelDataRow.localTextPrefix; };
+            FuelDataGrid.prototype.getService = function () { return FuelManagement.FuelDataService.baseUrl; };
+            FuelDataGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                columns.splice(0, 0);
+                columns.unshift({
+                    field: 'Print',
+                    name: '',
+                    format: function (ctx) {
+                        return '<a class="inline-action print-voucher-row" title="Print">' +
+                            '<i class="fa fa-print text-red"></i></a>';
+                    },
+                    width: 24,
+                    minWidth: 24,
+                    maxWidth: 24
+                });
+                return columns;
+            };
+            FuelDataGrid.prototype.onClick = function (e, row, cell) {
+                _super.prototype.onClick.call(this, e, row, cell);
+                if (e.isDefaultPrevented())
+                    return;
+                var item = this.itemAt(row);
+                var target = $(e.target);
+                if (target.parent().hasClass('inline-action'))
+                    target = target.parent();
+                if (target.hasClass('inline-action')) {
+                    e.preventDefault();
+                    if (target.hasClass('print-voucher-row')) {
+                        Q.postToUrl({
+                            url: "~/FuelManagement/FuelData/PrintFuelData",
+                            params: {
+                                'id': item.InwardNo
+                            },
+                            target: '_blank'
+                        });
+                    }
+                }
+            };
+            FuelDataGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], FuelDataGrid);
+            return FuelDataGrid;
+        }(Serenity.EntityGrid));
+        FuelManagement.FuelDataGrid = FuelDataGrid;
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var FuelDetailsDialog = /** @class */ (function (_super) {
+            __extends(FuelDetailsDialog, _super);
+            function FuelDetailsDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new FuelManagement.FuelDetailsForm(_this.idPrefix);
+                return _this;
+            }
+            FuelDetailsDialog.prototype.getFormKey = function () { return FuelManagement.FuelDetailsForm.formKey; };
+            FuelDetailsDialog.prototype.getIdProperty = function () { return FuelManagement.FuelDetailsRow.idProperty; };
+            FuelDetailsDialog.prototype.getLocalTextPrefix = function () { return FuelManagement.FuelDetailsRow.localTextPrefix; };
+            FuelDetailsDialog.prototype.getService = function () { return FuelManagement.FuelDetailsService.baseUrl; };
+            FuelDetailsDialog.prototype.getDeletePermission = function () { return FuelManagement.FuelDetailsRow.deletePermission; };
+            FuelDetailsDialog.prototype.getInsertPermission = function () { return FuelManagement.FuelDetailsRow.insertPermission; };
+            FuelDetailsDialog.prototype.getUpdatePermission = function () { return FuelManagement.FuelDetailsRow.updatePermission; };
+            FuelDetailsDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], FuelDetailsDialog);
+            return FuelDetailsDialog;
+        }(Serenity.EntityDialog));
+        FuelManagement.FuelDetailsDialog = FuelDetailsDialog;
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var FuelDetailsEditor = /** @class */ (function (_super) {
+            __extends(FuelDetailsEditor, _super);
+            function FuelDetailsEditor() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            FuelDetailsEditor.prototype.getColumnsKey = function () { return "FuelManagement.FuelDetails"; };
+            FuelDetailsEditor.prototype.getDialogType = function () { return FuelManagement.FuelDetailsEditorDialog; };
+            FuelDetailsEditor.prototype.getLocalTextPrefix = function () { return FuelManagement.FuelDetailsRow.localTextPrefix; };
+            FuelDetailsEditor.prototype.getIdProperty = function () { return FuelManagement.FuelDetailsRow.idProperty; };
+            FuelDetailsEditor.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "ID",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            FuelDetailsEditor.prototype.getButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons[0].onClick = function () {
+                    _this.createEntityDialog(_this.getItemType(), function (dlg) {
+                        var dialog = dlg;
+                        // ✅ pass parent
+                        //dialog.parentDialog = this.parentDialog;
+                        dialog.onSave = function (opt, callback) { return _this.save(opt, callback); };
+                        var entity = _this.getNewEntity();
+                        // ✅ set tanker
+                        entity.TankerNo = _this.TankerName;
+                        dialog.loadEntityAndOpenDialog(entity);
+                    });
+                };
+                return buttons;
+            };
+            FuelDetailsEditor.prototype.initEntityDialog = function (itemType, dialog) {
+                _super.prototype.initEntityDialog.call(this, itemType, dialog);
+                // ✅ THIS ALWAYS RUNS (new + edit)
+                dialog.parentDialog = this.parentDialog;
+            };
+            FuelDetailsEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], FuelDetailsEditor);
+            return FuelDetailsEditor;
+        }(SereneMovieTutorial.Common.GridEditorBase));
+        FuelManagement.FuelDetailsEditor = FuelDetailsEditor;
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var FuelDetailsEditorDialog = /** @class */ (function (_super) {
+            __extends(FuelDetailsEditorDialog, _super);
+            function FuelDetailsEditorDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                //private applyParentTanker: boolean = false;
+                _this.form = new FuelManagement.FuelDetailsForm(_this.idPrefix);
+                return _this;
+            }
+            //public static Parent: FuelDataDialog;
+            FuelDetailsEditorDialog.prototype.getFormKey = function () { return FuelManagement.FuelDetailsForm.formKey; };
+            FuelDetailsEditorDialog.prototype.getIdProperty = function () { return FuelManagement.FuelDetailsRow.idProperty; };
+            FuelDetailsEditorDialog.prototype.getLocalTextPrefix = function () { return FuelManagement.FuelDetailsRow.localTextPrefix; };
+            FuelDetailsEditorDialog.prototype.getService = function () { return FuelManagement.FuelDetailsService.baseUrl; };
+            FuelDetailsEditorDialog.prototype.getSaveEntity = function () {
+                var entity = _super.prototype.getSaveEntity.call(this);
+                entity.TankerNo = this.form.TankerNo.value;
+                // store PumpName so GridEditor can display it
+                var lookup = SereneMovieTutorial.Default.PumpmasterRow.getLookup();
+                if (entity.PumpId && lookup.itemById[entity.PumpId])
+                    entity.PumpName = lookup.itemById[entity.PumpId].Name;
+                return entity;
+            };
+            FuelDetailsEditorDialog.prototype.afterLoadEntity = function () {
+                _super.prototype.afterLoadEntity.call(this);
+                var parent = this.parentDialog;
+                if (parent) {
+                    var latest = parent.getTankerNo();
+                    this.form.TankerNo.value = latest;
+                }
+            };
+            FuelDetailsEditorDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], FuelDetailsEditorDialog);
+            return FuelDetailsEditorDialog;
+        }(SereneMovieTutorial.Common.GridEditorDialog));
+        FuelManagement.FuelDetailsEditorDialog = FuelDetailsEditorDialog;
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var FuelManagement;
+    (function (FuelManagement) {
+        var FuelDetailsGrid = /** @class */ (function (_super) {
+            __extends(FuelDetailsGrid, _super);
+            function FuelDetailsGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            FuelDetailsGrid.prototype.getColumnsKey = function () { return 'FuelManagement.FuelDetails'; };
+            FuelDetailsGrid.prototype.getDialogType = function () { return FuelManagement.FuelDetailsDialog; };
+            FuelDetailsGrid.prototype.getIdProperty = function () { return FuelManagement.FuelDetailsRow.idProperty; };
+            FuelDetailsGrid.prototype.getInsertPermission = function () { return FuelManagement.FuelDetailsRow.insertPermission; };
+            FuelDetailsGrid.prototype.getLocalTextPrefix = function () { return FuelManagement.FuelDetailsRow.localTextPrefix; };
+            FuelDetailsGrid.prototype.getService = function () { return FuelManagement.FuelDetailsService.baseUrl; };
+            FuelDetailsGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            FuelDetailsGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], FuelDetailsGrid);
+            return FuelDetailsGrid;
+        }(Serenity.EntityGrid));
+        FuelManagement.FuelDetailsGrid = FuelDetailsGrid;
+    })(FuelManagement = SereneMovieTutorial.FuelManagement || (SereneMovieTutorial.FuelManagement = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var ExItemDialog = /** @class */ (function (_super) {
+            __extends(ExItemDialog, _super);
+            function ExItemDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new Inventry.ExItemForm(_this.idPrefix);
+                return _this;
+            }
+            ExItemDialog.prototype.getFormKey = function () { return Inventry.ExItemForm.formKey; };
+            ExItemDialog.prototype.getDialogTitle = function () {
+                return "Excel Import";
+            };
+            ExItemDialog.prototype.getDialogButtons = function () {
+                var _this = this;
+                return [
+                    {
+                        text: 'Import',
+                        click: function () {
+                            if (!_this.validateBeforeSave())
+                                return;
+                            if (_this.form.FileName.value == null ||
+                                Q.isEmptyOrNull(_this.form.FileName.value.Filename)) {
+                                Q.notifyError("Please select a file!");
+                                return;
+                            }
+                            Inventry.ItemService.ExcelImport({
+                                FileName: _this.form.FileName.value.Filename
+                            }, function (response) {
+                                var _a;
+                                Q.notifyInfo('Inserted: ' + (response.Inserted || 0) +
+                                    ', Updated: ' + (response.Updated || 0));
+                                if (((_a = response.ErrorList) === null || _a === void 0 ? void 0 : _a.length) > 0) {
+                                    Q.notifyError(response.ErrorList.join(',\r\n '));
+                                }
+                                _this.dialogClose();
+                            });
+                        }
+                    },
+                    {
+                        text: 'Cancel',
+                        click: function () { return _this.dialogClose(); }
+                    }
+                ];
+            };
+            ExItemDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ExItemDialog);
+            return ExItemDialog;
+        }(Serenity.PropertyDialog));
+        Inventry.ExItemDialog = ExItemDialog;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var ItemDialog = /** @class */ (function (_super) {
+            __extends(ItemDialog, _super);
+            function ItemDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Inventry.ItemForm(_this.idPrefix);
+                return _this;
+            }
+            ItemDialog.prototype.getFormKey = function () { return Inventry.ItemForm.formKey; };
+            ItemDialog.prototype.getIdProperty = function () { return Inventry.ItemRow.idProperty; };
+            ItemDialog.prototype.getLocalTextPrefix = function () { return Inventry.ItemRow.localTextPrefix; };
+            ItemDialog.prototype.getNameProperty = function () { return Inventry.ItemRow.nameProperty; };
+            ItemDialog.prototype.getService = function () { return Inventry.ItemService.baseUrl; };
+            ItemDialog.prototype.getDeletePermission = function () { return Inventry.ItemRow.deletePermission; };
+            ItemDialog.prototype.getInsertPermission = function () { return Inventry.ItemRow.insertPermission; };
+            ItemDialog.prototype.getUpdatePermission = function () { return Inventry.ItemRow.updatePermission; };
+            ItemDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ItemDialog);
+            return ItemDialog;
+        }(Serenity.EntityDialog));
+        Inventry.ItemDialog = ItemDialog;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var ItemGrid = /** @class */ (function (_super) {
+            __extends(ItemGrid, _super);
+            function ItemGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            ItemGrid.prototype.getColumnsKey = function () { return 'Inventry.Item'; };
+            ItemGrid.prototype.getDialogType = function () { return Inventry.ItemDialog; };
+            ItemGrid.prototype.getIdProperty = function () { return Inventry.ItemRow.idProperty; };
+            ItemGrid.prototype.getInsertPermission = function () { return Inventry.ItemRow.insertPermission; };
+            ItemGrid.prototype.getLocalTextPrefix = function () { return Inventry.ItemRow.localTextPrefix; };
+            ItemGrid.prototype.getService = function () { return Inventry.ItemService.baseUrl; };
+            ItemGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            ItemGrid.prototype.getButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons.push(SereneMovieTutorial.Common.ExcelExportHelper.createToolButton({
+                    grid: this,
+                    service: Inventry.ItemService.baseUrl + "/ListExcel",
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    separator: true
+                }));
+                buttons.push({
+                    title: "Import Item",
+                    cssClass: "export-xlsx-button",
+                    onClick: function (e) {
+                        var dialog = new Inventry.ExItemDialog();
+                        dialog.element.on('dialogclose', function () {
+                            _this.refresh();
+                            dialog = null;
+                        });
+                        dialog.dialogOpen();
+                    }
+                });
+                return buttons;
+            };
+            ItemGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ItemGrid);
+            return ItemGrid;
+        }(Serenity.EntityGrid));
+        Inventry.ItemGrid = ItemGrid;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PendingPurchaseOrderDialog = /** @class */ (function (_super) {
+            __extends(PendingPurchaseOrderDialog, _super);
+            function PendingPurchaseOrderDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Inventry.PendingPurchaseOrderForm(_this.idPrefix);
+                return _this;
+            }
+            PendingPurchaseOrderDialog.prototype.getFormKey = function () { return Inventry.PendingPurchaseOrderForm.formKey; };
+            PendingPurchaseOrderDialog.prototype.getIdProperty = function () { return Inventry.PendingPurchaseOrderRow.idProperty; };
+            PendingPurchaseOrderDialog.prototype.getLocalTextPrefix = function () { return Inventry.PendingPurchaseOrderRow.localTextPrefix; };
+            PendingPurchaseOrderDialog.prototype.getNameProperty = function () { return Inventry.PendingPurchaseOrderRow.nameProperty; };
+            PendingPurchaseOrderDialog.prototype.getService = function () { return Inventry.PendingPurchaseOrderService.baseUrl; };
+            PendingPurchaseOrderDialog.prototype.getDeletePermission = function () { return Inventry.PendingPurchaseOrderRow.deletePermission; };
+            PendingPurchaseOrderDialog.prototype.getInsertPermission = function () { return Inventry.PendingPurchaseOrderRow.insertPermission; };
+            PendingPurchaseOrderDialog.prototype.getUpdatePermission = function () { return Inventry.PendingPurchaseOrderRow.updatePermission; };
+            PendingPurchaseOrderDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PendingPurchaseOrderDialog);
+            return PendingPurchaseOrderDialog;
+        }(Serenity.EntityDialog));
+        Inventry.PendingPurchaseOrderDialog = PendingPurchaseOrderDialog;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PendingPurchaseOrderGrid = /** @class */ (function (_super) {
+            __extends(PendingPurchaseOrderGrid, _super);
+            function PendingPurchaseOrderGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            PendingPurchaseOrderGrid.prototype.getColumnsKey = function () { return 'Inventry.PendingPurchaseOrder'; };
+            PendingPurchaseOrderGrid.prototype.getDialogType = function () { return Inventry.PurchaseBillDialog; };
+            PendingPurchaseOrderGrid.prototype.getIdProperty = function () { return Inventry.PendingPurchaseOrderRow.idProperty; };
+            PendingPurchaseOrderGrid.prototype.getInsertPermission = function () { return Inventry.PendingPurchaseOrderRow.insertPermission; };
+            PendingPurchaseOrderGrid.prototype.getLocalTextPrefix = function () { return Inventry.PendingPurchaseOrderRow.localTextPrefix; };
+            PendingPurchaseOrderGrid.prototype.getService = function () { return Inventry.PendingPurchaseOrderService.baseUrl; };
+            PendingPurchaseOrderGrid.prototype.getColumns = function () {
+                var _this = this;
+                var columns = _super.prototype.getColumns.call(this);
+                columns.splice(0, 0, Serenity.GridRowSelectionMixin.createSelectColumn(function () { return _this.rowSelection; }));
+                return columns;
+            };
+            PendingPurchaseOrderGrid.prototype.addButtonClick = function () {
+                var _this = this;
+                var rows = [];
+                var selectedKeys = this.rowSelection.getSelectedKeys();
+                var PONOFilter = this.findQuickFilter(Serenity.StringEditor, "PoNo" /* PoNo */);
+                console.log("Pono filter val " + PONOFilter.value);
+                var PartyFilter = this.findQuickFilter(Serenity.LookupEditor, "PartyId" /* PartyId */);
+                //let purchaseOrderIdFilter = this.findQuickFilter(Serenity.LookupEditor, fld.PurchaseOrderId);
+                //  Validations
+                if (Q.isEmptyOrNull(PONOFilter.value)) {
+                    Q.alert('Give PoNo as filter criteria.');
+                    this.rowSelection.resetCheckedAndRefresh();
+                    return;
+                }
+                if (Q.isEmptyOrNull(PartyFilter.value)) {
+                    Q.alert('Select Party Name as filter criteria.');
+                    this.rowSelection.resetCheckedAndRefresh();
+                    return;
+                }
+                if (!selectedKeys || selectedKeys.length === 0) {
+                    Q.alert('Select at least one item to create Bill.');
+                    this.rowSelection.resetCheckedAndRefresh();
+                    return;
+                }
+                //  Async call (correct way)
+                Inventry.PendingPurchaseOrderService.GetSelectedTrips({
+                    Ids: selectedKeys
+                }, function (res) {
+                    if (res.ErrorMsg) {
+                        Q.alert(res.ErrorMsg);
+                        return;
+                    }
+                    var TripCollection = res.Trips || [];
+                    if (!TripCollection.length) {
+                        Q.alert('No data returned from server.');
+                        return;
+                    }
+                    //dlg.CgstAmmount = TripCollection.filter(r => r.CgstAmount);
+                    for (var _i = 0, TripCollection_2 = TripCollection; _i < TripCollection_2.length; _i++) {
+                        var trip = TripCollection_2[_i];
+                        rows.push({
+                            PurchaseOrderId: trip.PurchaseOrderId,
+                            ItemId: trip.ItemId,
+                            PreviousRate: Number(trip.PreviousRate) || 0,
+                            CurrentRate: trip.CurrentRate,
+                            Quantity: trip.Quantity,
+                            ItemName: trip.Partname,
+                            Discount: 0,
+                            CgstRate: trip.CGSTRate,
+                            TaxableAmount: trip.BasicAmount,
+                            CgstAmount: trip.CgstAmount,
+                            SgstRate: trip.SGSTRate,
+                            SgstAmount: trip.SgstAmount,
+                            IgstRate: trip.IGSTRate,
+                            IgstAmount: trip.IgstAmount,
+                            TotalAmount: trip.TotalAmount,
+                        });
+                    }
+                    //  Dialog creation (fixed order)
+                    var dlg = new Inventry.PurchaseBillDialog(rows);
+                    dlg.SelectedPartyId = Number(PartyFilter.value);
+                    dlg.SelectedPoNo = PONOFilter.value.toString();
+                    console.log("PonoFilter" + PONOFilter.value);
+                    console.log("Dlg pono" + dlg.SelectedPoNo);
+                    _this.initDialog(dlg);
+                    dlg.loadNewAndOpenDialog();
+                    _this.rowSelection.resetCheckedAndRefresh();
+                });
+            };
+            PendingPurchaseOrderGrid.prototype.createToolbarExtensions = function () {
+                var _this = this;
+                _super.prototype.createToolbarExtensions.call(this);
+                this.rowSelection = new Serenity.GridRowSelectionMixin(this);
+                this.addQuickFilter({
+                    field: "PoNo" /* PoNo */,
+                    title: "PO No",
+                    type: Serenity.StringEditor
+                });
+                this.addQuickFilter({
+                    field: "PartyId" /* PartyId */,
+                    type: Serenity.LookupEditor,
+                    options: {
+                        lookupKey: SereneMovieTutorial.Default.PartyMasterRow.lookupKey,
+                    }
+                });
+                var PONOFilter = this.findQuickFilter(Serenity.StringEditor, "PoNo" /* PoNo */);
+                var PartyFilter = this.findQuickFilter(Serenity.LookupEditor, "PartyId" /* PartyId */);
+                PONOFilter.element.on('change', function (e) {
+                    var poValue = PONOFilter.value;
+                    if (!poValue) {
+                        _this.refresh();
+                        _this.rowSelection.resetCheckedAndRefresh();
+                    }
+                });
+                PartyFilter.element.on('change', function (e) {
+                    var partyidvalue = PartyFilter.value;
+                    if (!partyidvalue) {
+                        _this.refresh();
+                        _this.rowSelection.resetCheckedAndRefresh();
+                    }
+                });
+            };
+            PendingPurchaseOrderGrid.prototype.getButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons.splice(1, 1);
+                buttons.push(SereneMovieTutorial.Common.ExcelExportHelper.createToolButton({
+                    grid: this,
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    service: 'Inventry/PendingPurchaseOrder/ListExcel',
+                    separator: true
+                }));
+                return buttons;
+            };
+            PendingPurchaseOrderGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PendingPurchaseOrderGrid);
+            return PendingPurchaseOrderGrid;
+        }(Serenity.EntityGrid));
+        Inventry.PendingPurchaseOrderGrid = PendingPurchaseOrderGrid;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseBillDialog = /** @class */ (function (_super) {
+            __extends(PurchaseBillDialog, _super);
+            function PurchaseBillDialog(rows) {
+                var _this = _super.call(this) || this;
+                _this.form = new Inventry.PurchaseBillForm(_this.idPrefix);
+                _this.rows = rows || [];
+                _this.form.PurchaseDetails.view.onDataChanged.subscribe(function () {
+                    var totalAmmount = 0;
+                    var taxableamt = 0;
+                    var Cgst = 0;
+                    var igst = 0;
+                    var sgst = 0;
+                    for (var _i = 0, _a = _this.form.PurchaseDetails.getItems(); _i < _a.length; _i++) {
+                        var i = _a[_i];
+                        totalAmmount += i.TotalAmount || 0;
+                        taxableamt += i.TaxableAmount || 0;
+                        Cgst += i.CgstAmount || 0;
+                        sgst += i.SgstAmount || 0;
+                        igst += i.IgstAmount || 0;
+                    }
+                    _this.form.TaxableAmount.value = taxableamt;
+                    _this.form.CgstAmount.value = Cgst;
+                    _this.form.SgstAmount.value = sgst;
+                    _this.form.IgstAmount.value = igst;
+                    _this.form.TotalBillAmount.value = totalAmmount;
+                });
+                return _this;
+            }
+            PurchaseBillDialog.prototype.getFormKey = function () { return Inventry.PurchaseBillForm.formKey; };
+            PurchaseBillDialog.prototype.getIdProperty = function () { return Inventry.PurchaseBillRow.idProperty; };
+            PurchaseBillDialog.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseBillRow.localTextPrefix; };
+            PurchaseBillDialog.prototype.getNameProperty = function () { return Inventry.PurchaseBillRow.nameProperty; };
+            PurchaseBillDialog.prototype.getService = function () { return Inventry.PurchaseBillService.baseUrl; };
+            PurchaseBillDialog.prototype.getDeletePermission = function () { return Inventry.PurchaseBillRow.deletePermission; };
+            PurchaseBillDialog.prototype.getInsertPermission = function () { return Inventry.PurchaseBillRow.insertPermission; };
+            PurchaseBillDialog.prototype.getUpdatePermission = function () { return Inventry.PurchaseBillRow.updatePermission; };
+            PurchaseBillDialog.prototype.afterLoadEntity = function () {
+                var _a;
+                _super.prototype.afterLoadEntity.call(this);
+                if (!this.isNew())
+                    return;
+                this.form.PartyId.value = this.SelectedPartyId.toString();
+                //let lookup = SereneMovieTutorial.Default.PartyMasterRow.getLookup();
+                // let item = lookup.itemById[this.SelectedPartyId];
+                //this.form.PartyId.value = item ? item.Name : '';
+                if (this.SelectedPoNo) {
+                    this.form.PoNumber.value = this.SelectedPoNo.toString().toUpperCase();
+                }
+                console.log(this.rows);
+                if ((_a = this.rows) === null || _a === void 0 ? void 0 : _a.length) {
+                    this.form.PurchaseDetails.value = this.rows;
+                }
+                if (!this.form.LedgerTypeId.value) {
+                    this.form.LedgerTypeId.value = 1;
+                }
+            };
+            PurchaseBillDialog = __decorate([
+                Serenity.Decorators.panel(),
+                Serenity.Decorators.registerClass()
+            ], PurchaseBillDialog);
+            return PurchaseBillDialog;
+        }(Serenity.EntityDialog));
+        Inventry.PurchaseBillDialog = PurchaseBillDialog;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseBillGrid = /** @class */ (function (_super) {
+            __extends(PurchaseBillGrid, _super);
+            function PurchaseBillGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            PurchaseBillGrid.prototype.getColumnsKey = function () { return 'Inventry.PurchaseBill'; };
+            PurchaseBillGrid.prototype.getDialogType = function () { return Inventry.PurchaseBillDialog; };
+            PurchaseBillGrid.prototype.getIdProperty = function () { return Inventry.PurchaseBillRow.idProperty; };
+            PurchaseBillGrid.prototype.getInsertPermission = function () { return Inventry.PurchaseBillRow.insertPermission; };
+            PurchaseBillGrid.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseBillRow.localTextPrefix; };
+            PurchaseBillGrid.prototype.getService = function () { return Inventry.PurchaseBillService.baseUrl; };
+            PurchaseBillGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PurchaseBillGrid);
+            return PurchaseBillGrid;
+        }(Serenity.EntityGrid));
+        Inventry.PurchaseBillGrid = PurchaseBillGrid;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var ExPurchaseBillDetailDialog = /** @class */ (function (_super) {
+            __extends(ExPurchaseBillDetailDialog, _super);
+            function ExPurchaseBillDetailDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                //private applyParentTanker: boolean = false;
+                _this.form = new Inventry.PurchaseBillDetailForm(_this.idPrefix);
+                return _this;
+                //protected getSaveEntity() {
+                //    let entity = super.getSaveEntity();
+                //    entity.TankerNo = this.form.TankerNo.value;
+                //    // store PumpName so GridEditor can display it
+                //    let lookup = Default.PumpmasterRow.getLookup();
+                //    if (entity.PumpId && lookup.itemById[entity.PumpId])
+                //        entity.PumpName = lookup.itemById[entity.PumpId].Name;
+                //    return entity;
+                //}
+                //protected afterLoadEntity() {
+                //    super.afterLoadEntity();
+                //    let parent = this.parentDialog;
+                //    if (parent) {
+                //        let latest = parent.getTankerNo();
+                //        this.form.TankerNo.value = latest;
+                //    }
+                //}
+            }
+            //public static Parent: FuelDataDialog;
+            ExPurchaseBillDetailDialog.prototype.getFormKey = function () { return Inventry.PurchaseBillDetailForm.formKey; };
+            ExPurchaseBillDetailDialog.prototype.getIdProperty = function () { return Inventry.PurchaseBillDetailRow.idProperty; };
+            ExPurchaseBillDetailDialog.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseBillDetailRow.localTextPrefix; };
+            ExPurchaseBillDetailDialog.prototype.getService = function () { return Inventry.PurchaseBillDetailService.baseUrl; };
+            ExPurchaseBillDetailDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ExPurchaseBillDetailDialog);
+            return ExPurchaseBillDetailDialog;
+        }(SereneMovieTutorial.Common.GridEditorDialog));
+        Inventry.ExPurchaseBillDetailDialog = ExPurchaseBillDetailDialog;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var ExPurchaseBillDetailEditor = /** @class */ (function (_super) {
+            __extends(ExPurchaseBillDetailEditor, _super);
+            function ExPurchaseBillDetailEditor() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            ExPurchaseBillDetailEditor.prototype.getColumnsKey = function () { return "Inventry.PurchaseBillDetail"; };
+            ExPurchaseBillDetailEditor.prototype.getDialogType = function () { return Inventry.ExPurchaseBillDetailDialog; };
+            ExPurchaseBillDetailEditor.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseBillDetailRow.localTextPrefix; };
+            ExPurchaseBillDetailEditor.prototype.getIdProperty = function () { return Inventry.PurchaseBillDetailRow.idProperty; };
+            //public TankerName: string;
+            //public parentDialog: PurchaseBillDialog;
+            ExPurchaseBillDetailEditor.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            ExPurchaseBillDetailEditor.prototype.getSlickOptions = function () {
+                var opt = _super.prototype.getSlickOptions.call(this);
+                opt.showFooterRow = true; // disable footer row
+                return opt;
+            };
+            ExPurchaseBillDetailEditor.prototype.createSlickGrid = function () {
+                var grid = _super.prototype.createSlickGrid.call(this);
+                grid.registerPlugin(new Slick.Data.GroupItemMetadataProvider());
+                this.view.setSummaryOptions({
+                    aggregators: [
+                        //new Slick.Aggregators.Sum(fld.TaxableAmount),
+                        new Slick.Aggregators.Sum("TotalAmount" /* TotalAmount */),
+                        new Slick.Aggregators.Sum("CgstAmount" /* CgstAmount */),
+                        new Slick.Aggregators.Sum("SgstAmount" /* SgstAmount */),
+                        new Slick.Aggregators.Sum("SgstAmount" /* SgstAmount */)
+                    ]
+                });
+                return grid;
+            };
+            ExPurchaseBillDetailEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], ExPurchaseBillDetailEditor);
+            return ExPurchaseBillDetailEditor;
+        }(SereneMovieTutorial.Common.GridEditorBase));
+        Inventry.ExPurchaseBillDetailEditor = ExPurchaseBillDetailEditor;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseBillDetailDialog = /** @class */ (function (_super) {
+            __extends(PurchaseBillDetailDialog, _super);
+            function PurchaseBillDetailDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Inventry.PurchaseBillDetailForm(_this.idPrefix);
+                return _this;
+            }
+            PurchaseBillDetailDialog.prototype.getFormKey = function () { return Inventry.PurchaseBillDetailForm.formKey; };
+            PurchaseBillDetailDialog.prototype.getIdProperty = function () { return Inventry.PurchaseBillDetailRow.idProperty; };
+            PurchaseBillDetailDialog.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseBillDetailRow.localTextPrefix; };
+            PurchaseBillDetailDialog.prototype.getNameProperty = function () { return Inventry.PurchaseBillDetailRow.nameProperty; };
+            PurchaseBillDetailDialog.prototype.getService = function () { return Inventry.PurchaseBillDetailService.baseUrl; };
+            PurchaseBillDetailDialog.prototype.getDeletePermission = function () { return Inventry.PurchaseBillDetailRow.deletePermission; };
+            PurchaseBillDetailDialog.prototype.getInsertPermission = function () { return Inventry.PurchaseBillDetailRow.insertPermission; };
+            PurchaseBillDetailDialog.prototype.getUpdatePermission = function () { return Inventry.PurchaseBillDetailRow.updatePermission; };
+            PurchaseBillDetailDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PurchaseBillDetailDialog);
+            return PurchaseBillDetailDialog;
+        }(Serenity.EntityDialog));
+        Inventry.PurchaseBillDetailDialog = PurchaseBillDetailDialog;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseBillDetailGrid = /** @class */ (function (_super) {
+            __extends(PurchaseBillDetailGrid, _super);
+            function PurchaseBillDetailGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            PurchaseBillDetailGrid.prototype.getColumnsKey = function () { return 'Inventry.PurchaseBillDetail'; };
+            PurchaseBillDetailGrid.prototype.getDialogType = function () { return Inventry.PurchaseBillDetailDialog; };
+            PurchaseBillDetailGrid.prototype.getIdProperty = function () { return Inventry.PurchaseBillDetailRow.idProperty; };
+            PurchaseBillDetailGrid.prototype.getInsertPermission = function () { return Inventry.PurchaseBillDetailRow.insertPermission; };
+            PurchaseBillDetailGrid.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseBillDetailRow.localTextPrefix; };
+            PurchaseBillDetailGrid.prototype.getService = function () { return Inventry.PurchaseBillDetailService.baseUrl; };
+            PurchaseBillDetailGrid.prototype.getSlickOptions = function () {
+                var opt = _super.prototype.getSlickOptions.call(this);
+                opt.enableColumnReorder = true;
+                opt.frozenColumn = 2;
+                opt.forceFitColumns = false;
+                opt.topPanelHeight = 9;
+                opt.editable = true;
+                opt.autoEdit = false;
+                opt.showFooterRow = true;
+                return opt;
+            };
+            PurchaseBillDetailGrid.prototype.createSlickGrid = function () {
+                var grid = _super.prototype.createSlickGrid.call(this);
+                grid.registerPlugin(new Slick.Data.GroupItemMetadataProvider());
+                this.view.setSummaryOptions({
+                    aggregators: [
+                        new Slick.Aggregators.Sum("TaxableAmount" /* TaxableAmount */),
+                        new Slick.Aggregators.Sum("TotalAmount" /* TotalAmount */)
+                    ]
+                });
+                return grid;
+            };
+            PurchaseBillDetailGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PurchaseBillDetailGrid);
+            return PurchaseBillDetailGrid;
+        }(Serenity.EntityGrid));
+        Inventry.PurchaseBillDetailGrid = PurchaseBillDetailGrid;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseOrderDialog = /** @class */ (function (_super) {
+            __extends(PurchaseOrderDialog, _super);
+            function PurchaseOrderDialog(rows) {
+                var _this = _super.call(this) || this;
+                _this.rows = rows;
+                _this.form = new Inventry.PurchaseOrderForm(_this.idPrefix);
+                _this.form.PoNo.changeSelect2(function () {
+                    _this.form.DetailList.getPONo = _this.form.PoNo.value;
+                });
+                return _this;
+            }
+            PurchaseOrderDialog.prototype.getFormKey = function () { return Inventry.PurchaseOrderForm.formKey; };
+            PurchaseOrderDialog.prototype.getIdProperty = function () { return Inventry.PurchaseOrderRow.idProperty; };
+            PurchaseOrderDialog.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseOrderRow.localTextPrefix; };
+            PurchaseOrderDialog.prototype.getNameProperty = function () { return Inventry.PurchaseOrderRow.nameProperty; };
+            PurchaseOrderDialog.prototype.getService = function () { return Inventry.PurchaseOrderService.baseUrl; };
+            PurchaseOrderDialog.prototype.getPONo = function () {
+                return this.form.PoNo.value;
+            };
+            PurchaseOrderDialog.prototype.afterLoadEntity = function () {
+                var _this = this;
+                _super.prototype.afterLoadEntity.call(this);
+                // ✅ Inject parent reference into editor
+                if (this.form.DetailList) {
+                    //this.form.DetailList.parentDialog = this;
+                    //console.log("ParentForm: " + this.form.DetailList.parentDialog.entity)
+                    this.form.DetailList.getPONo = this.form.PoNo.value;
+                    this.form.DetailList;
+                }
+                // Optional UI sync
+                this.form.PoNo.changeSelect2(function () {
+                    _this.form.DetailList.getPONo = _this.form.PoNo.value;
+                });
+            };
+            PurchaseOrderDialog = __decorate([
+                Serenity.Decorators.panel(),
+                Serenity.Decorators.registerClass()
+            ], PurchaseOrderDialog);
+            return PurchaseOrderDialog;
+        }(Serenity.EntityDialog));
+        Inventry.PurchaseOrderDialog = PurchaseOrderDialog;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseOrderGrid = /** @class */ (function (_super) {
+            __extends(PurchaseOrderGrid, _super);
+            function PurchaseOrderGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            PurchaseOrderGrid.prototype.getColumnsKey = function () { return 'Inventry.PurchaseOrder'; };
+            PurchaseOrderGrid.prototype.getDialogType = function () { return Inventry.PurchaseOrderDialog; };
+            PurchaseOrderGrid.prototype.getIdProperty = function () { return Inventry.PurchaseOrderRow.idProperty; };
+            PurchaseOrderGrid.prototype.getInsertPermission = function () { return Inventry.PurchaseOrderRow.insertPermission; };
+            PurchaseOrderGrid.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseOrderRow.localTextPrefix; };
+            PurchaseOrderGrid.prototype.getService = function () { return Inventry.PurchaseOrderService.baseUrl; };
+            PurchaseOrderGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            PurchaseOrderGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PurchaseOrderGrid);
+            return PurchaseOrderGrid;
+        }(Serenity.EntityGrid));
+        Inventry.PurchaseOrderGrid = PurchaseOrderGrid;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseRequestDetailDialog = /** @class */ (function (_super) {
+            __extends(PurchaseRequestDetailDialog, _super);
+            function PurchaseRequestDetailDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new Inventry.PurchaseRequestDetailForm(_this.idPrefix);
+                _this.form.CgstRate.change(function (e) { return _this.toggleTaxFields(); });
+                _this.form.SgstRate.change(function (e) { return _this.toggleTaxFields(); });
+                _this.form.IgstRate.change(function (e) { return _this.toggleTaxFields(); });
+                _this.form.CgstRate && _this.form.SgstRate.change(function (e) { return _this.calculateTotal(); });
+                _this.form.IgstRate.change(function (e) { return _this.calculateTotal(); });
+                return _this;
+            }
+            PurchaseRequestDetailDialog.prototype.getFormKey = function () { return Inventry.PurchaseRequestDetailForm.formKey; };
+            PurchaseRequestDetailDialog.prototype.getIdProperty = function () { return Inventry.PurchaseRequestDetailRow.idProperty; };
+            PurchaseRequestDetailDialog.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseRequestDetailRow.localTextPrefix; };
+            PurchaseRequestDetailDialog.prototype.getNameProperty = function () { return Inventry.PurchaseRequestDetailRow.nameProperty; };
+            PurchaseRequestDetailDialog.prototype.getService = function () { return Inventry.PurchaseRequestDetailService.baseUrl; };
+            PurchaseRequestDetailDialog.prototype.getToolbarButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getToolbarButtons.call(this);
+                buttons.splice(2, 0, {
+                    title: "Save & New", cssClass: "save-and-new-button", icon: "fa-save", onClick: function () {
+                        _this.save(function () {
+                            _this.loadEntity({});
+                        });
+                    }
+                });
+                return buttons;
+            };
+            PurchaseRequestDetailDialog.prototype.toggleTaxFields = function () {
+                var cgstVal = Number(this.form.CgstRate.value);
+                var sgstVal = Number(this.form.SgstRate.value);
+                var igstVal = Number(this.form.IgstRate.value);
+                if ((cgstVal && cgstVal !== 0) || (sgstVal && sgstVal !== 0)) {
+                    Serenity.EditorUtils.setReadOnly(this.form.IgstRate, true);
+                }
+                else {
+                    Serenity.EditorUtils.setReadOnly(this.form.IgstRate, false);
+                }
+                if (igstVal && igstVal !== 0) {
+                    Serenity.EditorUtils.setReadOnly(this.form.CgstRate, true);
+                    Serenity.EditorUtils.setReadOnly(this.form.SgstRate, true);
+                }
+                else {
+                    Serenity.EditorUtils.setReadOnly(this.form.CgstRate, false);
+                    Serenity.EditorUtils.setReadOnly(this.form.SgstRate, false);
+                }
+            };
+            PurchaseRequestDetailDialog.prototype.calculateTotal = function () {
+                var rate = Number(this.form.CurrentRate.value);
+                var qty = Number(this.form.Quantity.value);
+                var baseAmount = rate * qty;
+                // GST percentages
+                var cgst = Number(this.form.CgstRate.value);
+                var sgst = Number(this.form.SgstRate.value);
+                var igst = Number(this.form.IgstRate.value);
+                // Apply GST
+                var gstAmount = 0;
+                if (cgst > 0 || sgst > 0) {
+                    gstAmount += (baseAmount * cgst / 100);
+                    gstAmount += (baseAmount * sgst / 100);
+                }
+                else if (igst > 0) {
+                    gstAmount += (baseAmount * igst / 100);
+                }
+                var total = baseAmount + gstAmount;
+                // Update form fields
+                this.form.BasicAmount.value = baseAmount;
+                this.form.TotalAmount.value = total;
+            };
+            PurchaseRequestDetailDialog.prototype.afterLoadEntity = function () {
+                var _this = this;
+                _super.prototype.afterLoadEntity.call(this);
+                this.calculateTotal();
+                this.form.ItemId.changeSelect2(function (e) {
+                    Inventry.PurchaseRequestDetailService.GetItemDetails({
+                        Id: Number(_this.form.ItemId.value)
+                    }, function (r) {
+                        if (r && r.Details) {
+                            _this.form.PartNo.value = r.Details.Partnumber.toString();
+                            _this.form.PreviousRate.value = r.Details.Rate;
+                            _this.form.BalanceStock.value = r.Details.Balancestock;
+                            _this.form.StockLevelMax.value = r.Details.Stocklvlmaximum;
+                            _this.form.StockLevelMin.value = r.Details.Stocklvlminimum;
+                        }
+                        else {
+                            _this.form.PartNo.value = "";
+                            _this.form.PreviousRate.value = null;
+                            _this.form.BalanceStock.value = null;
+                            _this.form.StockLevelMax.value = null;
+                            _this.form.StockLevelMin.value = null;
+                        }
+                    });
+                });
+                this.toggleTaxFields();
+            };
+            PurchaseRequestDetailDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PurchaseRequestDetailDialog);
+            return PurchaseRequestDetailDialog;
+        }(Serenity.EntityDialog));
+        Inventry.PurchaseRequestDetailDialog = PurchaseRequestDetailDialog;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseRequestDetailEditor = /** @class */ (function (_super) {
+            __extends(PurchaseRequestDetailEditor, _super);
+            function PurchaseRequestDetailEditor() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            PurchaseRequestDetailEditor.prototype.getColumnsKey = function () { return "Inventry.PurchaseRequestDetail"; };
+            PurchaseRequestDetailEditor.prototype.getDialogType = function () { return Inventry.PurchaseRequestDetailEditorDialog; };
+            PurchaseRequestDetailEditor.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseRequestDetailRow.localTextPrefix; };
+            PurchaseRequestDetailEditor.prototype.getIdProperty = function () { return Inventry.PurchaseRequestDetailRow.idProperty; };
+            //public parentDialog: PurchaseOrderDialog;
+            PurchaseRequestDetailEditor.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "ID",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                for (var _i = 0, columns_2 = columns; _i < columns_2.length; _i++) {
+                    var col = columns_2[_i];
+                    if (col.field === "PartName") {
+                        col.format = function (ctx) {
+                            var _a;
+                            var lookup = Inventry.ItemRow.getLookup();
+                            return ((_a = lookup.itemById[ctx.item.ItemId]) === null || _a === void 0 ? void 0 : _a.Partname) || "";
+                        };
+                    }
+                    if (col.field === "UnitName") {
+                        col.format = function (ctx) {
+                            var _a;
+                            var lookup = SereneMovieTutorial.Default.UnitRow.getLookup();
+                            return ((_a = lookup.itemById[ctx.item.UnitId]) === null || _a === void 0 ? void 0 : _a.UnitName) || "";
+                        };
+                    }
+                }
+                return columns;
+            };
+            PurchaseRequestDetailEditor.prototype.getButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getButtons.call(this);
+                buttons[0].onClick = function () {
+                    _this.createEntityDialog(_this.getItemType(), function (dlg) {
+                        var dialog = dlg;
+                        dialog.onSave = function (opt, callback) { return _this.save(opt, callback); };
+                        var entity = _this.getNewEntity();
+                        entity.PoNo = _this.getPONo;
+                        dialog.loadEntityAndOpenDialog(entity);
+                    });
+                };
+                return buttons;
+            };
+            PurchaseRequestDetailEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], PurchaseRequestDetailEditor);
+            return PurchaseRequestDetailEditor;
+        }(SereneMovieTutorial.Common.GridEditorBase));
+        Inventry.PurchaseRequestDetailEditor = PurchaseRequestDetailEditor;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseRequestDetailEditorDialog = /** @class */ (function (_super) {
+            __extends(PurchaseRequestDetailEditorDialog, _super);
+            function PurchaseRequestDetailEditorDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new Inventry.PurchaseRequestDetailForm(_this.idPrefix);
+                return _this;
+            }
+            PurchaseRequestDetailEditorDialog.prototype.getFormKey = function () { return Inventry.PurchaseRequestDetailForm.formKey; };
+            PurchaseRequestDetailEditorDialog.prototype.getIdProperty = function () { return Inventry.PurchaseRequestDetailRow.idProperty; };
+            PurchaseRequestDetailEditorDialog.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseRequestDetailRow.localTextPrefix; };
+            PurchaseRequestDetailEditorDialog.prototype.getService = function () { return Inventry.PurchaseRequestDetailService.baseUrl; };
+            //public parentPoNo: string;
+            PurchaseRequestDetailEditorDialog.prototype.getSaveEntity = function () {
+                var entity = _super.prototype.getSaveEntity.call(this);
+                if (this.entity && this.entity.PoNo) {
+                    entity.PoNo = this.entity.PoNo;
+                }
+                var lookup = SereneMovieTutorial.Default.UnitRow.getLookup();
+                if (entity.UnitId && lookup.itemById[entity.UnitId])
+                    entity.UnitName = lookup.itemById[entity.UnitId].UnitName;
+                var unitLookup = Inventry.ItemRow.getLookup();
+                if (entity.ItemId && unitLookup.itemById[entity.ItemId]) {
+                    entity.PartName = unitLookup.itemById[entity.ItemId].Partname;
+                }
+                return entity;
+            };
+            PurchaseRequestDetailEditorDialog.prototype.getToolbarButtons = function () {
+                var _this = this;
+                var buttons = _super.prototype.getToolbarButtons.call(this);
+                buttons.splice(2, 0, {
+                    title: "Save & New", cssClass: "save-and-new-button", icon: "fa-save", onClick: function () {
+                        _this.save(function () {
+                            _this.loadEntity({});
+                        });
+                    }
+                });
+                return buttons;
+            };
+            PurchaseRequestDetailEditorDialog.prototype.afterLoadEntity = function () {
+                var _this = this;
+                _super.prototype.afterLoadEntity.call(this);
+                Serenity.EditorUtils.setRequired(this.form.TotalAmount, true);
+                this.form.PoNo.element.closest(".field").hide();
+                this.form.Quantity.changeSelect2(function () {
+                    var qty = _this.form.Quantity.value || 0;
+                    var rate = _this.form.CurrentRate.value || 0;
+                    var basic = qty * rate;
+                    _this.form.BasicAmount.value = basic;
+                });
+                this.form.CurrentRate.changeSelect2(function () {
+                    var qty = _this.form.Quantity.value || 0;
+                    var rate = _this.form.CurrentRate.value || 0;
+                    var basic = qty * rate;
+                    _this.form.BasicAmount.value = basic;
+                });
+                this.form.ItemId.changeSelect2(function (e) {
+                    Inventry.PurchaseRequestDetailService.GetItemDetails({
+                        Id: Number(_this.form.ItemId.value)
+                    }, function (r) {
+                        if (r && r.Details) {
+                            _this.form.PartNo.value = r.Details.Partnumber.toString();
+                            _this.form.PreviousRate.value = r.Details.Rate;
+                            _this.form.BalanceStock.value = r.Details.Balancestock;
+                            _this.form.StockLevelMax.value = r.Details.Stocklvlmaximum;
+                            _this.form.StockLevelMin.value = r.Details.Stocklvlminimum;
+                        }
+                        else {
+                            _this.form.PartNo.value = "";
+                            _this.form.PreviousRate.value = null;
+                            _this.form.BalanceStock.value = null;
+                            _this.form.StockLevelMax.value = null;
+                            _this.form.StockLevelMin.value = null;
+                        }
+                    });
+                });
+                this.form.CgstRate.changeSelect2(function () {
+                    _this.calculateGST();
+                    _this.toggleTaxFields();
+                });
+                this.form.SgstRate.changeSelect2(function () {
+                    _this.calculateGST();
+                    _this.toggleTaxFields();
+                });
+                this.form.IgstRate.changeSelect2(function () {
+                    _this.calculateGST();
+                    _this.toggleTaxFields();
+                });
+            };
+            PurchaseRequestDetailEditorDialog.prototype.toggleTaxFields = function () {
+                var cgstVal = Number(this.form.CgstRate.value);
+                var sgstVal = Number(this.form.SgstRate.value);
+                var igstVal = Number(this.form.IgstRate.value);
+                if ((cgstVal && cgstVal !== 0) || (sgstVal && sgstVal !== 0)) {
+                    Serenity.EditorUtils.setReadOnly(this.form.IgstRate, true);
+                }
+                else {
+                    Serenity.EditorUtils.setReadOnly(this.form.IgstRate, false);
+                }
+                if (igstVal && igstVal !== 0) {
+                    Serenity.EditorUtils.setReadOnly(this.form.CgstRate, true);
+                    Serenity.EditorUtils.setReadOnly(this.form.SgstRate, true);
+                }
+                else {
+                    Serenity.EditorUtils.setReadOnly(this.form.CgstRate, false);
+                    Serenity.EditorUtils.setReadOnly(this.form.SgstRate, false);
+                }
+            };
+            PurchaseRequestDetailEditorDialog.prototype.calculateGST = function () {
+                var cgst = this.form.CgstRate.value || 0;
+                var sgst = this.form.SgstRate.value || 0;
+                var igst = this.form.IgstRate.value || 0;
+                var basic = this.form.BasicAmount.value || 0;
+                var cgstAmount = 0;
+                var igstAmount = 0;
+                var sgstAmount = 0;
+                if (cgst > 0 || sgst > 0) {
+                    cgstAmount = (basic * cgst / 100);
+                    sgstAmount = (basic * sgst / 100);
+                }
+                else if (igst > 0) {
+                    igstAmount = (basic * igst / 100);
+                }
+                if (this.form.BasicAmount.value > 0) {
+                    this.form.CgstAmount.value = cgstAmount;
+                    this.form.SgstAmount.value = sgstAmount;
+                    this.form.IgstAmount.value = igstAmount;
+                    this.form.TotalAmount.value = basic + cgstAmount + sgstAmount + igstAmount;
+                }
+            };
+            PurchaseRequestDetailEditorDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PurchaseRequestDetailEditorDialog);
+            return PurchaseRequestDetailEditorDialog;
+        }(SereneMovieTutorial.Common.GridEditorDialog));
+        Inventry.PurchaseRequestDetailEditorDialog = PurchaseRequestDetailEditorDialog;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var PurchaseRequestDetailGrid = /** @class */ (function (_super) {
+            __extends(PurchaseRequestDetailGrid, _super);
+            function PurchaseRequestDetailGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            PurchaseRequestDetailGrid.prototype.getColumnsKey = function () { return 'Inventry.PurchaseRequestDetail'; };
+            PurchaseRequestDetailGrid.prototype.getDialogType = function () { return Inventry.PurchaseRequestDetailDialog; };
+            PurchaseRequestDetailGrid.prototype.getIdProperty = function () { return Inventry.PurchaseRequestDetailRow.idProperty; };
+            PurchaseRequestDetailGrid.prototype.getInsertPermission = function () { return Inventry.PurchaseRequestDetailRow.insertPermission; };
+            PurchaseRequestDetailGrid.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseRequestDetailRow.localTextPrefix; };
+            PurchaseRequestDetailGrid.prototype.getService = function () { return Inventry.PurchaseRequestDetailService.baseUrl; };
+            PurchaseRequestDetailGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], PurchaseRequestDetailGrid);
+            return PurchaseRequestDetailGrid;
+        }(Serenity.EntityGrid));
+        Inventry.PurchaseRequestDetailGrid = PurchaseRequestDetailGrid;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var MaintenanceModule;
+    (function (MaintenanceModule) {
+        var MaintenanceDialog = /** @class */ (function (_super) {
+            __extends(MaintenanceDialog, _super);
+            function MaintenanceDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new MaintenanceModule.MaintenanceForm(_this.idPrefix);
+                _this.form.TruckId.changeSelect2(function (e) { return _this.loadLastMaintenance(); });
+                _this.form.HeadId.changeSelect2(function (e) { return _this.loadLastMaintenance(); });
+                _this.form.EntryDate.change(function (e) { return _this.updatePeriodTill(); });
+                _this.form.EstimatedPeriod.change(function (e) { return _this.updatePeriodTill(); });
+                _this.form.LastMaintenance.change(function (e) { return _this.updateDueDate(); });
+                _this.form.EstimatedPeriod.change(function (e) { return _this.updateDueDate(); });
+                _this.form.TruckId.changeSelect2(function (e) {
+                    console.log(_this.form.TruckId.value);
+                    var id = _this.form.TruckId.value;
+                    if (!id)
+                        return;
+                    MaintenanceModule.MaintenanceService.GetDetails({
+                        VehicleId: Number(id)
+                    }, function (response) {
+                        console.log(response);
+                        _this.form.TruckType.value = response.Vehicle.VehicleType.toString();
+                        _this.form.Owner.value = response.Vehicle.CustomerId.toString();
+                        _this.form.ModelNumber.value = response.Vehicle.Model;
+                    });
+                });
+                return _this;
+            }
+            MaintenanceDialog.prototype.getFormKey = function () { return MaintenanceModule.MaintenanceForm.formKey; };
+            MaintenanceDialog.prototype.getIdProperty = function () { return MaintenanceModule.MaintenanceRow.idProperty; };
+            MaintenanceDialog.prototype.getLocalTextPrefix = function () { return MaintenanceModule.MaintenanceRow.localTextPrefix; };
+            MaintenanceDialog.prototype.getNameProperty = function () { return MaintenanceModule.MaintenanceRow.nameProperty; };
+            MaintenanceDialog.prototype.getService = function () { return MaintenanceModule.MaintenanceService.baseUrl; };
+            MaintenanceDialog.prototype.getDeletePermission = function () { return MaintenanceModule.MaintenanceRow.deletePermission; };
+            MaintenanceDialog.prototype.getInsertPermission = function () { return MaintenanceModule.MaintenanceRow.insertPermission; };
+            MaintenanceDialog.prototype.getUpdatePermission = function () { return MaintenanceModule.MaintenanceRow.updatePermission; };
+            MaintenanceDialog.prototype.loadLastMaintenance = function () {
+                var _this = this;
+                var truckId = this.form.TruckId.value;
+                var headId = this.form.HeadId.value;
+                if (!truckId || !headId)
+                    return;
+                MaintenanceModule.MaintenanceService.GetLatestMaintenance({
+                    TruckId: Number(truckId),
+                    HeadId: Number(headId)
+                }, function (response) {
+                    console.log(response);
+                    _this.form.LastMaintenance.value = response.LastMaintenance;
+                });
+            };
+            MaintenanceDialog.prototype.updatePeriodTill = function () {
+                var entry = this.form.EntryDate.valueAsDate;
+                var last = this.form.LastMaintenance.valueAsDate;
+                if (!entry || !last)
+                    return;
+                var diff = entry.getTime() - last.getTime();
+                var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                var years = Math.floor(days / 365);
+                days = days % 365;
+                var months = Math.floor(days / 30);
+                days = days % 30;
+                this.form.PeriodTill.value =
+                    years + " years " + months + " months " + days + " day";
+            };
+            MaintenanceDialog.prototype.updateDueDate = function () {
+                var last = this.form.EntryDate.valueAsDate;
+                var period = this.form.EstimatedPeriod.value;
+                if (!last || !period)
+                    return;
+                var due = new Date(Number(last));
+                due.setDate(due.getDate() + Number(period));
+                this.form.DueDate.valueAsDate = due;
+            };
+            MaintenanceDialog = __decorate([
+                Serenity.Decorators.panel(),
+                Serenity.Decorators.registerClass()
+            ], MaintenanceDialog);
+            return MaintenanceDialog;
+        }(Serenity.EntityDialog));
+        MaintenanceModule.MaintenanceDialog = MaintenanceDialog;
+    })(MaintenanceModule = SereneMovieTutorial.MaintenanceModule || (SereneMovieTutorial.MaintenanceModule = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var MaintenanceModule;
+    (function (MaintenanceModule) {
+        var MaintenanceGrid = /** @class */ (function (_super) {
+            __extends(MaintenanceGrid, _super);
+            function MaintenanceGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            MaintenanceGrid.prototype.getColumnsKey = function () { return 'MaintenanceModule.Maintenance'; };
+            MaintenanceGrid.prototype.getDialogType = function () { return MaintenanceModule.MaintenanceDialog; };
+            MaintenanceGrid.prototype.getIdProperty = function () { return MaintenanceModule.MaintenanceRow.idProperty; };
+            MaintenanceGrid.prototype.getInsertPermission = function () { return MaintenanceModule.MaintenanceRow.insertPermission; };
+            MaintenanceGrid.prototype.getLocalTextPrefix = function () { return MaintenanceModule.MaintenanceRow.localTextPrefix; };
+            MaintenanceGrid.prototype.getService = function () { return MaintenanceModule.MaintenanceService.baseUrl; };
+            MaintenanceGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            MaintenanceGrid.prototype.createToolbarExtensions = function () {
+                _super.prototype.createToolbarExtensions.call(this);
+                //this.rowSelection = new Serenity.GridRowSelectionMixin(this);
+                this.addQuickFilter({
+                    field: "TruckId" /* TruckId */,
+                    type: Serenity.LookupEditor,
+                    options: {
+                        lookupKey: SereneMovieTutorial.Default.VehicleMasterRow.lookupKey,
+                    }
+                });
+                this.addQuickFilter({
+                    field: "HeadId" /* HeadId */,
+                    type: Serenity.LookupEditor,
+                    options: {
+                        lookupKey: SereneMovieTutorial.Default.MaintenanceHeadRow.lookupKey,
+                    }
+                });
+            };
+            MaintenanceGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], MaintenanceGrid);
+            return MaintenanceGrid;
+        }(Serenity.EntityGrid));
+        MaintenanceModule.MaintenanceGrid = MaintenanceGrid;
+    })(MaintenanceModule = SereneMovieTutorial.MaintenanceModule || (SereneMovieTutorial.MaintenanceModule = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
 var SereneMovieTutorial;
 (function (SereneMovieTutorial) {

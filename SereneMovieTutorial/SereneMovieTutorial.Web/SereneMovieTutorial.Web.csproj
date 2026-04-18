@@ -60,8 +60,8 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ClosedXML.0.95.4\lib\net40\ClosedXML.dll</HintPath>
+    <Reference Include="ClosedXML, Version=0.67.2.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ClosedXML.0.67.2\lib\net40-client\ClosedXML.dll</HintPath>
     </Reference>
     <Reference Include="CsQuery, Version=1.3.3.249, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CsQuery.1.3.4\lib\net40\CsQuery.dll</HintPath>
@@ -116,6 +116,7 @@
       <HintPath>..\..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="Serenity.Core, Version=3.13.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Serenity.Core.3.13.5\lib\net45\Serenity.Core.dll</HintPath>
     </Reference>
@@ -207,6 +208,7 @@
     <Content Include="Content\font-open-sans-base64.css" />
     <Content Include="Content\font-open-sans.css" />
     <Content Include="Content\glyphicons.css" />
+    <Content Include="Content\images\calendar.png" />
     <Content Include="Content\images\collapse.gif" />
     <Content Include="Content\images\down.gif" />
     <Content Include="Content\images\expand.gif" />
@@ -538,6 +540,7 @@
     <Content Include="Content\serenity\serenity.editors.css" />
     <Content Include="Content\serenity\serenity.jquery-ui.messagedialogs.css" />
     <Content Include="Content\simple-line-icons.css" />
+    <Content Include="Content\site\images\icons8-user-100.png" />
     <Content Include="Content\site\images\Tranzol.jpeg" />
     <Content Include="Content\site\my-style.css" />
     <Content Include="Content\site\slides\T1.jpg" />
@@ -815,6 +818,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\serenity\core\serenity-core.js" />
     <Content Include="Scripts\serenity\core\serenity-core.min.js" />
     <Content Include="Scripts\serenity\dialogs\serenity-dialogs.js" />
@@ -838,6 +842,8 @@
     <Content Include="Scripts\serenity\widget\serenity-widget.js" />
     <Content Include="Scripts\serenity\widget\serenity-widget.min.js" />
     <Content Include="wkhtmltopdf-license.txt" />
+    <Content Include="Modules\Default\VoucherPrint\VoucherPrint.cshtml" />
+    <Content Include="Modules\Default\Plant\PlantIndex.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Readme.CodeGenerator.txt" />
     <Content Include="Scripts\bootstrap.js" />
@@ -1070,6 +1076,9 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Default.BranchMasterColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.BranchResponse.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Default.CustomerColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1088,16 +1097,37 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Default.ExpenseColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ExpenseRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ExpenseResponse.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Default.FinancialYearColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Default.GenreColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.InvoicedetailsColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Default.ItemMasterColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.LoadingDetailsResponses.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Default.LoadingTripColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.LoadingTripDetailsRequests.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.MaintenanceHeadColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ManageinvoiceColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Default.MovieCastColumns.ts">
@@ -1109,6 +1139,12 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Default.MovieColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PartyMasterColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PendingTripDetailsInvoiceColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Default.Person.PersonMovieColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1118,10 +1154,106 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Default.PlantColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PumpmasterColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PumpStockRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PumpStockResponse.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Default.StateMasterColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.TaxColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.TripRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.TripResponse.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.UnitColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.UnloadTripColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.VehicleDetailsRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.VehicleDetailsResponse.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Default.VehicleMasterColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.VLoadingTripDetailsColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.DieselissueColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.FuelDataColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.FuelDetailsColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.TripDetailsRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.TripDetailsResponse.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.ExItemForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.ItemColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.ItemDetailsRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.ItempDetailsResponse.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PendingPurchaseOrderColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseBillColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseBillDetailColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseOrderColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseRequestDetailColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.TripRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.TripResponse.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\MaintenanceModule.GetLatestMaintenanceRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\MaintenanceModule.GetLatestMaintenanceResponse.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\MaintenanceModule.GetVehicleDetailsRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\MaintenanceModule.GetVehicleDetailsResponse.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\MaintenanceModule.MaintenanceColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Modules.Default.CustomerMaster.IdentityType.ts">
@@ -1133,10 +1265,19 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Modules.Default.Person.Gender.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Modules.Default.Pumpmaster.TypeState.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Modules.Default.VehicleMaster.FuelType.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Modules.Default.VehicleMaster.VehicleType.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Modules.FuelManagement.Dieselissue.DieselRateRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Modules.FuelManagement.FuelData.YesNo.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Texts.ts">
@@ -1146,23 +1287,28 @@
     <TypeScriptCompile Include="Modules\Administration\UserPermission\CustomPermissionEditor.ts" />
     <TypeScriptCompile Include="Modules\Administration\UserPermission\NewUserPermissionDilog.ts" />
     <TypeScriptCompile Include="Modules\Administration\UserPermission\PermissionEditor.ts" />
+    <TypeScriptCompile Include="Modules\Default\Invoicedetails\ExInvoiceDetailsEditor.ts" />
+    <TypeScriptCompile Include="Modules\Default\Invoicedetails\ExInvoiceDetailsDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Plant\PlantDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Plant\PlantGrid.ts" />
     <TypeScriptCompile Include="Modules\Default\BranchMaster\BranchMasterDialog.ts" />
     <TypeScriptCompile Include="Modules\Default\BranchMaster\BranchMasterGrid.ts" />
+    <TypeScriptCompile Include="Modules\Default\Genre\MultipleDateEditor.ts" />
     <TypeScriptCompile Include="Modules\Default\LoadingTrip\VehicleDetails.ts" />
     <TypeScriptCompile Include="Modules\Default\MovieCast\MovieCastEditDialog.ts" />
     <TypeScriptCompile Include="Modules\Default\MovieCast\MovieCastEditorDialog.ts" />
     <TypeScriptCompile Include="Modules\Default\MovieCast\MovieCastEditor.ts" />
     <TypeScriptCompile Include="Modules\Default\Movie\GenreListFormatter.ts" />
     <TypeScriptCompile Include="Modules\Default\Person\PersonMovieGrid.ts" />
+    <TypeScriptCompile Include="Modules\Default\UnloadTrip\DownloadFormatter.ts" />
+    <TypeScriptCompile Include="Modules\FuelManagement\FuelDetails\FuelDetailsEditor.ts" />
+    <TypeScriptCompile Include="Modules\FuelManagement\FuelDetails\FuelDetailsEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\Item\ExItemDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\PurchaseBillDetail\ExPurchaseBillDetailEditor.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\PurchaseBillDetail\ExPurchaseBillDetailDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\PurchaseRequestDetail\PurchaseRequestDetailEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\PurchaseRequestDetail\PurchaseRequestDetailEditor.ts" />
     <TypeScriptCompile Include="Modules\Membership\Account\LoginPanel.ts" />
-    <TypeScriptCompile Include="node_modules\%40types\jquery\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\%40types\jqueryui\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\%40types\jquery.blockui\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\%40types\jquery.cookie\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\%40types\jquery.validation\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\%40types\jspdf\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\%40types\sortablejs\index.d.ts" />
-    <TypeScriptCompile Include="node_modules\%40types\toastr\index.d.ts" />
     <Content Include="Content\site\images\accordion-arrows.png" />
     <Content Include="Modules\Membership\Account\SignUp\AccountSignUp.AdminLTE.cshtml" />
     <Content Include="Imports\Web.config" />
@@ -1697,6 +1843,12 @@
     <Content Include="Scripts\serenity\editors\serenity-editors.js.map" />
     <Content Include="Scripts\serenity\dialogs\serenity-dialogs.js.map" />
     <Content Include="Scripts\serenity\core\serenity-core.js.map" />
+    <Content Include="Views\UnloadTrip\Print.cshtml" />
+    <Content Include="Views\FuelData\PrintFuelData.cshtml" />
+    <Content Include="Views\FuelData\PrintFuelData2.cshtml" />
+    <Content Include="Views\FuelStock\Index.cshtml" />
+    <Content Include="Views\FuelStock\Index2.cshtml" />
+    <Content Include="Modules\Default\Reports\GetInvoice.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1780,9 +1932,6 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Default.PlantService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
-    <Content Include="Modules\Default\Plant\PlantIndex.cshtml" />
-    <TypeScriptCompile Include="Modules\Default\Plant\PlantDialog.ts" />
-    <TypeScriptCompile Include="Modules\Default\Plant\PlantGrid.ts" />
     <TypeScriptCompile Include="Imports\ServerTypings\Default.PlantForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1925,6 +2074,252 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Default.CustomerForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PumpmasterRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PumpmasterService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\Pumpmaster\PumpmasterIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\Pumpmaster\PumpmasterDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Pumpmaster\PumpmasterGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PumpmasterForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PartyMasterRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PartyMasterService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\PartyMaster\PartyMasterIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\PartyMaster\PartyMasterDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\PartyMaster\PartyMasterGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PartyMasterForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Content\site\site.fuel management.less" />
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.FuelDataRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.FuelDataService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\FuelManagement\FuelData\FuelDataIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\FuelManagement\FuelData\FuelDataDialog.ts" />
+    <TypeScriptCompile Include="Modules\FuelManagement\FuelData\FuelDataGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.FuelDataForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Content\site\site.fuelmanagement.less" />
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.FuelDetailsRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.FuelDetailsService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\FuelManagement\FuelDetails\FuelDetailsIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\FuelManagement\FuelDetails\FuelDetailsDialog.ts" />
+    <TypeScriptCompile Include="Modules\FuelManagement\FuelDetails\FuelDetailsGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.FuelDetailsForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.DieselissueRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.DieselissueService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\FuelManagement\Dieselissue\DieselissueIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\FuelManagement\Dieselissue\DieselissueDialog.ts" />
+    <TypeScriptCompile Include="Modules\FuelManagement\Dieselissue\DieselissueGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\FuelManagement.DieselissueForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.VLoadingTripDetailsRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.VLoadingTripDetailsService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\VLoadingTripDetails\VLoadingTripDetailsIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\VLoadingTripDetails\VLoadingTripDetailsDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\VLoadingTripDetails\VLoadingTripDetailsGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.VLoadingTripDetailsForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.UnloadTripRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.UnloadTripService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\UnloadTrip\UnloadTripIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\UnloadTrip\UnloadTripDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\UnloadTrip\UnloadTripGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.UnloadTripForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.ItemRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.ItemService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Inventry\Item\ItemIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Inventry\Item\ItemDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\Item\ItemGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.ItemForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Content\site\site.inventry.less" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseOrderRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseOrderService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Inventry\PurchaseOrder\PurchaseOrderIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Inventry\PurchaseOrder\PurchaseOrderDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\PurchaseOrder\PurchaseOrderGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseOrderForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseRequestDetailRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseRequestDetailService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Inventry\PurchaseRequestDetail\PurchaseRequestDetailIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Inventry\PurchaseRequestDetail\PurchaseRequestDetailDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\PurchaseRequestDetail\PurchaseRequestDetailGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseRequestDetailForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.UnitRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.UnitService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\Unit\UnitIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\Unit\UnitDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Unit\UnitGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.UnitForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PendingPurchaseOrderRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PendingPurchaseOrderService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Inventry\PendingPurchaseOrder\PendingPurchaseOrderIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Inventry\PendingPurchaseOrder\PendingPurchaseOrderDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\PendingPurchaseOrder\PendingPurchaseOrderGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PendingPurchaseOrderForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseBillRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseBillService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Inventry\PurchaseBill\PurchaseBillIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Inventry\PurchaseBill\PurchaseBillDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\PurchaseBill\PurchaseBillGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseBillForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseBillDetailRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseBillDetailService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Inventry\PurchaseBillDetail\PurchaseBillDetailIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Inventry\PurchaseBillDetail\PurchaseBillDetailDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\PurchaseBillDetail\PurchaseBillDetailGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.PurchaseBillDetailForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PendingTripDetailsInvoiceRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PendingTripDetailsInvoiceService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\PendingTripDetailsInvoice\PendingTripDetailsInvoiceIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\PendingTripDetailsInvoice\PendingTripDetailsInvoiceDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\PendingTripDetailsInvoice\PendingTripDetailsInvoiceGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.PendingTripDetailsInvoiceForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.InvoicedetailsRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.InvoicedetailsService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\Invoicedetails\InvoicedetailsIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\Invoicedetails\InvoicedetailsDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Invoicedetails\InvoicedetailsGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.InvoicedetailsForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ManageinvoiceRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ManageinvoiceService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\Manageinvoice\ManageinvoiceIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\Manageinvoice\ManageinvoiceDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Manageinvoice\ManageinvoiceGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.ManageinvoiceForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.TaxRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.TaxService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\Tax\TaxIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\Tax\TaxDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\Tax\TaxGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.TaxForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Content\site\site.master.less" />
+    <Content Include="Content\site\site.maintenance.less" />
+    <Content Include="Content\site\site.maintenancemodule.less" />
+    <TypeScriptCompile Include="Imports\ServerTypings\MaintenanceModule.MaintenanceRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\MaintenanceModule.MaintenanceService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\MaintenanceModule\Maintenance\MaintenanceIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\MaintenanceModule\Maintenance\MaintenanceDialog.ts" />
+    <TypeScriptCompile Include="Modules\MaintenanceModule\Maintenance\MaintenanceGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\MaintenanceModule.MaintenanceForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.MaintenanceHeadRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.MaintenanceHeadService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Default\MaintenanceHead\MaintenanceHeadIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Default\MaintenanceHead\MaintenanceHeadDialog.ts" />
+    <TypeScriptCompile Include="Modules\Default\MaintenanceHead\MaintenanceHeadGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Default.MaintenanceHeadForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1954,10 +2349,28 @@
     <Compile Include="Imports\ClientTypes\Administration.RoleCheckEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Imports\ClientTypes\Default.DownloadFormatterAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Default.ExInvoiceDetailsEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
     <Compile Include="Imports\ClientTypes\Default.GenreListFormatterAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Imports\ClientTypes\Default.MovieCastEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Default.MultipleDateEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\FuelManagement.FuelDetailsEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Inventry.ExPurchaseBillDetailEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Inventry.PurchaseRequestDetailEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Modules\Administration\AdministrationNavigation.cs" />
@@ -1979,6 +2392,7 @@
     <Compile Include="Modules\Administration\User\Authentication\IDirectoryService.cs" />
     <Compile Include="Modules\Administration\User\Authentication\ScriptUserDefinition.cs" />
     <Compile Include="Modules\Administration\User\UserColumns.cs" />
+    <Compile Include="Modules\Common\BusinessLogic\ExcelValidation.cs" />
     <Compile Include="Modules\Common\Helpers\EmailHelper.cs" />
     <Compile Include="Modules\Common\Helpers\ExcelImportRequest.cs" />
     <Compile Include="Modules\Common\Dashboard\DashboardPageModel.cs" />
@@ -2005,6 +2419,12 @@
     <Compile Include="Modules\Common\Navigation\NavigationModel.cs" />
     <Compile Include="Modules\Common\Reporting\DynamicDataReport.cs" />
     <Compile Include="Modules\Common\Reporting\ExcelReportGenerator.cs" />
+    <Compile Include="Modules\Default\Plant\PlantColumns.cs" />
+    <Compile Include="Modules\Default\Plant\PlantEndpoint.cs" />
+    <Compile Include="Modules\Default\Plant\PlantForm.cs" />
+    <Compile Include="Modules\Default\Plant\PlantPage.cs" />
+    <Compile Include="Modules\Default\Plant\PlantRepository.cs" />
+    <Compile Include="Modules\Default\Plant\PlantRow.cs" />
     <Compile Include="Modules\Default\BranchMaster\BranchMasterColumns.cs" />
     <Compile Include="Modules\Default\BranchMaster\BranchMasterEndpoint.cs" />
     <Compile Include="Modules\Default\BranchMaster\BranchMasterForm.cs" />
@@ -2013,8 +2433,20 @@
     <Compile Include="Modules\Default\BranchMaster\BranchMasterRow.cs" />
     <Compile Include="Modules\Default\Customer\CustomerCityLookup.cs" />
     <Compile Include="Modules\Default\Customer\CustomerCountryLookup.cs" />
+    <Compile Include="Modules\Default\Pumpmaster\TypeState.cs" />
+    <Compile Include="Modules\Default\Reports\ManageInvoiceModel.cs" />
+    <Compile Include="Modules\Default\Reports\TripInvoiceController.cs" />
+    <Compile Include="Modules\Default\UnloadTrip\UnloadTripModel.cs" />
+    <Compile Include="Modules\FuelManagement\Dieselissue\DieselRateRequest.cs" />
+    <Compile Include="Modules\FuelManagement\FuelData\FuelDataModel.cs" />
+    <Compile Include="Modules\FuelManagement\FuelData\YesNo.cs" />
+    <Compile Include="Modules\Inventry\Item\ExItemForm.cs" />
+    <Compile Include="Modules\MaintenanceModule\VehicleType.cs" />
     <Compile Include="Reports\CustomerVehicleReportController.cs" />
     <Compile Include="Reports\CustomerVehicleReportModel.cs" />
+    <Compile Include="Modules\Default\VoucherPrint\VoucherPrintController.cs" />
+    <Compile Include="Reports\FuelStockController.cs" />
+    <Compile Include="Reports\FuelStockModel.cs" />
     <Content Include="Modules\Common\Reporting\ReportPage.cshtml" />
     <Compile Include="Modules\Common\Reporting\ReportTree.cs" />
     <Compile Include="Modules\Common\Reporting\ReportController.cs" />
@@ -2114,12 +2546,6 @@
     <Compile Include="Modules\Default\Employees\EmployeesPage.cs" />
     <Compile Include="Modules\Default\Employees\EmployeesColumns.cs" />
     <Compile Include="Modules\Default\Employees\EmployeesForm.cs" />
-    <Compile Include="Modules\Default\Plant\PlantRow.cs" />
-    <Compile Include="Modules\Default\Plant\PlantRepository.cs" />
-    <Compile Include="Modules\Default\Plant\PlantEndpoint.cs" />
-    <Compile Include="Modules\Default\Plant\PlantPage.cs" />
-    <Compile Include="Modules\Default\Plant\PlantColumns.cs" />
-    <Compile Include="Modules\Default\Plant\PlantForm.cs" />
     <Compile Include="Modules\Default\Distict\DistictRow.cs" />
     <Compile Include="Modules\Default\Distict\DistictRepository.cs" />
     <Compile Include="Modules\Default\Distict\DistictEndpoint.cs" />
@@ -2180,9 +2606,134 @@
     <Compile Include="Modules\Default\Customer\CustomerPage.cs" />
     <Compile Include="Modules\Default\Customer\CustomerColumns.cs" />
     <Compile Include="Modules\Default\Customer\CustomerForm.cs" />
+    <Compile Include="Modules\Default\Pumpmaster\PumpmasterRow.cs" />
+    <Compile Include="Modules\Default\Pumpmaster\PumpmasterRepository.cs" />
+    <Compile Include="Modules\Default\Pumpmaster\PumpmasterEndpoint.cs" />
+    <Compile Include="Modules\Default\Pumpmaster\PumpmasterPage.cs" />
+    <Compile Include="Modules\Default\Pumpmaster\PumpmasterColumns.cs" />
+    <Compile Include="Modules\Default\Pumpmaster\PumpmasterForm.cs" />
+    <Compile Include="Modules\Default\PartyMaster\PartyMasterRow.cs" />
+    <Compile Include="Modules\Default\PartyMaster\PartyMasterRepository.cs" />
+    <Compile Include="Modules\Default\PartyMaster\PartyMasterEndpoint.cs" />
+    <Compile Include="Modules\Default\PartyMaster\PartyMasterPage.cs" />
+    <Compile Include="Modules\Default\PartyMaster\PartyMasterColumns.cs" />
+    <Compile Include="Modules\Default\PartyMaster\PartyMasterForm.cs" />
+    <Compile Include="Modules\FuelManagement\FuelData\FuelDataRow.cs" />
+    <Compile Include="Modules\FuelManagement\FuelData\FuelDataRepository.cs" />
+    <Compile Include="Modules\FuelManagement\FuelData\FuelDataEndpoint.cs" />
+    <Compile Include="Modules\FuelManagement\FuelData\FuelDataPage.cs" />
+    <Compile Include="Modules\FuelManagement\FuelData\FuelDataColumns.cs" />
+    <Compile Include="Modules\FuelManagement\FuelData\FuelDataForm.cs" />
+    <Compile Include="Modules\FuelManagement\FuelManagementNavigation.cs" />
+    <Compile Include="Modules\FuelManagement\FuelDetails\FuelDetailsRow.cs" />
+    <Compile Include="Modules\FuelManagement\FuelDetails\FuelDetailsRepository.cs" />
+    <Compile Include="Modules\FuelManagement\FuelDetails\FuelDetailsEndpoint.cs" />
+    <Compile Include="Modules\FuelManagement\FuelDetails\FuelDetailsPage.cs" />
+    <Compile Include="Modules\FuelManagement\FuelDetails\FuelDetailsColumns.cs" />
+    <Compile Include="Modules\FuelManagement\FuelDetails\FuelDetailsForm.cs" />
+    <Compile Include="Modules\FuelManagement\Dieselissue\DieselissueRow.cs" />
+    <Compile Include="Modules\FuelManagement\Dieselissue\DieselissueRepository.cs" />
+    <Compile Include="Modules\FuelManagement\Dieselissue\DieselissueEndpoint.cs" />
+    <Compile Include="Modules\FuelManagement\Dieselissue\DieselissuePage.cs" />
+    <Compile Include="Modules\FuelManagement\Dieselissue\DieselissueColumns.cs" />
+    <Compile Include="Modules\FuelManagement\Dieselissue\DieselissueForm.cs" />
+    <Compile Include="Modules\Default\VLoadingTripDetails\VLoadingTripDetailsRow.cs" />
+    <Compile Include="Modules\Default\VLoadingTripDetails\VLoadingTripDetailsRepository.cs" />
+    <Compile Include="Modules\Default\VLoadingTripDetails\VLoadingTripDetailsEndpoint.cs" />
+    <Compile Include="Modules\Default\VLoadingTripDetails\VLoadingTripDetailsPage.cs" />
+    <Compile Include="Modules\Default\VLoadingTripDetails\VLoadingTripDetailsColumns.cs" />
+    <Compile Include="Modules\Default\VLoadingTripDetails\VLoadingTripDetailsForm.cs" />
+    <Compile Include="Modules\Default\UnloadTrip\UnloadTripRow.cs" />
+    <Compile Include="Modules\Default\UnloadTrip\UnloadTripRepository.cs" />
+    <Compile Include="Modules\Default\UnloadTrip\UnloadTripEndpoint.cs" />
+    <Compile Include="Modules\Default\UnloadTrip\UnloadTripPage.cs" />
+    <Compile Include="Modules\Default\UnloadTrip\UnloadTripColumns.cs" />
+    <Compile Include="Modules\Default\UnloadTrip\UnloadTripForm.cs" />
+    <Compile Include="Modules\Inventry\Item\ItemRow.cs" />
+    <Compile Include="Modules\Inventry\Item\ItemRepository.cs" />
+    <Compile Include="Modules\Inventry\Item\ItemEndpoint.cs" />
+    <Compile Include="Modules\Inventry\Item\ItemPage.cs" />
+    <Compile Include="Modules\Inventry\Item\ItemColumns.cs" />
+    <Compile Include="Modules\Inventry\Item\ItemForm.cs" />
+    <Compile Include="Modules\Inventry\InventryNavigation.cs" />
+    <Compile Include="Modules\Inventry\PurchaseOrder\PurchaseOrderRow.cs" />
+    <Compile Include="Modules\Inventry\PurchaseOrder\PurchaseOrderRepository.cs" />
+    <Compile Include="Modules\Inventry\PurchaseOrder\PurchaseOrderEndpoint.cs" />
+    <Compile Include="Modules\Inventry\PurchaseOrder\PurchaseOrderPage.cs" />
+    <Compile Include="Modules\Inventry\PurchaseOrder\PurchaseOrderColumns.cs" />
+    <Compile Include="Modules\Inventry\PurchaseOrder\PurchaseOrderForm.cs" />
+    <Compile Include="Modules\Inventry\PurchaseRequestDetail\PurchaseRequestDetailRow.cs" />
+    <Compile Include="Modules\Inventry\PurchaseRequestDetail\PurchaseRequestDetailRepository.cs" />
+    <Compile Include="Modules\Inventry\PurchaseRequestDetail\PurchaseRequestDetailEndpoint.cs" />
+    <Compile Include="Modules\Inventry\PurchaseRequestDetail\PurchaseRequestDetailPage.cs" />
+    <Compile Include="Modules\Inventry\PurchaseRequestDetail\PurchaseRequestDetailColumns.cs" />
+    <Compile Include="Modules\Inventry\PurchaseRequestDetail\PurchaseRequestDetailForm.cs" />
+    <Compile Include="Modules\Default\Unit\UnitRow.cs" />
+    <Compile Include="Modules\Default\Unit\UnitRepository.cs" />
+    <Compile Include="Modules\Default\Unit\UnitEndpoint.cs" />
+    <Compile Include="Modules\Default\Unit\UnitPage.cs" />
+    <Compile Include="Modules\Default\Unit\UnitColumns.cs" />
+    <Compile Include="Modules\Default\Unit\UnitForm.cs" />
+    <Compile Include="Modules\Inventry\PendingPurchaseOrder\PendingPurchaseOrderRow.cs" />
+    <Compile Include="Modules\Inventry\PendingPurchaseOrder\PendingPurchaseOrderRepository.cs" />
+    <Compile Include="Modules\Inventry\PendingPurchaseOrder\PendingPurchaseOrderEndpoint.cs" />
+    <Compile Include="Modules\Inventry\PendingPurchaseOrder\PendingPurchaseOrderPage.cs" />
+    <Compile Include="Modules\Inventry\PendingPurchaseOrder\PendingPurchaseOrderColumns.cs" />
+    <Compile Include="Modules\Inventry\PendingPurchaseOrder\PendingPurchaseOrderForm.cs" />
+    <Compile Include="Modules\Inventry\PurchaseBill\PurchaseBillRow.cs" />
+    <Compile Include="Modules\Inventry\PurchaseBill\PurchaseBillRepository.cs" />
+    <Compile Include="Modules\Inventry\PurchaseBill\PurchaseBillEndpoint.cs" />
+    <Compile Include="Modules\Inventry\PurchaseBill\PurchaseBillPage.cs" />
+    <Compile Include="Modules\Inventry\PurchaseBill\PurchaseBillColumns.cs" />
+    <Compile Include="Modules\Inventry\PurchaseBill\PurchaseBillForm.cs" />
+    <Compile Include="Modules\Inventry\PurchaseBillDetail\PurchaseBillDetailRow.cs" />
+    <Compile Include="Modules\Inventry\PurchaseBillDetail\PurchaseBillDetailRepository.cs" />
+    <Compile Include="Modules\Inventry\PurchaseBillDetail\PurchaseBillDetailEndpoint.cs" />
+    <Compile Include="Modules\Inventry\PurchaseBillDetail\PurchaseBillDetailPage.cs" />
+    <Compile Include="Modules\Inventry\PurchaseBillDetail\PurchaseBillDetailColumns.cs" />
+    <Compile Include="Modules\Inventry\PurchaseBillDetail\PurchaseBillDetailForm.cs" />
+    <Compile Include="Modules\Default\PendingTripDetailsInvoice\PendingTripDetailsInvoiceRow.cs" />
+    <Compile Include="Modules\Default\PendingTripDetailsInvoice\PendingTripDetailsInvoiceRepository.cs" />
+    <Compile Include="Modules\Default\PendingTripDetailsInvoice\PendingTripDetailsInvoiceEndpoint.cs" />
+    <Compile Include="Modules\Default\PendingTripDetailsInvoice\PendingTripDetailsInvoicePage.cs" />
+    <Compile Include="Modules\Default\PendingTripDetailsInvoice\PendingTripDetailsInvoiceColumns.cs" />
+    <Compile Include="Modules\Default\PendingTripDetailsInvoice\PendingTripDetailsInvoiceForm.cs" />
+    <Compile Include="Modules\Default\Invoicedetails\InvoicedetailsRow.cs" />
+    <Compile Include="Modules\Default\Invoicedetails\InvoicedetailsRepository.cs" />
+    <Compile Include="Modules\Default\Invoicedetails\InvoicedetailsEndpoint.cs" />
+    <Compile Include="Modules\Default\Invoicedetails\InvoicedetailsPage.cs" />
+    <Compile Include="Modules\Default\Invoicedetails\InvoicedetailsColumns.cs" />
+    <Compile Include="Modules\Default\Invoicedetails\InvoicedetailsForm.cs" />
+    <Compile Include="Modules\Default\Manageinvoice\ManageinvoiceRow.cs" />
+    <Compile Include="Modules\Default\Manageinvoice\ManageinvoiceRepository.cs" />
+    <Compile Include="Modules\Default\Manageinvoice\ManageinvoiceEndpoint.cs" />
+    <Compile Include="Modules\Default\Manageinvoice\ManageinvoicePage.cs" />
+    <Compile Include="Modules\Default\Manageinvoice\ManageinvoiceColumns.cs" />
+    <Compile Include="Modules\Default\Manageinvoice\ManageinvoiceForm.cs" />
+    <Compile Include="Modules\Default\Tax\TaxRow.cs" />
+    <Compile Include="Modules\Default\Tax\TaxRepository.cs" />
+    <Compile Include="Modules\Default\Tax\TaxEndpoint.cs" />
+    <Compile Include="Modules\Default\Tax\TaxPage.cs" />
+    <Compile Include="Modules\Default\Tax\TaxColumns.cs" />
+    <Compile Include="Modules\Default\Tax\TaxForm.cs" />
+    <Compile Include="Modules\MaintenanceModule\Maintenance\MaintenanceRow.cs" />
+    <Compile Include="Modules\MaintenanceModule\Maintenance\MaintenanceRepository.cs" />
+    <Compile Include="Modules\MaintenanceModule\Maintenance\MaintenanceEndpoint.cs" />
+    <Compile Include="Modules\MaintenanceModule\Maintenance\MaintenancePage.cs" />
+    <Compile Include="Modules\MaintenanceModule\Maintenance\MaintenanceColumns.cs" />
+    <Compile Include="Modules\MaintenanceModule\Maintenance\MaintenanceForm.cs" />
+    <Compile Include="Modules\MaintenanceModule\MaintenanceModuleNavigation.cs" />
+    <Compile Include="Modules\Default\MaintenanceHead\MaintenanceHeadRow.cs" />
+    <Compile Include="Modules\Default\MaintenanceHead\MaintenanceHeadRepository.cs" />
+    <Compile Include="Modules\Default\MaintenanceHead\MaintenanceHeadEndpoint.cs" />
+    <Compile Include="Modules\Default\MaintenanceHead\MaintenanceHeadPage.cs" />
+    <Compile Include="Modules\Default\MaintenanceHead\MaintenanceHeadColumns.cs" />
+    <Compile Include="Modules\Default\MaintenanceHead\MaintenanceHeadForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Modules\FuelManagement\Reports\" />
+    <Folder Include="Views\TripInvoice\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

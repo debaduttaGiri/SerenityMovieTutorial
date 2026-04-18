@@ -15,7 +15,7 @@ namespace SereneMovieTutorial.Default.Columns
     {
         [EditLink, DisplayName("Id"), AlignRight,Hidden]
         public Int32 Id { get; set; }
-        public String Plant1 { get; set; }
+        public String Plant { get; set; }
         [EditLink]
         public String Distict { get; set; }
         public String Remarks { get; set; }

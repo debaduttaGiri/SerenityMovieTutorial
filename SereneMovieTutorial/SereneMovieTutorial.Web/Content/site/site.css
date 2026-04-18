@@ -88,9 +88,9 @@ body {
 }
 .content-wrapper,
 .right-side {
-  min-height: 100%;
-  background-color: #ecf0f5;
-  z-index: 800;
+    min-height: 100%;
+    background-color: #000 !important;
+    z-index: 800;
 }
 .main-footer {
   background: #fff;
@@ -7542,5 +7542,149 @@ section.content > .s-DataGrid {
   width: 650px;
 }
 .s-Default-CustomerDialog .caption {
+  width: 150px;
+}
+.s-Default-PumpmasterDialog > .size {
+  width: 650px;
+}
+.s-Default-PumpmasterDialog .caption {
+  width: 150px;
+}
+.s-Default-PartyMasterDialog > .size {
+  width: 650px;
+}
+.s-Default-PartyMasterDialog .caption {
+  width: 150px;
+}
+.s-Default-VLoadingTripDetailsDialog > .size {
+  width: 650px;
+}
+.s-Default-VLoadingTripDetailsDialog .caption {
+  width: 150px;
+}
+.s-Default-UnloadTripDialog > .size {
+  width: 650px;
+}
+.s-Default-UnloadTripDialog .caption {
+  width: 150px;
+}
+.s-Default-ItemDialog > .size {
+  width: 650px;
+}
+.s-Default-ItemDialog .caption {
+  width: 150px;
+}
+.s-Default-UnitDialog > .size {
+  width: 650px;
+}
+.s-Default-UnitDialog .caption {
+  width: 150px;
+}
+.s-Default-PendingTripDetailsInvoiceDialog > .size {
+  width: 650px;
+}
+.s-Default-PendingTripDetailsInvoiceDialog .caption {
+  width: 150px;
+}
+.s-Default-InvoicedetailsDialog > .size {
+  width: 650px;
+}
+.s-Default-InvoicedetailsDialog .caption {
+  width: 150px;
+}
+.s-Default-ManageinvoiceDialog > .size {
+  width: 650px;
+}
+.s-Default-ManageinvoiceDialog .caption {
+  width: 150px;
+}
+.s-Default-TaxDialog > .size {
+  width: 650px;
+}
+.s-Default-TaxDialog .caption {
+  width: 150px;
+}
+.s-Default-MaintenanceHeadDialog > .size {
+  width: 650px;
+}
+.s-Default-MaintenanceHeadDialog .caption {
+  width: 150px;
+}
+.s-Fuel Management-FuelDataDialog > .size {
+  width: 650px;
+}
+.s-Fuel Management-FuelDataDialog .caption {
+  width: 150px;
+}
+.s-FuelManagement-FuelDataDialog > .size {
+  width: 650px;
+}
+.s-FuelManagement-FuelDataDialog .caption {
+  width: 150px;
+}
+.s-FuelManagement-FuelDetailsDialog > .size {
+  width: 650px;
+}
+.s-FuelManagement-FuelDetailsDialog .caption {
+  width: 150px;
+}
+.s-FuelManagement-DieselissueDialog > .size {
+  width: 650px;
+}
+.s-FuelManagement-DieselissueDialog .caption {
+  width: 150px;
+}
+.s-Inventry-ItemDialog > .size {
+  width: 650px;
+}
+.s-Inventry-ItemDialog .caption {
+  width: 150px;
+}
+.s-Inventry-PurchaseOrderDialog > .size {
+  width: 650px;
+}
+.s-Inventry-PurchaseOrderDialog .caption {
+  width: 150px;
+}
+.s-Inventry-PurchaseRequestDetailDialog > .size {
+  width: 650px;
+}
+.s-Inventry-PurchaseRequestDetailDialog .caption {
+  width: 150px;
+}
+.s-Inventry-PendingPurchaseOrderDialog > .size {
+  width: 650px;
+}
+.s-Inventry-PendingPurchaseOrderDialog .caption {
+  width: 150px;
+}
+.s-Inventry-PurchaseBillDialog > .size {
+  width: 650px;
+}
+.s-Inventry-PurchaseBillDialog .caption {
+  width: 150px;
+}
+.s-Inventry-PurchaseBillDetailDialog > .size {
+  width: 650px;
+}
+.s-Inventry-PurchaseBillDetailDialog .caption {
+  width: 150px;
+}
+.s-Master-MaintenanceDialog > .size {
+  width: 650px;
+}
+.s-Master-MaintenanceDialog .caption {
+  width: 150px;
+}
+.s-Maintenance-MaintenanceHeadDialog > .size {
+  width: 650px;
+}
+.s-Maintenance-MaintenanceHeadDialog .caption {
+  width: 150px;
+}
+.s-MaintenanceModule-MaintenanceDialog > .size {
+  width: 650px;
+}
+.s-MaintenanceModule-MaintenanceDialog .caption {
   width: 150px;
 }

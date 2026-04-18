@@ -13,7 +13,8 @@ namespace SereneMovieTutorial.Default.Entities
     [DisplayName("Loading Trip"), InstanceName("Loading Trip")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
-    public sealed class LoadingTripRow : Row, IIdRow, INameRow
+    [LookupScript(Permission ="*")]
+    public sealed class LoadingTripRow : Row, IIdRow, INameRow, IInsertLogRow, IUpdateLogRow
     {
         [DisplayName("Loading Trip Id"), Identity]
         [SortOrder(1,descending:true)]
@@ -39,12 +40,13 @@ namespace SereneMovieTutorial.Default.Entities
 
         //[DisplayName("Plant Id"), NotNull]
         [DisplayName("Plant"), NotNull, ForeignKey(typeof(PlantRow)), LeftJoin("Plant"), LookupEditor(typeof(PlantRow))]
+        [LookupInclude]
         public Int32? PlantId
         {
             get { return Fields.PlantId[this]; }
             set { Fields.PlantId[this] = value; }
         }
-        [Expression("Plant.Plant")]
+        [Expression("Plant.Plant"), LookupInclude]
         public String Plant
         {
             get { return Fields.Plant[this]; }
@@ -59,7 +61,7 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.DistrictId[this]; }
             set { Fields.DistrictId[this] = value; }
         }
-        [Expression("jDistict.Distict")]
+        [Expression("jDistict.Distict"), LookupInclude]
         public String District
         {
             get { return Fields.District[this]; }
@@ -68,13 +70,14 @@ namespace SereneMovieTutorial.Default.Entities
 
         [DisplayName("Destination"), NotNull, ForeignKey("[dbo].[Destination]", "Id"), LeftJoin("jDestination"), TextualField("Destination1")]
         [LookupEditor(typeof(DestinationRow), CascadeFrom = "DistrictId", CascadeField = "Distict")]
+        [LookupInclude]
         public Int32? DestinationId
         {
             get { return Fields.DestinationId[this]; }
             set { Fields.DestinationId[this] = value; }
         }
 
-        [Expression("jDestination.Destination")]
+        [Expression("jDestination.Destination"), LookupInclude]
         public String Destination
         {
             get { return Fields.Destination[this]; }
@@ -96,13 +99,13 @@ namespace SereneMovieTutorial.Default.Entities
         }
 
         [DisplayName("Vehicle"), NotNull, ForeignKey("[dbo].[VehicleMaster]", "VehicleId"), LeftJoin("jVehicleMaster"), TextualField("Vehicle1")]
-        [LookupEditor(typeof(VehicleMasterRow))]
+        [LookupEditor(typeof(VehicleMasterRow)), LookupInclude]
         public Int32? VehicleId
         {
             get { return Fields.VehicleId[this]; }
             set { Fields.VehicleId[this] = value; }
         }
-        [Expression("jVehicleMaster.VehicleNumber")]
+        [Expression("jVehicleMaster.VehicleNumber")][LookupInclude]
         public String VehicleNumber
         {
             get { return Fields.VehicleNumber[this]; }
@@ -173,6 +176,12 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.Weight[this]; }
             set { Fields.Weight[this] = value; }
         }
+        [DisplayName("FreightRate"),  Required]
+        public Int32 freightRate
+        {
+            get => this.freightRate;
+            set => this.freightRate = value;
+        }
 
         [DisplayName("Wheels"),Required]
         public Int32? Wheels
@@ -195,6 +204,51 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.CreatedDate[this]; }
             set { Fields.CreatedDate[this] = value; }
         }
+        [DisplayName("Created By"), //Insertable(false), Updatable(false),
+       ForeignKey("[dbo].[Users]", "UserId"), LeftJoin("jCreatedBy"),
+       TextualField("CreatedByUsername")]
+        public Int32? CreatedBy
+        {
+            get { return Fields.CreatedBy[this]; }
+            set { Fields.CreatedBy[this] = value; }
+        }
+
+        [Expression("jCreatedBy.Username"), DisplayName("Created By")]
+        public String CreatedByUsername
+        {
+            get { return Fields.CreatedByUsername[this]; }
+            set { Fields.CreatedByUsername[this] = value; }
+        }
+
+        [DisplayName("Created Date"), Insertable(false), Updatable(false), DisplayFormat("yyyy-MM-dd HH:mm:ss")]
+        public DateTime? CreateDate
+        {
+            get { return Fields.CreatedDate[this]; }
+            set { Fields.CreatedDate[this] = value; }
+        }
+
+        [DisplayName("Updated By"), //Insertable(false), Updatable(false),
+         ForeignKey("[dbo].[Users]", "UserId"), LeftJoin("jUpdatedBy"),
+         TextualField("UpdatedByUsername")]
+        public Int32? UpdatedBy
+        {
+            get { return Fields.UpdatedBy[this]; }
+            set { Fields.UpdatedBy[this] = value; }
+        }
+
+        [Expression("jUpdatedBy.Username"), DisplayName("Updated By")]
+        public String UpdatedByUsername
+        {
+            get { return Fields.UpdatedByUsername[this]; }
+            set { Fields.UpdatedByUsername[this] = value; }
+        }
+
+        [DisplayName("Updated Date"), Insertable(false), Updatable(false), DisplayFormat("yyyy-MM-dd HH:mm:ss")]
+        public DateTime? UpdatedDate
+        {
+            get { return Fields.UpdatedDate[this]; }
+            set { Fields.UpdatedDate[this] = value; }
+        }
 
         IIdField IIdRow.IdField
         {
@@ -205,6 +259,11 @@ namespace SereneMovieTutorial.Default.Entities
         {
             get { return Fields.TripNo; }
         }
+        IIdField IInsertLogRow.InsertUserIdField => Fields.CreatedBy;
+        DateTimeField IInsertLogRow.InsertDateField => Fields.CreateDate;
+
+        IIdField IUpdateLogRow.UpdateUserIdField => Fields.UpdatedBy;
+        DateTimeField IUpdateLogRow.UpdateDateField => Fields.UpdatedDate;
 
         public static readonly RowFields Fields = new RowFields().Init();
 
@@ -237,10 +296,19 @@ namespace SereneMovieTutorial.Default.Entities
             public Int32Field ItemId;
             public StringField ItemName;
             public DecimalField Weight;
+            public Int32Field freightRate;
             public Int32Field Wheels;
             public StringField Remarks;
             public DateTimeField CreatedDate;
-            
+
+            public Int32Field CreatedBy;
+            public DateTimeField CreateDate;
+            public Int32Field UpdatedBy;
+            public DateTimeField UpdatedDate;
+
+            public StringField CreatedByUsername;
+            public StringField UpdatedByUsername;
+
         }
     }
 }

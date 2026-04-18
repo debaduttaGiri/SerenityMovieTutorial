@@ -1,0 +1,78 @@
+﻿
+namespace SereneMovieTutorial.MaintenanceModule {
+    export interface MaintenanceRow {
+        Id?: number;
+        EntryNumber?: number;
+        EntryDate?: string;
+        TruckId?: number;
+        TruckType?: number;
+        ModelNumber?: number;
+        LastMaintenance?: string;
+        PeriodTill?: string;
+        EstimatedPeriod?: number;
+        DueDate?: string;
+        Narration?: string;
+        Owner?: number;
+        HeadId?: number;
+        Head?: string;
+        HeadRemarks?: string;
+        HeadCreatedBy?: number;
+        HeadUpdatedBy?: number;
+        HeadCreatedDate?: string;
+        HeadUpdatedDate?: string;
+    }
+
+    export namespace MaintenanceRow {
+        export const idProperty = 'Id';
+        export const nameProperty = 'PeriodTill';
+        export const localTextPrefix = 'MaintenanceModule.Maintenance';
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
+
+        export namespace Fields {
+            export declare const Id;
+            export declare const EntryNumber;
+            export declare const EntryDate;
+            export declare const TruckId;
+            export declare const TruckType;
+            export declare const ModelNumber;
+            export declare const LastMaintenance;
+            export declare const PeriodTill;
+            export declare const EstimatedPeriod;
+            export declare const DueDate;
+            export declare const Narration;
+            export declare const Owner;
+            export declare const HeadId;
+            export declare const Head;
+            export declare const HeadRemarks;
+            export declare const HeadCreatedBy;
+            export declare const HeadUpdatedBy;
+            export declare const HeadCreatedDate;
+            export declare const HeadUpdatedDate;
+        }
+
+        [
+            'Id',
+            'EntryNumber',
+            'EntryDate',
+            'TruckId',
+            'TruckType',
+            'ModelNumber',
+            'LastMaintenance',
+            'PeriodTill',
+            'EstimatedPeriod',
+            'DueDate',
+            'Narration',
+            'Owner',
+            'HeadId',
+            'Head',
+            'HeadRemarks',
+            'HeadCreatedBy',
+            'HeadUpdatedBy',
+            'HeadCreatedDate',
+            'HeadUpdatedDate'
+        ].forEach(x => (<any>Fields)[x] = x);
+    }
+}

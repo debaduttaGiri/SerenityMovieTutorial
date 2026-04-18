@@ -5,13 +5,13 @@
 
             currentLanguage = Q.coalesce(currentLanguage, 'en');
 
-            this.change(e => {
-                $.cookie('LanguagePreference', select.val(), {
-                    path: Q.Config.applicationPath,
-                    expires: 365
-                });
-                window.location.reload(true);
-            });
+            //this.change(e => {
+            //    $.cookie('LanguagePreference', select.val(), {
+            //        path: Q.Config.applicationPath,
+            //        expires: 365
+            //    });
+            //    window.location.reload();
+            //});
 
             Q.getLookupAsync<Administration.LanguageRow>('Administration.Language').then(x => {
                 if (!Q.any(x.items, z => z.LanguageId === currentLanguage)) {

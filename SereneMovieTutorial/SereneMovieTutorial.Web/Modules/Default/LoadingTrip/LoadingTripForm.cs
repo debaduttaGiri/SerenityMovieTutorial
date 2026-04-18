@@ -44,6 +44,7 @@ namespace SereneMovieTutorial.Default.Forms
         public Int32 Wheels { get; set; }
         [HalfWidth, DisplayName("Weight")]
         public Decimal Weight { get; set; }
+        public Int32 freightRate { get; set; }
         
         //[HalfWidth,DateEditor]
         //public DateTime CreatedDate { get; set; } = DateTime.Now;

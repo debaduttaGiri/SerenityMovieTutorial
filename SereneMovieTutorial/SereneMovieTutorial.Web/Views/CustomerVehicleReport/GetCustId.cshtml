@@ -1,4 +1,4 @@
-﻿@model  SereneMovieTutorial.Reports.CustomerSelectionViewModel
+﻿@model SereneMovieTutorial.Reports.CustomerSelectionViewModel
 @{
     ViewBag.Title = "Select Customer";
 
@@ -34,7 +34,7 @@
 }
 <h2>Customer Vehicle Report</h2>
 <hr />
-@if (Model == null || !Model.Vehicles.Any())
+@if (Model == null)
 {
     <p>No records found.</p>
 }

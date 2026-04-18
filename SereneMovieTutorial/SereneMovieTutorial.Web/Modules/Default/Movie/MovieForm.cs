@@ -29,7 +29,7 @@ namespace SereneMovieTutorial.Default.Forms
         public MovieKind Kind { get; set; }
         //public int GenreId { get; set; }
         public List<int> GenreList { get; set; }
-        public string PrimaryImage { get; set; }
+        public StringField PrimaryImage { get; set; }
         public string GalleryImages { get; set; }
     }
 }

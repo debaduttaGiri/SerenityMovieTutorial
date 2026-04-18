@@ -2,8 +2,8 @@
     export interface BranchMasterForm {
         BranchName: Serenity.StringEditor;
         BranchCode: Serenity.StringEditor;
-        GstNo: Serenity.IntegerEditor;
-        PanNo: Serenity.IntegerEditor;
+        GstNo: Serenity.StringEditor;
+        PanNo: Serenity.StringEditor;
         PhoneNumber: Serenity.IntegerEditor;
         PinCode: Serenity.IntegerEditor;
         Address: Serenity.TextAreaEditor;
@@ -30,8 +30,8 @@
                 Q.initFormType(BranchMasterForm, [
                     'BranchName', w0,
                     'BranchCode', w0,
-                    'GstNo', w1,
-                    'PanNo', w1,
+                    'GstNo', w0,
+                    'PanNo', w0,
                     'PhoneNumber', w1,
                     'PinCode', w1,
                     'Address', w2,

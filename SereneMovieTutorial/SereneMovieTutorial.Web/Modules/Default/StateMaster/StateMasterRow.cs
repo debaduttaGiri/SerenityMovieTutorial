@@ -17,7 +17,7 @@ namespace SereneMovieTutorial.Default.Entities
     public sealed class StateMasterRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Identity]
-        [SortOrder(1, descending: true)]
+        [SortOrder(1, descending: true),LookupInclude]
         public Int32? Id
         {
             get { return Fields.Id[this]; }

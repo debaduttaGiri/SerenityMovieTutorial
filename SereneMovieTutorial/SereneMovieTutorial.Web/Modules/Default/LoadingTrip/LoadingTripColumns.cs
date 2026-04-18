@@ -36,8 +36,18 @@ namespace SereneMovieTutorial.Default.Columns
         public string ItemName { get; set; }
        
         public Decimal Weight { get; set; }
+        public Int32 freightRate { get; set; }
         public Int32 Wheels { get; set; }
         public String Remarks { get; set; }
+        [Hidden]
         public DateTime CreatedDate { get; set; }
+
+        public String CreatedByUsername { get; set; }
+        [Width(140), DisplayFormat("dd-MM-yyyy HH:mm:ss"),DisplayName("CreatedDate")]
+        public DateTime CreateDate { get; set; }
+        [Width(100)]
+        public String UpdatedByUsername { get; set; }
+        [Width(140), DisplayFormat("dd-MM-yyyy HH:mm:ss")]
+        public DateTime UpdatedDate { get; set; }
     }
 }

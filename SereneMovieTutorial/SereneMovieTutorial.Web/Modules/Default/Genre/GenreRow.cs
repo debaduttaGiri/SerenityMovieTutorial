@@ -6,6 +6,7 @@ namespace SereneMovieTutorial.Default.Entities
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.IO;
 
@@ -32,7 +33,13 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.Name[this]; }
             set { Fields.Name[this] = value; }
         }
-
+        [DisplayName("Dates")]
+        public string Dates
+        {
+            get { return Fields.Dates[this]; }
+            set { Fields.Dates[this] = value; }
+        }
+        
         IIdField IIdRow.IdField
         {
             get { return Fields.GenreId; }
@@ -54,6 +61,8 @@ namespace SereneMovieTutorial.Default.Entities
         {
             public Int32Field GenreId;
             public StringField Name;
+            public StringField Dates;
+            //public RowListField<GenreRow> Dates;
         }
     }
 }

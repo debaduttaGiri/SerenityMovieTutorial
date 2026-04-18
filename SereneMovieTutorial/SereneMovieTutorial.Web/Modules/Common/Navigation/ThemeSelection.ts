@@ -1,4 +1,7 @@
-﻿namespace SereneMovieTutorial.Common {
+﻿    interface JQueryStatic {
+        cookie(key: string, value?: any, options?: any): any;
+    }
+namespace SereneMovieTutorial.Common {
     export class ThemeSelection extends Serenity.Widget<any> {
         constructor(select: JQuery) {
             super(select);

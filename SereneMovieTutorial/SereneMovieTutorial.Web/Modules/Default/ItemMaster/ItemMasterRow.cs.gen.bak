@@ -1,0 +1,151 @@
+﻿
+namespace SereneMovieTutorial.Default.Entities
+{
+    using Serenity;
+    using Serenity.ComponentModel;
+    using Serenity.Data;
+    using Serenity.Data.Mapping;
+    using System;
+    using System.ComponentModel;
+    using System.IO;
+
+    [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[ITEM_MASTER]")]
+    [DisplayName("Item Master"), InstanceName("Item Master")]
+    [ReadPermission("Administration:General")]
+    [ModifyPermission("Administration:General")]
+    public sealed class ItemMasterRow : Row, IIdRow, INameRow
+    {
+        [DisplayName("Id"), Column("ID"), Identity]
+        public Int32? Id
+        {
+            get { return Fields.Id[this]; }
+            set { Fields.Id[this] = value; }
+        }
+
+        [DisplayName("Partnumber"), Column("PARTNUMBER"), Size(20), NotNull, QuickSearch]
+        public String Partnumber
+        {
+            get { return Fields.Partnumber[this]; }
+            set { Fields.Partnumber[this] = value; }
+        }
+
+        [DisplayName("Partname"), Column("PARTNAME"), Size(50)]
+        public String Partname
+        {
+            get { return Fields.Partname[this]; }
+            set { Fields.Partname[this] = value; }
+        }
+
+        [DisplayName("Openingstock"), Column("OPENINGSTOCK")]
+        public Int32? Openingstock
+        {
+            get { return Fields.Openingstock[this]; }
+            set { Fields.Openingstock[this] = value; }
+        }
+
+        [DisplayName("Rate"), Column("RATE"), Size(18), Scale(2)]
+        public Decimal? Rate
+        {
+            get { return Fields.Rate[this]; }
+            set { Fields.Rate[this] = value; }
+        }
+
+        [DisplayName("Stocklvlminimum"), Column("STOCKLVLMINIMUM"), Size(18), Scale(2)]
+        public Decimal? Stocklvlminimum
+        {
+            get { return Fields.Stocklvlminimum[this]; }
+            set { Fields.Stocklvlminimum[this] = value; }
+        }
+
+        [DisplayName("Stocklvlmaximum"), Column("STOCKLVLMAXIMUM"), Size(18), Scale(2)]
+        public Decimal? Stocklvlmaximum
+        {
+            get { return Fields.Stocklvlmaximum[this]; }
+            set { Fields.Stocklvlmaximum[this] = value; }
+        }
+
+        [DisplayName("Purchasestock"), Column("PURCHASESTOCK"), Size(18), Scale(2)]
+        public Decimal? Purchasestock
+        {
+            get { return Fields.Purchasestock[this]; }
+            set { Fields.Purchasestock[this] = value; }
+        }
+
+        [DisplayName("Gross Price"), Column("GROSS_PRICE"), Size(18), Scale(2)]
+        public Decimal? GrossPrice
+        {
+            get { return Fields.GrossPrice[this]; }
+            set { Fields.GrossPrice[this] = value; }
+        }
+
+        [DisplayName("Balancestock"), Column("BALANCESTOCK"), Size(18), Scale(2)]
+        public Decimal? Balancestock
+        {
+            get { return Fields.Balancestock[this]; }
+            set { Fields.Balancestock[this] = value; }
+        }
+
+        [DisplayName("Createdby"), Column("CREATEDBY")]
+        public Int32? Createdby
+        {
+            get { return Fields.Createdby[this]; }
+            set { Fields.Createdby[this] = value; }
+        }
+
+        [DisplayName("Createdat"), Column("CREATEDAT")]
+        public DateTime? Createdat
+        {
+            get { return Fields.Createdat[this]; }
+            set { Fields.Createdat[this] = value; }
+        }
+
+        [DisplayName("Updatedby"), Column("UPDATEDBY")]
+        public Int32? Updatedby
+        {
+            get { return Fields.Updatedby[this]; }
+            set { Fields.Updatedby[this] = value; }
+        }
+
+        [DisplayName("Updatedat"), Column("UPDATEDAT")]
+        public Int32? Updatedat
+        {
+            get { return Fields.Updatedat[this]; }
+            set { Fields.Updatedat[this] = value; }
+        }
+
+        IIdField IIdRow.IdField
+        {
+            get { return Fields.Id; }
+        }
+
+        StringField INameRow.NameField
+        {
+            get { return Fields.Partnumber; }
+        }
+
+        public static readonly RowFields Fields = new RowFields().Init();
+
+        public ItemMasterRow()
+            : base(Fields)
+        {
+        }
+
+        public class RowFields : RowFieldsBase
+        {
+            public Int32Field Id;
+            public StringField Partnumber;
+            public StringField Partname;
+            public Int32Field Openingstock;
+            public DecimalField Rate;
+            public DecimalField Stocklvlminimum;
+            public DecimalField Stocklvlmaximum;
+            public DecimalField Purchasestock;
+            public DecimalField GrossPrice;
+            public DecimalField Balancestock;
+            public Int32Field Createdby;
+            public DateTimeField Createdat;
+            public Int32Field Updatedby;
+            public Int32Field Updatedat;
+        }
+    }
+}

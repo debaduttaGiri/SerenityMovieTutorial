@@ -17,5 +17,7 @@ namespace SereneMovieTutorial.Default.Columns
         public Int32 GenreId { get; set; }
         [EditLink]
         public String Name { get; set; }
+
+        public string Dates { get; set; }
     }
 }

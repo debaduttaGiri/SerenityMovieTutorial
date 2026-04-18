@@ -94,6 +94,11 @@ namespace MVC
                 public const string GenreIndex = "~/Modules/Default/Genre/GenreIndex.cshtml";
             }
 
+            public static class Invoicedetails
+            {
+                public const string InvoicedetailsIndex = "~/Modules/Default/Invoicedetails/InvoicedetailsIndex.cshtml";
+            }
+
             public static class ItemMaster
             {
                 public const string ItemMasterIndex = "~/Modules/Default/ItemMaster/ItemMasterIndex.cshtml";
@@ -104,9 +109,29 @@ namespace MVC
                 public const string LoadingTripIndex = "~/Modules/Default/LoadingTrip/LoadingTripIndex.cshtml";
             }
 
+            public static class MaintenanceHead
+            {
+                public const string MaintenanceHeadIndex = "~/Modules/Default/MaintenanceHead/MaintenanceHeadIndex.cshtml";
+            }
+
+            public static class Manageinvoice
+            {
+                public const string ManageinvoiceIndex = "~/Modules/Default/Manageinvoice/ManageinvoiceIndex.cshtml";
+            }
+
             public static class Movie
             {
                 public const string MovieIndex = "~/Modules/Default/Movie/MovieIndex.cshtml";
+            }
+
+            public static class PartyMaster
+            {
+                public const string PartyMasterIndex = "~/Modules/Default/PartyMaster/PartyMasterIndex.cshtml";
+            }
+
+            public static class PendingTripDetailsInvoice
+            {
+                public const string PendingTripDetailsInvoiceIndex = "~/Modules/Default/PendingTripDetailsInvoice/PendingTripDetailsInvoiceIndex.cshtml";
             }
 
             public static class Person
@@ -119,14 +144,49 @@ namespace MVC
                 public const string PlantIndex = "~/Modules/Default/Plant/PlantIndex.cshtml";
             }
 
+            public static class Pumpmaster
+            {
+                public const string PumpmasterIndex = "~/Modules/Default/Pumpmaster/PumpmasterIndex.cshtml";
+            }
+
+            public static class Reports
+            {
+                public const string GetInvoice = "~/Modules/Default/Reports/GetInvoice.cshtml";
+            }
+
             public static class StateMaster
             {
                 public const string StateMasterIndex = "~/Modules/Default/StateMaster/StateMasterIndex.cshtml";
             }
 
+            public static class Tax
+            {
+                public const string TaxIndex = "~/Modules/Default/Tax/TaxIndex.cshtml";
+            }
+
+            public static class Unit
+            {
+                public const string UnitIndex = "~/Modules/Default/Unit/UnitIndex.cshtml";
+            }
+
+            public static class UnloadTrip
+            {
+                public const string UnloadTripIndex = "~/Modules/Default/UnloadTrip/UnloadTripIndex.cshtml";
+            }
+
             public static class VehicleMaster
             {
                 public const string VehicleMasterIndex = "~/Modules/Default/VehicleMaster/VehicleMasterIndex.cshtml";
+            }
+
+            public static class VLoadingTripDetails
+            {
+                public const string VLoadingTripDetailsIndex = "~/Modules/Default/VLoadingTripDetails/VLoadingTripDetailsIndex.cshtml";
+            }
+
+            public static class VoucherPrint
+            {
+                public const string VoucherPrint_ = "~/Modules/Default/VoucherPrint/VoucherPrint.cshtml";
             }
         }
 
@@ -134,6 +194,79 @@ namespace MVC
         {
             public const string AccessDenied = "~/Views/Errors/AccessDenied.cshtml";
             public const string ValidationError = "~/Views/Errors/ValidationError.cshtml";
+        }
+
+        public static class FuelData
+        {
+            public const string PrintFuelData = "~/Views/FuelData/PrintFuelData.cshtml";
+            public const string PrintFuelData2 = "~/Views/FuelData/PrintFuelData2.cshtml";
+        }
+
+        public static class FuelManagement
+        {
+            public static class Dieselissue
+            {
+                public const string DieselissueIndex = "~/Modules/FuelManagement/Dieselissue/DieselissueIndex.cshtml";
+            }
+
+            public static class FuelData
+            {
+                public const string FuelDataIndex = "~/Modules/FuelManagement/FuelData/FuelDataIndex.cshtml";
+            }
+
+            public static class FuelDetails
+            {
+                public const string FuelDetailsIndex = "~/Modules/FuelManagement/FuelDetails/FuelDetailsIndex.cshtml";
+            }
+        }
+
+        public static class FuelStock
+        {
+            public const string Index = "~/Views/FuelStock/Index.cshtml";
+            public const string Index2 = "~/Views/FuelStock/Index2.cshtml";
+        }
+
+        public static class Inventry
+        {
+            public static class Item
+            {
+                public const string ItemIndex = "~/Modules/Inventry/Item/ItemIndex.cshtml";
+            }
+
+            public static class PendingPurchaseOrder
+            {
+                public const string PendingPurchaseOrderIndex = "~/Modules/Inventry/PendingPurchaseOrder/PendingPurchaseOrderIndex.cshtml";
+            }
+
+            public static class PurchaseBill
+            {
+                public const string PurchaseBillIndex = "~/Modules/Inventry/PurchaseBill/PurchaseBillIndex.cshtml";
+            }
+
+            public static class PurchaseBillDetail
+            {
+                public const string PurchaseBillDetailIndex = "~/Modules/Inventry/PurchaseBillDetail/PurchaseBillDetailIndex.cshtml";
+            }
+
+            public static class PurchaseOrder
+            {
+                public const string PurchaseOrderIndex = "~/Modules/Inventry/PurchaseOrder/PurchaseOrderIndex.cshtml";
+            }
+
+            public static class PurchaseRequestDetail
+            {
+                public const string PurchaseRequestDetailIndex = "~/Modules/Inventry/PurchaseRequestDetail/PurchaseRequestDetailIndex.cshtml";
+            }
+
+        }
+
+        public static class MaintenanceModule
+        {
+            public static class Maintenance
+            {
+                public const string MaintenanceIndex = "~/Modules/MaintenanceModule/Maintenance/MaintenanceIndex.cshtml";
+            }
+
         }
 
         public static class Membership
@@ -178,6 +311,11 @@ namespace MVC
             public const string _LayoutSlimHead = "~/Views/Shared/_LayoutSlimHead.cshtml";
             public const string Error = "~/Views/Shared/Error.cshtml";
             public const string LeftNavigation = "~/Views/Shared/LeftNavigation.cshtml";
+        }
+
+        public static class UnloadTrip
+        {
+            public const string Print = "~/Views/UnloadTrip/Print.cshtml";
         }
     }
 }

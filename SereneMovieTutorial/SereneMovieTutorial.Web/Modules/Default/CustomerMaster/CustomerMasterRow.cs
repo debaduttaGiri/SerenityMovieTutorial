@@ -12,12 +12,9 @@ namespace SereneMovieTutorial.Default.Entities
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[CustomerMaster]")]
     [DisplayName("Owner"), InstanceName("Owner")]
-    //[ReadPermission("Administration:General")]
-    //[ModifyPermission("Administration:General")]
-    [ReadPermission("Administration:General:Read")]
-    [ModifyPermission("Administration:General:Modify")]
-    [InsertPermission("Administration:General:Insert")]
-    [DeletePermission("Administration:General:Delete")]
+    [ReadPermission("Administration:General")]
+    [ModifyPermission("Administration:General")]
+
 
 
     [LookupScript]

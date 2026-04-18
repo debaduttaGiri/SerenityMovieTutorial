@@ -1,0 +1,171 @@
+﻿@model SereneMovieTutorial.Default.Entities.UnloadTripRow
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+
+body{
+    font-family: Arial;
+}
+
+.voucher{
+    width:1000px;
+    margin:auto;
+    border:1px solid black;
+}
+
+.header{
+    text-align:center;
+    padding:10px;
+}
+
+.header h2{
+    margin:0;
+}
+
+.subheader{
+    text-align:center;
+    font-weight:bold;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+    padding:5px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+td{
+    border:1px solid black;
+    padding:6px;
+}
+
+.no-border{
+    border:none;
+}
+
+.sign{
+    height:120px;
+}
+
+.receiver-box{
+    width:80px;
+    height:80px;
+    border:1px solid black;
+    float:right;
+}
+
+@@media print{
+
+    button{
+        display:none;
+    }
+
+}
+
+    </style>
+
+</head>
+
+<body onload="window.print()">
+
+    <div class="voucher">
+
+        <div class="header">
+
+            <h2>SHREE CHADDA ROADLINES</h2>
+
+            <div style="font-size:12px">
+                Near M.I.D.C Ghugus Road, khutala,Chandrapur - 442406(M.S.)
+            </div>
+
+        </div>
+
+        <div class="subheader">
+            DA VOUCHER
+        </div>
+
+        <table>
+
+            <tr>
+                <td colspan="3">
+                    <b>Voucher Ref No:</b>
+                    SCR/25-26/ACC/LT/@Model.LoadingTripId
+                </td>
+
+                <td colspan="2" style="text-align:right">
+                    <b>Date:</b>
+                    @Model.UpdatedDate
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    <b>Account Name:</b>
+                    @Model.CustomerName
+                </td>
+
+                <td colspan="2" style="text-align:right">
+                    <b>Truck No:</b>
+                    @Model.VehicleName
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    <b>Driver Name:</b>
+                    @Model.CustomerName
+                </td>
+
+                <td colspan="2" style="text-align:right">
+                    <b>EGP No:</b>
+                    NF22272512012041
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="5">
+                    <b>Being Paid Against :</b> DA to Driver
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="5">
+                    <b>AMOUNT : Rs.</b>
+                    @((Model.ExpenseAmount ?? 0).ToString("0.00"))
+                </td>
+            </tr>
+
+            
+
+            <tr class="sign">
+                <td colspan="3">
+                    <br><br><br>
+                    <b>Cashier</b>
+                </td>
+
+                <td colspan="2">
+
+                    <div class="receiver-box"></div>
+
+                    <br><br><br>
+                    <div style="text-align:right">
+                        <b>Receiver</b>
+                    </div>
+
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</body>
+</html>

@@ -1,5 +1,18 @@
-﻿declare var jsPDF;
+﻿declare var jsPDF:any;
+declare namespace jsPDF {
+    interface AutoTableOptions {
+        [key: string]: any;
+    }
 
+    interface AutoTableStyles {
+        [key: string]: any;
+    }
+
+    interface AutoTableColumn {
+        dataKey?: string;
+        title?: string;
+    }
+}
 namespace SereneMovieTutorial.Common {
     export interface PdfExportOptions {
         grid: Serenity.DataGrid<any, any>;

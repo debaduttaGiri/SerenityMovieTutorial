@@ -6,6 +6,7 @@ namespace SereneMovieTutorial.Membership.Pages
     using Serenity.Data;
     using Serenity.Services;
     using System;
+    using System.Web;
     using System.Web.Mvc;
     using System.Web.Security;
 
@@ -47,35 +48,63 @@ namespace SereneMovieTutorial.Membership.Pages
 
                 var username = request.Username;
 
+                //if (WebSecurityHelper.Authenticate(ref username, request.Password, false))
+                //{
+                //    string branchName; string financialYearName;
+
+
+                //    using (var connection = SqlConnections.NewFor<BranchMasterRow>())
+                //    {
+                //        branchName = connection
+                //            .ById<BranchMasterRow>(request.BranchId)
+                //            ?.BranchName;
+
+                //    }
+                //    using (var connection = SqlConnections.NewFor<FinancialYearRow>())
+                //    {
+                //        financialYearName = connection
+                //        .ById<FinancialYearRow>(request.FinancialYearId)
+                //        ?.Name; 
+                //    }
+                //    Session["BranchId"] = request.BranchId;
+                //    Session["BranchName"] = branchName;
+                //    Session["FinancialYear"] = financialYearName;
+                //    return new ServiceResponse();
+                //}
                 if (WebSecurityHelper.Authenticate(ref username, request.Password, false))
                 {
-                    string branchName; string financialYearName;
-
+                    string branchName;
+                    string financialYearName;
 
                     using (var connection = SqlConnections.NewFor<BranchMasterRow>())
                     {
-                        branchName = connection
-                            .ById<BranchMasterRow>(request.BranchId)
-                            ?.BranchName;
-                        
+                        branchName = connection.ById<BranchMasterRow>(request.BranchId)?.BranchName;
                     }
                     using (var connection = SqlConnections.NewFor<FinancialYearRow>())
                     {
-                        financialYearName = connection
-                        .ById<FinancialYearRow>(request.FinancialYearId)
-                        ?.Name; 
+                        financialYearName = connection.ById<FinancialYearRow>(request.FinancialYearId)?.Name;
                     }
-                    Session["BranchId"] = request.BranchId;
-                    Session["BranchName"] = branchName;
-                    Session["FinancialYear"] = financialYearName;
 
+                    // Build UserData string with branch info
+                    string userData = $"{request.BranchId}|{branchName}|{financialYearName}";
 
+                    var ticket = new FormsAuthenticationTicket(
+                        1,
+                        username,
+                        DateTime.Now,
+                        DateTime.Now.AddMinutes(20),
+                        false,
+                        userData
+                    );
 
-
+                    string encrypted = FormsAuthentication.Encrypt(ticket);
+                    var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted);
+                    Response.Cookies.Add(cookie);
 
                     return new ServiceResponse();
                 }
-                
+
+
                 throw new ValidationError("AuthenticationError", Texts.Validation.AuthenticationError);
             });
         }

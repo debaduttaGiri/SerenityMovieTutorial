@@ -95,12 +95,21 @@ namespace SereneMovieTutorial.Default.Entities
         //    set { Fields.GenreName[this] = value; }
         //}
 
-        [DisplayName("Genres"), LookupEditor(typeof(GenreRow), Multiple = true), NotMapped]
+        //[DisplayName("Genres"), LookupEditor(typeof(GenreRow), Multiple = true), NotMapped]
+        //[LinkingSetRelation(typeof(MovieGenresRow), nameof(MovieGenresRow.MovieId), nameof(MovieGenresRow.GenreId))]
+        //public List<int> GenreList 
+        //{ 
+        //    get => Fields.GenreList[this]; 
+        //    set => Fields.GenreList[this] = value; 
+        //}
+        [DisplayName("Genres")]
+        [LookupEditor(typeof(GenreRow), Multiple = true)]
         [LinkingSetRelation(typeof(MovieGenresRow), nameof(MovieGenresRow.MovieId), nameof(MovieGenresRow.GenreId))]
-        public List<int> GenreList 
-        { 
-            get => Fields.GenreList[this]; 
-            set => Fields.GenreList[this] = value; 
+        [NotMapped]
+        public List<int> GenreList
+        {
+            get => Fields.GenreList[this];
+            set => Fields.GenreList[this] = value;
         }
         //[MasterDetailRelation(foreignKey: nameof(MovieCastRow.MovieId), ColumnsType = typeof(MovieCastColumns))]
         [MasterDetailRelation(foreignKey: nameof(MovieCastRow.MovieId), IncludeColumns = "PersonFullName")]
@@ -111,9 +120,8 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.CastList[this] = value; }
         }
         [DisplayName("Primary Image"), Size(100)]
-        [ImageUploadEditor(FilenameFormat = "Movie/PrimaryImage/~")]
+        [FileUploadEditor(FilenameFormat = "Movie/PrimaryImage/~")]
         public string PrimaryImage { get => Fields.PrimaryImage[this]; set => Fields.PrimaryImage[this] = value; }
-
         [DisplayName("Gallery Images")]
         [MultipleImageUploadEditor(FilenameFormat = "Movie/GalleryImages/~")]
         public string GalleryImages { get => Fields.GalleryImages[this]; set => Fields.GalleryImages[this] = value; }
