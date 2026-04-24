@@ -25,7 +25,7 @@ namespace SereneMovieTutorial.Administration.Repositories
                 GetExisting(uow.Connection, roleID, request.Module, request.Submodule)
                 .Select(x => x.PermissionKey), StringComparer.OrdinalIgnoreCase);
 
-            var newList = new HashSet<string>(request.Permissions.ToList(), 
+            var newList = new HashSet<string>(request.Permissions.ToList(),
                 StringComparer.OrdinalIgnoreCase);
 
             if (oldList.SetEquals(newList))
@@ -101,7 +101,7 @@ namespace SereneMovieTutorial.Administration.Repositories
                 prefix += ":" + submodule;
 
             var response = new RolePermissionListResponse();
-            
+
             response.Entities = GetExisting(connection, request.RoleID.Value, request.Module, request.Submodule)
                 .Select(x => x.PermissionKey).ToList();
 

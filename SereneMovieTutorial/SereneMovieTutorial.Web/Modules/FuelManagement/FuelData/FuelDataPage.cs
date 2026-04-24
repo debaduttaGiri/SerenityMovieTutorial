@@ -2,7 +2,6 @@
 namespace SereneMovieTutorial.FuelManagement.Pages
 {
     using SereneMovieTutorial.FuelManagement.Entities;
-    using Serenity;
     using Serenity.Data;
     using Serenity.Web;
     using System.Web.Mvc;
@@ -20,7 +19,7 @@ namespace SereneMovieTutorial.FuelManagement.Pages
             using (var connection = SqlConnections.NewByKey("Default"))
             {
                 var data = connection.ById<FuelDataRow>(id);
-                
+
 
                 if (data == null)
                     return Content("UnloadTrip record not found for Id = " + id);

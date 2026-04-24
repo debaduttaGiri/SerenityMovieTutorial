@@ -2,8 +2,6 @@
 namespace SereneMovieTutorial.Default.Endpoints
 {
     using SereneMovieTutorial.Default.Entities;
-    using SereneMovieTutorial.Default.Repositories;
-    using Serenity;
     using Serenity.Data;
     using Serenity.Services;
     using System;
@@ -29,7 +27,7 @@ namespace SereneMovieTutorial.Default.Endpoints
         {
             return new MyRepository().Update(uow, request);
         }
- 
+
         [HttpPost, AuthorizeDelete(typeof(MyRow))]
         public DeleteResponse Delete(IUnitOfWork uow, DeleteRequest request)
         {
@@ -66,23 +64,23 @@ namespace SereneMovieTutorial.Default.Endpoints
         public BranchResponse GetBranch()
         {
             var response = new BranchResponse();
-                // Fallback: read from FormsAuthentication cookie
-                var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-                if (authCookie != null)
+            // Fallback: read from FormsAuthentication cookie
+            var authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+            if (authCookie != null)
+            {
+                var ticket = FormsAuthentication.Decrypt(authCookie.Value);
+                if (!string.IsNullOrEmpty(ticket.UserData))
                 {
-                    var ticket = FormsAuthentication.Decrypt(authCookie.Value);
-                    if (!string.IsNullOrEmpty(ticket.UserData))
+                    var parts = ticket.UserData.Split('|');
+                    if (parts.Length >= 2)
                     {
-                        var parts = ticket.UserData.Split('|');
-                        if (parts.Length >= 2)
-                        {
-                            response.BranchId = int.Parse(parts[0]);
-                            response.BranchName = parts[1];
-                            // optional: if you also stored financial year
-                            // response.FinancialYear = parts.Length > 2 ? parts[2] : null;
-                        }
+                        response.BranchId = int.Parse(parts[0]);
+                        response.BranchName = parts[1];
+                        // optional: if you also stored financial year
+                        // response.FinancialYear = parts.Length > 2 ? parts[2] : null;
                     }
                 }
+            }
 
             return response;
         }
@@ -92,7 +90,7 @@ namespace SereneMovieTutorial.Default.Endpoints
 
         [HttpPost]
         public ExpenseResponse GetExpenseByRoute(IDbConnection connection, ExpenseRequest request)
-        { 
+        {
             var response = new ExpenseResponse();
             try
             {
@@ -109,7 +107,7 @@ namespace SereneMovieTutorial.Default.Endpoints
 
             }
             catch (Exception ex)
-            { 
+            {
                 response.ErrorMsg = ex.Message;
             }
             return response;

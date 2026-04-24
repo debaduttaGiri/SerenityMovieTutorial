@@ -1,20 +1,15 @@
 ﻿
 namespace SereneMovieTutorial.Default.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
-    using Serenity.Data.Mapping;
 
     [ColumnsScript("Default.Employees")]
     [BasedOnRow(typeof(Entities.EmployeesRow), CheckNames = false)]
     public class EmployeesColumns
     {
-        [DisplayName("Id"),Hidden]
+        [DisplayName("Id"), Hidden]
         public Int32 EmployeeId { get; set; }
         [EditLink]
         public String FullName { get; set; }
@@ -30,6 +25,6 @@ namespace SereneMovieTutorial.Default.Columns
         public String Country { get; set; }
         public String HomePhone { get; set; }
         public String Extension { get; set; }
-        
+
     }
 }

@@ -1,13 +1,9 @@
 ﻿
 namespace SereneMovieTutorial.Default.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [ColumnsScript("Default.PartyMaster")]
     [BasedOnRow(typeof(Entities.PartyMasterRow), CheckNames = false)]
@@ -21,7 +17,7 @@ namespace SereneMovieTutorial.Default.Columns
         public String PhoneNumber { get; set; }
         public String Gst { get; set; }
         public String Pan { get; set; }
-      
+
         public string StateName { get; set; }
         public String Address { get; set; }
     }

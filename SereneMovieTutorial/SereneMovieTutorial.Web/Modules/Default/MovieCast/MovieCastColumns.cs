@@ -1,11 +1,7 @@
-﻿using Serenity;
-using Serenity.ComponentModel;
-using Serenity.Data;
+﻿using Serenity.ComponentModel;
 using Serenity.Web;
 using System;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.IO;
 
 namespace SereneMovieTutorial.Default.Columns
 {

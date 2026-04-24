@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace SereneMovieTutorial.Reports
 {
@@ -43,10 +41,10 @@ namespace SereneMovieTutorial.Reports
         public int Id { get; set; }
         public string Code { get; set; }
     }
-    public class CustomerSelectionViewModel 
-    { 
-        public IEnumerable<SereneMovieTutorial.Reports.CustomerLookup> Customers { get; set; } 
-        public IEnumerable<SereneMovieTutorial.Reports.CustomerVehicleReportModel> Vehicles { get; set; } 
+    public class CustomerSelectionViewModel
+    {
+        public IEnumerable<SereneMovieTutorial.Reports.CustomerLookup> Customers { get; set; }
+        public IEnumerable<SereneMovieTutorial.Reports.CustomerVehicleReportModel> Vehicles { get; set; }
     }
 
 

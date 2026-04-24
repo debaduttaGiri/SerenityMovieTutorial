@@ -1,8 +1,6 @@
 ﻿namespace SereneMovieTutorial.Inventry.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
 
@@ -41,7 +39,7 @@
 
         // ✅ Added missing fields
         public Int32 LedgerTypeId { get; set; }
-       // public Int32 PurchaseOrderId { get; set; }
+        // public Int32 PurchaseOrderId { get; set; }
         public Int32 TDSLedger { get; set; }
         public Int32 CgstLedger { get; set; }
         public Int32 SgstLedger { get; set; }

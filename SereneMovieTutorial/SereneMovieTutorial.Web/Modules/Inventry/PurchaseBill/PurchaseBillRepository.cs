@@ -2,10 +2,8 @@
 namespace SereneMovieTutorial.Inventry.Repositories
 {
     using SereneMovieTutorial.Inventry.Entities;
-    using Serenity;
     using Serenity.Data;
     using Serenity.Services;
-    using System;
     using System.Data;
     using MyRow = Entities.PurchaseBillRow;
 
@@ -38,11 +36,13 @@ namespace SereneMovieTutorial.Inventry.Repositories
             return new MyListHandler().Process(connection, request);
         }
 
-        private class MySaveHandler : SaveRequestHandler<MyRow> {
-           
+        private class MySaveHandler : SaveRequestHandler<MyRow>
+        {
+
         }
-        private class MyDeleteHandler : DeleteRequestHandler<MyRow> { 
-        
+        private class MyDeleteHandler : DeleteRequestHandler<MyRow>
+        {
+
             protected override void OnBeforeDelete()
             {
                 base.OnBeforeDelete();
@@ -51,7 +51,7 @@ namespace SereneMovieTutorial.Inventry.Repositories
                     .WhereEqual(PurchaseBillDetailRow.Fields.PurchaseOrderId, Row.Id)
                     .Execute(Connection, ExpectedRows.Ignore);
             }
-        
+
         }
         private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> { }
         private class MyListHandler : ListRequestHandler<MyRow> { }

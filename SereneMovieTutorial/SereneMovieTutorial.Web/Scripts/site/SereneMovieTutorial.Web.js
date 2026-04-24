@@ -3525,7 +3525,7 @@ var SereneMovieTutorial;
 (function (SereneMovieTutorial) {
     var Texts;
     (function (Texts) {
-        SereneMovieTutorial['Texts'] = Q.proxyTexts(Texts, '', { Db: { Administration: { Language: { Id: 1, LanguageId: 1, LanguageName: 1 }, Role: { RoleId: 1, RoleName: 1 }, RolePermission: { PermissionKey: 1, RoleId: 1, RolePermissionId: 1, RoleRoleName: 1 }, Translation: { CustomText: 1, EntityPlural: 1, Key: 1, OverrideConfirmation: 1, SaveChangesButton: 1, SourceLanguage: 1, SourceText: 1, TargetLanguage: 1, TargetText: 1 }, User: { DisplayName: 1, Email: 1, InsertDate: 1, InsertUserId: 1, IsActive: 1, LastDirectoryUpdate: 1, Password: 1, PasswordConfirm: 1, PasswordHash: 1, PasswordSalt: 1, Source: 1, UpdateDate: 1, UpdateUserId: 1, UserId: 1, UserImage: 1, Username: 1 }, UserPermission: { Granted: 1, PermissionKey: 1, User: 1, UserId: 1, UserPermissionId: 1, Username: 1 }, UserRole: { RoleId: 1, User: 1, UserId: 1, UserRoleId: 1, Username: 1 } }, Common: { UserPreference: { Name: 1, PreferenceType: 1, UserId: 1, UserPreferenceId: 1, Value: 1 } }, Default: { BranchMaster: { Address: 1, BranchCode: 1, BranchName: 1, GstNo: 1, Id: 1, PanNo: 1, PhoneNumber: 1, PinCode: 1, Remarks: 1, State: 1, State1: 1, StateId: 1, StateRemarks: 1, StateStateCode: 1 }, Customer: { Address: 1, City: 1, CompanyName: 1, ContactName: 1, ContactTitle: 1, Country: 1, CustomerId: 1, Fax: 1, Phone: 1, PostalCode: 1, Region: 1 }, CustomerMaster: { AddressLine1: 1, AddressLine2: 1, City: 1, CreatedDate: 1, CustomerCode: 1, CustomerId: 1, DateOfBirth: 1, Email: 1, FirstName: 1, IdentityNumber: 1, IdentityType: 1, IsActive: 1, LastName: 1, MobileNumber: 1, Pincode: 1, State: 1 }, Destination: { Destination: 1, Distict: 1, Distict1: 1, DistictPlant: 1, DistictRemarks: 1, Id: 1, Plant: 1, Plant1: 1, PlantRemarks: 1, Remarks: 1 }, Distict: { Distict: 1, Id: 1, Plant: 1, Plant1: 1, PlantRemarks: 1, Remarks: 1 }, Employees: { Address: 1, BirthDate: 1, City: 1, Country: 1, EmployeeId: 1, Extension: 1, FullName: 1, HireDate: 1, HomePhone: 1, PostalCode: 1, Region: 1, Title: 1, TitleOfCourtesy: 1 }, Expense: { Destination: 1, Destination1: 1, DestinationDistict: 1, DestinationPlant: 1, DestinationRemarks: 1, District: 1, DistrictDistict: 1, DistrictPlant: 1, DistrictRemarks: 1, Expense: 1, ExpenseId: 1, Plant: 1, Plant1: 1, PlantRemarks: 1, Remarks: 1, Weight: 1, Wheels: 1 }, FinancialYear: { EndDate: 1, Id: 1, Name: 1, NameOfInvoice: 1, Remarks: 1, StartDate: 1 }, Genre: { Dates: 1, GenreId: 1, Name: 1 }, Invoicedetails: { Billingamount: 1, Challan: 1, Id: 1, Invoicedate: 1, LoadingTripId: 1, Lrno: 1, ManageInvoiceId: 1, VehicleNumber: 1, Vehicleid: 1, Weight: 1, freightRate: 1 }, ItemMaster: { Id: 1, ItemName: 1, Remarks: 1 }, LoadingTrip: { Branch: 1, BranchId: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Customer: 1, CustomerId: 1, Destination: 1, DestinationId: 1, District: 1, DistrictId: 1, ExpenseAmount: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, Plant: 1, PlantId: 1, Remarks: 1, State: 1, StateId: 1, TripDate: 1, TripNo: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1, freightRate: 1 }, MaintenanceHead: { CreatedBy: 1, CreatedDate: 1, Head: 1, Id: 1, Remarks: 1, UpdatedBy: 1, UpdatedDate: 1 }, Manageinvoice: { Addgst: 1, Branch: 1, Branchid: 1, Cgstamount: 1, Cgstrate: 1, Fromdate: 1, Id: 1, Igstamount: 1, Igstrate: 1, InvoiceDetails: 1, Invoicedate: 1, Invoiceno: 1, LoadingTripId: 1, Localgst: 1, Plant: 1, Plantid: 1, Pono: 1, Saccode: 1, Sgstamount: 1, Sgstrate: 1, Tax: 1, Todate: 1, Totalgstamount: 1, Totalinvoiceamount: 1, Totaltrips: 1, TripNo: 1 }, Movie: { Actors: 1, CastList: 1, Description: 1, GalleryImages: 1, GenreList: 1, Kind: 1, MovieId: 1, PrimaryImage: 1, ReleaseDate: 1, Runtime: 1, Storyline: 1, Title: 1, Year: 1 }, MovieCast: { Character: 1, MovieCastId: 1, MovieDescription: 1, MovieId: 1, MovieKind: 1, MovieReleaseDate: 1, MovieRuntime: 1, MovieStoryline: 1, MovieTitle: 1, MovieYear: 1, PersonBirthDate: 1, PersonBirthPlace: 1, PersonFirstName: 1, PersonFullName: 1, PersonGender: 1, PersonHeight: 1, PersonId: 1, PersonLastName: 1 }, MovieGenres: { GenreId: 1, GenreName: 1, MovieDescription: 1, MovieGenreId: 1, MovieId: 1, MovieKind: 1, MovieReleaseDate: 1, MovieRuntime: 1, MovieStoryline: 1, MovieTitle: 1, MovieYear: 1 }, PartyMaster: { Address: 1, Email: 1, Gst: 1, Id: 1, Name: 1, Pan: 1, PhoneNumber: 1, StateId: 1, StateName: 1 }, PendingTripDetailsInvoice: { BranchId: 1, BranchName: 1, CreatedDate: 1, Createdate: 1, Createdby: 1, CustomerId: 1, CustomerName: 1, DestinationId: 1, DestinationName: 1, DistrictId: 1, DistrictName: 1, ExpenseAmount: 1, FreightRate: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, PlantId: 1, PlantName: 1, Remarks: 1, StateId: 1, StateName: 1, TripDate: 1, TripNo: 1, Updatedby: 1, Updateddate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1 }, Person: { BirthDate: 1, BirthPlace: 1, FirstName: 1, FullName: 1, GalleryImages: 1, Gender: 1, Height: 1, LastName: 1, PersonId: 1, PrimaryImage: 1 }, Plant: { Id: 1, Plant: 1, Remarks: 1 }, Pumpmaster: { Address: 1, Gst: 1, Id: 1, Name: 1, Pan: 1, Stock: 1, Type: 1 }, StateMaster: { Id: 1, Remarks: 1, State: 1, StateCode: 1 }, Tax: { Id: 1, Remarks: 1, TaxAmount: 1, TaxAmountText: 1 }, Unit: { Id: 1, UnitName: 1 }, UnloadTrip: { Branch: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, CustomerName: 1, Destination: 1, District: 1, ExpenseAmount: 1, Item: 1, LoadingTripId: 1, Plant: 1, Remarks: 1, State: 1, TripDate: 1, TripNo: 1, UnloadDate: 1, UnloadTripId: 1, UnloadWeight: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleName: 1, Weight: 1, Wheels: 1 }, VLoadingTripDetails: { BranchId: 1, BranchName: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, CustomerId: 1, CustomerName: 1, DestinationId: 1, DestinationName: 1, DistrictId: 1, DistrictName: 1, ExpenseAmount: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, PlantId: 1, PlantName: 1, Remarks: 1, StateId: 1, StateName: 1, TripDate: 1, TripNo: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1 }, VehicleMaster: { Brand: 1, ChassisNumber: 1, Color: 1, CreatedDate: 1, CustomerId: 1, CustomerName: 1, EngineNumber: 1, FuelType: 1, InsuranceExpiryDate: 1, IsActive: 1, ManufacturingYear: 1, Model: 1, SeatingCapacity: 1, VehicleId: 1, VehicleNumber: 1, VehicleType: 1, Wheels: 1 } }, FuelManagement: { Dieselissue: { CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Destination: 1, DestinationName: 1, Diesel: 1, Distict: 1, DistrictName: 1, Id: 1, Plant: 1, PlantName: 1, PumpName: 1, Pumpid: 1, Rateofdiesel: 1, Stock: 1, Today: 1, Totalprice: 1, TripNumber: 1, Tripno: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, Vehiclenumber: 1 }, FuelData: { AllottedQuantity: 1, BasicAmount: 1, DrAccountId: 1, FuelDetails: 1, Id: 1, InvoiceDate: 1, InvoiceNo: 1, InwardNo: 1, PartyId: 1, QtyKl: 1, QuantityLtr: 1, RateKl: 1, RateLtr: 1, ReceiptDate: 1, ShortageAmt: 1, ShortageCrAccount: 1, ShortageDrAccount: 1, ShortageKl: 1, ShortageLtr: 1, ShowFuelDetails: 1, TankerNo: 1, TdsAccountId: 1, TdsAmount: 1, TdsPayable: 1, TdsPercent: 1, TdsSection: 1, TotalAmount: 1, TransportationAmt: 1, TransportationRate: 1, TransporterId: 1 }, FuelDetails: { FuelDataId: 1, Id: 1, PumpId: 1, PumpName: 1, Quantity: 1, ReceiptDate: 1, TankerNo: 1 } }, Inventry: { Item: { Balancestock: 1, CreatedByUsername: 1, Createdat: 1, Createdby: 1, GrossPrice: 1, Id: 1, Openingstock: 1, Partname: 1, Partnumber: 1, Purchasestock: 1, Rate: 1, Stocklvlmaximum: 1, Stocklvlminimum: 1, UpdatedByUsername: 1, Updatedat: 1, Updatedby: 1 }, PendingPurchaseOrder: { BalanceStock: 1, BasicAmount: 1, BranchId: 1, BranchName: 1, CGSTRate: 1, CgstAmount: 1, CurrentRate: 1, DetailId: 1, IGSTRate: 1, Id: 1, IgstAmount: 1, ItemId: 1, OrderDate: 1, PartNo: 1, Partname: 1, Party: 1, PartyId: 1, PoNo: 1, PreviousRate: 1, PurchaseOrderId: 1, Quantity: 1, SGSTRate: 1, SgstAmount: 1, StockLevelMax: 1, StockLevelMin: 1, TotalAmount: 1, UnitId: 1, UnitName: 1 }, PurchaseBill: { BillDate: 1, BillNo: 1, CgstAmount: 1, CgstLedger: 1, DebitLedgerId: 1, Gstin: 1, Id: 1, IgstAmount: 1, IgstLedger: 1, LedgerTypeId: 1, PartyId: 1, PartyName: 1, PoNumber: 1, PurchaseDetails: 1, Remarks: 1, RoundOff: 1, SgstAmount: 1, SgstLedger: 1, StockInDate: 1, TDSLedger: 1, TaxableAmount: 1, TdsAmount: 1, TdsRate: 1, TdsSection: 1, TotalBillAmount: 1 }, PurchaseBillDetail: { CgstAmount: 1, CgstRate: 1, CurrentRate: 1, Discount: 1, Id: 1, IgstAmount: 1, IgstRate: 1, ItemId: 1, ItemName: 1, PreviousRate: 1, PurchaseBillId: 1, PurchaseOrderId: 1, Quantity: 1, Remarks: 1, SgstAmount: 1, SgstRate: 1, TaxableAmount: 1, TotalAmount: 1 }, PurchaseOrder: { BranchId: 1, BranchName: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, DetailList: 1, Id: 1, OrderDate: 1, PartyId: 1, PartyName: 1, PoNo: 1, Remarks: 1, UpdateDate: 1, UpdatedBy: 1, UpdatedByUsername: 1 }, PurchaseRequestDetail: { BalanceStock: 1, BasicAmount: 1, CgstAmount: 1, CgstRate: 1, CurrentRate: 1, Id: 1, IgstAmount: 1, IgstRate: 1, ItemId: 1, PartName: 1, PartNo: 1, PoNo: 1, PreviousRate: 1, PurchaseOrderId: 1, Quantity: 1, SgstAmount: 1, SgstRate: 1, StockLevelMax: 1, StockLevelMin: 1, TotalAmount: 1, UnitId: 1, UnitName: 1 } }, MaintenanceModule: { Maintenance: { CustomerName: 1, DueDate: 1, EntryDate: 1, EntryNumber: 1, EstimatedPeriod: 1, Head: 1, HeadId: 1, Id: 1, LastMaintenance: 1, ModelNumber: 1, Narration: 1, Owner: 1, PeriodTill: 1, TruckId: 1, TruckNumber: 1, TruckType: 1 } } }, Forms: { Membership: { ChangePassword: { FormTitle: 1, SubmitButton: 1, Success: 1 }, ForgotPassword: { BackToLogin: 1, FormInfo: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, Login: { FacebookButton: 1, ForgotPassword: 1, FormTitle: 1, GoogleButton: 1, OR: 1, RememberMe: 1, SignInButton: 1, SignUpButton: 1 }, ResetPassword: { BackToLogin: 1, EmailSubject: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, SignUp: { AcceptTerms: 1, ActivateEmailSubject: 1, ActivationCompleteMessage: 1, BackToLogin: 1, ConfirmEmail: 1, ConfirmPassword: 1, DisplayName: 1, Email: 1, FormInfo: 1, FormTitle: 1, Password: 1, SubmitButton: 1, Success: 1 } } }, Site: { AccessDenied: { ClickToChangeUser: 1, ClickToLogin: 1, LackPermissions: 1, NotLoggedIn: 1, PageTitle: 1 }, BasicProgressDialog: { CancelTitle: 1, PleaseWait: 1 }, BulkServiceAction: { AllHadErrorsFormat: 1, AllSuccessFormat: 1, ConfirmationFormat: 1, ErrorCount: 1, NothingToProcess: 1, SomeHadErrorsFormat: 1, SuccessCount: 1 }, Dashboard: { ContentDescription: 1 }, Layout: { FooterCopyright: 1, FooterInfo: 1, FooterRights: 1, GeneralSettings: 1, Language: 1, Theme: 1, ThemeBlack: 1, ThemeBlackLight: 1, ThemeBlue: 1, ThemeBlueLight: 1, ThemeGreen: 1, ThemeGreenLight: 1, ThemePurple: 1, ThemePurpleLight: 1, ThemeRed: 1, ThemeRedLight: 1, ThemeYellow: 1, ThemeYellowLight: 1 }, RolePermissionDialog: { DialogTitle: 1, EditButton: 1, SaveSuccess: 1 }, UserDialog: { EditPermissionsButton: 1, EditRolesButton: 1 }, UserPermissionDialog: { DialogTitle: 1, Grant: 1, Permission: 1, Revoke: 1, SaveSuccess: 1 }, UserRoleDialog: { DialogTitle: 1, SaveSuccess: 1 }, ValidationError: { Title: 1 } }, Validation: { AuthenticationError: 1, CantFindUserWithEmail: 1, CurrentPasswordMismatch: 1, DeleteForeignKeyError: 1, EmailConfirm: 1, EmailInUse: 1, InvalidActivateToken: 1, InvalidResetToken: 1, MinRequiredPasswordLength: 1, SavePrimaryKeyError: 1 } });
+        SereneMovieTutorial['Texts'] = Q.proxyTexts(Texts, '', { Db: { Administration: { Language: { Id: 1, LanguageId: 1, LanguageName: 1 }, Role: { RoleId: 1, RoleName: 1 }, RolePermission: { PermissionKey: 1, RoleId: 1, RolePermissionId: 1, RoleRoleName: 1 }, Translation: { CustomText: 1, EntityPlural: 1, Key: 1, OverrideConfirmation: 1, SaveChangesButton: 1, SourceLanguage: 1, SourceText: 1, TargetLanguage: 1, TargetText: 1 }, User: { DisplayName: 1, Email: 1, InsertDate: 1, InsertUserId: 1, IsActive: 1, LastDirectoryUpdate: 1, Password: 1, PasswordConfirm: 1, PasswordHash: 1, PasswordSalt: 1, Source: 1, UpdateDate: 1, UpdateUserId: 1, UserId: 1, UserImage: 1, Username: 1 }, UserPermission: { Granted: 1, PermissionKey: 1, User: 1, UserId: 1, UserPermissionId: 1, Username: 1 }, UserRole: { RoleId: 1, User: 1, UserId: 1, UserRoleId: 1, Username: 1 } }, Common: { UserPreference: { Name: 1, PreferenceType: 1, UserId: 1, UserPreferenceId: 1, Value: 1 } }, Default: { BranchMaster: { Address: 1, BranchCode: 1, BranchName: 1, GstNo: 1, Id: 1, PanNo: 1, PhoneNumber: 1, PinCode: 1, Remarks: 1, State: 1, State1: 1, StateId: 1, StateRemarks: 1, StateStateCode: 1 }, Customer: { Address: 1, City: 1, CompanyName: 1, ContactName: 1, ContactTitle: 1, Country: 1, CustomerId: 1, Fax: 1, Phone: 1, PostalCode: 1, Region: 1 }, CustomerMaster: { AddressLine1: 1, AddressLine2: 1, City: 1, CreatedDate: 1, CustomerCode: 1, CustomerId: 1, DateOfBirth: 1, Email: 1, FirstName: 1, IdentityNumber: 1, IdentityType: 1, IsActive: 1, LastName: 1, MobileNumber: 1, Pincode: 1, State: 1 }, Destination: { Destination: 1, Distict: 1, DistictName: 1, Id: 1, Plant: 1, PlantName: 1, Remarks: 1 }, Distict: { Distict: 1, Id: 1, Plant: 1, PlantName: 1, Remarks: 1 }, Employees: { Address: 1, BirthDate: 1, City: 1, Country: 1, EmployeeId: 1, Extension: 1, FullName: 1, HireDate: 1, HomePhone: 1, PostalCode: 1, Region: 1, Title: 1, TitleOfCourtesy: 1 }, Expense: { Destination: 1, Destination1: 1, DestinationDistict: 1, DestinationPlant: 1, DestinationRemarks: 1, District: 1, DistrictDistict: 1, DistrictPlant: 1, DistrictRemarks: 1, Expense: 1, ExpenseId: 1, Plant: 1, Plant1: 1, PlantRemarks: 1, Remarks: 1, Weight: 1, Wheels: 1 }, FinancialYear: { EndDate: 1, Id: 1, Name: 1, NameOfInvoice: 1, Remarks: 1, StartDate: 1 }, Genre: { Dates: 1, GenreId: 1, Name: 1 }, Invoicedetails: { Billingamount: 1, Challan: 1, Id: 1, Invoicedate: 1, LoadingTripId: 1, Lrno: 1, ManageInvoiceId: 1, VehicleNumber: 1, Vehicleid: 1, Weight: 1, freightRate: 1 }, ItemMaster: { Id: 1, ItemName: 1, Remarks: 1 }, LoadingTrip: { Branch: 1, BranchId: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Customer: 1, CustomerId: 1, Destination: 1, DestinationId: 1, District: 1, DistrictId: 1, ExpenseAmount: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, Plant: 1, PlantId: 1, Remarks: 1, State: 1, StateId: 1, TripDate: 1, TripNo: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1, freightRate: 1 }, MaintenanceHead: { CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Head: 1, Id: 1, Remarks: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1 }, Manageinvoice: { Addgst: 1, Branch: 1, Branchid: 1, Cgstamount: 1, Cgstrate: 1, Fromdate: 1, Id: 1, Igstamount: 1, Igstrate: 1, InvoiceDetails: 1, Invoicedate: 1, Invoiceno: 1, LoadingTripId: 1, Localgst: 1, Plant: 1, Plantid: 1, Pono: 1, Saccode: 1, Sgstamount: 1, Sgstrate: 1, Tax: 1, Todate: 1, Totalgstamount: 1, Totalinvoiceamount: 1, Totaltrips: 1, TripNo: 1 }, Movie: { Actors: 1, CastList: 1, Description: 1, GalleryImages: 1, GenreList: 1, Kind: 1, MovieId: 1, PrimaryImage: 1, ReleaseDate: 1, Runtime: 1, Storyline: 1, Title: 1, Year: 1 }, MovieCast: { Character: 1, MovieCastId: 1, MovieDescription: 1, MovieId: 1, MovieKind: 1, MovieReleaseDate: 1, MovieRuntime: 1, MovieStoryline: 1, MovieTitle: 1, MovieYear: 1, PersonBirthDate: 1, PersonBirthPlace: 1, PersonFirstName: 1, PersonFullName: 1, PersonGender: 1, PersonHeight: 1, PersonId: 1, PersonLastName: 1 }, MovieGenres: { GenreId: 1, GenreName: 1, MovieDescription: 1, MovieGenreId: 1, MovieId: 1, MovieKind: 1, MovieReleaseDate: 1, MovieRuntime: 1, MovieStoryline: 1, MovieTitle: 1, MovieYear: 1 }, PartyMaster: { Address: 1, Email: 1, Gst: 1, Id: 1, Name: 1, Pan: 1, PhoneNumber: 1, StateId: 1, StateName: 1 }, PendingTripDetailsInvoice: { BranchId: 1, BranchName: 1, CreatedDate: 1, Createdate: 1, Createdby: 1, CustomerId: 1, CustomerName: 1, DestinationId: 1, DestinationName: 1, DistrictId: 1, DistrictName: 1, ExpenseAmount: 1, FreightRate: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, PlantId: 1, PlantName: 1, Remarks: 1, StateId: 1, StateName: 1, TripDate: 1, TripNo: 1, Updatedby: 1, Updateddate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1 }, Person: { BirthDate: 1, BirthPlace: 1, FirstName: 1, FullName: 1, GalleryImages: 1, Gender: 1, Height: 1, LastName: 1, PersonId: 1, PrimaryImage: 1 }, Plant: { Id: 1, Plant: 1, Remarks: 1 }, Pumpmaster: { Address: 1, Gst: 1, Id: 1, Name: 1, Pan: 1, Stock: 1, Type: 1 }, StateMaster: { Id: 1, Remarks: 1, State: 1, StateCode: 1 }, Tax: { Id: 1, Remarks: 1, TaxAmount: 1, TaxAmountText: 1 }, Unit: { Id: 1, UnitName: 1 }, UnloadTrip: { Branch: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, CustomerName: 1, Destination: 1, District: 1, ExpenseAmount: 1, Item: 1, LoadingTripId: 1, Plant: 1, Remarks: 1, State: 1, TripDate: 1, TripNo: 1, UnloadDate: 1, UnloadTripId: 1, UnloadWeight: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleName: 1, Weight: 1, Wheels: 1 }, VLoadingTripDetails: { BranchId: 1, BranchName: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, CustomerId: 1, CustomerName: 1, DestinationId: 1, DestinationName: 1, DistrictId: 1, DistrictName: 1, ExpenseAmount: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, PlantId: 1, PlantName: 1, Remarks: 1, StateId: 1, StateName: 1, TripDate: 1, TripNo: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1 }, VehicleMaster: { Brand: 1, ChassisNumber: 1, Color: 1, CreatedDate: 1, CustomerId: 1, CustomerName: 1, EngineNumber: 1, FuelType: 1, InsuranceExpiryDate: 1, IsActive: 1, ManufacturingYear: 1, Model: 1, SeatingCapacity: 1, VehicleId: 1, VehicleNumber: 1, VehicleType: 1, Wheels: 1 } }, FuelManagement: { Dieselissue: { CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Destination: 1, DestinationName: 1, Diesel: 1, Distict: 1, DistrictName: 1, Id: 1, Plant: 1, PlantName: 1, PumpName: 1, Pumpid: 1, Rateofdiesel: 1, Stock: 1, Today: 1, Totalprice: 1, TripNumber: 1, Tripno: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, Vehiclenumber: 1 }, FuelData: { AllottedQuantity: 1, BasicAmount: 1, DrAccountId: 1, FuelDetails: 1, Id: 1, InvoiceDate: 1, InvoiceNo: 1, InwardNo: 1, PartyId: 1, QtyKl: 1, QuantityLtr: 1, RateKl: 1, RateLtr: 1, ReceiptDate: 1, ShortageAmt: 1, ShortageCrAccount: 1, ShortageDrAccount: 1, ShortageKl: 1, ShortageLtr: 1, ShowFuelDetails: 1, TankerNo: 1, TdsAccountId: 1, TdsAmount: 1, TdsPayable: 1, TdsPercent: 1, TdsSection: 1, TotalAmount: 1, TransportationAmt: 1, TransportationRate: 1, TransporterId: 1 }, FuelDetails: { FuelDataId: 1, Id: 1, PumpId: 1, PumpName: 1, Quantity: 1, ReceiptDate: 1, TankerNo: 1 } }, Inventry: { Item: { Balancestock: 1, CreatedByUsername: 1, Createdat: 1, Createdby: 1, GrossPrice: 1, Id: 1, Openingstock: 1, Partname: 1, Partnumber: 1, Purchasestock: 1, Rate: 1, Stocklvlmaximum: 1, Stocklvlminimum: 1, UpdatedByUsername: 1, Updatedat: 1, Updatedby: 1 }, PendingPurchaseOrder: { BalanceStock: 1, BasicAmount: 1, BranchId: 1, BranchName: 1, CGSTRate: 1, CgstAmount: 1, CurrentRate: 1, DetailId: 1, IGSTRate: 1, Id: 1, IgstAmount: 1, ItemId: 1, OrderDate: 1, PartNo: 1, Partname: 1, Party: 1, PartyId: 1, PoNo: 1, PreviousRate: 1, PurchaseOrderId: 1, Quantity: 1, SGSTRate: 1, SgstAmount: 1, StockLevelMax: 1, StockLevelMin: 1, TotalAmount: 1, UnitId: 1, UnitName: 1 }, PurchaseBill: { BillDate: 1, BillNo: 1, CgstAmount: 1, CgstLedger: 1, DebitLedgerId: 1, Gstin: 1, Id: 1, IgstAmount: 1, IgstLedger: 1, LedgerTypeId: 1, PartyId: 1, PartyName: 1, PoNumber: 1, PurchaseDetails: 1, Remarks: 1, RoundOff: 1, SgstAmount: 1, SgstLedger: 1, StockInDate: 1, TDSLedger: 1, TaxableAmount: 1, TdsAmount: 1, TdsRate: 1, TdsSection: 1, TotalBillAmount: 1 }, PurchaseBillDetail: { CgstAmount: 1, CgstRate: 1, CurrentRate: 1, Discount: 1, Id: 1, IgstAmount: 1, IgstRate: 1, ItemId: 1, ItemName: 1, PreviousRate: 1, PurchaseBillId: 1, PurchaseOrderId: 1, Quantity: 1, Remarks: 1, SgstAmount: 1, SgstRate: 1, TaxableAmount: 1, TotalAmount: 1 }, PurchaseOrder: { BranchId: 1, BranchName: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, DetailList: 1, Id: 1, OrderDate: 1, PartyId: 1, PartyName: 1, PoNo: 1, Remarks: 1, UpdateDate: 1, UpdatedBy: 1, UpdatedByUsername: 1 }, PurchaseRequestDetail: { BalanceStock: 1, BasicAmount: 1, CgstAmount: 1, CgstRate: 1, CurrentRate: 1, Id: 1, IgstAmount: 1, IgstRate: 1, ItemId: 1, PartName: 1, PartNo: 1, PoNo: 1, PreviousRate: 1, PurchaseOrderId: 1, Quantity: 1, SgstAmount: 1, SgstRate: 1, StockLevelMax: 1, StockLevelMin: 1, TotalAmount: 1, UnitId: 1, UnitName: 1 } }, MaintenanceModule: { Maintenance: { CustomerName: 1, DueDate: 1, EntryDate: 1, EntryNumber: 1, EstimatedPeriod: 1, Head: 1, HeadId: 1, Id: 1, LastMaintenance: 1, ModelNumber: 1, Narration: 1, Owner: 1, PeriodTill: 1, TruckId: 1, TruckNumber: 1, TruckType: 1 } } }, Forms: { Membership: { ChangePassword: { FormTitle: 1, SubmitButton: 1, Success: 1 }, ForgotPassword: { BackToLogin: 1, FormInfo: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, Login: { FacebookButton: 1, ForgotPassword: 1, FormTitle: 1, GoogleButton: 1, OR: 1, RememberMe: 1, SignInButton: 1, SignUpButton: 1 }, ResetPassword: { BackToLogin: 1, EmailSubject: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, SignUp: { AcceptTerms: 1, ActivateEmailSubject: 1, ActivationCompleteMessage: 1, BackToLogin: 1, ConfirmEmail: 1, ConfirmPassword: 1, DisplayName: 1, Email: 1, FormInfo: 1, FormTitle: 1, Password: 1, SubmitButton: 1, Success: 1 } } }, Site: { AccessDenied: { ClickToChangeUser: 1, ClickToLogin: 1, LackPermissions: 1, NotLoggedIn: 1, PageTitle: 1 }, BasicProgressDialog: { CancelTitle: 1, PleaseWait: 1 }, BulkServiceAction: { AllHadErrorsFormat: 1, AllSuccessFormat: 1, ConfirmationFormat: 1, ErrorCount: 1, NothingToProcess: 1, SomeHadErrorsFormat: 1, SuccessCount: 1 }, Dashboard: { ContentDescription: 1 }, Layout: { FooterCopyright: 1, FooterInfo: 1, FooterRights: 1, GeneralSettings: 1, Language: 1, Theme: 1, ThemeBlack: 1, ThemeBlackLight: 1, ThemeBlue: 1, ThemeBlueLight: 1, ThemeGreen: 1, ThemeGreenLight: 1, ThemePurple: 1, ThemePurpleLight: 1, ThemeRed: 1, ThemeRedLight: 1, ThemeYellow: 1, ThemeYellowLight: 1 }, RolePermissionDialog: { DialogTitle: 1, EditButton: 1, SaveSuccess: 1 }, UserDialog: { EditPermissionsButton: 1, EditRolesButton: 1 }, UserPermissionDialog: { DialogTitle: 1, Grant: 1, Permission: 1, Revoke: 1, SaveSuccess: 1 }, UserRoleDialog: { DialogTitle: 1, SaveSuccess: 1 }, ValidationError: { Title: 1 } }, Validation: { AuthenticationError: 1, CantFindUserWithEmail: 1, CurrentPasswordMismatch: 1, DeleteForeignKeyError: 1, EmailConfirm: 1, EmailInUse: 1, InvalidActivateToken: 1, InvalidResetToken: 1, MinRequiredPasswordLength: 1, SavePrimaryKeyError: 1 } });
     })(Texts = SereneMovieTutorial.Texts || (SereneMovieTutorial.Texts = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
 var SereneMovieTutorial;
@@ -5391,6 +5391,78 @@ var SereneMovieTutorial;
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
 var SereneMovieTutorial;
 (function (SereneMovieTutorial) {
+    var Common;
+    (function (Common) {
+        var COLORS = ['#00d4aa', '#4f9cf9', '#f0a500', '#f05b5b', '#a78bfa', '#34d399', '#fb923c', '#60a5fa', '#f472b6', '#818cf8'];
+        function VendorOutstanding() {
+            jQuery.ajax({
+                url: '/Dashboard/GetVendorOutstanding',
+                type: 'GET',
+                success: function (data) {
+                    console.log("GetVendorOutstanding " + "Called");
+                    if (!data || !data.length) {
+                        console.warn("No vendor data");
+                        return;
+                    }
+                    console.log("Data" + data);
+                    renderBars('vendor-bars', data, function (d) { return d.vendorOut; }, // ✔ FUNCTION instead of string
+                    function (// ✔ FUNCTION instead of string
+                    d) { return d.label; }, '#ffffff', fmt);
+                }
+            });
+        }
+        Common.VendorOutstanding = VendorOutstanding;
+        VendorOutstanding();
+        function renderBars(containerId, data, valFn, labelFn, color, fmtFn, maxVal) {
+            var el = document.getElementById(containerId);
+            if (!el) {
+                console.error("Element not found: " + containerId);
+                return;
+            }
+            var max = maxVal || Math.max.apply(Math, data.map(valFn));
+            el.innerHTML = data.map(function (d, i) {
+                var value = valFn(d);
+                return "\n               <div class=\"bar-row\">\n                 <div class=\"bar-label\" title=\"" + labelFn(d) + "\">" + labelFn(d) + "</div>\n                 <div class=\"bar-track\">\n                   <div class=\"bar-fill\"\n                        style=\"width:" + (value / max * 100).toFixed(1) + "%;\n                               background:" + (color || COLORS[i % COLORS.length]) + "\">\n                   </div>\n                 </div>\n                 <div class=\"bar-val\">" + (fmtFn || fmt)(value) + "</div>\n               </div>";
+            }).join('');
+        }
+        function fmt(n) {
+            n = Number(n); // safety
+            if (n >= 1e7)
+                return '₹' + (n / 1e7).toFixed(2) + ' Cr';
+            if (n >= 1e5)
+                return '₹' + (n / 1e5).toFixed(1) + ' L';
+            return '₹' + n.toFixed(0);
+        }
+        //$(function () {
+        //    SereneMovieTutorial.Common.loadBuyers();
+        //});
+        //SereneMovieTutorial.Common.loadBuyers();
+        loadBuyers();
+        function loadBuyers() {
+            console.log("loadBuyers called");
+            jQuery.ajax({
+                url: '/Dashboard/GetTopBuyers',
+                type: 'GET',
+                success: function (data) {
+                    console.log("API data:", data);
+                    var tb = document.getElementById('buyer-table');
+                    if (!tb)
+                        return;
+                    tb.innerHTML = data.map(function (b) {
+                        var mp = ((b.Margin / b.Revenue) * 100).toFixed(1);
+                        var chipClass = parseFloat(mp) > 15 ? 'chip-green' :
+                            parseFloat(mp) > 10 ? 'chip-blue' :
+                                'chip-gold';
+                        return "\n                      <tr>\n                      <td>" + b.BuyerName + "</td>\n                      <td>" + b.Qty + "</td>\n                      <td>" + b.Revenue + "</td>\n                      <td>" + b.Margin + "</td>\n                      <td><span class=\"chip " + chipClass + "\">" + mp + "%</span></td>\n                      </tr>";
+                    }).join('');
+                }
+            });
+        }
+        Common.loadBuyers = loadBuyers;
+    })(Common = SereneMovieTutorial.Common || (SereneMovieTutorial.Common = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
     var BasicProgressDialog = /** @class */ (function (_super) {
         __extends(BasicProgressDialog, _super);
         function BasicProgressDialog() {
@@ -6869,7 +6941,7 @@ var SereneMovieTutorial;
                     name: "S. No",
                     format: function (ctx) { return (ctx.row + 1).toString(); }
                 });
-                var supplier = Q.tryFirst(columns, function (x) { return x.field === "Plant1" /* Plant1 */; });
+                var supplier = Q.tryFirst(columns, function (x) { return x.field === fld.Plant1; });
                 if (supplier) {
                     supplier.referencedFields = ["Plant" /* Plant */];
                     supplier.format = function (ctx) { return _this.selectFormatter(ctx, "Plant" /* Plant */, Default.PlantRow.getLookup()); };
@@ -6922,12 +6994,11 @@ var SereneMovieTutorial;
                     var lookup = Default.PlantRow.getLookup();
                     var selected = lookup.itemById[value];
                     if (selected) {
-                        item["Plant1" /* Plant1 */] = selected[lookup.textField];
+                        item[fld.Plant1] = selected[lookup.textField];
                     }
                 }
                 this.view.refresh();
                 input.addClass('dirty');
-                //this.setSaveButtonState();
             };
             DistictGrid.prototype.getButtons = function () {
                 var _this = this;
@@ -6938,43 +7009,33 @@ var SereneMovieTutorial;
                     onViewSubmit: function () { return _this.onViewSubmit(); },
                     separator: true
                 }));
-                buttons.push({
-                    //title: "Export PDF",
-                    cssClass: "export-pdf-button",
-                    onClick: function () {
-                        if (!_this.onViewSubmit())
-                            return;
-                        Q.postToUrl({
-                            url: Q.resolveUrl('~/Services/' + Default.DistictService.baseUrl + '/ListPdf'),
-                            params: _this.view.params,
-                            target: "_blank"
-                        });
+                buttons.push(SereneMovieTutorial.Common.PdfExportHelper.createToolButton({
+                    grid: this,
+                    onViewSubmit: function () { return _this.onViewSubmit(); },
+                    reportTitle: 'District List',
+                    columnTitles: {
+                        'Discontinued': 'Dis.',
+                    },
+                    tableOptions: {
+                        columnStyles: {
+                            DistrictId: {
+                                columnWidth: 25,
+                                halign: 'right'
+                            },
+                            Discontinued: {
+                                columnWidth: 25
+                            }
+                        }
                     }
-                });
+                }));
                 buttons.push({
                     title: 'Save Changes',
                     cssClass: 'apply-changes-button',
-                    onClick: function () { return _this.saveChanges1(); }
+                    onClick: function () { return _this.saveChanges(); }
                 });
                 return buttons;
             };
-            //private saveChanges1() {
-            //    for (let id in this.pendingChanges) {
-            //        let changes = this.pendingChanges[id];
-            //        DistictService.Update({
-            //            EntityId: id,
-            //            Entity: changes
-            //        }, response => {
-            //            Q.notifySuccess("Row " + id + " updated successfully.");
-            //        });
-            //    }
-            //    this.pendingChanges = {};
-            //    //this.setSaveButtonState();
-            //    Q.reloadLookup('Default.Plant');
-            //    this.refresh();
-            //    //window.location.reload();
-            //}
-            DistictGrid.prototype.saveChanges1 = function () {
+            DistictGrid.prototype.saveChanges = function () {
                 var _this = this;
                 var keys = Object.keys(this.pendingChanges);
                 if (keys.length === 0)

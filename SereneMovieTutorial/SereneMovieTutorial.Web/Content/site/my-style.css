@@ -12,8 +12,8 @@
 .navbar-branch-left {
     display: flex;
     align-items: center;
-    padding-top:5px;
-    padding-left:6px;
+    padding-top: 5px;
+    padding-left: 6px;
 }
 
 
@@ -22,15 +22,15 @@
     font-weight: 500;
     font-size: 15px;
     color: #ddd;
-    
 }
 
 /* Financial year on the right */
 .navbar-Year-right {
     display: flex;
     align-items: center;
-    padding-top: 18px;
-    padding-left: 810px;
+    margin-left: auto; /* ✅ correct way */
+    padding-top: 5px;
+    padding-right: 15px;
 }
 /*-----------------------------------------*/
 /* Custom styling for Distict editable inputs */
@@ -39,7 +39,7 @@
     padding: 4px;
     font-size: 13px;
     width: 100%;
-    height:90%;
+    height: 90%;
     box-sizing: border-box;
 }
 
@@ -49,7 +49,7 @@
         border-color: white; /* darker blue on focus */
         box-shadow: 0 0 4px rgba(0, 91, 187, 0.5); /* subtle glow */
     }
-    /*------------------------------------*/
+/*------------------------------------*/
 
 .edits-val {
     border: 0px solid white; /* blue border */
@@ -70,45 +70,61 @@
     font-size:20px;
     align-content:center
 }*/
-.grid{
-    height:400px;
-    width:auto;
+.grid {
+    height: 400px;
+    width: auto;
 }
 
 .slick-header-columns {
-    background-color:blueviolet; /* your desired color */
+    background-color: blueviolet; /* your desired color */
     color: #fff; /* header text color */
 }
 
 #PurchaseBillDetailEditor {
     height: 400px; /* or any value you prefer */
 }
+
 .slickgrid-container {
     height: 500px;
 }
 
-.logo img {
-    height: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.25), 0 6px 20px rgba(0,0,0,0.2);
-    transform: perspective(600px) rotateY(5deg);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.main-sidebar {
+    background-color: #000 !important;
 }
 
-    .logo img:hover {
-        transform: perspective(600px) rotateY(0deg) scale(1.05);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.3), 0 12px 24px rgba(0,0,0,0.25);
+.sidebar a {
+    color: #ccc !important;
+}
+
+    .sidebar a:hover {
+        background-color: #111 !important;
+        color: #fff !important;
     }
 
-.logo span {
-    font-size: 25px;
-    font-weight: 600;
-    padding: 16px;
-    /*background: linear-gradient(135deg, #1e90ff, #00bfff);*/
-    -webkit-background-clip: border-box;
-    -webkit-text-fill-color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+.sidebar-menu > li.active > a {
+    color: #22c55e !important;
+    background-color: #0f172a !important;
+}
+
+.sidebar-menu > li.active > a {
+    color: #22c55e !important; /* green highlight */
+    background-color: #0f172a !important;
+}
+
+.sidebar-menu > li > a:hover {
+    color: #fff !important;
+    background-color: #111827 !important;
 }
 
 
+.content-wrapper,
+.card,
+.main-sidebar,
+.main-header {
+    background-color: #000 !important;
+}
 
+.main-footer{
+    background-color:black;
+    color:white;
+}

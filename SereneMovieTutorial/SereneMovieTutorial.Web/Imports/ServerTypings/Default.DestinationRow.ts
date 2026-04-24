@@ -5,11 +5,8 @@
         Distict?: number;
         Destination?: string;
         Remarks?: string;
-        Plant1?: string;
-        PlantRemarks?: string;
-        DistictPlant?: number;
-        Distict1?: string;
-        DistictRemarks?: string;
+        PlantName?: string;
+        DistictName?: string;
     }
 
     export namespace DestinationRow {
@@ -32,11 +29,8 @@
             Distict = "Distict",
             Destination = "Destination",
             Remarks = "Remarks",
-            Plant1 = "Plant1",
-            PlantRemarks = "PlantRemarks",
-            DistictPlant = "DistictPlant",
-            Distict1 = "Distict1",
-            DistictRemarks = "DistictRemarks"
+            PlantName = "PlantName",
+            DistictName = "DistictName"
         }
     }
 }

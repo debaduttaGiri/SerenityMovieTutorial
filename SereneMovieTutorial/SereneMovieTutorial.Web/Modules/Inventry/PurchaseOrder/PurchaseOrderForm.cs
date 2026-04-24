@@ -1,15 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Inventry.Forms
 {
-    using Serenity;
-    using Serenity.ComponentModel;
-    using Serenity.Data;
-    using System;
-    using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
     using SereneMovieTutorial.Inventry.Entities;
-    using Serenity.Data.Mapping;
+    using Serenity.ComponentModel;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
 
     [FormScript("Inventry.PurchaseOrder")]
     [BasedOnRow(typeof(Entities.PurchaseOrderRow), CheckNames = false)]
@@ -25,6 +21,6 @@ namespace SereneMovieTutorial.Inventry.Forms
 
         [PurchaseRequestDetailEditor]
         public List<PurchaseRequestDetailRow> DetailList { get; set; }
-        
+
     }
 }

@@ -1,6 +1,6 @@
-﻿using System.Web.Hosting;
-using System.IO;
+﻿using System.IO;
 using System.Net.Mail;
+using System.Web.Hosting;
 
 namespace SereneMovieTutorial.Common
 {

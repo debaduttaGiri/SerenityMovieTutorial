@@ -37,7 +37,7 @@
             {
                 if (args.Error.Exception != null && args.Error is INotLoggedException)
                     args.Abort = true;
-                
+
                 if (args.Error.Cookies != null)
                     args.Error.Cookies.Remove(FormsAuthentication.FormsCookieName);
 

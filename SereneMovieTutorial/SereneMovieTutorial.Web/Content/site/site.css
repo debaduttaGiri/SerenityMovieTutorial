@@ -5,6 +5,7 @@
 html,
 body {
   height: 100%;
+  
 }
 .layout-boxed html,
 .layout-boxed body {
@@ -88,9 +89,9 @@ body {
 }
 .content-wrapper,
 .right-side {
-    min-height: 100%;
-    background-color: #000 !important;
-    z-index: 800;
+  min-height: 100%;
+  background-color: #ecf0f5;
+  z-index: 800;
 }
 .main-footer {
   background: #fff;
@@ -7688,3 +7689,4 @@ section.content > .s-DataGrid {
 .s-MaintenanceModule-MaintenanceDialog .caption {
   width: 150px;
 }
+/* ===== FULL PAGE DARK BACKGROUND ===== */

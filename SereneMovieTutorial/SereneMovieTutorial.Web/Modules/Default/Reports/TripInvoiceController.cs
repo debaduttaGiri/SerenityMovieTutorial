@@ -1,5 +1,4 @@
-﻿using SereneMovieTutorial.Default.Entities;
-using SereneMovieTutorial.Default.Repositories;
+﻿using SereneMovieTutorial.Default.Repositories;
 using Serenity.Data;
 using System.Data;
 using System.Web.Mvc;
@@ -11,12 +10,12 @@ namespace SereneMovieTutorial.Modules.Default.Reports
     public class TripInvoiceController : Controller
     {
         ManageInvoiceModel manageInvoice = new ManageInvoiceModel();
-        
+
 
         [Route("GetInvoice")]
         public ActionResult GetInvoice(int id)
         {
-            using(IDbConnection connection = SqlConnections.NewByKey("Default"))
+            using (IDbConnection connection = SqlConnections.NewByKey("Default"))
             {
                 connection.Open();
                 var manageinvoice_responce = new ManageinvoiceRepository().Retrieve(connection, new Serenity.Services.RetrieveRequest { EntityId = id });
@@ -27,7 +26,7 @@ namespace SereneMovieTutorial.Modules.Default.Reports
 
                 var loading_response = new LoadingTripRepository().Retrieve(connection, new Serenity.Services.RetrieveRequest { EntityId = manageInvoice.ManageinvoiceRow.LoadingTripId });
                 manageInvoice.LoadingTripRow = loading_response.Entity;
-                
+
                 var branch_response = new BranchMasterRepository().Retrieve(connection, new Serenity.Services.RetrieveRequest { EntityId = manageInvoice.ManageinvoiceRow.Branchid });
                 manageInvoice.BranchMasterRow = branch_response.Entity;
 
@@ -35,7 +34,7 @@ namespace SereneMovieTutorial.Modules.Default.Reports
                 return View("~/Modules/Default/Reports/GetInvoice.cshtml", manageInvoice);
             }
 
-            
+
         }
     }
 }

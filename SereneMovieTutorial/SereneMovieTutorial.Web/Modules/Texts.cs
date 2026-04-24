@@ -71,12 +71,12 @@ namespace SereneMovieTutorial
                 public static class SignUp
                 {
                     public static LocalText ActivateEmailSubject = "Activate Your SereneMovieTutorial Account";
-                    public static LocalText ActivationCompleteMessage = "Your account is now activated. " + 
+                    public static LocalText ActivationCompleteMessage = "Your account is now activated. " +
                         "Use the e-mail and password you used while signing up to login.";
                     public static LocalText FormInfo = "Enter your details to create a free account.";
                     public static LocalText FormTitle = "Sign up for SereneMovieTutorial";
                     public static LocalText SubmitButton = "Sign Up";
-                    public static LocalText Success = "An e-mail with instructions to active your account is " + 
+                    public static LocalText Success = "An e-mail with instructions to active your account is " +
                         "sent to your e-mail address. Please check your e-mails.";
 
                     public static LocalText DisplayName = "Full Name";
@@ -111,8 +111,8 @@ namespace SereneMovieTutorial
             public static class Dashboard
             {
                 public static LocalText ContentDescription = "";
-                    //"a sample with random data (from free <em><a href = \"https://almsaeedstudio.com/\" target= \"_blank\">" +
-                    //"AdminLTE theme</a></em>)";
+                //"a sample with random data (from free <em><a href = \"https://almsaeedstudio.com/\" target= \"_blank\">" +
+                //"AdminLTE theme</a></em>)";
             }
 
             public static class BasicProgressDialog
@@ -162,8 +162,8 @@ namespace SereneMovieTutorial
 
             public static class Layout
             {
-                public static LocalText FooterCopyright = "Copyright (c) "+ DateTime.Now.Year+".";
-                public static LocalText FooterInfo = "Serenity Platform";
+                public static LocalText FooterCopyright = "Copyright (c) " + DateTime.Now.Year + ".";
+                public static LocalText FooterInfo = "Tranzol Solutions";
                 public static LocalText FooterRights = "All rights reserved.";
                 public static LocalText GeneralSettings = "General Settings";
                 public static LocalText Language = "Language";

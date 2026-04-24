@@ -47,7 +47,7 @@
             if (username.IsEmptyOrNull())
                 return null;
 
-            return TwoLevelCache.Get<UserDefinition>("UserByName_" + username.ToLowerInvariant(), 
+            return TwoLevelCache.Get<UserDefinition>("UserByName_" + username.ToLowerInvariant(),
                 TimeSpan.Zero, TimeSpan.FromDays(1), fld.GenerationKey, () =>
             {
                 using (var connection = SqlConnections.NewByKey("Default"))

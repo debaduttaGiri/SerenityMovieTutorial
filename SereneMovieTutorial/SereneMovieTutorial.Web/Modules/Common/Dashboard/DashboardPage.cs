@@ -2,11 +2,7 @@
 namespace SereneMovieTutorial.Common.Pages
 {
     using Dapper;
-    using SereneMovieTutorial.Default.Entities;
-    using SereneMovieTutorial.Default.Repositories;
-    using Serenity;
     using Serenity.Data;
-    using System;
     using System.Data;
     using System.Linq;
     using System.Web.Mvc;

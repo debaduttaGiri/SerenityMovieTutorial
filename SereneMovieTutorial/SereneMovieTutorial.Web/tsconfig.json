@@ -13,7 +13,7 @@
     "target": "es5",
     "module": "system",
     "skipLibCheck": true,
-    "types": [],
+    "types": [ "jquery" ],
     "typeRoots": [
       "./node_modules/@types/"
     ]

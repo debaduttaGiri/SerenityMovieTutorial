@@ -2,13 +2,11 @@
 namespace SereneMovieTutorial.Inventry.Entities
 {
     using SereneMovieTutorial.Default.Entities;
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Inventry"), TableName("[dbo].[PurchaseRequestDetail]")]
     [DisplayName("Purchase Detail"), InstanceName("Purchase Detail")]
@@ -30,7 +28,7 @@ namespace SereneMovieTutorial.Inventry.Entities
             get { return Fields.PurchaseOrderId[this]; }
             set { Fields.PurchaseOrderId[this] = value; }
         }
-        
+
         public string PoNo
         {
             get { return Fields.PoNo[this]; }
@@ -79,7 +77,7 @@ namespace SereneMovieTutorial.Inventry.Entities
             set { Fields.Quantity[this] = value; }
         }
 
-        
+
         [DisplayName("Item"), ForeignKey(typeof(UnitRow), "Id"), LeftJoin("Unit"), TextualField("UnitId"), NotNull]
         [LookupEditor(typeof(UnitRow))]
         public Int32? UnitId
@@ -143,7 +141,7 @@ namespace SereneMovieTutorial.Inventry.Entities
             get { return Fields.IgstRate[this]; }
             set { Fields.IgstRate[this] = value; }
         }
-        [DisplayName("Cgst Amount"), Column("CGSTamount"), Size(18), Scale(2),ReadOnly(true)]
+        [DisplayName("Cgst Amount"), Column("CGSTamount"), Size(18), Scale(2), ReadOnly(true)]
         public Decimal? CgstAmount
         {
             get { return Fields.CgstAmount[this]; }

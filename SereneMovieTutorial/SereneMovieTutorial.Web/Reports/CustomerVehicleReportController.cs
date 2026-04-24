@@ -1,11 +1,8 @@
-﻿using iTextSharp.text;
-using iTextSharp.text.pdf;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
 using System.Web.Mvc;
 
 
@@ -71,7 +68,7 @@ namespace SereneMovieTutorial.Reports
                 {
                     list2.Add(new CustomerVehicleReportModel
                     {
-                        
+
                         CustomerId = Convert.ToInt32(dr["CustomerId"]),
                         CustomerCode = dr["CustomerCode"]?.ToString(),
                         FullName = dr["FullName"]?.ToString(),
@@ -83,17 +80,17 @@ namespace SereneMovieTutorial.Reports
                         PinCode = dr["PinCode"]?.ToString(),
                         IdentityNumber = dr["IdentityNumber"]?.ToString(),
 
-                        
+
                         DateOfBirth = dr["DateOfBirth"] as DateTime?,
 
-                       
+
                         IsActive = dr["CustomerIsActive"] != DBNull.Value
                                         && Convert.ToBoolean(dr["CustomerIsActive"]),
 
-                        
+
                         CreatedDate = Convert.ToDateTime(dr["CustomerCreatedDate"]),
 
-                       
+
                         VehicleId = Convert.ToInt32(dr["VehicleId"]),
                         VehicleNumber = dr["VehicleNumber"]?.ToString(),
                         VehicleType = (int)dr["VehicleType"],
@@ -109,10 +106,10 @@ namespace SereneMovieTutorial.Reports
                         ChassisNumber = dr["ChassisNumber"]?.ToString(),
                         Color = dr["Color"]?.ToString(),
 
-                        
+
                         InsuranceExpiryDate = dr["InsuranceExpiryDate"] as DateTime?,
 
-                        
+
                         VehicleIsActive = dr["VehicleIsActive"] as bool?,
 
                         VehicleCreatedDate = Convert.ToDateTime(dr["VehicleCreatedDate"])
@@ -208,7 +205,7 @@ namespace SereneMovieTutorial.Reports
             return View(list);
         }
 
-        
+
     }
 }
 

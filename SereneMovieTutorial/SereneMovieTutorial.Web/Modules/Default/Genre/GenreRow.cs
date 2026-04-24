@@ -1,14 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[Genre]")]
     [DisplayName("Genre"), InstanceName("Genre")]
@@ -20,7 +17,7 @@ namespace SereneMovieTutorial.Default.Entities
     public sealed class GenreRow : Row, IIdRow, INameRow
     {
         [DisplayName("Genre Id"), Identity]
-        [SortOrder(1,descending:true)]
+        [SortOrder(1, descending: true)]
         public Int32? GenreId
         {
             get { return Fields.GenreId[this]; }
@@ -39,7 +36,7 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.Dates[this]; }
             set { Fields.Dates[this] = value; }
         }
-        
+
         IIdField IIdRow.IdField
         {
             get { return Fields.GenreId; }

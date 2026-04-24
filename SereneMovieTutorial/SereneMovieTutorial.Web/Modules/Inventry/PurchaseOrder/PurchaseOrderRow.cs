@@ -2,14 +2,12 @@
 namespace SereneMovieTutorial.Inventry.Entities
 {
     using SereneMovieTutorial.Default.Entities;
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Inventry"), TableName("[dbo].[PurchaseOrder]")]
     [DisplayName("Purchase Order"), InstanceName("Purchase Order")]
@@ -39,14 +37,14 @@ namespace SereneMovieTutorial.Inventry.Entities
             set { Fields.OrderDate[this] = value; }
         }
 
-        [DisplayName("Party Id"), ForeignKey(typeof(PartyMasterRow),"Id"),LeftJoin("Party"),TextualField("PartyName")]
+        [DisplayName("Party Id"), ForeignKey(typeof(PartyMasterRow), "Id"), LeftJoin("Party"), TextualField("PartyName")]
         [LookupEditor(typeof(PartyMasterRow))]
         public Int32? PartyId
         {
             get { return Fields.PartyId[this]; }
             set { Fields.PartyId[this] = value; }
         }
-        [Expression("Party.Name"),LookupInclude]
+        [Expression("Party.Name"), LookupInclude]
         public string PartyName
         {
             get { return Fields.PartyName[this]; }
@@ -149,7 +147,7 @@ namespace SereneMovieTutorial.Inventry.Entities
             : base(Fields)
         {
         }
-        
+
 
         public class RowFields : RowFieldsBase
         {

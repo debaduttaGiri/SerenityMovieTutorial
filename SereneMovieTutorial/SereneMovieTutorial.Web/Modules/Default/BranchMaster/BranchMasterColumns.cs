@@ -1,13 +1,9 @@
 ﻿
 namespace SereneMovieTutorial.Default.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [ColumnsScript("Default.BranchMaster")]
     [BasedOnRow(typeof(Entities.BranchMasterRow), CheckNames = true)]
@@ -26,6 +22,6 @@ namespace SereneMovieTutorial.Default.Columns
         [DisplayName("State")]
         public String State1 { get; set; }
         public String Remarks { get; set; }
-        
+
     }
 }

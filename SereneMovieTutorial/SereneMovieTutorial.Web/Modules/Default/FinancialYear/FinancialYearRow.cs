@@ -1,22 +1,20 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[FinancialYear]")]
     [DisplayName("Financial Year"), InstanceName("Financial Year")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
-    [LookupScript("Default.FinancialYear",Permission ="*")]
+    [LookupScript("Default.FinancialYear", Permission = "*")]
     public sealed class FinancialYearRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Id"), Identity,SortOrder(1,descending:true)]
+        [DisplayName("Id"), Identity, SortOrder(1, descending: true)]
         public Int32? Id
         {
             get { return Fields.Id[this]; }

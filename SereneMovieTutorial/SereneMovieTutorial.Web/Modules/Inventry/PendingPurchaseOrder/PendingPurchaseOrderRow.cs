@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Inventry.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Inventry"), TableName("[dbo].[V_PendingPurchaseOrder]")]
     [DisplayName("Pending Purchase Order"), InstanceName("Pending Purchase Order")]
@@ -15,8 +13,8 @@ namespace SereneMovieTutorial.Inventry.Entities
     [ModifyPermission("Administration:General")]
     public sealed class PendingPurchaseOrderRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Id"), NotNull,SortOrder(1,descending:true)]
-       
+        [DisplayName("Id"), NotNull, SortOrder(1, descending: true)]
+
         public Int32? Id
         {
             get { return Fields.Id[this]; }
@@ -183,7 +181,7 @@ namespace SereneMovieTutorial.Inventry.Entities
             get { return Fields.StockLevelMin[this]; }
             set { Fields.StockLevelMin[this] = value; }
         }
-        [ NotNull, ForeignKey("[dbo].[PurchaseOrder]", "Id"), LeftJoin("Po")]
+        [NotNull, ForeignKey("[dbo].[PurchaseOrder]", "Id"), LeftJoin("Po")]
         public int PurchaseOrderId
         {
             get => this.PurchaseOrderId;

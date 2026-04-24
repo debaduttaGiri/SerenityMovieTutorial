@@ -1,23 +1,21 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[ItemMaster]")]
     [DisplayName("Items"), InstanceName("Item")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
-    [LookupScript(Permission ="*")]
+    [LookupScript(Permission = "*")]
     public sealed class ItemMasterRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Identity]
-        [SortOrder(1,descending:true)]
+        [SortOrder(1, descending: true)]
         public Int32? Id
         {
             get { return Fields.Id[this]; }

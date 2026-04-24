@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[Destination]")]
     [DisplayName("Destination"), InstanceName("Destination")]
@@ -17,7 +15,8 @@ namespace SereneMovieTutorial.Default.Entities
     public sealed class DestinationRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Identity]
-        [SortOrder(1,descending:true)]
+        [SortOrder(1, descending: true)]
+        [Visible(false)]
         public Int32? Id
         {
             get { return Fields.Id[this]; }
@@ -32,7 +31,7 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Plant[this] = value; }
         }
 
-        [DisplayName("Distict"), NotNull, ForeignKey("[dbo].[Distict]", "Id"), LeftJoin("jDistict"), TextualField("Distict"),LookupInclude]
+        [DisplayName("Distict"), NotNull, ForeignKey("[dbo].[Distict]", "Id"), LeftJoin("jDistict"), TextualField("Distict"), LookupInclude]
         [LookupEditor(typeof(DistictRow), CascadeFrom = "Plant", CascadeField = "Plant")]
         public Int32? Distict
         {
@@ -40,7 +39,7 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Distict[this] = value; }
         }
 
-        [DisplayName("Destination"), Size(20), QuickSearch,NotNull]
+        [DisplayName("Destination"), Size(20), QuickSearch, NotNull]
         public String Destination
         {
             get { return Fields.Destination[this]; }
@@ -54,12 +53,12 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Remarks[this] = value; }
         }
 
-        //[DisplayName("Plant"), Expression("jPlant.[Plant]")]
-        //public String Plant1
-        //{
-        //    get { return Fields.Plant1[this]; }
-        //    set { Fields.Plant1[this] = value; }
-        //}
+        [DisplayName("Plant"), Expression("jPlant.[Plant]")]
+        public String PlantName
+        {
+            get { return Fields.PlantName[this]; }
+            set { Fields.PlantName[this] = value; }
+        }
 
         //[DisplayName("Plant Remarks"), Expression("jPlant.[Remarks]")]
         //public String PlantRemarks
@@ -75,12 +74,12 @@ namespace SereneMovieTutorial.Default.Entities
         //    set { Fields.DistictPlant[this] = value; }
         //}
 
-        //[DisplayName("Distict"), Expression("jDistict.[Distict]")]
-        //public String Distict1
-        //{
-        //    get { return Fields.Distict1[this]; }
-        //    set { Fields.Distict1[this] = value; }
-        //}
+        [DisplayName("Distict"), Expression("jDistict.[Distict]")]
+        public String DistictName
+        {
+            get { return Fields.DistictName[this]; }
+            set { Fields.DistictName[this] = value; }
+        }
 
         //[DisplayName("Distict Remarks"), Expression("jDistict.[Remarks]")]
         //public String DistictRemarks
@@ -114,11 +113,11 @@ namespace SereneMovieTutorial.Default.Entities
             public StringField Destination;
             public StringField Remarks;
 
-            //public StringField Plant1;
+            public StringField PlantName;
             //public StringField PlantRemarks;
 
             //public Int32Field DistictPlant;
-            //public StringField Distict1;
+            public StringField DistictName;
             //public StringField DistictRemarks;
         }
     }

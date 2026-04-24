@@ -107,7 +107,7 @@ namespace SereneMovieTutorial.Default {
 
             this.view.refresh();
             input.addClass('dirty');
-            //this.setSaveButtonState();
+            
         }
 
        
@@ -121,54 +121,37 @@ namespace SereneMovieTutorial.Default {
                 onViewSubmit: () => this.onViewSubmit(),
                 separator: true
             }));
-            buttons.push({
-                //title: "Export PDF",
-                cssClass: "export-pdf-button",
-                onClick: () => {
-
-                    if (!this.onViewSubmit())
-                        return;
-
-                    Q.postToUrl({
-                        url: Q.resolveUrl('~/Services/' + DistictService.baseUrl + '/ListPdf'),
-                        params: this.view.params,
-                        target: "_blank"
-                    });
+            buttons.push(Common.PdfExportHelper.createToolButton({
+                grid: this,
+                onViewSubmit: () => this.onViewSubmit(),
+                reportTitle: 'District List',
+                columnTitles: {
+                    'Discontinued':'Dis.',
+                },
+                tableOptions: {
+                    columnStyles: {
+                        DistrictId: {
+                            columnWidth: 25,
+                            halign:'right'
+                        },
+                        Discontinued: {
+                            columnWidth:25
+                        }
+                    }
                 }
-            });
+            }));
 
 
             buttons.push({
                 title: 'Save Changes',
                 cssClass: 'apply-changes-button',
-                onClick: () => this.saveChanges1()
+                onClick: () => this.saveChanges()
             });
 
             return buttons;
         }
        
-        //private saveChanges1() {
-
-        //    for (let id in this.pendingChanges) {
-        //        let changes = this.pendingChanges[id];
-
-        //        DistictService.Update({
-        //            EntityId: id,
-        //            Entity: changes
-        //        }, response => {
-        //            Q.notifySuccess("Row " + id + " updated successfully.");
-        //        });
-        //    }
-
-            
-        //    this.pendingChanges = {};
-        //    //this.setSaveButtonState();
-        //    Q.reloadLookup('Default.Plant');
-        //    this.refresh();
-        //    //window.location.reload();
-        //}
-
-        private saveChanges1() {
+        private saveChanges() {
 
             let keys = Object.keys(this.pendingChanges);
 

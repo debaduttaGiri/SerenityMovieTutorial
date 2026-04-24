@@ -28,7 +28,7 @@ namespace SereneMovieTutorial
             }
         }
 
-        public static ReportTree FromList(IEnumerable<ReportRegistry.Report> reports, 
+        public static ReportTree FromList(IEnumerable<ReportRegistry.Report> reports,
             string rootPath = null, string categoryOrder = null)
         {
             if (reports == null)

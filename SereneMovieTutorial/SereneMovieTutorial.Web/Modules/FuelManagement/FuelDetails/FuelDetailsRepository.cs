@@ -1,10 +1,8 @@
 ﻿
 namespace SereneMovieTutorial.FuelManagement.Repositories
 {
-    using Serenity;
     using Serenity.Data;
     using Serenity.Services;
-    using System;
     using System.Data;
     using MyRow = Entities.FuelDetailsRow;
 
@@ -37,7 +35,8 @@ namespace SereneMovieTutorial.FuelManagement.Repositories
             return new MyListHandler().Process(connection, request);
         }
 
-        private class MySaveHandler : SaveRequestHandler<MyRow> {
+        private class MySaveHandler : SaveRequestHandler<MyRow>
+        {
             protected override void BeforeSave()
             {
                 base.BeforeSave();

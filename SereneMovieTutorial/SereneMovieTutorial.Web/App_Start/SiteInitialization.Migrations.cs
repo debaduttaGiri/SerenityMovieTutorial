@@ -11,7 +11,7 @@
     using System.Web.Hosting;
 
     public static partial class SiteInitialization
-    { 
+    {
         private static string[] databaseKeys = new[] {
             "Default"
         };
@@ -57,11 +57,11 @@
                     if (createFile != null)
                         createFile.Invoke(null, new object[] { dataFile });
                 }
-                    
+
                 SqlConnection.ClearAllPools();
                 return;
             }
-            
+
             foreach (var ck in new[] { "Initial Catalog", "Database", "AttachDBFilename" })
                 if (cb.ContainsKey(ck))
                 {
@@ -114,7 +114,7 @@
                 if (serverConnection.Query(databasesQuery, new { name = catalog }).Any())
                     return;
 
-                var isLocalServer = isSql && 
+                var isLocalServer = isSql &&
                     serverConnection.ConnectionString.IndexOf(@"(localdb)\", StringComparison.OrdinalIgnoreCase) >= 0 ||
                     serverConnection.ConnectionString.IndexOf(@".\") >= 0;
 

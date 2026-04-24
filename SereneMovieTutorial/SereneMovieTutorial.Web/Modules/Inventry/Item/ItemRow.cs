@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Inventry.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Inventry"), TableName("[dbo].[ITEM]")]
     [DisplayName("Item"), InstanceName("Item")]
@@ -16,7 +14,7 @@ namespace SereneMovieTutorial.Inventry.Entities
     [LookupScript]
     public sealed class ItemRow : Row, IIdRow, INameRow, IInsertLogRow, IUpdateLogRow
     {
-        [DisplayName("Id"), Column("ID"), Identity,SortOrder(1,descending:true)]
+        [DisplayName("Id"), Column("ID"), Identity, SortOrder(1, descending: true)]
         public Int32? Id
         {
             get { return Fields.Id[this]; }

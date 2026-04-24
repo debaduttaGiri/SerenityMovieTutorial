@@ -1,27 +1,23 @@
 ﻿
 namespace SereneMovieTutorial.Inventry.Forms
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [FormScript("Inventry.PurchaseRequestDetail")]
     [BasedOnRow(typeof(Entities.PurchaseRequestDetailRow), CheckNames = true)]
-    
+
     public class PurchaseRequestDetailForm
     {
         [HalfWidth, ReadOnly(true)]
         public String PoNo { get; set; }
-        [HalfWidth,Hidden]
+        [HalfWidth, Hidden]
         public Int32 PurchaseOrderId { get; set; }
         [HalfWidth]
         public Int32 ItemId { get; set; }
-        [HalfWidth,ReadOnly(true)]
-        public String PartNo { get; set; } 
+        [HalfWidth, ReadOnly(true)]
+        public String PartNo { get; set; }
         [HalfWidth, ReadOnly(true)]
         public Decimal PreviousRate { get; set; }
         [HalfWidth, ReadOnly(true)]
@@ -36,9 +32,9 @@ namespace SereneMovieTutorial.Inventry.Forms
         public Decimal Quantity { get; set; }
         [HalfWidth]
         public Int32 UnitId { get; set; }
-       
-        
-        
+
+
+
         [HalfWidth, ReadOnly(true)]
         public Decimal BasicAmount { get; set; }
         [HalfWidth]
@@ -49,9 +45,9 @@ namespace SereneMovieTutorial.Inventry.Forms
         public Decimal IgstRate { get; set; }
         [HalfWidth]
         public Decimal CgstAmount { get; set; }
-        [HalfWidth ]
+        [HalfWidth]
         public Decimal SgstAmount { get; set; }
-        [HalfWidth ]
+        [HalfWidth]
         public Decimal IgstAmount { get; set; }
         [HalfWidth, ReadOnly(true)]
         public Decimal TotalAmount { get; set; }

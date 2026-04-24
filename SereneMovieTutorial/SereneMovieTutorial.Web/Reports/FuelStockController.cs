@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SereneMovieTutorial.Reports
@@ -16,8 +14,8 @@ namespace SereneMovieTutorial.Reports
         [Route("fuel-stock-report")]
         public ActionResult Index2(FuelStockModel model)
         {
-            
-            DateTime? fromDate =  null;
+
+            DateTime? fromDate = null;
             if (!string.IsNullOrEmpty(model.FromDate))
             {
                 if (DateTime.TryParseExact(
@@ -30,7 +28,7 @@ namespace SereneMovieTutorial.Reports
                     fromDate = parsedFrom;
                 }
             }
-            DateTime? toDate =  null;
+            DateTime? toDate = null;
             if (!string.IsNullOrEmpty(model.ToDate))
             {
                 if (DateTime.TryParseExact(
@@ -43,19 +41,19 @@ namespace SereneMovieTutorial.Reports
                     toDate = parsedTo;
                 }
             }
-            if(model.IsSummary == true)
+            if (model.IsSummary == true)
             {
                 using (var connection = SqlConnections.NewByKey("Default"))
                 {
-                   model.Data = GetReportData(connection, fromDate,toDate,model.IsSummary,model.PumpId);
-                 }
+                    model.Data = GetReportData(connection, fromDate, toDate, model.IsSummary, model.PumpId);
+                }
 
             }
             else
             {
                 using (var connection = SqlConnections.NewByKey("Default"))
                 {
-                    model.DailyData = GetDailyReportData(connection, fromDate, toDate, model.PumpId,model.IsSummary);
+                    model.DailyData = GetDailyReportData(connection, fromDate, toDate, model.PumpId, model.IsSummary);
                 }
             }
 
@@ -75,7 +73,7 @@ namespace SereneMovieTutorial.Reports
                 commandType: CommandType.StoredProcedure
             ).ToList();
         }
-        private List<DailyFuelTransaction> GetDailyReportData(IDbConnection connection, DateTime? f, DateTime? t, int? p,bool q)
+        private List<DailyFuelTransaction> GetDailyReportData(IDbConnection connection, DateTime? f, DateTime? t, int? p, bool q)
         {
             return connection.Query<DailyFuelTransaction>(
                 "sp_DailyFuelStockReport",
@@ -97,7 +95,7 @@ namespace SereneMovieTutorial.Reports
         //        var data = GetReportData(connection,FromDate, ToDate, IsSummary, PumpId);
         //        data2 = data;
         //    }
-            
+
 
         //    using (var workbook = new ClosedXML.Excel.XLWorkbook())
         //    {

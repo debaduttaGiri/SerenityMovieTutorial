@@ -1,13 +1,9 @@
 ﻿
 namespace SereneMovieTutorial.Default.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [ColumnsScript("Default.VLoadingTripDetails")]
     [BasedOnRow(typeof(Entities.VLoadingTripDetailsRow), CheckNames = true)]
@@ -20,11 +16,11 @@ namespace SereneMovieTutorial.Default.Columns
         public DateTime TripDate { get; set; }
         //public Int32 PlantId { get; set; }
         public String PlantName { get; set; }
-       // public Int32 DistrictId { get; set; }
+        // public Int32 DistrictId { get; set; }
         public String DistrictName { get; set; }
-       // public Int32 DestinationId { get; set; }
+        // public Int32 DestinationId { get; set; }
         public String DestinationName { get; set; }
-       // public Int32 VehicleId { get; set; }
+        // public Int32 VehicleId { get; set; }
         public String VehicleNumber { get; set; }
         //public Int32 CustomerId { get; set; }
         public String CustomerName { get; set; }

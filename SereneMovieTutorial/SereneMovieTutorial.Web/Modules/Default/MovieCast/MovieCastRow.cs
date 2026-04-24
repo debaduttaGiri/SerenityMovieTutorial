@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[MovieCast]")]
     [DisplayName("Movie Cast"), InstanceName("Movie Cast")]
@@ -135,11 +133,11 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.PersonHeight[this] = value; }
         }
 
-        [DisplayName("Person Full Name"), Expression("jPerson.[FirstName] + ' ' + jPerson.[LastName]")] 
+        [DisplayName("Person Full Name"), Expression("jPerson.[FirstName] + ' ' + jPerson.[LastName]")]
         public String PersonFullName
-        { 
-            get { return Fields.PersonFullName[this]; } 
-            set { Fields.PersonFullName[this] = value; } 
+        {
+            get { return Fields.PersonFullName[this]; }
+            set { Fields.PersonFullName[this] = value; }
         }
 
         IIdField IIdRow.IdField

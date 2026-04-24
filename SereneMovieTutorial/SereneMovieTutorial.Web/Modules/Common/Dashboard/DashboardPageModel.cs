@@ -3,14 +3,7 @@ namespace SereneMovieTutorial.Common
 {
     public class DashboardPageModel
     {
-        public MineRevenueModel MineRevenue { get; set; }
         public DashboardSummaryModel DashboardSummaryModel { get; set; }
-
-        public MineMarginModel mineMarginModel { get; set; }
-
-        public BuyerModel buyerModel { get; set; }
-        public PermitModel permitModel { get; set; }
-        public RevenueCostModel revenueCostModel { get; set; }
     }
     public class DashboardSummaryModel
     {

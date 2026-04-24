@@ -2,10 +2,8 @@
 namespace SereneMovieTutorial.FuelManagement.Endpoints
 {
     using SereneMovieTutorial.Default.Entities;
-    using SereneMovieTutorial.FuelManagement.Entities;
     using SereneMovieTutorial.FuelManagement.Repositories;
     using SereneMovieTutorial.Modules.FuelManagement.Dieselissue;
-    using Serenity;
     using Serenity.Data;
     using Serenity.Services;
     using System;
@@ -69,7 +67,7 @@ namespace SereneMovieTutorial.FuelManagement.Endpoints
         {
             return new DieselissueRepository().GetDieselRate(uow.Connection, request.Date);
         }
-        public TripDetailsResponse GetTripDetails(IDbConnection connection,TripDetailsRequest request)
+        public TripDetailsResponse GetTripDetails(IDbConnection connection, TripDetailsRequest request)
         {
             var response = new TripDetailsResponse();
             try
@@ -96,7 +94,7 @@ namespace SereneMovieTutorial.FuelManagement.Endpoints
 
             return response;
         }
-        
+
     }
     public class TripDetailsResponse : ServiceResponse
     {

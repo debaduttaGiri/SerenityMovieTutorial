@@ -1,7 +1,6 @@
 ﻿
 namespace SereneMovieTutorial.FuelManagement.Repositories
 {
-    using Serenity;
     using Serenity.Data;
     using Serenity.Services;
     using System;
@@ -43,89 +42,90 @@ namespace SereneMovieTutorial.FuelManagement.Repositories
 
         private class MySaveHandler : SaveRequestHandler<MyRow>
         {
-        //    private decimal oldDiesel = 0;
+            //    private decimal oldDiesel = 0;
 
-        //    protected override void BeforeSave()
-        //    {
-        //        base.BeforeSave();
+            //    protected override void BeforeSave()
+            //    {
+            //        base.BeforeSave();
 
-        //        var fld = MyRow.Fields;
+            //        var fld = MyRow.Fields;
 
-        //        int count;
+            //        int count;
 
-        //        if (IsUpdate)
-        //        {
-        //            count = Connection.Count<MyRow>(
-        //                fld.Tripno == Row.Tripno.Value &&
-        //                fld.VehicleId == Row.VehicleId &&
-        //                fld.Id != Row.Id.Value);
-        //        }
-        //        else
-        //        {
-        //            count = Connection.Count<MyRow>(
-        //                fld.Tripno == Row.Tripno.Value &&
-        //                fld.VehicleId == Row.VehicleId);
-        //        }
+            //        if (IsUpdate)
+            //        {
+            //            count = Connection.Count<MyRow>(
+            //                fld.Tripno == Row.Tripno.Value &&
+            //                fld.VehicleId == Row.VehicleId &&
+            //                fld.Id != Row.Id.Value);
+            //        }
+            //        else
+            //        {
+            //            count = Connection.Count<MyRow>(
+            //                fld.Tripno == Row.Tripno.Value &&
+            //                fld.VehicleId == Row.VehicleId);
+            //        }
 
-        //        if (count > 0)
-        //            throw new ValidationError("Diesel already issued for this Trip and Vehicle!");
+            //        if (count > 0)
+            //            throw new ValidationError("Diesel already issued for this Trip and Vehicle!");
 
-        //        var pumpFld = Default.Entities.PumpmasterRow.Fields;
+            //        var pumpFld = Default.Entities.PumpmasterRow.Fields;
 
-        //        var pump = Connection.TryFirst<Default.Entities.PumpmasterRow>(
-        //            pumpFld.Id == (int)Row.Pumpid);
+            //        var pump = Connection.TryFirst<Default.Entities.PumpmasterRow>(
+            //            pumpFld.Id == (int)Row.Pumpid);
 
-        //        // get old diesel value when updating
-        //        if (IsUpdate)
-        //        {
-        //            var old = Connection.TryById<MyRow>(Row.Id.Value);
-        //            oldDiesel = old?.Diesel ?? 0;
-        //        }
+            //        // get old diesel value when updating
+            //        if (IsUpdate)
+            //        {
+            //            var old = Connection.TryById<MyRow>(Row.Id.Value);
+            //            oldDiesel = old?.Diesel ?? 0;
+            //        }
 
-        //        decimal availableStock = (pump?.Stock ?? 0) + oldDiesel;
+            //        decimal availableStock = (pump?.Stock ?? 0) + oldDiesel;
 
-        //        if ((Row.Diesel ?? 0) > availableStock)
-        //            throw new ValidationError("Pump stock is not enough!");
-        //    }
+            //        if ((Row.Diesel ?? 0) > availableStock)
+            //            throw new ValidationError("Pump stock is not enough!");
+            //    }
 
-        //    protected override void AfterSave()
-        //    {
-        //        base.AfterSave();
+            //    protected override void AfterSave()
+            //    {
+            //        base.AfterSave();
 
-        //        var pumpFld = Default.Entities.PumpmasterRow.Fields;
+            //        var pumpFld = Default.Entities.PumpmasterRow.Fields;
 
-        //        var pump = Connection.TryFirst<Default.Entities.PumpmasterRow>(
-        //            pumpFld.Id == (int)Row.Pumpid);
+            //        var pump = Connection.TryFirst<Default.Entities.PumpmasterRow>(
+            //            pumpFld.Id == (int)Row.Pumpid);
 
-        //        if (pump != null)
-        //        {
-        //            decimal newDiesel = Row.Diesel ?? 0;
+            //        if (pump != null)
+            //        {
+            //            decimal newDiesel = Row.Diesel ?? 0;
 
-        //            if (IsUpdate)
-        //                pump.Stock = (pump.Stock ?? 0) + oldDiesel - newDiesel;
-        //            else
-        //                pump.Stock = (pump.Stock ?? 0) - newDiesel;
+            //            if (IsUpdate)
+            //                pump.Stock = (pump.Stock ?? 0) + oldDiesel - newDiesel;
+            //            else
+            //                pump.Stock = (pump.Stock ?? 0) - newDiesel;
 
-        //            Connection.UpdateById(pump);
-        //        }
-        //    }
+            //            Connection.UpdateById(pump);
+            //        }
+            //    }
         }
-        private class MyDeleteHandler : DeleteRequestHandler<MyRow> {
+        private class MyDeleteHandler : DeleteRequestHandler<MyRow>
+        {
 
-        //    protected override void OnAfterDelete()
-        //    {
-        //        base.OnAfterDelete();
+            //    protected override void OnAfterDelete()
+            //    {
+            //        base.OnAfterDelete();
 
-        //        var pump = Connection.TryById<Default.Entities.PumpmasterRow>(Row.Pumpid.Value);
+            //        var pump = Connection.TryById<Default.Entities.PumpmasterRow>(Row.Pumpid.Value);
 
-        //        if (pump != null)
-        //        {
-        //            pump.Stock = (pump.Stock ?? 0) + (Row.Diesel ?? 0);
+            //        if (pump != null)
+            //        {
+            //            pump.Stock = (pump.Stock ?? 0) + (Row.Diesel ?? 0);
 
-        //            Connection.UpdateById(pump);
-        //        }
+            //            Connection.UpdateById(pump);
+            //        }
         }
-        
+
         private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> { }
         private class MyListHandler : ListRequestHandler<MyRow> { }
     }

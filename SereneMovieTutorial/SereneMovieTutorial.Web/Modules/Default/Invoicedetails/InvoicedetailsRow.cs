@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[INVOICEDETAILS]")]
     [DisplayName("Invoice Details"), InstanceName("Invoicedetails")]
@@ -50,8 +48,8 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.Vehicleid[this]; }
             set { Fields.Vehicleid[this] = value; }
         }
-        
-            [DisplayName("VehicleNumber"), Column("VehicleNumber")]
+
+        [DisplayName("VehicleNumber"), Column("VehicleNumber")]
         public string VehicleNumber
         {
             get { return Fields.VehicleNumber[this]; }
@@ -92,7 +90,7 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.LoadingTripId[this] = value; }
         }
 
-        
+
 
         IIdField IIdRow.IdField
         {

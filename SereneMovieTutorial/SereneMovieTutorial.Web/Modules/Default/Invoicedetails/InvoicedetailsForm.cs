@@ -1,13 +1,8 @@
 ﻿
 namespace SereneMovieTutorial.Default.Forms
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
-    using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [FormScript("Default.Invoicedetails")]
     [BasedOnRow(typeof(Entities.InvoicedetailsRow), CheckNames = true)]
@@ -22,7 +17,7 @@ namespace SereneMovieTutorial.Default.Forms
         public Decimal Billingamount { get; set; }
         public DateTime Invoicedate { get; set; }
         public Int32? LoadingTripId { get; set; }
-        
+
 
     }
 }

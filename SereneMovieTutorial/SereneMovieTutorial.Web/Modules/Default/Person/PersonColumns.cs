@@ -1,20 +1,16 @@
 ﻿
 namespace SereneMovieTutorial.Default.Columns
 {
-    using Serenity;
+    using SereneMovieTutorial.Modules.Default.Person;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
-    using SereneMovieTutorial.Modules.Default.Person;
 
     [ColumnsScript("Default.Person")]
     [BasedOnRow(typeof(Entities.PersonRow), CheckNames = true)]
     public class PersonColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight, Hidden]
         public Int32 PersonId { get; set; }
         [EditLink]
         public String FullName { get; set; }

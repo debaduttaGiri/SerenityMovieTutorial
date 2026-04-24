@@ -1,14 +1,10 @@
 ﻿
 namespace SereneMovieTutorial.Default.Forms
 {
-    using Serenity;
-    using Serenity.ComponentModel;
-    using Serenity.Data;
-    using System;
-    using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
     using SereneMovieTutorial.Default.Entities;
+    using Serenity.ComponentModel;
+    using System;
+    using System.Collections.Generic;
 
     [FormScript("Default.Genre")]
     [BasedOnRow(typeof(Entities.GenreRow), CheckNames = true)]

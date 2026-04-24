@@ -7,7 +7,7 @@
         export declare function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<DieselissueRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<DieselissueRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        export declare function GetDieselRate(request: Modules.FuelManagement.Dieselissue.DieselRateRequest, onSuccess?: (response: any) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        export declare function GetDieselRate(request: Modules.FuelManagement.Dieselissue.DieselRateRequest, onSuccess?: (response: System.Nullable<number>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function GetTripDetails(request: TripDetailsRequest, onSuccess?: (response: TripDetailsResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
 
         export declare const enum Methods {

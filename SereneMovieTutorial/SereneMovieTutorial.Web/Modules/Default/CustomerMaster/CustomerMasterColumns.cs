@@ -1,19 +1,15 @@
 ﻿
 namespace SereneMovieTutorial.Default.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [ColumnsScript("Default.CustomerMaster")]
     [BasedOnRow(typeof(Entities.CustomerMasterRow), CheckNames = true)]
     public class CustomerMasterColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight, Hidden]
         public Int32 CustomerId { get; set; }
         [EditLink]
         public String CustomerCode { get; set; }

@@ -1,19 +1,15 @@
 ﻿
 namespace SereneMovieTutorial.Inventry.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [ColumnsScript("Inventry.PurchaseOrder")]
     [BasedOnRow(typeof(Entities.PurchaseOrderRow), CheckNames = false)]
     public class PurchaseOrderColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight, Hidden]
         public Int32 Id { get; set; }
         [EditLink]
         [Width(80)]
@@ -34,6 +30,6 @@ namespace SereneMovieTutorial.Inventry.Columns
         public DateTime UpdateDate { get; set; }
         [Width(80)]
         public string UpdatedByUsername { get; set; }
-        
+
     }
 }

@@ -1,14 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Forms
 {
-    using Serenity;
-    using Serenity.ComponentModel;
-    using Serenity.Data;
-    using System;
-    using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
     using SereneMovieTutorial.Default.Entities;
+    using Serenity.ComponentModel;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
 
     [FormScript("Default.Manageinvoice")]
     [BasedOnRow(typeof(Entities.ManageinvoiceRow), CheckNames = false)]
@@ -19,19 +16,19 @@ namespace SereneMovieTutorial.Default.Forms
         // ================= BASIC INFO =================
         [Category("Invoice Information")]
 
-        [HalfWidth,ReadOnly(true)]
+        [HalfWidth, ReadOnly(true)]
         public Int32 Plantid { get; set; }
         [HalfWidth, ReadOnly(true)]
 
         public int LoadingTripId { get; set; }
 
-        [HalfWidth,ReadOnly(true)]
+        [HalfWidth, ReadOnly(true)]
         public Int32 Branchid { get; set; }
 
-        [HalfWidth,ReadOnly(true)]
+        [HalfWidth, ReadOnly(true)]
         public Int32 Totaltrips { get; set; }
 
-        [HalfWidth,ReadOnly(true)]
+        [HalfWidth, ReadOnly(true)]
         public String Invoiceno { get; set; }
 
         [HalfWidth]
@@ -51,7 +48,7 @@ namespace SereneMovieTutorial.Default.Forms
         [Category("Taxes")]
         public Boolean Addgst { get; set; }
 
-        [HalfWidth,ReadOnly(true)]
+        [HalfWidth, ReadOnly(true)]
         public Int32 Saccode { get; set; }
 
         [HalfWidth, ReadOnly(true)]
@@ -61,7 +58,7 @@ namespace SereneMovieTutorial.Default.Forms
         //[OneThirdWidth]
         //public Boolean Localgst { get; set; }
 
-        [OneThirdWidth,ReadOnly(true)]
+        [OneThirdWidth, ReadOnly(true)]
         public Decimal Cgstrate { get; set; }
 
         [OneThirdWidth, ReadOnly(true)]
@@ -94,7 +91,7 @@ namespace SereneMovieTutorial.Default.Forms
         //[HalfWidth]
         //public Int32 RecipientBank { get; set; }
 
-       
+
 
 
 

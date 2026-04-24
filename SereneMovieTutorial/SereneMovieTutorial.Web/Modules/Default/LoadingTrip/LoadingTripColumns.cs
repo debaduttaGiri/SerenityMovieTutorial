@@ -1,30 +1,23 @@
 ﻿
 namespace SereneMovieTutorial.Default.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using SereneMovieTutorial.Default.Entities;
-    using Serenity.Data.Mapping;
 
     [ColumnsScript("Default.LoadingTrip")]
     [BasedOnRow(typeof(Entities.LoadingTripRow), CheckNames = false)]
     public class LoadingTripColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight, Hidden]
         public Int32 LoadingTripId { get; set; }
         [EditLink]
         public String TripNo { get; set; }
         [Width(150)]
         public DateTime TripDate { get; set; }
-        
+
         public string Plant { get; set; }
-        
+
         public string District { get; set; }
         public string Destination { get; set; }
         // public Int32 ExpenseId { get; set; }
@@ -34,7 +27,7 @@ namespace SereneMovieTutorial.Default.Columns
         public string Branch { get; set; }
         public string State { get; set; }
         public string ItemName { get; set; }
-       
+
         public Decimal Weight { get; set; }
         public Int32 freightRate { get; set; }
         public Int32 Wheels { get; set; }
@@ -43,7 +36,7 @@ namespace SereneMovieTutorial.Default.Columns
         public DateTime CreatedDate { get; set; }
 
         public String CreatedByUsername { get; set; }
-        [Width(140), DisplayFormat("dd-MM-yyyy HH:mm:ss"),DisplayName("CreatedDate")]
+        [Width(140), DisplayFormat("dd-MM-yyyy HH:mm:ss"), DisplayName("CreatedDate")]
         public DateTime CreateDate { get; set; }
         [Width(100)]
         public String UpdatedByUsername { get; set; }

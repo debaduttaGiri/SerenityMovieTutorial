@@ -1,14 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Columns
 {
-    using Serenity;
-    using Serenity.ComponentModel;
-    using Serenity.Data;
-    using System;
-    using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
     using SereneMovieTutorial.Modules.Default.Movie;
+    using Serenity.ComponentModel;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
 
     [ColumnsScript("Default.Movie")]
     [BasedOnRow(typeof(Entities.MovieRow), CheckNames = false)]
@@ -16,7 +13,7 @@ namespace SereneMovieTutorial.Default.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), Hidden]
         public Int32 MovieId { get; set; }
-        [EditLink]       
+        [EditLink]
         public String Title { get; set; }
         [DisplayName("Actors")]
         public string Actors { get; set; }

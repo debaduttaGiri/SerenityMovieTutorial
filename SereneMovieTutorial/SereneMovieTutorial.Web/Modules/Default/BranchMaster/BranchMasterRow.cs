@@ -1,30 +1,28 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[BranchMaster]")]
     [DisplayName("Branch"), InstanceName("Branch")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
-    [LookupScript(Permission ="*")]
+    [LookupScript(Permission = "*")]
     public sealed class BranchMasterRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Identity]
-        [SortOrder(1,descending:true)]
+        [SortOrder(1, descending: true)]
         public Int32? Id
         {
             get { return Fields.Id[this]; }
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Branch Name"), Size(20), NotNull, QuickSearch,Required]
+        [DisplayName("Branch Name"), Size(20), NotNull, QuickSearch, Required]
         public String BranchName
         {
             get { return Fields.BranchName[this]; }
@@ -38,14 +36,14 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.BranchCode[this] = value; }
         }
 
-        [DisplayName("GST No"), Size(15),NotNull]
+        [DisplayName("GST No"), Size(15), NotNull]
         public string GstNo
         {
             get { return Fields.GstNo[this]; }
             set { Fields.GstNo[this] = value; }
         }
 
-        [DisplayName("PAN No"), Size(10),NotNull]
+        [DisplayName("PAN No"), Size(10), NotNull]
         public string PanNo
         {
             get { return Fields.PanNo[this]; }
@@ -87,7 +85,8 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Remarks[this] = value; }
         }
 
-        [DisplayName("State"), NotNull, ForeignKey("[dbo].[StateMaster]", "Id"), LeftJoin("jState"), TextualField("State1")][LookupInclude]
+        [DisplayName("State"), NotNull, ForeignKey("[dbo].[StateMaster]", "Id"), LeftJoin("jState"), TextualField("State1")]
+        [LookupInclude]
         public Int32? StateId
         {
             get { return Fields.StateId[this]; }

@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[v_LoadingTripDetails]")]
     [DisplayName("Pending Unload Trip"), InstanceName("Pending Unload Trip")]
@@ -15,7 +13,7 @@ namespace SereneMovieTutorial.Default.Entities
     [ModifyPermission("Administration:General")]
     public sealed class VLoadingTripDetailsRow : Row, IIdRow, INameRow, IInsertLogRow, IUpdateLogRow
     {
-        [DisplayName("Loading Trip Id"), NotNull,SortOrder(1,descending:true)]
+        [DisplayName("Loading Trip Id"), NotNull, SortOrder(1, descending: true)]
         public Int32? LoadingTripId
         {
             get { return Fields.LoadingTripId[this]; }
@@ -182,7 +180,7 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.CreatedDate[this]; }
             set { Fields.CreatedDate[this] = value; }
         }
-        
+
         [DisplayName("Created By"), //Insertable(false), Updatable(false),
        ForeignKey("[dbo].[Users]", "UserId"), LeftJoin("jCreatedBy"),
        TextualField("CreatedByUsername")]

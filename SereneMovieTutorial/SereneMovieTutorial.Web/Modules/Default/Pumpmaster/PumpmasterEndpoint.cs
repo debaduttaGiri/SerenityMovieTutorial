@@ -2,7 +2,6 @@
 namespace SereneMovieTutorial.Default.Endpoints
 {
     using SereneMovieTutorial.Default.Entities;
-    using Serenity;
     using Serenity.Data;
     using Serenity.Services;
     using System.Data;
@@ -25,7 +24,7 @@ namespace SereneMovieTutorial.Default.Endpoints
         {
             return new MyRepository().Update(uow, request);
         }
- 
+
         [HttpPost, AuthorizeDelete(typeof(MyRow))]
         public DeleteResponse Delete(IUnitOfWork uow, DeleteRequest request)
         {
@@ -58,7 +57,7 @@ namespace SereneMovieTutorial.Default.Endpoints
 
             return response;
         }
-       
+
     }
     public class PumpStockRequest : ServiceRequest
     {

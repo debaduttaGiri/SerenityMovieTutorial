@@ -17,7 +17,7 @@ namespace SereneMovieTutorial.Administration.Endpoints
         {
             return new MyRepository().Update(uow, request);
         }
- 
+
         public RolePermissionListResponse List(IDbConnection connection, RolePermissionListRequest request)
         {
             return new MyRepository().List(connection, request);

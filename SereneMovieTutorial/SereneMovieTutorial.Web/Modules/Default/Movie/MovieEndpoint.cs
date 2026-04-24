@@ -1,17 +1,16 @@
 ﻿
 namespace SereneMovieTutorial.Default.Endpoints
 {
-    using Serenity;
     using Serenity.Data;
     using Serenity.Reporting;
     using Serenity.Services;
+    using Serenity.Web;
+    using System;
     using System.Data;
     using System.Web.Mvc;
     //using Serenity.Reporting;
     using MyRepository = Repositories.MovieRepository;
     using MyRow = Entities.MovieRow;
-    using Serenity.Web;
-    using System;
 
     [RoutePrefix("Services/Default/Movie"), Route("{action}")]
     [ConnectionKey(typeof(MyRow)), ServiceAuthorize(typeof(MyRow))]
@@ -28,7 +27,7 @@ namespace SereneMovieTutorial.Default.Endpoints
         {
             return new MyRepository().Update(uow, request);
         }
- 
+
         [HttpPost, AuthorizeDelete(typeof(MyRow))]
         public DeleteResponse Delete(IUnitOfWork uow, DeleteRequest request)
         {

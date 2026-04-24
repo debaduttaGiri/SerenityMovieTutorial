@@ -2,15 +2,12 @@
 namespace SereneMovieTutorial.MaintenanceModule.Entities
 {
     using SereneMovieTutorial.Default.Entities;
-    using SereneMovieTutorial.Modules.Default;
     using SereneMovieTutorial.Modules.Default.VehicleMaster;
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("MaintenanceModule"), TableName("[dbo].[Maintenance]")]
     [DisplayName("Maintenance"), InstanceName("Maintenance")]
@@ -65,7 +62,7 @@ namespace SereneMovieTutorial.MaintenanceModule.Entities
         }
 
         [DisplayName("Model No")]
-        
+
         public string ModelNumber
         {
             get { return Fields.ModelNumber[this]; }
@@ -107,7 +104,7 @@ namespace SereneMovieTutorial.MaintenanceModule.Entities
             set { Fields.Narration[this] = value; }
         }
 
-        
+
 
         [DisplayName("Owner"),
  ForeignKey("[dbo].[CustomerMaster]", "CustomerId"),

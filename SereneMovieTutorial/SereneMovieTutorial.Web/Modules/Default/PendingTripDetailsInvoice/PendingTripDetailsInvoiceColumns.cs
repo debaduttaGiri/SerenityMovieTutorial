@@ -1,19 +1,15 @@
 ﻿
 namespace SereneMovieTutorial.Default.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [ColumnsScript("Default.PendingTripDetailsInvoice")]
     [BasedOnRow(typeof(Entities.PendingTripDetailsInvoiceRow), CheckNames = true)]
     public class PendingTripDetailsInvoiceColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight, Hidden]
         public Int32 LoadingTripId { get; set; }
 
         public String TripNo { get; set; }
@@ -48,6 +44,6 @@ namespace SereneMovieTutorial.Default.Columns
         [Width(140), DisplayFormat("dd-MM-yyyy HH:mm:ss")]
         public DateTime Updateddate { get; set; }
         public String Remarks { get; set; }
-       
+
     }
 }

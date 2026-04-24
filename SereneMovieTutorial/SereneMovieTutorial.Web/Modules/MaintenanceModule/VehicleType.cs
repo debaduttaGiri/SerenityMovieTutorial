@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace SereneMovieTutorial.Modules.MaintenanceModule
+﻿namespace SereneMovieTutorial.Modules.MaintenanceModule
 {
-    
+
     public enum VehicleType
     {
         Truck = 1,

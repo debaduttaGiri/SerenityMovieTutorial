@@ -1,19 +1,17 @@
 ﻿
 namespace SereneMovieTutorial.Default.Forms
 {
-    using Serenity;
+    using SereneMovieTutorial.Modules.Default.Movie;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using System;
-    using System.ComponentModel;
     using System.Collections.Generic;
-    using System.IO;
-    using SereneMovieTutorial.Modules.Default.Movie;
+    using System.ComponentModel;
 
 
     [FormScript("Default.Movie")]
     [BasedOnRow(typeof(Entities.MovieRow), CheckNames = true)]
-    
+
     public class MovieForm
     {
         public String Title { get; set; }

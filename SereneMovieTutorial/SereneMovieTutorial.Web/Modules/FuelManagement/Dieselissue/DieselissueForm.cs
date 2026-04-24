@@ -1,14 +1,10 @@
 ﻿
 namespace SereneMovieTutorial.FuelManagement.Forms
 {
-    using Serenity;
+    using SereneMovieTutorial.Default.Entities;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
-    using SereneMovieTutorial.Default.Entities;
 
     [FormScript("FuelManagement.Dieselissue")]
     [BasedOnRow(typeof(Entities.DieselissueRow), CheckNames = true)]
@@ -17,7 +13,7 @@ namespace SereneMovieTutorial.FuelManagement.Forms
         [DisplayName("Vehicle Number"), HalfWidth, LookupEditor(typeof(Default.Entities.VehicleMasterRow))]
         public Int32 VehicleId { get; set; }
 
-        [LookupEditor(typeof(Default.Entities.LoadingTripRow)), HalfWidth,DisplayName("Trip No")]
+        [LookupEditor(typeof(Default.Entities.LoadingTripRow)), HalfWidth, DisplayName("Trip No")]
         public Int32 Tripno { get; set; }
         [ReadOnly(true), HalfWidth]
         public Int32 Plant { get; set; }
@@ -29,7 +25,7 @@ namespace SereneMovieTutorial.FuelManagement.Forms
         [LookupEditor(typeof(PumpmasterRow)), HalfWidth]
 
         public Int32 Pumpid { get; set; }
-        [HalfWidth,ReadOnly(true)]
+        [HalfWidth, ReadOnly(true)]
         public Decimal Stock { get; set; }
 
 
@@ -39,11 +35,11 @@ namespace SereneMovieTutorial.FuelManagement.Forms
         [HalfWidth, DisplayName("Rate/Ltr"), ReadOnly(true)]
         public Decimal Rateofdiesel { get; set; }
 
-        [HalfWidth,DisplayName("Quantity")]
+        [HalfWidth, DisplayName("Quantity")]
         public Decimal Diesel { get; set; }
 
         [ReadOnly(true), HalfWidth, DisplayName("Total Ammount")]
         public Decimal Totalprice { get; set; }
-    
+
     }
 }

@@ -2,14 +2,12 @@
 namespace SereneMovieTutorial.Default.Entities
 {
     using SereneMovieTutorial.Modules.Default.Movie;
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[Movie]")]
     [DisplayName("Movies"), InstanceName("Movie")]
@@ -35,19 +33,19 @@ namespace SereneMovieTutorial.Default.Entities
         }
         [DisplayName("Actors"), Expression("(SELECT STRING_AGG(p.FirstName+p.LastName, ', ') FROM MovieCast mc  JOIN Person p ON p.PersonId = mc.PersonId WHERE mc.MovieId = T0.[MovieId])")]
         public String Actors
-        { 
+        {
             get { return Fields.Actors[this]; }
             set { Fields.Actors[this] = value; }
         }
 
-        [DisplayName("Description"), Size(1000),QuickSearch]
+        [DisplayName("Description"), Size(1000), QuickSearch]
         public String Description
         {
             get { return Fields.Description[this]; }
             set { Fields.Description[this] = value; }
         }
 
-        [DisplayName("Storyline"),QuickSearch]
+        [DisplayName("Storyline"), QuickSearch]
         public String Storyline
         {
             get { return Fields.Storyline[this]; }
@@ -75,10 +73,10 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Runtime[this] = value; }
         }
         [EnumEditor]
-        [DisplayName("Kind"), NotNull,DefaultValue(MovieKind.Film)]
+        [DisplayName("Kind"), NotNull, DefaultValue(MovieKind.Film)]
         public Int32? Kind
-        { 
-            get { return (Int32?)Fields.Kind[this]; } 
+        {
+            get { return (Int32?)Fields.Kind[this]; }
             set => Fields.Kind[this] = (Int32?)value;
         }
         //[DisplayName("Genre"), ForeignKey(typeof(GenreRow)), LeftJoin(jGenre)]
@@ -137,7 +135,7 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.Title; }
         }
 
-        
+
 
         public static readonly RowFields Fields = new RowFields().Init();
 
@@ -155,7 +153,7 @@ namespace SereneMovieTutorial.Default.Entities
             public StringField Storyline;
             public Int32Field Year;
             public DateTimeField ReleaseDate;
-            public Int32Field Runtime; 
+            public Int32Field Runtime;
             public Int32Field Kind;
             //public  Int32Field GenreId;
             //public  StringField GenreName;

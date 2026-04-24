@@ -2,7 +2,6 @@
 namespace SereneMovieTutorial.MaintenanceModule.Endpoints
 {
     using SereneMovieTutorial.Default.Entities;
-    using Serenity;
     using Serenity.Data;
     using Serenity.Services;
     using System;
@@ -10,7 +9,7 @@ namespace SereneMovieTutorial.MaintenanceModule.Endpoints
     using System.Linq;
     //using System.Linq;
     using System.Web.Mvc;
-    
+
     using MyRepository = Repositories.MaintenanceRepository;
     using MyRow = Entities.MaintenanceRow;
 
@@ -29,7 +28,7 @@ namespace SereneMovieTutorial.MaintenanceModule.Endpoints
         {
             return new MyRepository().Update(uow, request);
         }
- 
+
         [HttpPost, AuthorizeDelete(typeof(MyRow))]
         public DeleteResponse Delete(IUnitOfWork uow, DeleteRequest request)
         {
@@ -94,7 +93,7 @@ namespace SereneMovieTutorial.MaintenanceModule.Endpoints
     public class GetVehicleDetailsResponse : ServiceResponse
     {
         public VehicleMasterRow Vehicle { get; set; }
-        
+
     }
     public class GetLatestMaintenanceRequest : ServiceRequest
     {

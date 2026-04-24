@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[Employees]")]
     [DisplayName("Employees"), InstanceName("Employees")]
@@ -15,8 +13,8 @@ namespace SereneMovieTutorial.Default.Entities
     [ModifyPermission("Administration:General")]
     public sealed class EmployeesRow : Row, IIdRow, INameRow
     {
-        [DisplayName("S No."), Column("EmployeeID"), PrimaryKey,Identity]
-        [SortOrder(1,descending:true)]
+        [DisplayName("S No."), Column("EmployeeID"), PrimaryKey, Identity]
+        [SortOrder(1, descending: true)]
         public Int32? EmployeeId
         {
             get { return Fields.EmployeeId[this]; }
@@ -107,7 +105,7 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Extension[this] = value; }
         }
 
-       
+
 
         IIdField IIdRow.IdField
         {
@@ -141,7 +139,7 @@ namespace SereneMovieTutorial.Default.Entities
             public StringField Country;
             public StringField HomePhone;
             public StringField Extension;
-            
+
         }
     }
 }

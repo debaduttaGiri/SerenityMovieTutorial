@@ -1,0 +1,8 @@
+{
+  "Authorization.AccessDenied": "Authorization has been denied for this request!",
+  "Controls.CheckTreeEditor.SelectAll": "Select All",
+  "Db.Default.Manageinvoice.Igstrate": "IGST Rate",
+  "Db.Default.Manageinvoice.Invoicedate": "InvoiceDate",
+  "Db.Default.Manageinvoice.Invoiceno": "InvoiceNo",
+  "Db.Default.Manageinvoice.LoadingTripId": "Loading Trip"
+}

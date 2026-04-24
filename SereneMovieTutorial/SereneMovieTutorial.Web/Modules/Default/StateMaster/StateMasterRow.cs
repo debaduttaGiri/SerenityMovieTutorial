@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[StateMaster]")]
     [DisplayName("States"), InstanceName("State")]
@@ -17,7 +15,7 @@ namespace SereneMovieTutorial.Default.Entities
     public sealed class StateMasterRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Identity]
-        [SortOrder(1, descending: true),LookupInclude]
+        [SortOrder(1, descending: true), LookupInclude]
         public Int32? Id
         {
             get { return Fields.Id[this]; }

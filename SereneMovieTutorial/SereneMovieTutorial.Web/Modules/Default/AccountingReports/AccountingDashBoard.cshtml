@@ -1,0 +1,929 @@
+﻿@{
+    ViewData["Title"] = "AccountingDashboard";
+    ViewData["PageId"] = "AccountingDashboard";
+}
+
+@section Head {
+    @Html.StyleBundle("Pages/AccountingDashboard")
+    @Html.ScriptBundle("Pages/AccountingDashboard")
+}
+
+@*@section ContentHeader {
+        <h1>@LocalText.Get("Navigation.Dashboard")<small>@Html.Raw(Texts.Site.Dashboard.ContentDescription)</small></h1>
+    }*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<title>CFO Monthly Dashboard — February 2025</title>*@
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap%22" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #000000;
+            --surface: #0d0d0d;
+            --surface2: #121212;
+            --border: #222;
+            --accent: #00d4aa;
+            --accent2: #4f9cf9;
+            --accent3: #f0a500;
+            --danger: #f05b5b;
+            --text: #e8edf5;
+            --muted: #6b7a96;
+            --card-glow: rgba(0,212,170,0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black !important;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            min-height: 100vh;
+            padding: 0px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+            animation: fadeUp .6s ease both;
+        }
+
+        .header-left h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text);
+            line-height: 1.1;
+        }
+
+            .header-left h1 span {
+                color: var(--accent);
+            }
+
+        .header-left p {
+            color: var(--muted);
+            margin-top: 6px;
+            font-size: 12px;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0,212,170,.12);
+            border: 1px solid rgba(0,212,170,.3);
+            color: var(--accent);
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* KPI Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .kpi-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 22px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeUp .5s ease both;
+            transition: border-color .2s, transform .2s;
+        }
+
+            .kpi-card:hover {
+                border-color: var(--accent);
+                transform: translateY(-2px);
+            }
+
+            .kpi-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+            }
+
+            .kpi-card.green::before {
+                background: var(--accent);
+            }
+
+            .kpi-card.blue::before {
+                background: var(--accent2);
+            }
+
+            .kpi-card.gold::before {
+                background: var(--accent3);
+            }
+
+            .kpi-card.red::before {
+                background: var(--danger);
+            }
+
+        .kpi-label {
+            color: var(--muted);
+            font-size: 11px;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .kpi-value {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.1;
+        }
+
+        .kpi-sub {
+            margin-top: 6px;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+            .kpi-sub .up {
+                color: var(--accent);
+            }
+
+            .kpi-sub .down {
+                color: var(--danger);
+            }
+
+        /* Two-col layout */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .grid-3-1 {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        /* Card */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 24px;
+            animation: fadeUp .5s ease both;
+        }
+
+        .card-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .3px;
+            color: var(--text);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .card-title .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                flex-shrink: 0;
+            }
+
+        /* Bar chart */
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .bar-label {
+            width: 220px;
+            flex-shrink: 0;
+            font-size: 11px;
+            color: var(--muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 8px;
+            background: var(--surface2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .bar-val {
+            width: 80px;
+            text-align: right;
+            font-size: 11px;
+            color: var(--text);
+            flex-shrink: 0;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            font-family: 'Syne', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .8px;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding: 0 10px 12px 0;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+            th:last-child {
+                text-align: right;
+                padding-right: 0;
+            }
+
+        td {
+            padding: 9px 10px 9px 0;
+            font-size: 11px;
+            color: var(--text);
+            border-bottom: 1px solid rgba(30,42,61,.6);
+            vertical-align: middle;
+        }
+
+            td:last-child {
+                text-align: right;
+                padding-right: 0;
+            }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .chip {
+            display: inline-block;
+            padding: 2px 9px;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .chip-green {
+            background: rgba(0,212,170,.12);
+            color: var(--accent);
+        }
+
+        .chip-blue {
+            background: rgba(79,156,249,.12);
+            color: var(--accent2);
+        }
+
+        .chip-gold {
+            background: rgba(240,165,0,.12);
+            color: var(--accent3);
+        }
+
+        /* Donut */
+        .donut-wrap {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .donut-svg {
+            flex-shrink: 0;
+        }
+
+        .legend {
+            flex: 1;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .legend-item b {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* Heatmap */
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: 180px repeat(4, 1fr);
+            gap: 3px;
+        }
+
+        .hm-cell {
+            padding: 8px 6px;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 500;
+        }
+
+        .hm-label {
+            text-align: left;
+            font-size: 10px;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            padding: 4px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .hm-header {
+            text-align: center;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding-bottom: 6px;
+        }
+
+        /* Progress ring */
+        .ring-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .ring-label {
+            font-size: 10px;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        .ring-val {
+            font-family: 'Syne', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .rings-row {
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+            padding-top: 8px;
+        }
+
+        /* Metrics row */
+        .metrics-row {
+            display: flex;
+            gap: 16px;
+        }
+
+        .metric-item {
+            flex: 1;
+            background: var(--surface2);
+            border-radius: 8px;
+            padding: 14px 16px;
+            text-align: center;
+        }
+
+            .metric-item .mv {
+                font-family: 'Syne', sans-serif;
+                font-size: 18px;
+                font-weight: 700;
+            }
+
+            .metric-item .ml {
+                font-size: 10px;
+                color: var(--muted);
+                text-transform: uppercase;
+                letter-spacing: .5px;
+                margin-top: 4px;
+            }
+
+        @@keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .kpi-card:nth-child(1) {
+            animation-delay: .05s
+        }
+
+        .kpi-card:nth-child(2) {
+            animation-delay: .1s
+        }
+
+        .kpi-card:nth-child(3) {
+            animation-delay: .15s
+        }
+
+        .kpi-card:nth-child(4) {
+            animation-delay: .2s
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <h1><span>Accounting</span> Dashboard</h1>
+            <p>
+                Mining & Logistics Operations ·
+                <span id="month-name"></span>
+                <span id="year"></span>
+            </p>
+        </div>
+        <div class="header-right">
+            <div class="badge">Confidential</div>
+            <div id="meta-info" style="color:var(--muted);font-size:11px;margin-top:8px;">
+                <!-- optional dynamic -->
+            </div>
+        </div>
+    </div>
+
+    <!-- KPI Strip -->
+    <div class="kpi-grid">
+        <div class="kpi-card green">
+            <div class="kpi-label">Total Dispatch Revenue</div>
+            <div class="kpi-value" id="total-revenue"></div>
+            <div class="kpi-sub">DispatchAmount across all permits</div>
+        </div>
+
+        <div class="kpi-card blue">
+            <div class="kpi-label">Gross Margin</div>
+            <div class="kpi-value" id="gross-margin-kpi"></div>
+            <div class="kpi-sub">
+                <span class="up" id="margin-percent"></span> overall margin rate
+            </div>
+        </div>
+
+        <div class="kpi-card gold">
+            <div class="kpi-label">Total Trips</div>
+            <div class="kpi-value" id="total-trips"></div>
+            <div class="kpi-sub">Across 434 permits · 16 mines</div>
+        </div>
+
+        <div class="kpi-card red">
+            <div class="kpi-label">Quantity Dispatched</div>
+            <div class="kpi-value" id="qty-dispatched"></div>
+            <div class="kpi-sub">
+                vs <span id="qty-permitted"></span> permitted ·
+                <span class="down" id="balance-percent"></span> balance
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 2: Mine Performance + Buyer Breakdown -->
+    <div class="grid-2">
+
+        <!-- Mine-wise Revenue Bar Chart -->
+        <div class="card">
+            <div class="card-title">
+                <span class="dot" style="background:var(--accent)"></span>
+                Mine-wise Dispatch Revenue
+            </div>
+            <!-- Bars: top mines by dispatch amount -->
+            <div id="mine-bars"></div>
+        </div>
+
+        <!-- Gross Margin by Mine -->
+        <div class="card">
+            <div class="card-title">
+                <span class="dot" style="background:var(--accent2)"></span>
+                Mine-wise Gross Margin
+            </div>
+            <div id="margin-bars"></div>
+        </div>
+    </div>
+
+    <!-- Row 3: Top Buyers Table + Permit Utilisation -->
+    <div class="grid-3-1">
+
+        <!-- Top Buyers -->
+        <div class="card">
+            <div class="card-title">
+                <span class="dot" style="background:var(--accent3)"></span>
+                Top 10 Buyers — Revenue & Margin
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Buyer</th>
+                        <th>Qty (MT)</th>
+                        <th>Revenue (₹Cr)</th>
+                        <th>Margin (₹Cr)</th>
+                        <th>Margin%</th>
+                    </tr>
+                </thead>
+                <tbody id="buyer-table"></tbody>
+            </table>
+        </div>
+
+        <!-- Permit Utilisation donut -->
+        <div class="card">
+            <div class="card-title">
+                <span class="dot" style="background:var(--danger)"></span>
+                Permit Utilisation
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding-top:8px;">
+
+                <svg width="140" height="140" viewBox="0 0 120 120" class="donut-svg">
+                    <circle cx="60" cy="60" r="48" fill="none" stroke="var(--surface2)" stroke-width="14" />
+                    @*dispatched 85.3%*@
+                    <circle cx="60" cy="60" r="48" fill="none" stroke="var(--accent)" stroke-width="14"
+                            stroke-dasharray="257.06 301.6" stroke-dashoffset="75.4" stroke-linecap="round" />
+                    @*balance 14.7% in faded*@
+                    <circle cx="60" cy="60" r="48" fill="none" stroke="var(--danger)" stroke-width="14" opacity=".35"
+                            stroke-dasharray="44.34 301.6" stroke-dashoffset="-182" stroke-linecap="round" />
+                    <text x="60" y="55" text-anchor="middle" fill="var(--text)" font-family="Syne,sans-serif" font-size="18" font-weight="800">@*85.3%*@</text>
+                    <text x="60" y="72" text-anchor="middle" fill="var(--muted)" font-family="DM Mono,monospace" font-size="9">@*Dispatched*@</text>
+                </svg>
+                <div class="legend" style="width:100%">
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--accent)"></span>Dispatched <b style="margin-left:auto">@*18.97 L MT*@</b></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--danger);opacity:.6"></span>Balance <b style="margin-left:auto">@*3.28 L MT*@</b></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--muted)"></span>Total Permitted <b style="margin-left:auto">@*22.25 L MT*@</b></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Row 4: Financial Summary + Vendor Metrics -->
+    <div class="grid-3">
+
+        <!-- Revenue vs Vendor Cost -->
+
+        <div class="card">
+            <div class="card-title">
+                <span class="dot" style="background:var(--accent)"></span>
+                Revenue vs Cost Structure
+            </div>
+
+            <div class="metrics-row" style="flex-direction:column;gap:10px;">
+
+                <div class="metric-item" style="display:flex;justify-content:space-between;">
+                    <span>Dispatch Revenue</span>
+                    <span id="dispatch-revenue" class="mv"></span>
+                </div>
+
+                <div class="metric-item" style="display:flex;justify-content:space-between;">
+                    <span>Total Vendor Cost</span>
+                    <span id="vendor-cost" class="mv"></span>
+                </div>
+
+                <div class="metric-item" style="display:flex;justify-content:space-between;">
+                    <span>TDS Deductions</span>
+                    <span id="tds" class="mv"></span>
+                </div>
+
+                <div class="metric-item" style="display:flex;justify-content:space-between;">
+                    <span>HSD + Cash Advances</span>
+                    <span id="hsd" class="mv"></span>
+                </div>
+
+                <div class="metric-item" style="display:flex;justify-content:space-between;border:1px solid rgba(0,212,170,.25);">
+                    <span style="color:var(--accent)">▶ Gross Margin</span>
+                    <span id="gross-margin-cost" class="mv"></span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Outstanding Receivables -->
+        <div class="card">
+            <div class="card-title">
+                <span class="dot" style="background:var(--accent3)"></span>
+                Outstanding Receivables by Mine
+            </div>
+            <div id="outstanding-bars"></div>
+        </div>
+
+        <!-- Vendor Outstanding -->
+        <div class="card">
+            <div class="card-title">
+                <span class="dot" style="background:var(--danger)"></span>
+                Vendor Outstanding by Mine
+            </div>
+            <div id="vendor-bars"></div>
+        </div>
+    </div>
+
+    <!-- Row 5: Mine Efficiency Heatmap + Summary stats -->
+    <div class="grid-2">
+        <div class="card">
+            <div class="card-title">
+                <span class="dot" style="background:var(--accent2)"></span>
+                Mine Performance Heatmap
+            </div>
+            <div id="heatmap"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <span class="dot" style="background:var(--accent)"></span>
+                Key Operational Metrics
+            </div>
+            <div id="ops-metrics"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span> 434 Records · 16 Mine Sites · 434 Permits</span>
+        <span id="footer-date"></span>
+    </div>
+    <script>
+
+        function fmt(n) {
+            if (n >= 1e7) return '₹' + (n / 1e7).toFixed(2) + ' Cr';
+            if (n >= 1e5) return '₹' + (n / 1e5).toFixed(1) + ' L';
+            return '₹' + Number(n).toFixed(0);
+        }
+
+        function fmtN(n) {
+            if (n >= 1e5) return (n / 1e5).toFixed(2) + ' L';
+            if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
+            return Number(n).toFixed(0);
+        }
+
+        const COLORS = ['#00d4aa', '#4f9cf9', '#f0a500', '#f05b5b', '#a78bfa', '#34d399', '#fb923c', '#60a5fa'];
+
+        function renderBars(containerId, data, valKey, labelKey, color, fmtFn) {
+            const el = document.getElementById(containerId);
+            if (!el || !data) return;
+
+            const max = Math.max(...data.map(d => d[valKey] || 0));
+
+            el.innerHTML = data.map((d, i) => `
+             <div class="bar-row">
+             <div class="bar-label">${d[labelKey]}</div>
+              <div class="bar-track">
+              <div class="bar-fill" style="width:${max ? (d[valKey] / max * 100) : 0}%;background:${color || COLORS[i % COLORS.length]}"></div>
+              </div>
+              <div class="bar-val">${(fmtFn || fmt)(d[valKey])}</div>
+                  </div>
+                   `).join('');
+        }
+
+        function renderHeatmap(data) {
+            const hm = document.getElementById('heatmap');
+            if (!hm || !data) return;
+
+            const headers = ['Margin%', 'Util%', 'Trips(K)', '₹/Trip'];
+            const hues = [160, 210, 45, 280];
+
+            let html = `<div class="heatmap-grid">
+                    <div></div>
+                      ${headers.map(h => `<div class="hm-header">${h}</div>`).join('')}
+                       `;
+
+            data.forEach(d => {
+                const vals = [
+                    Number(d.margin),
+                    Number(d.util),
+                    Number(d.trips) / 1000,
+                    Number(d.rate)
+                ];
+
+                const ranges = [[6, 32], [47, 100], [2, 18.3], [4550, 40000]];
+
+                html += `<div class="hm-label">${d.label}</div>`;
+
+                vals.forEach((v, i) => {
+                    const t = (v - ranges[i][0]) / (ranges[i][1] - ranges[i][0] || 1);
+                    const alpha = .15 + t * .55;
+
+                    html += `<div class="hm-cell"
+style="background:hsla(${hues[i]},80%,55%,${alpha});color:${t > .5 ? '#fff' : '#6b7a96'}">
+${i === 3 ? '₹' + Math.round(v / 1000) + 'K' : v.toFixed(1) + (i < 2 ? '%' : 'K')}
+</div>`;
+                });
+            });
+
+            html += '</div>';
+            hm.innerHTML = html;
+        }
+
+        $(function () {
+
+            $.get('/AccountingDashboard/GetDashboardData', function (res) {
+
+                if (!res) return;
+
+                const s = res.Summary || {};
+
+                // HEADER
+                $('#month-name').text(s.MonthName);
+                $('#year').text(s.Year);
+
+                // KPI
+                $('#total-revenue').text(fmtCr(s.TotalDispatchRevenueCr));
+                $('#gross-margin-kpi').text(fmtCr(s.GrossMarginCr));
+                $('#margin-percent').text(s.MarginPercent + '%');
+                $('#total-trips').text(s.TotalTrips);
+
+                $('#qty-dispatched').text(s.QuantityDispatchedLMT + ' L MT');
+                $('#qty-permitted').text(s.QuantityPermittedLMT + ' L MT');
+                $('#balance-percent').text(s.BalancePercent + '%');
+
+                // BARS
+                renderBars('mine-bars', res.Revenue, 'dispatch', 'label', null, fmt);
+                renderBars('margin-bars', res.Margin, 'margin', 'label', '#4f9cf9', fmt);
+                renderBars('outstanding-bars', res.Outstanding, 'outstanding', 'label', '#f0a500', fmt);
+                renderBars('vendor-bars', res.Vendor, 'vendorOut', 'label', '#f05b5b', fmt);
+
+                // BUYERS
+                $('#buyer-table').html(res.Buyers.map(b => {
+                    const mp = ((b.Margin / b.Revenue) * 100).toFixed(1);
+                    const chip = mp > 15 ? 'chip-green' : mp > 10 ? 'chip-blue' : 'chip-gold';
+                    return `<tr>
+                        <td>${b.BuyerName}</td>
+                        <td>${fmtN(b.Qty)}</td>
+                         <td>${fmt(b.Revenue)}</td>
+                         <td>${fmt(b.Margin)}</td>
+                        <td><span class="chip ${chip}">${mp}%</span></td>
+                          </tr>`;
+                }).join(''));
+
+                // DONUT
+                const dispatched = res.Permit?.Dispatched || 0;
+                const permitted = res.Permit?.Permitted || 0;
+                const percent = permitted ? ((dispatched / permitted) * 100).toFixed(1) : 0;
+
+                const c = 2 * Math.PI * 48;
+                const circles = document.querySelectorAll('.donut-svg circle');
+
+                if (circles.length >= 3) {
+                    circles[1].setAttribute('stroke-dasharray', `${(percent / 100) * c} ${c}`);
+                    circles[2].setAttribute('stroke-dasharray', `${c - (percent / 100) * c} ${c}`);
+                }
+
+                document.querySelector('.donut-svg text').textContent = percent + '%';
+
+                const legend = document.querySelectorAll('.legend b');
+                if (legend.length >= 3) {
+                    legend[0].textContent = dispatched + ' L MT';
+                    legend[1].textContent = (permitted - dispatched).toFixed(2) + ' L MT';
+                    legend[2].textContent = permitted + ' L MT';
+                }
+
+                // COST
+                $('#dispatch-revenue').text(fmtCr(res.Cost.DispatchRevenue));
+                $('#vendor-cost').text(fmtCr(res.Cost.VendorCost));
+                $('#tds').text(fmtCr(res.Cost.TDS));
+                $('#hsd').text(fmtCr(res.Cost.HSD));
+                $('#gross-margin-cost').text(fmtCr(res.Cost.GrossMargin));
+                function fmtCr(n) {
+                    return '₹' + Number(n).toFixed(2) + ' Cr';
+                }
+                function fmtNum(n) {
+                    return Number(n).toFixed(2);
+                }
+                function fmtQty(n) {
+                    return Number(n).toFixed(2);
+                }
+                // OPS
+                $('#ops-metrics').html(`
+                <div class="metrics-row" style="flex-wrap:wrap;gap:12px">
+
+                <div class="metric-item">
+                <div class="mv" style="color:var(--accent)">₹${fmtNum(res.Ops.InvoiceRate)}</div>
+                <div class="ml">AVG<br>INVOICE RATE (₹/MT)</div>
+                </div>
+
+<div class="metric-item">
+<div class="mv" style="color:var(--accent2)">${fmtNum(res.Ops.TripsPerPermit)}</div>
+<div class="ml">AVG<br>TRIPS PER PERMIT</div>
+</div>
+
+<div class="metric-item">
+<div class="mv" style="color:var(--accent3)">${res.Ops.QtyPerPermit.toLocaleString()} MT</div>
+<div class="ml">AVG QTY<br>PER PERMIT</div>
+</div>
+
+<div class="metric-item">
+<div class="mv" style="color:var(--danger)">${fmtNum(res.Ops.QtyPerTrip)} MT</div>
+<div class="ml">AVG QTY<br>PER TRIP</div>
+</div>
+
+<div class="metric-item">
+<div class="mv" style="color:var(--accent)">₹${fmtNum((res.Ops.RevenuePerTrip / 1000).toFixed(2))}K</div>
+<div class="ml">AVG REVENUE<br>PER TRIP</div>
+</div>
+
+<div class="metric-item">
+<div class="mv" style="color:var(--accent2)">₹${res.Ops.MarginPerTrip.toLocaleString()}</div>
+<div class="ml">AVG MARGIN<br>PER TRIP</div>
+</div>
+
+</div>
+
+<div class="metrics-row" style="gap:12px;margin-top:12px">
+
+<div class="metric-item" style="flex:1">
+<div class="mv" style="color:var(--accent3)">₹${fmtNum(res.Ops.ClientOutstanding)} Cr</div>
+<div class="ml">TOTAL CLIENT OUTSTANDING</div>
+</div>
+
+<div class="metric-item" style="flex:1">
+<div class="mv" style="color:var(--danger)">₹${fmtNum(res.Ops.VendorOutstanding)} Cr</div>
+<div class="ml">TOTAL VENDOR OUTSTANDING</div>
+</div>
+
+</div>
+`);
+
+                // HEATMAP
+                renderHeatmap(res.Heatmap);
+
+                // FOOTER
+                $('#footer-date').text(
+                    'Generated for CFO Review By Tranzol · ' + s.MonthName + ' ' + s.Year
+                );
+
+            });
+
+        });
+
+    </script>
+</body>
+</html>

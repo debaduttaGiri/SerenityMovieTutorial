@@ -7,6 +7,8 @@
         UpdatedBy?: number;
         CreatedDate?: string;
         UpdatedDate?: string;
+        CreatedByUsername?: string;
+        UpdatedByUsername?: string;
     }
 
     export namespace MaintenanceHeadRow {
@@ -30,7 +32,9 @@
             CreatedBy = "CreatedBy",
             UpdatedBy = "UpdatedBy",
             CreatedDate = "CreatedDate",
-            UpdatedDate = "UpdatedDate"
+            UpdatedDate = "UpdatedDate",
+            CreatedByUsername = "CreatedByUsername",
+            UpdatedByUsername = "UpdatedByUsername"
         }
     }
 }

@@ -1,26 +1,22 @@
 ﻿
 namespace SereneMovieTutorial.Inventry.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [ColumnsScript("Inventry.PurchaseRequestDetail")]
     [BasedOnRow(typeof(Entities.PurchaseRequestDetailRow), CheckNames = false)]
     public class PurchaseRequestDetailColumns
     {
-        [ DisplayName("Db.Shared.RecordId"),Hidden]
+        [DisplayName("Db.Shared.RecordId"), Hidden]
         public Int32 Id { get; set; }
         [EditLink]
 
         public string PoNo { get; set; }
         [EditLink]
         public string PartName { get; set; }
-        
+
 
         public String PartNo { get; set; }
         public Decimal PreviousRate { get; set; }

@@ -3,7 +3,6 @@ namespace SereneMovieTutorial.Default.Pages
 {
     using SereneMovieTutorial.Default.Entities;
     using SereneMovieTutorial.Modules.Default.UnloadTrip;
-    using Serenity;
     using Serenity.Data;
     using Serenity.Web;
     using System.Web.Mvc;

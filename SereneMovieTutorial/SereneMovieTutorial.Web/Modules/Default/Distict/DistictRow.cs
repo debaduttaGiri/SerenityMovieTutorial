@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[Distict]")]
     [DisplayName("Distict"), InstanceName("Distict")]
@@ -17,7 +15,7 @@ namespace SereneMovieTutorial.Default.Entities
     public sealed class DistictRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Identity]
-        [SortOrder(1,descending:true)]
+        [SortOrder(1, descending: true)]
         [LookupEditor(typeof(PlantRow))]
         public Int32? Id
         {
@@ -25,7 +23,7 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Plant"), NotNull, ForeignKey("[dbo].[Plant]", "Id"), LeftJoin("jPlant"), TextualField("Plant"),LookupInclude]
+        [DisplayName("Plant"), NotNull, ForeignKey("[dbo].[Plant]", "Id"), LeftJoin("jPlant"), TextualField("Plant"), LookupInclude]
         [LookupEditor(typeof(PlantRow))]
         public Int32? Plant
         {
@@ -39,7 +37,7 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.PlantName[this] = value; }
         }
 
-        [DisplayName("Distict"), Size(20), QuickSearch,NotNull]
+        [DisplayName("Distict"), Size(20), QuickSearch, NotNull]
         public String Distict
         {
             get { return Fields.Distict[this]; }
@@ -92,7 +90,7 @@ namespace SereneMovieTutorial.Default.Entities
             public StringField Distict;
             public StringField Remarks;
 
-            
+
         }
     }
 }

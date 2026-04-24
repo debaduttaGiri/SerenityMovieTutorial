@@ -1,7 +1,6 @@
 ﻿
 namespace SereneMovieTutorial.Default.Pages
 {
-    using Serenity;
     using Serenity.Web;
     using System.Web.Mvc;
 

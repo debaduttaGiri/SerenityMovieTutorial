@@ -2,14 +2,12 @@
 namespace SereneMovieTutorial.Inventry.Entities
 {
     using SereneMovieTutorial.Default.Entities;
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Inventry"), TableName("[dbo].[PurchaseBill]")]
     [DisplayName("Purchase Bill"), InstanceName("Purchase Bill")]
@@ -45,7 +43,8 @@ namespace SereneMovieTutorial.Inventry.Entities
             set { Fields.DebitLedgerId[this] = value; }
         }
 
-        [DisplayName("Bill No"), Size(50), QuickSearch][NotNull]
+        [DisplayName("Bill No"), Size(50), QuickSearch]
+        [NotNull]
         public String BillNo
         {
             get { return Fields.BillNo[this]; }

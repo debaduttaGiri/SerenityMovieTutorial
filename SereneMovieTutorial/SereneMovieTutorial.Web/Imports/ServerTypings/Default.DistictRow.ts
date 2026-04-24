@@ -2,10 +2,9 @@
     export interface DistictRow {
         Id?: number;
         Plant?: number;
+        PlantName?: string;
         Distict?: string;
         Remarks?: string;
-        Plant1?: string;
-        PlantRemarks?: string;
     }
 
     export namespace DistictRow {
@@ -25,10 +24,9 @@
         export declare const enum Fields {
             Id = "Id",
             Plant = "Plant",
+            PlantName = "PlantName",
             Distict = "Distict",
-            Remarks = "Remarks",
-            Plant1 = "Plant1",
-            PlantRemarks = "PlantRemarks"
+            Remarks = "Remarks"
         }
     }
 }

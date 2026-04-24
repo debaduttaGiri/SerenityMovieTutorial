@@ -1,13 +1,8 @@
 ﻿
 namespace SereneMovieTutorial.Inventry.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
-    using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [ColumnsScript("Inventry.PurchaseBillDetail")]
     [BasedOnRow(typeof(Entities.PurchaseBillDetailRow), CheckNames = true)]
@@ -28,7 +23,7 @@ namespace SereneMovieTutorial.Inventry.Columns
         public Decimal CgstRate { get; set; }
         public Decimal SgstRate { get; set; }
         public Decimal IgstRate { get; set; }
-             public Decimal CgstAmount { get; set; }
+        public Decimal CgstAmount { get; set; }
         public Decimal SgstAmount { get; set; }
         public Decimal IgstAmount { get; set; }
 

@@ -2,7 +2,6 @@
 namespace SereneMovieTutorial.FuelManagement.Repositories
 {
     using SereneMovieTutorial.FuelManagement.Entities;
-    using Serenity;
     using Serenity.Data;
     using Serenity.Services;
     using System;
@@ -51,7 +50,8 @@ namespace SereneMovieTutorial.FuelManagement.Repositories
             }).FirstOrDefault()?.RateLtr;
         }
 
-        private class MySaveHandler : SaveRequestHandler<MyRow> { 
+        private class MySaveHandler : SaveRequestHandler<MyRow>
+        {
 
         }
         private class MyDeleteHandler : DeleteRequestHandler<MyRow> { }

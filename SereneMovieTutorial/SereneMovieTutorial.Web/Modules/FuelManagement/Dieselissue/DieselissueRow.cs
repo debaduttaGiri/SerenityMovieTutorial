@@ -2,13 +2,11 @@
 namespace SereneMovieTutorial.FuelManagement.Entities
 {
     using SereneMovieTutorial.Default.Entities;
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("FuelManagement"), TableName("[dbo].[DIESELISSUE]")]
     [DisplayName("Diesel Issue"), InstanceName("Diesel Issue")]
@@ -16,14 +14,14 @@ namespace SereneMovieTutorial.FuelManagement.Entities
     [ModifyPermission("Administration:General")]
     public sealed class DieselissueRow : Row, IIdRow, INameRow, IInsertLogRow, IUpdateLogRow
     {
-        [DisplayName("Id"), Identity,SortOrder(1,descending:true)]
+        [DisplayName("Id"), Identity, SortOrder(1, descending: true)]
         public Int32? Id
         {
             get { return Fields.Id[this]; }
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Trip"), Column("TRIPNO"),ForeignKey(typeof(Default.Entities.LoadingTripRow), "LoadingTripId"),LeftJoin("jTrip"), TextualField("TripNo"),NotNull]
+        [DisplayName("Trip"), Column("TRIPNO"), ForeignKey(typeof(Default.Entities.LoadingTripRow), "LoadingTripId"), LeftJoin("jTrip"), TextualField("TripNo"), NotNull]
         [LookupEditor(typeof(Default.Entities.LoadingTripRow))]
         public Int32? Tripno
         {
@@ -31,13 +29,13 @@ namespace SereneMovieTutorial.FuelManagement.Entities
             set { Fields.Tripno[this] = value; }
         }
 
-        [Expression("jTrip.TripNo"),LookupInclude]
+        [Expression("jTrip.TripNo"), LookupInclude]
         public String TripNumber
         {
             get { return Fields.TripNumber[this]; }
             set { Fields.TripNumber[this] = value; }
         }
-        [DisplayName("Vehicle No"),  NotNull, ForeignKey(typeof(Default.Entities.VehicleMasterRow), "VehicleId"),LeftJoin("jVehicle"),TextualField("Vehiclenumber")]
+        [DisplayName("Vehicle No"), NotNull, ForeignKey(typeof(Default.Entities.VehicleMasterRow), "VehicleId"), LeftJoin("jVehicle"), TextualField("Vehiclenumber")]
         [LookupEditor(typeof(Default.Entities.VehicleMasterRow))]
         public int VehicleId
         {
@@ -53,7 +51,7 @@ namespace SereneMovieTutorial.FuelManagement.Entities
             set { Fields.Vehiclenumber[this] = value; }
         }
 
-        [DisplayName("Plant"), Column("PLANT"),ForeignKey("[dbo].[Plant]", "Id"), LeftJoin("jPlant"),TextualField("PlantName")]
+        [DisplayName("Plant"), Column("PLANT"), ForeignKey("[dbo].[Plant]", "Id"), LeftJoin("jPlant"), TextualField("PlantName")]
         [LookupEditor(typeof(PlantRow))]
         public Int32? Plant
         {
@@ -67,7 +65,7 @@ namespace SereneMovieTutorial.FuelManagement.Entities
             set { Fields.PlantName[this] = value; }
         }
 
-        [DisplayName("District"), Column("DISTICT"),ForeignKey("[dbo].[Distict]", "Id"), LeftJoin("jDistrict"),TextualField("DistrictName")]
+        [DisplayName("District"), Column("DISTICT"), ForeignKey("[dbo].[Distict]", "Id"), LeftJoin("jDistrict"), TextualField("DistrictName")]
         [LookupEditor(typeof(DistictRow))]
         public Int32? Distict
         {
@@ -82,7 +80,7 @@ namespace SereneMovieTutorial.FuelManagement.Entities
             set { Fields.DistrictName[this] = value; }
         }
 
-        [DisplayName("Destination"), Column("DESTINATION"),ForeignKey("[dbo].[Destination]", "Id"), LeftJoin("jDestination"),TextualField("DestinationName")]
+        [DisplayName("Destination"), Column("DESTINATION"), ForeignKey("[dbo].[Destination]", "Id"), LeftJoin("jDestination"), TextualField("DestinationName")]
         [LookupEditor(typeof(DestinationRow))]
         public Int32? Destination
         {
@@ -97,7 +95,7 @@ namespace SereneMovieTutorial.FuelManagement.Entities
             set { Fields.DestinationName[this] = value; }
         }
 
-        [DisplayName("Pump"), Column("PUMPID"), NotNull,ForeignKey("[dbo].[PUMPMASTER]", "Id"), LeftJoin("jPump"), TextualField("PumpName")]
+        [DisplayName("Pump"), Column("PUMPID"), NotNull, ForeignKey("[dbo].[PUMPMASTER]", "Id"), LeftJoin("jPump"), TextualField("PumpName")]
         [LookupEditor(typeof(PumpmasterRow))]
         public Int32? Pumpid
         {
@@ -118,14 +116,14 @@ namespace SereneMovieTutorial.FuelManagement.Entities
         }
 
 
-        [DisplayName("Diesel"), Column("DIESEL"), Size(18), Scale(2),NotNull]
+        [DisplayName("Diesel"), Column("DIESEL"), Size(18), Scale(2), NotNull]
         public Decimal? Diesel
         {
             get { return Fields.Diesel[this]; }
             set { Fields.Diesel[this] = value; }
         }
 
-        [DisplayName("IssueDate"), Column("TODAY"),NotNull]
+        [DisplayName("IssueDate"), Column("TODAY"), NotNull]
         public DateTime? Today
         {
             get { return Fields.Today[this]; }

@@ -1,13 +1,9 @@
 ﻿
 namespace SereneMovieTutorial.FuelManagement.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [ColumnsScript("FuelManagement.Dieselissue")]
     [BasedOnRow(typeof(Entities.DieselissueRow), CheckNames = false)]
@@ -15,7 +11,7 @@ namespace SereneMovieTutorial.FuelManagement.Columns
     {
         [EditLink, DisplayName("Trip number"), Width(100)]
         public String TripNumber { get; set; }
-        [ Width(130)]
+        [Width(130)]
         public String Vehiclenumber { get; set; }
 
         [Width(100)]
@@ -42,7 +38,7 @@ namespace SereneMovieTutorial.FuelManagement.Columns
         [Width(100)]
         public Decimal Rateofdiesel { get; set; }
 
-        [Width(110),DisplayName("Rate/Ltr")]
+        [Width(110), DisplayName("Rate/Ltr")]
         public Decimal Totalprice { get; set; }
         [Width(100)]
         public String CreatedByUsername { get; set; }

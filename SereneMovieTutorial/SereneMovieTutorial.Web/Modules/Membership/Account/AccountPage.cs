@@ -121,7 +121,7 @@ namespace SereneMovieTutorial.Membership.Pages
             FormsAuthentication.SignOut();
             return new RedirectResult("~/");
         }
-       
+
 
     }
 }

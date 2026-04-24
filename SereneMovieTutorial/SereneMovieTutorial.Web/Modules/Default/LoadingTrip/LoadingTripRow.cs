@@ -1,23 +1,21 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[LoadingTrip]")]
     [DisplayName("Loading Trip"), InstanceName("Loading Trip")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
-    [LookupScript(Permission ="*")]
+    [LookupScript(Permission = "*")]
     public sealed class LoadingTripRow : Row, IIdRow, INameRow, IInsertLogRow, IUpdateLogRow
     {
         [DisplayName("Loading Trip Id"), Identity]
-        [SortOrder(1,descending:true)]
+        [SortOrder(1, descending: true)]
         public Int32? LoadingTripId
         {
             get { return Fields.LoadingTripId[this]; }
@@ -105,7 +103,8 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.VehicleId[this]; }
             set { Fields.VehicleId[this] = value; }
         }
-        [Expression("jVehicleMaster.VehicleNumber")][LookupInclude]
+        [Expression("jVehicleMaster.VehicleNumber")]
+        [LookupInclude]
         public String VehicleNumber
         {
             get { return Fields.VehicleNumber[this]; }
@@ -113,7 +112,7 @@ namespace SereneMovieTutorial.Default.Entities
         }
 
         [DisplayName("Owner"), NotNull, ForeignKey("[dbo].[CustomerMaster]", "CustomerId"), LeftJoin("jCustomerMaster"), TextualField("Customer1")]
-        [LookupEditor(typeof(CustomerMasterRow)),Required]
+        [LookupEditor(typeof(CustomerMasterRow)), Required]
         public Int32? CustomerId
         {
             get { return Fields.CustomerId[this]; }
@@ -133,13 +132,13 @@ namespace SereneMovieTutorial.Default.Entities
             get { return Fields.BranchId[this]; }
             set { Fields.BranchId[this] = value; }
         }
-        [Expression("jBranchMaster.BranchName"),ReadOnly(true)]
+        [Expression("jBranchMaster.BranchName"), ReadOnly(true)]
         public String Branch
         {
             get { return Fields.Branch[this]; }
             set { Fields.Branch[this] = value; }
-        } 
-        
+        }
+
 
         [DisplayName("State"), NotNull, ForeignKey("[dbo].[StateMaster]", "Id"), LeftJoin("jState"), TextualField("State1")]
         [LookupEditor(typeof(StateMasterRow))]
@@ -170,20 +169,20 @@ namespace SereneMovieTutorial.Default.Entities
         }
 
 
-        [DisplayName("Weight"), Size(10), Scale(2),Required]
+        [DisplayName("Weight"), Size(10), Scale(2), Required]
         public Decimal? Weight
         {
             get { return Fields.Weight[this]; }
             set { Fields.Weight[this] = value; }
         }
-        [DisplayName("FreightRate"),  Required]
+        [DisplayName("FreightRate"), Required]
         public Int32 freightRate
         {
             get => this.freightRate;
             set => this.freightRate = value;
         }
 
-        [DisplayName("Wheels"),Required]
+        [DisplayName("Wheels"), Required]
         public Int32? Wheels
         {
             get { return Fields.Wheels[this]; }
@@ -198,7 +197,7 @@ namespace SereneMovieTutorial.Default.Entities
         }
 
         [DisplayName("Created Date"), NotNull]
-        
+
         public DateTime? CreatedDate
         {
             get { return Fields.CreatedDate[this]; }

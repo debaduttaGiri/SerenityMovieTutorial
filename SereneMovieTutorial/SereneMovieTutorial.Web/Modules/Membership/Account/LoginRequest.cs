@@ -13,15 +13,17 @@ namespace SereneMovieTutorial.Membership
     public class LoginRequest : ServiceRequest
     {
         [DefaultValue("Raju")]
-        public string Username { get; set; } 
-        [PasswordEditor, Placeholder(""), Required(true)][DefaultValue("/*--*//*")]
-        public string Password { get; set; } 
-        [DisplayName("Branch"), NotNull, ForeignKey("[dbo].[BranchMaster]", "Id"), LeftJoin("j"), TextualField("Branch"),Required(true)]
+        public string Username { get; set; }
+        [PasswordEditor, Placeholder(""), Required(true)]
+        [DefaultValue("12365478")]
+        public string Password { get; set; }
+        [DisplayName("Branch"), NotNull, ForeignKey("[dbo].[BranchMaster]", "Id"), LeftJoin("j"), TextualField("Branch"), Required(true)]
         [LookupEditor(typeof(BranchMasterRow))]
-        [DefaultValue("1")]
+        [DefaultValue("3")]
         public Int32? BranchId { get; set; }
-        [DisplayName("FinancialYear"),NotNull,Required(true)]
-        [LookupEditor(typeof(FinancialYearRow))][DefaultValue("1")]
+        [DisplayName("FinancialYear"), NotNull, Required(true)]
+        [LookupEditor(typeof(FinancialYearRow))]
+        [DefaultValue("1")]
         public Int32? FinancialYearId { get; set; }
 
     }

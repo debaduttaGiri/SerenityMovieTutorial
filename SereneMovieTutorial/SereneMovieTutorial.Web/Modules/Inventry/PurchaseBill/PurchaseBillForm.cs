@@ -1,21 +1,18 @@
 ﻿namespace SereneMovieTutorial.Inventry.Forms
 {
-    using Serenity;
-    using Serenity.ComponentModel;
-    using Serenity.Data;
-    using System;
-    using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
     using SereneMovieTutorial.Inventry.Entities;
+    using Serenity.ComponentModel;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
 
     [FormScript("Inventry.PurchaseBill")]
     [BasedOnRow(typeof(Entities.PurchaseBillRow), CheckNames = false)]
     public class PurchaseBillForm
-    { 
+    {
         [OneThirdWidth, ReadOnly(true)]/*[LookupEditor(typeof(Default.Entities.PartyMasterRow))]*/
         public Int32 PartyId { get; set; }
-       
+
 
         [OneThirdWidth, ReadOnly(true)]
         public Int32 DebitLedgerId { get; set; }
@@ -43,13 +40,13 @@
         [ExPurchaseBillDetailEditor]
         public List<PurchaseBillDetailRow> PurchaseDetails { get; set; }
 
-        [ ReadOnly(true)]
+        [ReadOnly(true)]
         public Decimal TaxableAmount { get; set; }
 
         [OneThirdWidth, ReadOnly(true)]
         public Decimal CgstAmount { get; set; }
 
-        [OneThirdWidth,ReadOnly(true)]
+        [OneThirdWidth, ReadOnly(true)]
         public Decimal SgstAmount { get; set; }
 
         [OneThirdWidth, ReadOnly(true)]

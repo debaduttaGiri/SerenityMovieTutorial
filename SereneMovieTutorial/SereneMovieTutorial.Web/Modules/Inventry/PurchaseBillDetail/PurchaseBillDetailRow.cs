@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Inventry.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Inventry"), TableName("[dbo].[PurchaseBillDetail]")]
     [DisplayName("Purchase Bill Detail"), InstanceName("Purchase Bill Detail")]
@@ -141,9 +139,9 @@ namespace SereneMovieTutorial.Inventry.Entities
             set { Fields.Remarks[this] = value; }
         }
 
-        
 
-        
+
+
 
         IIdField IIdRow.IdField
         {
@@ -183,7 +181,7 @@ namespace SereneMovieTutorial.Inventry.Entities
             public DecimalField TotalAmount;
             public StringField Remarks;
 
-           
+
         }
     }
 }

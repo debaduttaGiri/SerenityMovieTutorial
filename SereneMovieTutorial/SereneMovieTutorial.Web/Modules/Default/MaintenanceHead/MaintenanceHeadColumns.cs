@@ -1,13 +1,9 @@
 ﻿
 namespace SereneMovieTutorial.Default.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [ColumnsScript("Default.MaintenanceHead")]
     [BasedOnRow(typeof(Entities.MaintenanceHeadRow), CheckNames = true)]
@@ -18,9 +14,13 @@ namespace SereneMovieTutorial.Default.Columns
         [EditLink]
         public String Head { get; set; }
         public String Remarks { get; set; }
-        public Int32 CreatedBy { get; set; }
-        public Int32 UpdatedBy { get; set; }
+        [Width(80)]
+        public String CreatedByUsername { get; set; }
+        [Width(120)]
         public DateTime CreatedDate { get; set; }
+        [Width(80)]
+        public String UpdatedByUsername { get; set; }
+        [Width(120)]
         public DateTime UpdatedDate { get; set; }
     }
 }

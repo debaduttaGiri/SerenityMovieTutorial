@@ -2,14 +2,12 @@
 namespace SereneMovieTutorial.FuelManagement.Entities
 {
     using SereneMovieTutorial.Modules.FuelManagement.FuelData;
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("FuelManagement"), TableName("[dbo].[FuelData]")]
     [DisplayName("Fuel Data"), InstanceName("Fuel Data")]
@@ -17,7 +15,7 @@ namespace SereneMovieTutorial.FuelManagement.Entities
     [ModifyPermission("Administration:General")]
     public sealed class FuelDataRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Id"), Identity,SortOrder(1,descending:true)]
+        [DisplayName("Id"), Identity, SortOrder(1, descending: true)]
         public Int32? Id
         {
             get { return Fields.Id[this]; }
@@ -31,28 +29,28 @@ namespace SereneMovieTutorial.FuelManagement.Entities
             set { Fields.InwardNo[this] = value; }
         }
 
-        [DisplayName("Invoice No"), Size(50),NotNull]
+        [DisplayName("Invoice No"), Size(50), NotNull]
         public String InvoiceNo
         {
             get { return Fields.InvoiceNo[this]; }
             set { Fields.InvoiceNo[this] = value; }
         }
 
-        [DisplayName("Invoice Date"),NotNull]
+        [DisplayName("Invoice Date"), NotNull]
         public DateTime? InvoiceDate
         {
             get { return Fields.InvoiceDate[this]; }
             set { Fields.InvoiceDate[this] = value; }
         }
 
-        [DisplayName("Tanker No"), Size(50),NotNull]
+        [DisplayName("Tanker No"), Size(50), NotNull]
         public String TankerNo
         {
             get { return Fields.TankerNo[this]; }
             set { Fields.TankerNo[this] = value; }
         }
 
-        [DisplayName("Qty Kl"), Column("QtyKL"), Size(18), Scale(2),NotNull]
+        [DisplayName("Qty Kl"), Column("QtyKL"), Size(18), Scale(2), NotNull]
         public Decimal? QtyKl
         {
             get { return Fields.QtyKl[this]; }
@@ -73,14 +71,14 @@ namespace SereneMovieTutorial.FuelManagement.Entities
             set { Fields.QuantityLtr[this] = value; }
         }
 
-        [DisplayName("Basic Amount"), Size(18), Scale(2),NotNull]
+        [DisplayName("Basic Amount"), Size(18), Scale(2), NotNull]
         public Decimal? BasicAmount
         {
             get { return Fields.BasicAmount[this]; }
             set { Fields.BasicAmount[this] = value; }
         }
 
-        [DisplayName("Total Amount"), Size(18), Scale(2),NotNull]
+        [DisplayName("Total Amount"), Size(18), Scale(2), NotNull]
         public Decimal? TotalAmount
         {
             get { return Fields.TotalAmount[this]; }
@@ -94,7 +92,7 @@ namespace SereneMovieTutorial.FuelManagement.Entities
             set { Fields.RateLtr[this] = value; }
         }
 
-        [DisplayName("Transportation Rate"), Size(18), Scale(2),NotNull]
+        [DisplayName("Transportation Rate"), Size(18), Scale(2), NotNull]
         public Decimal? TransportationRate
         {
             get { return Fields.TransportationRate[this]; }
@@ -129,7 +127,7 @@ namespace SereneMovieTutorial.FuelManagement.Entities
             set { Fields.ShortageAmt[this] = value; }
         }
 
-        [DisplayName("Receipt Date"),NotNull]
+        [DisplayName("Receipt Date"), NotNull]
         public DateTime? ReceiptDate
         {
             get { return Fields.ReceiptDate[this]; }
@@ -213,7 +211,7 @@ namespace SereneMovieTutorial.FuelManagement.Entities
             get { return Fields.FuelDetails[this]; }
             set { Fields.FuelDetails[this] = value; }
         }
-        [NotMapped] 
+        [NotMapped]
         [DisplayName("Allotted Quantity")]
         public decimal? AllottedQuantity
         {

@@ -2,13 +2,11 @@
 namespace SereneMovieTutorial.Default.Entities
 {
     using SereneMovieTutorial.Modules.Default.CustomerMaster;
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[CustomerMaster]")]
     [DisplayName("Owner"), InstanceName("Owner")]
@@ -21,7 +19,7 @@ namespace SereneMovieTutorial.Default.Entities
     public sealed class CustomerMasterRow : Row, IIdRow, INameRow
     {
         [DisplayName("Customer Id"), Identity]
-        [SortOrder(1,descending:true)]
+        [SortOrder(1, descending: true)]
         public Int32? CustomerId
         {
             get { return Fields.CustomerId[this]; }

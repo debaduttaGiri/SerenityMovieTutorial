@@ -1,15 +1,15 @@
 ﻿using Serenity.Navigation;
-using MyPages = SereneMovieTutorial.Default.Pages;
 using MyPage = SereneMovieTutorial.FuelManagement.Pages;
-using myController = SereneMovieTutorial.Reports;
+using MyPages = SereneMovieTutorial.Default.Pages;
 //[assembly: NavigationMenu(int.MaxValue, "Movie Database", icon: "fa-film")]
-[assembly: NavigationMenu(int.MaxValue -1, "DailyWork", icon: "fa-line-chart")]
+[assembly: NavigationMenu(int.MaxValue - 1, "DailyWork", icon: "fa-line-chart")]
+[assembly: NavigationLink(int.MaxValue, "DailyWork/Accounting DashBoard", url: "~/AccountingDashboard", permission: "*", icon: "fa-check-circle-o")]
 [assembly: NavigationLink(int.MaxValue, "DailyWork/Loading Trip", typeof(MyPages.LoadingTripController), icon: "fas fa-truck")]
-[assembly: NavigationLink(int.MaxValue-1, "Fuel Management", typeof(MyPage.FuelDataController), icon: "fa fa-tint")]
+[assembly: NavigationLink(int.MaxValue - 1, "Fuel Management", typeof(MyPage.FuelDataController), icon: "fa fa-tint")]
 [assembly: NavigationMenu(int.MaxValue - 1, "Movie", icon: "glyphicon glyphicon-film")]
 [assembly: NavigationLink(int.MaxValue, "Movie/Movies", typeof(MyPages.MovieController), icon: "fa-video-camera")]
-[assembly: NavigationLink(int.MaxValue , "Movie/Genre", typeof(MyPages.GenreController), icon: "fa-thumb-tack")]
-[assembly: NavigationLink(int.MaxValue , "Movie/Person", typeof(MyPages.PersonController), icon: "fas fa-user")]
+[assembly: NavigationLink(int.MaxValue, "Movie/Genre", typeof(MyPages.GenreController), icon: "fa-thumb-tack")]
+[assembly: NavigationLink(int.MaxValue, "Movie/Person", typeof(MyPages.PersonController), icon: "fas fa-user")]
 [assembly: NavigationMenu(int.MaxValue - 1, "Master", icon: "fas fa-user-circle")]
 [assembly: NavigationLink(int.MaxValue, "Master/Employees", typeof(MyPages.EmployeesController), icon: "fas fa-user")]
 [assembly: NavigationLink(int.MaxValue, "Master/Plant", typeof(MyPages.PlantController), icon: "fa fa-industry")]
@@ -37,5 +37,5 @@ using myController = SereneMovieTutorial.Reports;
 [assembly: NavigationLink(int.MaxValue, "DailyWork/Pending Trip Details Invoice", typeof(MyPages.PendingTripDetailsInvoiceController), icon: "fa-hourglass-half")]
 [assembly: NavigationLink(int.MaxValue, "DailyWork/ManageInvoice", typeof(MyPages.ManageinvoiceController), icon: "fa fa-paperclip")]
 //[assembly: NavigationLink(int.MaxValue, "DailyWork/InvoiceDetails", typeof(MyPages.InvoicedetailsController), icon: "fa fa-book")]
-[assembly: NavigationLink(int.MaxValue, "Master/Tax", typeof(MyPages.TaxController), icon: "fa fa-clipboard-list")]
+[assembly: NavigationLink(int.MaxValue, "Master/Tax", typeof(MyPages.TaxController), icon: "fa-thumb-tack")]
 [assembly: NavigationLink(int.MaxValue, "Master/Maintenance Head", typeof(MyPages.MaintenanceHeadController), icon: "fa fa-cube")]

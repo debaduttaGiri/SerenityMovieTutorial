@@ -3,7 +3,7 @@ namespace SereneMovieTutorial.Default.Forms
 {
     using Serenity.ComponentModel;
     using System;
-    
+
 
     [FormScript("Default.Employees")]
     [BasedOnRow(typeof(Entities.EmployeesRow), CheckNames = false)]
@@ -22,6 +22,6 @@ namespace SereneMovieTutorial.Default.Forms
         public String Country { get; set; }
         public String HomePhone { get; set; }
         public String Extension { get; set; }
-        
+
     }
 }

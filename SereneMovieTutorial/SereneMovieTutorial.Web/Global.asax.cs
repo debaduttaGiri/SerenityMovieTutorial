@@ -33,7 +33,7 @@ namespace SereneMovieTutorial
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            
+
             var cookie = Request.Cookies["LanguagePreference"];
             if (cookie != null && !string.IsNullOrEmpty(cookie.Value))
             {

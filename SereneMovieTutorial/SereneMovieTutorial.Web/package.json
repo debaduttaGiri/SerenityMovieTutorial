@@ -25,7 +25,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/deep-equal": "^1.0.4",
-    "@types/jquery": "^2.0.41",
+    "@types/jquery": "^2.0.68",
     "@types/jquery.cookie": "^1.4.36",
     "@types/jqueryui": "^1.11.32",
     "@types/slickgrid": "^2.1.40",

@@ -1,22 +1,20 @@
 ﻿
 namespace SereneMovieTutorial.Default.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [ColumnsScript("Default.Destination")]
     [BasedOnRow(typeof(Entities.DestinationRow), CheckNames = true)]
     public class DestinationColumns
     {
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
+        [DisplayName("Db.Shared.RecordId"), AlignRight]
         public Int32 Id { get; set; }
-        public String Plant { get; set; }
-        public String Distict { get; set; }
+        [Width(80)]
+        public String PlantName { get; set; }
+        [Width(80)]
+        public String DistictName { get; set; }
         [EditLink]
         public String Destination { get; set; }
         public String Remarks { get; set; }

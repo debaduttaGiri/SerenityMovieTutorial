@@ -2,13 +2,11 @@
 namespace SereneMovieTutorial.Default.Entities
 {
     using SereneMovieTutorial.Modules.Default.VehicleMaster;
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[VehicleMaster]")]
     [DisplayName("Vehicle"), InstanceName("Vehicle")]
@@ -34,7 +32,7 @@ namespace SereneMovieTutorial.Default.Entities
 
         [DisplayName("Vehicle Type")]
         [NotNull]
-        
+
         [EnumEditor]
         public VehicleType? VehicleType
         {
@@ -101,7 +99,7 @@ namespace SereneMovieTutorial.Default.Entities
         }
 
         [DisplayName("Customer Id"), NotNull]
-        [ForeignKey("[dbo].[CustomerMaster]", "CustomerId"), LeftJoin("c"),LookupEditor(typeof(CustomerMasterRow))]     
+        [ForeignKey("[dbo].[CustomerMaster]", "CustomerId"), LeftJoin("c"), LookupEditor(typeof(CustomerMasterRow))]
         [TextualField("CustomerName")]
         public Int32? CustomerId
         {

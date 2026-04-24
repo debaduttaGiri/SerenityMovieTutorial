@@ -1,0 +1,6 @@
+{
+  "Db.Default.Manageinvoice.Igstrate": "IGST Rate",
+  "Db.Default.Manageinvoice.Invoicedate": "InvoiceDate",
+  "Db.Default.Manageinvoice.Invoiceno": "InvoiceNo",
+  "Db.Default.Manageinvoice.LoadingTripId": "Loading Trip"
+}

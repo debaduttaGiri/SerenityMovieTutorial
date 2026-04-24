@@ -2,13 +2,11 @@
 namespace SereneMovieTutorial.FuelManagement.Entities
 {
     using SereneMovieTutorial.Default.Entities;
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("FuelManagement"), TableName("[dbo].[FuelDetails]")]
     [DisplayName("Fuel Details"), InstanceName("Fuel Details")]
@@ -16,7 +14,7 @@ namespace SereneMovieTutorial.FuelManagement.Entities
     [ModifyPermission("Administration:General")]
     public sealed class FuelDetailsRow : Row, IIdRow
     {
-        [DisplayName("Id"), Identity,Hidden]
+        [DisplayName("Id"), Identity, Hidden]
         public Int32? Id
         {
             get { return Fields.Id[this]; }

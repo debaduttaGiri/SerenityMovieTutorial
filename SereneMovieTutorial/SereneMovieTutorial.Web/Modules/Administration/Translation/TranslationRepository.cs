@@ -33,10 +33,10 @@ namespace SereneMovieTutorial.Administration.Repositories
 
             var availableKeys = GetAllAvailableLocalTextKeys();
             var targetLanguageID = request.TargetLanguageID.TrimToNull();
-            
+
             var customTranslations = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
-            var textsFilePath = GetUserTextsFilePath(targetLanguageID);           
+            var textsFilePath = GetUserTextsFilePath(targetLanguageID);
             if (File.Exists(textsFilePath))
             {
                 var json = JsonConfigHelper.LoadConfig<Dictionary<string, JToken>>(textsFilePath);
@@ -55,7 +55,7 @@ namespace SereneMovieTutorial.Administration.Repositories
 
             result.Entities = new List<TranslationItem>();
 
-            Func<string, string> effective = delegate(string key)
+            Func<string, string> effective = delegate (string key)
             {
                 if (key.StartsWith("Navigation."))
                 {

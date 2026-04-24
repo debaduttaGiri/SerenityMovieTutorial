@@ -18,7 +18,7 @@ namespace SereneMovieTutorial.Navigation
         {
             Items = TwoLevelCache.GetLocalStoreOnly("LeftNavigationModel:NavigationItems:" + (Authorization.UserId ?? "-1"), TimeSpan.Zero,
                 UserPermissionRow.Fields.GenerationKey, () =>
-                    NavigationHelper.GetNavigationItems(x => 
+                    NavigationHelper.GetNavigationItems(x =>
                         x != null && x.StartsWith("~/") ? VirtualPathUtility.ToAbsolute(x) : x));
 
             SetActivePath();

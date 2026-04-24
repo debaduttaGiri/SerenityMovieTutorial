@@ -1,9 +1,4 @@
-﻿using SereneMovieTutorial.Default.Entities;
-using Serenity.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Serenity.ComponentModel;
 
 namespace SereneMovieTutorial.Default.Person
 {

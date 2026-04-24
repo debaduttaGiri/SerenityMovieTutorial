@@ -1,7 +1,6 @@
 ﻿
 namespace SereneMovieTutorial.Default.Repositories
 {
-    using Serenity;
     using Serenity.Data;
     using Serenity.Services;
     using System;
@@ -39,12 +38,14 @@ namespace SereneMovieTutorial.Default.Repositories
             return new MyListHandler().Process(connection, request);
         }
 
-        private class MySaveHandler : SaveRequestHandler<MyRow> {
+        private class MySaveHandler : SaveRequestHandler<MyRow>
+        {
 
-            
+
         }
         private class MyDeleteHandler : DeleteRequestHandler<MyRow> { }
-        private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> {
+        private class MyRetrieveHandler : RetrieveRequestHandler<MyRow>
+        {
             //protected override void OnReturn()
             //{
             //    base.OnReturn();
@@ -53,7 +54,8 @@ namespace SereneMovieTutorial.Default.Repositories
             //           Response.Entity.Branch = branch.ToString();
             //}
         }
-        private class MyListHandler : ListRequestHandler<MyRow> {
+        private class MyListHandler : ListRequestHandler<MyRow>
+        {
             protected override void ApplyFilters(SqlQuery query)
             {
                 base.ApplyFilters(query);
@@ -62,12 +64,13 @@ namespace SereneMovieTutorial.Default.Repositories
 
                 if (branchIdObj != null)
                 {
-                    int branchId = Convert.ToInt32(branchIdObj); 
-                    if (branchId != 8) {
-                        query.Where(MyRow.Fields.BranchId == branchId); 
-                    } 
+                    int branchId = Convert.ToInt32(branchIdObj);
+                    if (branchId != 8)
+                    {
+                        query.Where(MyRow.Fields.BranchId == branchId);
+                    }
                 }
-                
+
             }
         }
 
@@ -78,7 +81,7 @@ namespace SereneMovieTutorial.Default.Repositories
             var today = DateTime.Today;
             var firstDayOfMonth = new DateTime(today.Year, today.Month, 1);
             var nextMonth = firstDayOfMonth.AddMonths(1);
-            if(branch == 8)
+            if (branch == 8)
             {
                 var todayWeight = connection.Query<decimal?>(
                 new SqlQuery()
@@ -86,8 +89,8 @@ namespace SereneMovieTutorial.Default.Repositories
                     .Select(Sql.Sum(fld.Weight.Expression))
                     .Where(
                         fld.TripDate >= today &&
-                        fld.TripDate < today.AddDays(1) 
-                        
+                        fld.TripDate < today.AddDays(1)
+
                     )
             ).FirstOrDefault() ?? 0;
 
@@ -97,8 +100,8 @@ namespace SereneMovieTutorial.Default.Repositories
                         .Select(Sql.Count(fld.TripDate.Expression))
                         .Where(
                             fld.TripDate >= today &&
-                            fld.TripDate < today.AddDays(1) 
-                            
+                            fld.TripDate < today.AddDays(1)
+
                         )
                 ).FirstOrDefault() ?? 0;
 
@@ -108,8 +111,8 @@ namespace SereneMovieTutorial.Default.Repositories
                         .Select(Sql.Sum(fld.Weight.Expression))
                         .Where(
                             fld.TripDate >= firstDayOfMonth &&
-                            fld.TripDate < nextMonth 
-                            
+                            fld.TripDate < nextMonth
+
                         )
                 ).FirstOrDefault() ?? 0;
 
@@ -119,8 +122,8 @@ namespace SereneMovieTutorial.Default.Repositories
                         .Select(Sql.Count(fld.TripNo.Expression))
                         .Where(
                             fld.TripDate >= firstDayOfMonth &&
-                            fld.TripDate < nextMonth 
-                            
+                            fld.TripDate < nextMonth
+
                         )
                 ).FirstOrDefault() ?? 0;
                 return new WeightSummaryResponse

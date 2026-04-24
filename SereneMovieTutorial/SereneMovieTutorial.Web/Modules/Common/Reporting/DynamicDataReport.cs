@@ -49,8 +49,8 @@ namespace Serenity.Reporting
                 propertyInfos = ColumnsType.GetProperties().ToDictionary(x => x.Name);
 
                 var basedOnAttr = ColumnsType.GetCustomAttribute<BasedOnRowAttribute>();
-                if (basedOnAttr != null && 
-                    basedOnAttr.RowType != null && 
+                if (basedOnAttr != null &&
+                    basedOnAttr.RowType != null &&
                     typeof(Row).IsAssignableFrom(basedOnAttr.RowType))
                 {
                     basedOnRow = (Row)Activator.CreateInstance(basedOnAttr.RowType);

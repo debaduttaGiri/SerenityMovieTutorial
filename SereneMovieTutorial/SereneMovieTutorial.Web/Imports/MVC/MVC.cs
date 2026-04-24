@@ -49,6 +49,11 @@ namespace MVC
 
         public static class Default
         {
+            public static class AccountingReports
+            {
+                public const string AccountingDashBoard = "~/Modules/Default/AccountingReports/AccountingDashBoard.cshtml";
+            }
+
             public static class BranchMaster
             {
                 public const string BranchMasterIndex = "~/Modules/Default/BranchMaster/BranchMasterIndex.cshtml";

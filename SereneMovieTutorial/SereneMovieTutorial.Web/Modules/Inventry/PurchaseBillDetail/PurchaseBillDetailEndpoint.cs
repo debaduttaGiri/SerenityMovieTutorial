@@ -1,7 +1,6 @@
 ﻿
 namespace SereneMovieTutorial.Inventry.Endpoints
 {
-    using Serenity;
     using Serenity.Data;
     using Serenity.Services;
     using System.Data;
@@ -24,7 +23,7 @@ namespace SereneMovieTutorial.Inventry.Endpoints
         {
             return new MyRepository().Update(uow, request);
         }
- 
+
         [HttpPost, AuthorizeDelete(typeof(MyRow))]
         public DeleteResponse Delete(IUnitOfWork uow, DeleteRequest request)
         {

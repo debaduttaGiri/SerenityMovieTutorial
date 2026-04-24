@@ -2,19 +2,17 @@
 namespace SereneMovieTutorial.Default.Entities
 {
     using SereneMovieTutorial.Modules.Default.Pumpmaster;
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[PUMPMASTER]")]
     [DisplayName("Pump"), InstanceName("Pump")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
-    [LookupScript("master.Pump",Permission ="*")]
+    [LookupScript("master.Pump", Permission = "*")]
     public sealed class PumpmasterRow : Row, IIdRow, INameRow
     {
         [DisplayName("Id"), Column("ID"), Identity]
@@ -32,12 +30,12 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Name[this] = value; }
         }
 
-        [DisplayName("Stock"), Column("STOCK"), Size(18), Scale(2),DefaultValue(0.00), LookupInclude]
+        [DisplayName("Stock"), Column("STOCK"), Size(18), Scale(2), DefaultValue(0.00), LookupInclude]
         public Decimal? Stock
         {
             get { return Fields.Stock[this]; }
             set { Fields.Stock[this] = value; }
-        } 
+        }
 
         [DisplayName("Gst"), Column("GST"), Size(15), NotNull]
         public String Gst

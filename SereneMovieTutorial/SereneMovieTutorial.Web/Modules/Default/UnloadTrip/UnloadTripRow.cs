@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[UnloadTrip]")]
     [DisplayName("Unload Trip"), InstanceName("Unload Trip")]
@@ -15,7 +13,7 @@ namespace SereneMovieTutorial.Default.Entities
     [ModifyPermission("Administration:General")]
     public sealed class UnloadTripRow : Row, IIdRow, INameRow, IInsertLogRow, IUpdateLogRow
     {
-        [DisplayName("Unload Trip Id"), Identity,SortOrder(1,descending:true)]
+        [DisplayName("Unload Trip Id"), Identity, SortOrder(1, descending: true)]
         public Int32? UnloadTripId
         {
             get { return Fields.UnloadTripId[this]; }
@@ -194,7 +192,7 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.UpdatedDate[this] = value; }
         }
 
-        
+
         IIdField IIdRow.IdField
         {
             get { return Fields.UnloadTripId; }

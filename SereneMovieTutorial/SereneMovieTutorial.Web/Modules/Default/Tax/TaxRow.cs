@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[Tax]")]
     [DisplayName("Tax"), InstanceName("Tax")]
@@ -23,7 +21,8 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Tax Amount"), NotNull][LookupInclude]
+        [DisplayName("Tax Amount"), NotNull]
+        [LookupInclude]
         public Int32? TaxAmount
         {
             get { return Fields.TaxAmount[this]; }

@@ -1,10 +1,8 @@
 ﻿
 namespace SereneMovieTutorial.MaintenanceModule.Repositories
 {
-    using Serenity;
     using Serenity.Data;
     using Serenity.Services;
-    using System;
     using System.Data;
     using MyRow = Entities.MaintenanceRow;
 

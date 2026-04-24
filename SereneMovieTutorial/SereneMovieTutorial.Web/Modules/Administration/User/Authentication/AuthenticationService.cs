@@ -174,14 +174,14 @@
                     var userId = (int)connection.InsertAndGetID(new UserRow
                     {
                         Username = username,
-                        Source = "ldap", 
-                        DisplayName = displayName, 
-                        Email = email, 
-                        PasswordHash = hash, 
-                        PasswordSalt = salt, 
-                        IsActive = 1, 
-                        InsertDate = DateTime.Now, 
-                        InsertUserId = 1, 
+                        Source = "ldap",
+                        DisplayName = displayName,
+                        Email = email,
+                        PasswordHash = hash,
+                        PasswordSalt = salt,
+                        IsActive = 1,
+                        InsertDate = DateTime.Now,
+                        InsertUserId = 1,
                         LastDirectoryUpdate = DateTime.Now
                     });
 

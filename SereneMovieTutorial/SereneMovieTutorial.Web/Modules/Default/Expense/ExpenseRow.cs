@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     //[ConnectionKey("Default"), Module("Default"), TableName("[dbo].[Expense]")]
     //[DisplayName("Expense"), InstanceName("Expense")]
@@ -22,7 +20,7 @@ namespace SereneMovieTutorial.Default.Entities
     public sealed class ExpenseRow : Row, IIdRow, INameRow
     {
         [DisplayName("Expense Id"), Identity, PrimaryKey]
-        [SortOrder(1,descending:true)]
+        [SortOrder(1, descending: true)]
         public Int32? ExpenseId
         {
             get { return Fields.ExpenseId[this]; }
@@ -44,7 +42,7 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.District[this] = value; }
         }
 
-        [DisplayName("Destination"), NotNull, ForeignKey("[dbo].[Destination]","Id"), LeftJoin("jDestination"), TextualField("Destination1")]
+        [DisplayName("Destination"), NotNull, ForeignKey("[dbo].[Destination]", "Id"), LeftJoin("jDestination"), TextualField("Destination1")]
         [LookupEditor(typeof(DestinationRow), CascadeFrom = "District", CascadeField = "Distict")]
         public Int32? Destination
         {
@@ -52,7 +50,7 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Destination[this] = value; }
         }
 
-        [DisplayName("Expense"), Size(10), Scale(2),NotNull]
+        [DisplayName("Expense"), Size(10), Scale(2), NotNull]
         public Decimal? Expense
         {
             get { return Fields.Expense[this]; }

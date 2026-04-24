@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[Plant]")]
     [DisplayName("Plant"), InstanceName("Plant")]
@@ -16,7 +14,7 @@ namespace SereneMovieTutorial.Default.Entities
     [LookupScript]
     public sealed class PlantRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Id"), Identity,LookupInclude]
+        [DisplayName("Id"), Identity, LookupInclude]
         [SortOrder(1, descending: true)]
         [LookupEditor(typeof(PlantRow))]
         public Int32? Id
@@ -25,8 +23,8 @@ namespace SereneMovieTutorial.Default.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Plant"), Size(20), QuickSearch,NotNull]
-        
+        [DisplayName("Plant"), Size(20), QuickSearch, NotNull]
+
         public String Plant
         {
             get { return Fields.Plant[this]; }

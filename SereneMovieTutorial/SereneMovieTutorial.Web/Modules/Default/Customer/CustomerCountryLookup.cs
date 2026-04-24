@@ -1,9 +1,4 @@
-﻿using Serenity.Web;
-using System;
-using System.Collections.Generic;
-
-
-namespace SereneMovieTutorial.Modules.Default.Customer
+﻿namespace SereneMovieTutorial.Modules.Default.Customer
 {
     using Serenity.ComponentModel;
     using Serenity.Data;

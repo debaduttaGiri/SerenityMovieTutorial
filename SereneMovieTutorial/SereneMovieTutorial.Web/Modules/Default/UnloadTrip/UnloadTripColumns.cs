@@ -1,14 +1,9 @@
 ﻿
 namespace SereneMovieTutorial.Default.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
-    using Serenity.Data.Mapping;
 
     [ColumnsScript("Default.UnloadTrip")]
     [BasedOnRow(typeof(Entities.UnloadTripRow), CheckNames = false)]
@@ -20,10 +15,10 @@ namespace SereneMovieTutorial.Default.Columns
         ////[Formatter(typeof(DownloadFormatter))]
         //[DownloadFormatter]
         //public String Download { get; set; }
-        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight,Hidden]
+        [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight, Hidden]
         public Int32 UnloadTripId { get; set; }
         [EditLink]
-        
+
         public String TripNo { get; set; }
         public DateTime TripDate { get; set; }
         public String Plant { get; set; }

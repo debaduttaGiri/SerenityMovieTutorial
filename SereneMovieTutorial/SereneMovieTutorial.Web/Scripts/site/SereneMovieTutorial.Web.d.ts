@@ -717,11 +717,8 @@ declare namespace SereneMovieTutorial.Default {
         Distict?: number;
         Destination?: string;
         Remarks?: string;
-        Plant1?: string;
-        PlantRemarks?: string;
-        DistictPlant?: number;
-        Distict1?: string;
-        DistictRemarks?: string;
+        PlantName?: string;
+        DistictName?: string;
     }
     namespace DestinationRow {
         const idProperty = "Id";
@@ -739,11 +736,8 @@ declare namespace SereneMovieTutorial.Default {
             Distict = "Distict",
             Destination = "Destination",
             Remarks = "Remarks",
-            Plant1 = "Plant1",
-            PlantRemarks = "PlantRemarks",
-            DistictPlant = "DistictPlant",
-            Distict1 = "Distict1",
-            DistictRemarks = "DistictRemarks"
+            PlantName = "PlantName",
+            DistictName = "DistictName"
         }
     }
 }
@@ -782,10 +776,9 @@ declare namespace SereneMovieTutorial.Default {
     interface DistictRow {
         Id?: number;
         Plant?: number;
+        PlantName?: string;
         Distict?: string;
         Remarks?: string;
-        Plant1?: string;
-        PlantRemarks?: string;
     }
     namespace DistictRow {
         const idProperty = "Id";
@@ -800,10 +793,9 @@ declare namespace SereneMovieTutorial.Default {
         const enum Fields {
             Id = "Id",
             Plant = "Plant",
+            PlantName = "PlantName",
             Distict = "Distict",
-            Remarks = "Remarks",
-            Plant1 = "Plant1",
-            PlantRemarks = "PlantRemarks"
+            Remarks = "Remarks"
         }
     }
 }
@@ -1418,6 +1410,8 @@ declare namespace SereneMovieTutorial.Default {
         UpdatedBy?: number;
         CreatedDate?: string;
         UpdatedDate?: string;
+        CreatedByUsername?: string;
+        UpdatedByUsername?: string;
     }
     namespace MaintenanceHeadRow {
         const idProperty = "Id";
@@ -1436,7 +1430,9 @@ declare namespace SereneMovieTutorial.Default {
             CreatedBy = "CreatedBy",
             UpdatedBy = "UpdatedBy",
             CreatedDate = "CreatedDate",
-            UpdatedDate = "UpdatedDate"
+            UpdatedDate = "UpdatedDate",
+            CreatedByUsername = "CreatedByUsername",
+            UpdatedByUsername = "UpdatedByUsername"
         }
     }
 }
@@ -2807,7 +2803,7 @@ declare namespace SereneMovieTutorial.FuelManagement {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<DieselissueRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<DieselissueRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function GetDieselRate(request: Modules.FuelManagement.Dieselissue.DieselRateRequest, onSuccess?: (response: any) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function GetDieselRate(request: Modules.FuelManagement.Dieselissue.DieselRateRequest, onSuccess?: (response: System.Nullable<number>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function GetTripDetails(request: TripDetailsRequest, onSuccess?: (response: TripDetailsResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Create = "FuelManagement/Dieselissue/Create",
@@ -4224,6 +4220,20 @@ declare namespace SereneMovieTutorial.LanguageList {
 }
 declare namespace SereneMovieTutorial.ScriptInitialization {
 }
+declare namespace SereneMovieTutorial.Common {
+    interface BuyerModel {
+        BuyerName: string;
+        Qty: number;
+        Revenue: number;
+        Margin: number;
+    }
+    interface VendorOutstandingModel {
+        label: string;
+        vendorOut: number;
+    }
+    function VendorOutstanding(): void;
+    function loadBuyers(): void;
+}
 declare namespace SereneMovieTutorial {
     class BasicProgressDialog extends Serenity.TemplatedDialog<any> {
         constructor();
@@ -4611,7 +4621,7 @@ declare namespace SereneMovieTutorial.Default {
         private getEffectiveValue;
         private inputsChange;
         protected getButtons(): Serenity.ToolButton[];
-        private saveChanges1;
+        private saveChanges;
         private stringInputFormatter;
     }
 }

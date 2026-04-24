@@ -1,13 +1,9 @@
 ﻿
 namespace SereneMovieTutorial.MaintenanceModule.Forms
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [FormScript("MaintenanceModule.Maintenance")]
     [BasedOnRow(typeof(Entities.MaintenanceRow), CheckNames = false)]
@@ -21,7 +17,8 @@ namespace SereneMovieTutorial.MaintenanceModule.Forms
         public Int32 HeadId { get; set; }
         [OneThirdWidth]
         public Int32 TruckId { get; set; }
-        [OneThirdWidth][ReadOnly(true)]
+        [OneThirdWidth]
+        [ReadOnly(true)]
         public Int32 TruckType { get; set; }
         [OneThirdWidth]
         [ReadOnly(true)]
@@ -40,9 +37,9 @@ namespace SereneMovieTutorial.MaintenanceModule.Forms
         [OneThirdWidth]
         [ReadOnly(true)]
         public DateTime DueDate { get; set; }
-        
+
         public String Narration { get; set; }
-       
-        
+
+
     }
 }

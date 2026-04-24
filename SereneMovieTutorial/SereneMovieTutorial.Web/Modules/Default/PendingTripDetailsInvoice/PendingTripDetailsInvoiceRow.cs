@@ -1,13 +1,11 @@
 ﻿
 namespace SereneMovieTutorial.Default.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Default"), Module("Default"), TableName("[dbo].[TripDetailsInvoice]")]
     [DisplayName("Pending Trip Details Invoice"), InstanceName("Pending Trip Details Invoice")]
@@ -15,7 +13,7 @@ namespace SereneMovieTutorial.Default.Entities
     [ModifyPermission("Administration:General")]
     public sealed class PendingTripDetailsInvoiceRow : Row, IIdRow, INameRow
     {
-        [DisplayName("Loading Trip Id"), NotNull,SortOrder(1,descending:true)]
+        [DisplayName("Loading Trip Id"), NotNull, SortOrder(1, descending: true)]
         public Int32? LoadingTripId
         {
             get { return Fields.LoadingTripId[this]; }
