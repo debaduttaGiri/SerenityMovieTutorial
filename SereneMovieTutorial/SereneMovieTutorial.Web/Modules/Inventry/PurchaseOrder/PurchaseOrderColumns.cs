@@ -21,6 +21,8 @@ namespace SereneMovieTutorial.Inventry.Columns
         public string BranchName { get; set; }
         [EditLink]
         public DateTime OrderDate { get; set; }
+        //public Boolean? IsApproved { get; set; }
+        public Boolean? IsUnapproved { get; set; }
         public String Remarks { get; set; }
         [Width(140)]
         public DateTime CreatedDate { get; set; }

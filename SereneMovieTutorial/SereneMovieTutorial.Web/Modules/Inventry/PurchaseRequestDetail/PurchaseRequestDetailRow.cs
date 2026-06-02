@@ -9,7 +9,7 @@ namespace SereneMovieTutorial.Inventry.Entities
     using System.ComponentModel;
 
     [ConnectionKey("Default"), Module("Inventry"), TableName("[dbo].[PurchaseRequestDetail]")]
-    [DisplayName("Purchase Detail"), InstanceName("Purchase Detail")]
+    [DisplayName("Purchase Details"), InstanceName("Purchase Detail")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
     [LookupScript]

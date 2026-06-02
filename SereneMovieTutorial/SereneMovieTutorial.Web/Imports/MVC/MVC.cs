@@ -263,6 +263,11 @@ namespace MVC
                 public const string PurchaseRequestDetailIndex = "~/Modules/Inventry/PurchaseRequestDetail/PurchaseRequestDetailIndex.cshtml";
             }
 
+            public static class VPoApprove
+            {
+                public const string VPoApproveIndex = "~/Modules/Inventry/VPoApprove/VPoApproveIndex.cshtml";
+            }
+
         }
 
         public static class MaintenanceModule
@@ -270,6 +275,11 @@ namespace MVC
             public static class Maintenance
             {
                 public const string MaintenanceIndex = "~/Modules/MaintenanceModule/Maintenance/MaintenanceIndex.cshtml";
+            }
+
+            public static class Reports
+            {
+                public const string MaintenanceReport = "~/Modules/MaintenanceModule/Reports/MaintenanceReport.cshtml";
             }
 
         }

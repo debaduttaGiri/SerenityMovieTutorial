@@ -13,6 +13,8 @@
         UpdateDate?: string;
         UpdatedBy?: number;
         DetailList?: PurchaseRequestDetailRow[];
+        IsApproved?: boolean;
+        IsUnapproved?: boolean;
         CreatedByUsername?: string;
         UpdatedByUsername?: string;
     }
@@ -45,6 +47,8 @@
             UpdateDate = "UpdateDate",
             UpdatedBy = "UpdatedBy",
             DetailList = "DetailList",
+            IsApproved = "IsApproved",
+            IsUnapproved = "IsUnapproved",
             CreatedByUsername = "CreatedByUsername",
             UpdatedByUsername = "UpdatedByUsername"
         }

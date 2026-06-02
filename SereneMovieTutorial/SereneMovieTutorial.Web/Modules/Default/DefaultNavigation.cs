@@ -38,4 +38,3 @@ using MyPages = SereneMovieTutorial.Default.Pages;
 [assembly: NavigationLink(int.MaxValue, "DailyWork/ManageInvoice", typeof(MyPages.ManageinvoiceController), icon: "fa fa-paperclip")]
 //[assembly: NavigationLink(int.MaxValue, "DailyWork/InvoiceDetails", typeof(MyPages.InvoicedetailsController), icon: "fa fa-book")]
 [assembly: NavigationLink(int.MaxValue, "Master/Tax", typeof(MyPages.TaxController), icon: "fa-thumb-tack")]
-[assembly: NavigationLink(int.MaxValue, "Master/Maintenance Head", typeof(MyPages.MaintenanceHeadController), icon: "fa fa-cube")]

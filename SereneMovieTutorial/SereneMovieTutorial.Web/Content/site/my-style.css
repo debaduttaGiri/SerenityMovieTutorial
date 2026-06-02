@@ -124,7 +124,118 @@
     background-color: #000 !important;
 }
 
-.main-footer{
-    background-color:black;
-    color:white;
+.main-footer {
+    background-color: black;
+    color: white;
+}
+
+
+
+/* Notice: no Razor '@' here */
+.scroll-container {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #tblStock,
+    #tblStock * {
+        visibility: visible;
+    }
+
+    #tblStock {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+    }
+
+    th {
+        color: black !important;
+    }
+
+    .btn,
+    form {
+        display: none !important;
+    }
+}
+
+.user-menu .dropdown-menu {
+    width: auto !important;
+    min-width: 260px !important;
+    max-width: 95vw !important;
+    right: 0 !important;
+    left: auto !important;
+}
+
+.user-footer {
+    display: flex !important;
+    gap: 10px;
+    padding: 10px;
+}
+
+    .user-footer .btn {
+        flex: 1;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+@media (max-width: 768px) {
+
+    .main-header .navbar {
+        display: flex !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        overflow: hidden;
+    }
+
+    .main-header .navbar-custom-menu {
+        margin-left: auto !important;
+    }
+
+    .main-header .navbar-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+
+    .navbar-branch-left {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .branch-text {
+        font-size: 12px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .year-text {
+        font-size: 10px !important;
+        white-space: nowrap;
+    }
+
+    .user-menu .hidden-xs {
+        display: none !important;
+    }
+
+    .navbar-custom-menu .navbar-nav > li > a {
+        padding: 6px 5px !important;
+    }
 }

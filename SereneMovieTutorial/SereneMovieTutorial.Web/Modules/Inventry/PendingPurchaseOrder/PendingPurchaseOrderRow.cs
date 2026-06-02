@@ -35,7 +35,7 @@ namespace SereneMovieTutorial.Inventry.Entities
             set { Fields.OrderDate[this] = value; }
         }
 
-        [DisplayName("Party Id"), NotNull, ForeignKey("[dbo].[PartyMaster]", "Id"), LeftJoin("pty")]
+        [DisplayName("Party Id"), NotNull, ForeignKey("[dbo].[PartyMaster]", "Id"), LeftJoin("pty")]              
         public Int32? PartyId
         {
             get { return Fields.PartyId[this]; }

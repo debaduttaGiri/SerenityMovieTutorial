@@ -1,0 +1,174 @@
+﻿@model List<SereneMovieTutorial.Modules.MaintenanceModule.Reports.Maintenance>
+
+@{
+    ViewBag.Title = "Maintenance Report";
+}
+
+
+
+<div style="background-color:white;border-radius:5px">
+    <form method="get">
+        <div class="filter-box row">
+            <div class="col-md-12">
+                <h4 style="margin-top:10px;  font-weight:bold;text-align:center;background-color:gray;color:white ">Maintenance Report</h4>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Entry Date</label>
+                    <input type="date" id="EntryDate" name="EntryDate" class="form-control" />
+                    
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>LastMaintenance Date</label>
+                    <input type="date" id="LastMaintenance" name="LastMaintenance" class="form-control"  />
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Part Name</label>
+                    <select id="HeadId" name="HeadId" class="form-control">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Truck Number</label>
+                    <select id="VehicleId" name="VehicleId" class="form-control">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+
+            <!-- Submit -->
+            <div class="col-md-2" style="margin-top:23px;">
+                <button type="submit" class="btn btn-info">🔍</button>
+            </div>
+
+
+        </div>
+    </form>
+    <div style="padding-bottom:20px;">
+
+        <button type="button"
+                class="btn btn-success"
+                onclick="tableToExcel('tblStock','tblStock')">
+            Export Excel
+        </button>
+
+        <button type="button"
+                class="btn btn-primary"
+                onclick="window.print()">
+            Print
+        </button>
+
+    </div>
+
+
+
+    <div class="bg-light-blue" style=" " id="tblStock">
+        <div style="text-align: center; border: 1px solid gray; height: 30px; font-weight: bold;">
+            <h4 style="margin-top:10px;  font-weight:bold;text-align:center;color:white ">Maintenance Report</h4>
+        </div>
+        <div style="text-align: center; border: 1px solid gray; height: 30px; font-weight: bold;">
+            <h5>Date: <span id="todayDate"></span></h5>
+        </div>
+        <table class="table table-bordered">
+            <thead style="background-color:blueviolet;">
+                <tr>
+                    <th>Entry No</th>
+                    <th>Date</th>
+                    <th>Truck Number</th>
+                    <th>Part Type</th>
+                    <th>Owner</th>
+                    <th>Last Maintenance</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var row in Model)
+                {
+                    <tr>
+                        <td>@row.EntryNumber</td>
+
+                        <td>@row.entryDate.ToString("dd-MM-yyyy")</td>
+
+                        <td>@row.TruckNumber</td>
+                        <td>@row.Head</td>
+                        <td>@row.OwnerName</td>
+
+                        <td>
+                            @(row.LastMaintenance.HasValue
+                ? row.LastMaintenance.Value.ToString("dd-MM-yyyy")
+                : "-")
+                        </td>
+
+                        <td>@row.DueDate.ToString("dd-MM-yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <br />
+    
+
+</div>
+
+
+<script>
+    //$("#EntryDate").datepicker({
+    //    //format: 'dd-mm-yyyy',
+    //    autoclose: true,
+    //});
+    //$("#MaintenanceDate").datepicker({
+    //    //format: 'dd-mm-yyyy',
+    //    autoclose: true,
+
+    //});
+
+    $.each(Q.getLookup("Default.VehicleMaster").items, function (index, value) {
+
+    $('#VehicleId').append($('<option>', {
+        value: value.VehicleId,
+        text: value.VehicleNumber
+    }));
+    });
+    $.each(Q.getLookup("Default.MaintenanceHead").items, function (index, value) {
+
+        $('#HeadId').append($('<option>', {
+            value: value.Id,
+            text: value.Head
+        }));
+    });
+
+    // init select2
+    $("#VehicleId").select2({
+        placeholder: "-- Select Vehicle --",
+        allowClear: true,
+        minimumResultsForSearch: 2
+    });
+    $("#HeadId").select2({
+        placeholder: "-- Parts --",
+        allowClear: true,
+        minimumResultsForSearch: 2
+    });
+    function getTodayDate() {
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const yyyy = today.getFullYear();
+        return `${dd}-${mm}-${yyyy}`;
+    }
+
+    // Print into the span
+    document.getElementById("todayDate").textContent = getTodayDate();
+    
+</script>
+<script src="~/Scripts/Custom.js"></script>

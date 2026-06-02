@@ -16,7 +16,7 @@ namespace SereneMovieTutorial.Inventry {
             super();
             this.form.PoNo.changeSelect2(() => {
                 this.form.DetailList.getPONo = this.form.PoNo.value;
-
+                console.log(this.form.PoNo.value);
             });
             
 

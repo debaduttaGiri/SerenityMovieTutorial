@@ -18,9 +18,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @*<title>CFO Monthly Dashboard — February 2025</title>*@
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap%22" rel="stylesheet">
+    
 
     <style>
+        .content-wrapper,
+        .content,
+        .page-content,
+        .main-content {
+            background: #000 !important;
+        }
         :root {
             --bg: #000000;
             --surface: #0d0d0d;
@@ -541,7 +547,9 @@
         <div class="kpi-card gold">
             <div class="kpi-label">Total Trips</div>
             <div class="kpi-value" id="total-trips"></div>
-            <div class="kpi-sub">Across 434 permits · 16 mines</div>
+            <div class="kpi-sub">
+                Across <span class="up" id="kpi-permits"></span>permits
+            </div>
         </div>
 
         <div class="kpi-card red">
@@ -656,7 +664,7 @@
                     <span id="tds" class="mv"></span>
                 </div>
 
-                <div class="metric-item" style="display:flex;justify-content:space-between;">
+                <div class="metric-item" style="display: flex; justify-content: space-between;">
                     <span>HSD + Cash Advances</span>
                     <span id="hsd" class="mv"></span>
                 </div>
@@ -708,15 +716,17 @@
     </div>
 
     <div class="footer">
-        <span> 434 Records · 16 Mine Sites · 434 Permits</span>
+        <span id="footer-left"></span>
         <span id="footer-date"></span>
     </div>
     <script>
 
         function fmt(n) {
-            if (n >= 1e7) return '₹' + (n / 1e7).toFixed(2) + ' Cr';
-            if (n >= 1e5) return '₹' + (n / 1e5).toFixed(1) + ' L';
-            return '₹' + Number(n).toFixed(0);
+            if (n >= 1e7) return  (n / 1e7).toFixed(2) + ' Cr';
+            if (n >= 1e5) return   (n / 1e5).toFixed(1) + ' L';
+            if (n >= 1e5) return (n / 1e5).toFixed(2) + ' L';
+            if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
+            return  Number(n).toFixed(0);
         }
 
         function fmtN(n) {
@@ -727,24 +737,32 @@
 
         const COLORS = ['#00d4aa', '#4f9cf9', '#f0a500', '#f05b5b', '#a78bfa', '#34d399', '#fb923c', '#60a5fa'];
 
+
         function renderBars(containerId, data, valKey, labelKey, color, fmtFn) {
             const el = document.getElementById(containerId);
             if (!el || !data) return;
 
-            const max = Math.max(...data.map(d => d[valKey] || 0));
+            const sorted = [...data].sort((a, b) => (b[valKey] || 0) - (a[valKey] || 0));
 
-            el.innerHTML = data.map((d, i) => `
-             <div class="bar-row">
-             <div class="bar-label">${d[labelKey]}</div>
-              <div class="bar-track">
-              <div class="bar-fill" style="width:${max ? (d[valKey] / max * 100) : 0}%;background:${color || COLORS[i % COLORS.length]}"></div>
-              </div>
-              <div class="bar-val">${(fmtFn || fmt)(d[valKey])}</div>
-                  </div>
-                   `).join('');
+            const max = Math.max(...sorted.map(d => d[valKey] || 0));
+
+            el.innerHTML = sorted.map((d, i) => `
+                 <div class="bar-row">
+                     <div class="bar-label">${d[labelKey]}</div>
+                     <div class="bar-track">
+                         <div class="bar-fill"
+                              style="width:${max ? (d[valKey] / max * 100) : 0}%;
+                              background:${color || COLORS[i % COLORS.length]}">
+                         </div>
+                     </div>
+                     <div class="bar-val">${(fmtFn || fmt)(d[valKey])}</div>
+                 </div>
+              `).join('');
         }
 
+
         function renderHeatmap(data) {
+            //console.log("heatmap"+ data)
             const hm = document.getElementById('heatmap');
             if (!hm || !data) return;
 
@@ -757,25 +775,26 @@
                        `;
 
             data.forEach(d => {
+                //console.log(d);
                 const vals = [
-                    Number(d.margin),
-                    Number(d.util),
-                    Number(d.trips) / 1000,
-                    Number(d.rate)
+                    Number(d.Margin),
+                    Number(d.Util),
+                    Number(d.Trips) / 1000,
+                    Number(d.Rate)
                 ];
 
                 const ranges = [[6, 32], [47, 100], [2, 18.3], [4550, 40000]];
 
-                html += `<div class="hm-label">${d.label}</div>`;
+                html += `<div class="hm-label">${d.MineName}</div>`;
 
                 vals.forEach((v, i) => {
                     const t = (v - ranges[i][0]) / (ranges[i][1] - ranges[i][0] || 1);
                     const alpha = .15 + t * .55;
 
                     html += `<div class="hm-cell"
-style="background:hsla(${hues[i]},80%,55%,${alpha});color:${t > .5 ? '#fff' : '#6b7a96'}">
-${i === 3 ? '₹' + Math.round(v / 1000) + 'K' : v.toFixed(1) + (i < 2 ? '%' : 'K')}
-</div>`;
+                    style="background:hsla(${hues[i]},80%,55%,${alpha});color:${t > .5 ? '#fff' : '#6b7a96'}">
+                    ${i === 3 ? /*'₹'*/ + Math.round(v / 1000) + 'K' : v.toFixed(1) + (i < 2 ? '%' : 'K')}
+                    </div>`;
                 });
             });
 
@@ -784,59 +803,97 @@ ${i === 3 ? '₹' + Math.round(v / 1000) + 'K' : v.toFixed(1) + (i < 2 ? '%' : '
         }
 
         $(function () {
-
-            $.get('/AccountingDashboard/GetDashboardData', function (res) {
-
+            $.get('/AccountingDashboard/GetDashboardData', function(res) {
+                console.log('res', res);
                 if (!res) return;
 
                 const s = res.Summary || {};
+                //const m = res.Cost || {};
+                const o = res.OperationalMetrics || {};
 
-                // HEADER
-                $('#month-name').text(s.MonthName);
-                $('#year').text(s.Year);
+                const now = new Date();
+                const monthName = now.toLocaleString('default', { month: 'long' });
+                const year = now.getFullYear();
 
-                // KPI
-                $('#total-revenue').text(fmtCr(s.TotalDispatchRevenueCr));
-                $('#gross-margin-kpi').text(fmtCr(s.GrossMarginCr));
-                $('#margin-percent').text(s.MarginPercent + '%');
-                $('#total-trips').text(s.TotalTrips);
+                $('#month-name').text(monthName);
+                $('#year').text(year);
 
-                $('#qty-dispatched').text(s.QuantityDispatchedLMT + ' L MT');
-                $('#qty-permitted').text(s.QuantityPermittedLMT + ' L MT');
-                $('#balance-percent').text(s.BalancePercent + '%');
+                // ---------- HELPERS ----------
+                function safeNum(n, decimals = 0) {
+                    const val = Number(n);
+                    return isNaN(val) ? '' : val.toFixed(decimals);
+                }
+                function safeFmt(n) {
+                    const val = Number(n);
+                    return isNaN(val) ? '' : fmt(val);
+                }
+                function safeMap(arr, fn) {
+                    return Array.isArray(arr) ? arr.map(fn).join('') : '';
+                }
 
-                // BARS
-                renderBars('mine-bars', res.Revenue, 'dispatch', 'label', null, fmt);
-                renderBars('margin-bars', res.Margin, 'margin', 'label', '#4f9cf9', fmt);
-                renderBars('outstanding-bars', res.Outstanding, 'outstanding', 'label', '#f0a500', fmt);
-                renderBars('vendor-bars', res.Vendor, 'vendorOut', 'label', '#f05b5b', fmt);
+                // ---------- SUMMARY ----------
+                $('#total-revenue').text(safeFmt(s.TotalDispatchRevenue));
+                $('#gross-margin-kpi').text(safeFmt(s.GrossMargin));
 
-                // BUYERS
-                $('#buyer-table').html(res.Buyers.map(b => {
-                    const mp = ((b.Margin / b.Revenue) * 100).toFixed(1);
+                const marginRate = s.TotalDispatchRevenue
+                    ? ((s.GrossMargin / s.TotalDispatchRevenue) * 100).toFixed(1)
+                    : 0;
+                $('#margin-percent').text(marginRate + '%');
+                $('#total-trips').text(s.TotalTrips || '');
+                $('#qty-dispatched').text((s.QuantityDispatched || '') + ' L MT');
+                $('#qty-permitted').text((s.QuantityPermitted || '') + ' L MT');
+
+                const balancePercent = s.QuantityDispatched
+                    ? (((s.QuantityPermitted - s.QuantityDispatched) / s.QuantityPermitted) * 100).toFixed(1)
+                    : 0;
+                $('#balance-percent').text(balancePercent + '%');
+                $('#kpi-permits').text(' ' + (s.TotalPermits || '') + ' ');
+
+                // ---------- BARS ----------
+                if (Array.isArray(res.OutstandingReceivables)) {
+                    //console.log("OutstandingReceivables " +res.OutstandingReceivables2)
+                    renderBars('outstanding-bars', res.OutstandingReceivables,
+                        'ReceivableAmount', 'CustomerMineName', '#f0a500', fmt);
+                }
+
+                if (Array.isArray(res.VendorOutstandings)) {
+                    //console.log("VendorOutstandings2 "+res.VendorOutstandings2)
+                    renderBars('vendor-bars', res.VendorOutstandings,
+                        'PayableAmount', 'SupplierMineName', '#f05b5b', fmt);
+                }
+                if (Array.isArray(res.MineDetails)) {
+                    renderBars('mine-bars', res.MineDetails, 'MineRevenue', 'MineName', null, fmt);
+                    renderBars('margin-bars', res.MineDetails, 'MineGrossMargin', 'MineName', '#4f9cf9', fmt);
+                    //renderBars('outstanding-bars', res.Outstanding, 'OutstandingReceivable', 'BranchName', '#f0a500', fmt);
+                    //renderBars('vendor-bars', res.Vendor, 'VendorOutstanding', 'BranchName', '#f05b5b', fmt);
+                } else {
+                    $('#mine-bars, #margin-bars, #outstanding-bars, #vendor-bars').html('<div class="empty">No data</div>');
+                }
+
+                // ---------- BUYERS ----------
+                $('#buyer-table').html(safeMap(res.BuyerDetails, b => {
+                    const mp = b.BuyerRevenue ? ((b.BuyerMargin / b.BuyerRevenue) * 100).toFixed(1) : 0;
                     const chip = mp > 15 ? 'chip-green' : mp > 10 ? 'chip-blue' : 'chip-gold';
                     return `<tr>
-                        <td>${b.BuyerName}</td>
-                        <td>${fmtN(b.Qty)}</td>
-                         <td>${fmt(b.Revenue)}</td>
-                         <td>${fmt(b.Margin)}</td>
-                        <td><span class="chip ${chip}">${mp}%</span></td>
-                          </tr>`;
-                }).join(''));
+                <td>${b.BuyerName || ''}</td>
+                <td>${safeFmt(b.BuyerQty)}</td>
+                <td>${safeFmt(b.BuyerRevenue)}</td>
+                <td>${safeFmt(b.BuyerMargin)}</td>
+                <td><span class="chip ${chip}">${mp}%</span></td>
+            </tr>`;
+                }));
 
-                // DONUT
-                const dispatched = res.Permit?.Dispatched || 0;
-                const permitted = res.Permit?.Permitted || 0;
+                // ---------- DONUT ----------
+                const dispatched = s.QuantityDispatched || 0;
+                const permitted = s.QuantityPermitted || 0;
                 const percent = permitted ? ((dispatched / permitted) * 100).toFixed(1) : 0;
 
                 const c = 2 * Math.PI * 48;
                 const circles = document.querySelectorAll('.donut-svg circle');
-
                 if (circles.length >= 3) {
                     circles[1].setAttribute('stroke-dasharray', `${(percent / 100) * c} ${c}`);
                     circles[2].setAttribute('stroke-dasharray', `${c - (percent / 100) * c} ${c}`);
                 }
-
                 document.querySelector('.donut-svg text').textContent = percent + '%';
 
                 const legend = document.querySelectorAll('.legend b');
@@ -846,82 +903,73 @@ ${i === 3 ? '₹' + Math.round(v / 1000) + 'K' : v.toFixed(1) + (i < 2 ? '%' : '
                     legend[2].textContent = permitted + ' L MT';
                 }
 
-                // COST
-                $('#dispatch-revenue').text(fmtCr(res.Cost.DispatchRevenue));
-                $('#vendor-cost').text(fmtCr(res.Cost.VendorCost));
-                $('#tds').text(fmtCr(res.Cost.TDS));
-                $('#hsd').text(fmtCr(res.Cost.HSD));
-                $('#gross-margin-cost').text(fmtCr(res.Cost.GrossMargin));
-                function fmtCr(n) {
-                    return '₹' + Number(n).toFixed(2) + ' Cr';
-                }
-                function fmtNum(n) {
-                    return Number(n).toFixed(2);
-                }
-                function fmtQty(n) {
-                    return Number(n).toFixed(2);
-                }
-                // OPS
-                $('#ops-metrics').html(`
+                // ---------- COST ----------
+                $('#dispatch-revenue').text(safeFmt(s.TotalDispatchRevenue));
+                $('#vendor-cost').text(safeFmt(s.TotalVendorCost));
+                $('#tds').text(safeFmt(s.TdsDeductions));
+                $('#hsd').text(safeFmt(s.HSD));
+                $('#gross-margin-cost').text(safeFmt(s.GrossMargin));
+
+                // ---------- OPS ----------
+                if (o) {
+                    $('#ops-metrics').html(`
                 <div class="metrics-row" style="flex-wrap:wrap;gap:12px">
-
-                <div class="metric-item">
-                <div class="mv" style="color:var(--accent)">₹${fmtNum(res.Ops.InvoiceRate)}</div>
-                <div class="ml">AVG<br>INVOICE RATE (₹/MT)</div>
+                    <div class="metric-item">
+                        <div class="mv" style="color:var(--accent)">₹${safeNum(o.AvgInvoiceRate, 2)}</div>
+                        <div class="ml">AVG<br>INVOICE RATE (₹/MT)</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="mv" style="color:var(--accent2)">${safeNum(o.AvgTripsPerPermit, 2)}</div>
+                        <div class="ml">AVG<br>TRIPS PER PERMIT</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="mv" style="color:var(--accent3)">${(o.AvgQtyPerPermit || 0).toLocaleString()} MT</div>
+                        <div class="ml">AVG QTY<br>PER PERMIT</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="mv" style="color:var(--danger)">${safeNum(o.AvgQtyPerTrip, 2)} MT</div>
+                        <div class="ml">AVG QTY<br>PER TRIP</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="mv" style="color:var(--accent)">₹${safeNum((o.RevenuePerTrip / 1000), 2)}K</div>
+                        <div class="ml">AVG REVENUE<br>PER TRIP</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="mv" style="color:var(--accent2)">₹${(o.MarginPerTrip || 0).toLocaleString()}</div>
+                        <div class="ml">AVG MARGIN<br>PER TRIP</div>
+                    </div>
                 </div>
+                <div class="metrics-row" style="gap:12px;margin-top:12px">
+                    <div class="metric-item" style="flex:1">
+                        <div class="mv" style="color:var(--accent3)">${safeFmt(o.TotalClientOutstanding)} </div>
+                        <div class="ml">TOTAL CLIENT OUTSTANDING</div>
+                    </div>
+                    <div class="metric-item" style="flex:1">
+                        <div class="mv" style="color:var(--danger)">${safeFmt(o.TotalVendorOutstanding)} </div>
+                        <div class="ml">TOTAL VENDOR OUTSTANDING</div>
+                    </div>
+                </div>
+            `);
+                } else {
+                    $('#ops-metrics').html('<div class="empty">No operational metrics</div>');
+                }
 
-<div class="metric-item">
-<div class="mv" style="color:var(--accent2)">${fmtNum(res.Ops.TripsPerPermit)}</div>
-<div class="ml">AVG<br>TRIPS PER PERMIT</div>
-</div>
+                // ---------- HEATMAP ----------
+                if (Array.isArray(res.MinePerformance)) {
+                    renderHeatmap(res.MinePerformance);
+                } else {
+                    $('#heatmap').html('<div class="empty">No mine performance data</div>');
+                }
 
-<div class="metric-item">
-<div class="mv" style="color:var(--accent3)">${res.Ops.QtyPerPermit.toLocaleString()} MT</div>
-<div class="ml">AVG QTY<br>PER PERMIT</div>
-</div>
-
-<div class="metric-item">
-<div class="mv" style="color:var(--danger)">${fmtNum(res.Ops.QtyPerTrip)} MT</div>
-<div class="ml">AVG QTY<br>PER TRIP</div>
-</div>
-
-<div class="metric-item">
-<div class="mv" style="color:var(--accent)">₹${fmtNum((res.Ops.RevenuePerTrip / 1000).toFixed(2))}K</div>
-<div class="ml">AVG REVENUE<br>PER TRIP</div>
-</div>
-
-<div class="metric-item">
-<div class="mv" style="color:var(--accent2)">₹${res.Ops.MarginPerTrip.toLocaleString()}</div>
-<div class="ml">AVG MARGIN<br>PER TRIP</div>
-</div>
-
-</div>
-
-<div class="metrics-row" style="gap:12px;margin-top:12px">
-
-<div class="metric-item" style="flex:1">
-<div class="mv" style="color:var(--accent3)">₹${fmtNum(res.Ops.ClientOutstanding)} Cr</div>
-<div class="ml">TOTAL CLIENT OUTSTANDING</div>
-</div>
-
-<div class="metric-item" style="flex:1">
-<div class="mv" style="color:var(--danger)">₹${fmtNum(res.Ops.VendorOutstanding)} Cr</div>
-<div class="ml">TOTAL VENDOR OUTSTANDING</div>
-</div>
-
-</div>
-`);
-
-                // HEATMAP
-                renderHeatmap(res.Heatmap);
-
-                // FOOTER
-                $('#footer-date').text(
-                    'Generated for CFO Review By Tranzol · ' + s.MonthName + ' ' + s.Year
-                );
-
+                // ---------- FOOTER ----------
+                function renderFooter() {
+                    const now = new Date();
+                    const monthName = now.toLocaleString('default', { month: 'long' });
+                    const year = now.getFullYear();
+                    $('#footer-date').text('Generated By Tranzol · ' + monthName + ' ' + year);
+                }
+                renderFooter();
             });
-
         });
 
     </script>

@@ -3498,6 +3498,8 @@ declare namespace SereneMovieTutorial.Inventry {
         UpdateDate?: string;
         UpdatedBy?: number;
         DetailList?: PurchaseRequestDetailRow[];
+        IsApproved?: boolean;
+        IsUnapproved?: boolean;
         CreatedByUsername?: string;
         UpdatedByUsername?: string;
     }
@@ -3525,6 +3527,8 @@ declare namespace SereneMovieTutorial.Inventry {
             UpdateDate = "UpdateDate",
             UpdatedBy = "UpdatedBy",
             DetailList = "DetailList",
+            IsApproved = "IsApproved",
+            IsUnapproved = "IsUnapproved",
             CreatedByUsername = "CreatedByUsername",
             UpdatedByUsername = "UpdatedByUsername"
         }
@@ -3667,6 +3671,78 @@ declare namespace SereneMovieTutorial.Inventry {
     interface TripResponse extends Serenity.ServiceResponse {
         Trips?: PendingPurchaseOrderRow[];
         ErrorMsg?: string;
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+}
+declare namespace SereneMovieTutorial.Inventry {
+    interface VPoApproveForm {
+        PoNo: Serenity.StringEditor;
+        OrderDate: Serenity.DateEditor;
+        PartyId: Serenity.IntegerEditor;
+        BranchId: Serenity.IntegerEditor;
+        CreatedBy: Serenity.IntegerEditor;
+        CreatedDate: Serenity.DateEditor;
+        UpdatedBy: Serenity.IntegerEditor;
+        UpdateDate: Serenity.DateEditor;
+        Status: Serenity.BooleanEditor;
+    }
+    class VPoApproveForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    interface VPoApproveRow {
+        Id?: number;
+        PoNo?: string;
+        OrderDate?: string;
+        PartyId?: number;
+        BranchId?: number;
+        CreatedBy?: number;
+        CreatedDate?: string;
+        UpdatedBy?: number;
+        UpdateDate?: string;
+        Status?: boolean;
+    }
+    namespace VPoApproveRow {
+        const idProperty = "Id";
+        const nameProperty = "PoNo";
+        const localTextPrefix = "Inventry.VPoApprove";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            Id = "Id",
+            PoNo = "PoNo",
+            OrderDate = "OrderDate",
+            PartyId = "PartyId",
+            BranchId = "BranchId",
+            CreatedBy = "CreatedBy",
+            CreatedDate = "CreatedDate",
+            UpdatedBy = "UpdatedBy",
+            UpdateDate = "UpdateDate",
+            Status = "Status"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    namespace VPoApproveService {
+        const baseUrl = "Inventry/VPoApprove";
+        function Create(request: Serenity.SaveRequest<VPoApproveRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<VPoApproveRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<VPoApproveRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<VPoApproveRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Inventry/VPoApprove/Create",
+            Update = "Inventry/VPoApprove/Update",
+            Delete = "Inventry/VPoApprove/Delete",
+            Retrieve = "Inventry/VPoApprove/Retrieve",
+            List = "Inventry/VPoApprove/List"
+        }
     }
 }
 declare namespace SereneMovieTutorial.MaintenanceModule {
@@ -4219,20 +4295,6 @@ declare namespace SereneMovieTutorial.LanguageList {
     function getValue(): string[][];
 }
 declare namespace SereneMovieTutorial.ScriptInitialization {
-}
-declare namespace SereneMovieTutorial.Common {
-    interface BuyerModel {
-        BuyerName: string;
-        Qty: number;
-        Revenue: number;
-        Margin: number;
-    }
-    interface VendorOutstandingModel {
-        label: string;
-        vendorOut: number;
-    }
-    function VendorOutstanding(): void;
-    function loadBuyers(): void;
 }
 declare namespace SereneMovieTutorial {
     class BasicProgressDialog extends Serenity.TemplatedDialog<any> {
@@ -5375,6 +5437,8 @@ declare namespace SereneMovieTutorial.FuelManagement {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+        protected createView(): Slick.RemoteView<FuelDataRow>;
+        protected createSlickGrid(): Slick.Grid;
         protected getColumns(): Slick.Column[];
         protected onClick(e: JQueryEventObject, row: number, cell: number): void;
     }
@@ -5596,8 +5660,10 @@ declare namespace SereneMovieTutorial.Inventry {
         protected getInsertPermission(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
+        private rowSelection;
         constructor(container: JQuery);
         protected getColumns(): Slick.Column[];
+        protected onClick(e: JQueryEventObject, row: number, cell: number): void;
     }
 }
 declare namespace SereneMovieTutorial.Inventry {
@@ -5650,6 +5716,34 @@ declare namespace SereneMovieTutorial.Inventry {
         protected getLocalTextPrefix(): string;
         protected getService(): string;
         constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    class VPoApproveDialog extends Serenity.EntityDialog<VPoApproveRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: VPoApproveForm;
+        protected getToolbarButtons(): Serenity.ToolButton[];
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    class VPoApproveGrid extends Serenity.EntityGrid<VPoApproveRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof VPoApproveDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        private rowSelection;
+        constructor(container: JQuery);
+        protected getColumns(): Slick.Column[];
+        protected getButtons(): Serenity.ToolButton[];
     }
 }
 declare namespace SereneMovieTutorial.MaintenanceModule {

@@ -11,7 +11,7 @@ namespace SereneMovieTutorial.Default.Entities
     [DisplayName("Maintenance Head"), InstanceName("Maintenance Head")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
-    [LookupScript]
+    [LookupScript("Default.MaintenanceHead", Permission = "*")]
     public sealed class MaintenanceHeadRow : Row, IIdRow, INameRow, IInsertLogRow, IUpdateLogRow
     {
         [DisplayName("Id"), Identity]

@@ -5,7 +5,6 @@
 html,
 body {
   height: 100%;
-  
 }
 .layout-boxed html,
 .layout-boxed body {
@@ -7611,6 +7610,12 @@ section.content > .s-DataGrid {
 .s-Default-MaintenanceHeadDialog .caption {
   width: 150px;
 }
+.s-Default-VPoApproveDialog > .size {
+  width: 650px;
+}
+.s-Default-VPoApproveDialog .caption {
+  width: 150px;
+}
 .s-Fuel Management-FuelDataDialog > .size {
   width: 650px;
 }
@@ -7671,6 +7676,12 @@ section.content > .s-DataGrid {
 .s-Inventry-PurchaseBillDetailDialog .caption {
   width: 150px;
 }
+.s-Inventry-VPoApproveDialog > .size {
+  width: 650px;
+}
+.s-Inventry-VPoApproveDialog .caption {
+  width: 150px;
+}
 .s-Master-MaintenanceDialog > .size {
   width: 650px;
 }
@@ -7689,4 +7700,3 @@ section.content > .s-DataGrid {
 .s-MaintenanceModule-MaintenanceDialog .caption {
   width: 150px;
 }
-/* ===== FULL PAGE DARK BACKGROUND ===== */

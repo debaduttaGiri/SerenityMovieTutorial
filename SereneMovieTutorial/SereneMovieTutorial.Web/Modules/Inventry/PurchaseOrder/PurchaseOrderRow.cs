@@ -65,6 +65,17 @@ namespace SereneMovieTutorial.Inventry.Entities
             get { return Fields.BranchName[this]; }
             set { Fields.BranchName[this] = value; }
         }
+        [DisplayName("Is Approved")]
+        public Boolean? IsApproved
+        {
+            get { return Fields.IsApproved[this]; }
+            set { Fields.IsApproved[this] = value; }
+        }
+        public Boolean? IsUnapproved
+        {
+            get { return Fields.IsUnapproved[this]; }
+            set { Fields.IsUnapproved[this] = value; }
+        }
 
         [DisplayName("Remarks"), Size(500)]
         public String Remarks
@@ -165,6 +176,8 @@ namespace SereneMovieTutorial.Inventry.Entities
             public Int32Field UpdatedBy;
             public RowListField<PurchaseRequestDetailRow> DetailList;
 
+            public BooleanField IsApproved;
+            public BooleanField IsUnapproved;
             //public Int32Field CreatedBy;
             //public DateTimeField CreateDate;
             //public Int32Field UpdatedBy;

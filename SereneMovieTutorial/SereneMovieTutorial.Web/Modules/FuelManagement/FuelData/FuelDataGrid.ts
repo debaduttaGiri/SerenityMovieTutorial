@@ -13,6 +13,32 @@ namespace SereneMovieTutorial.FuelManagement {
         constructor(container: JQuery) {
             super(container);
         }
+        
+        protected createView() {
+
+            let view = super.createView();
+
+            view.setGrouping([{
+                getter: 'InvoiceNo',
+                formatter: g =>
+                    'Invoice No : ' + g.value + ' (' + g.count + ' Records)'
+            }]);
+
+            return view;
+        }
+        protected createSlickGrid() {
+
+            let grid = super.createSlickGrid();
+
+            let groupItemMetadataProvider =
+                new Slick.Data.GroupItemMetadataProvider();
+
+            grid.registerPlugin(groupItemMetadataProvider);
+
+            return grid;
+        }
+        
+
         protected getColumns() {
             var columns = super.getColumns();
 

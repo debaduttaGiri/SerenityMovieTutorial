@@ -26,7 +26,7 @@ namespace SereneMovieTutorial.MaintenanceModule {
 
             return columns;
         }
-
+        
         protected createToolbarExtensions() {
             super.createToolbarExtensions();
 
@@ -47,5 +47,6 @@ namespace SereneMovieTutorial.MaintenanceModule {
                 }
             });
         }
+        
     }
 }

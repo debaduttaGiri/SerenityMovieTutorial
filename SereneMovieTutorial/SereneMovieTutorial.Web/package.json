@@ -7,6 +7,9 @@
     "url": "https://github.com/volkanceylan/serenity"
   },
   "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "@types/big.js": "^6.2.2",
     "@types/jquery.blockui": "0.0.27",
@@ -17,18 +20,15 @@
     "big.js": "^7.0.1",
     "deep-equal": "^2.2.3",
     "jquery.cookie": "^1.4.1",
-    "jspdf": "^4.2.1",
-    "jspdf-autotable": "^3.5.25"
+    "jspdf": "2.5.1",
+    "jspdf-autotable": "^3.5.31"
   },
-  "scripts": {},
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/deep-equal": "^1.0.4",
     "@types/jquery": "^2.0.68",
     "@types/jquery.cookie": "^1.4.36",
     "@types/jqueryui": "^1.11.32",
     "@types/slickgrid": "^2.1.40",
-    "typescript": "3.9"
+    "typescript": "^5.9.3"
   }
 }

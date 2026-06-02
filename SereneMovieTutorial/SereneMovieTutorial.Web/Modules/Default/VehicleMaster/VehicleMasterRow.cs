@@ -12,7 +12,7 @@ namespace SereneMovieTutorial.Default.Entities
     [DisplayName("Vehicle"), InstanceName("Vehicle")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
-    [LookupScript]
+    [LookupScript("Default.VehicleMaster", Permission = "*")]
     public sealed class VehicleMasterRow : Row, IIdRow, INameRow
     {
         [DisplayName("Vehicle Id"), Identity]
