@@ -38,7 +38,52 @@ namespace SereneMovieTutorial.Inventry.Repositories
 
         private class MySaveHandler : SaveRequestHandler<MyRow>
         {
+            protected override void AfterSave()
+            {
+                base.AfterSave();
 
+                foreach (var detail in Row.PurchaseDetails)
+                {
+                    UpdateItemStock(detail.ItemId.Value, detail.CurrentRate ?? 0);
+                }
+            }
+
+            private void UpdateItemStock(int itemId, decimal currentRate)
+            {
+                var item = Connection.TryById<ItemRow>(itemId);
+
+                if (item == null)
+                    return;
+
+                decimal purchaseQty = 0;
+                decimal issueQty = 0;
+
+                var purchases = Connection.List<PurchaseBillDetailRow>();
+
+                foreach (var p in purchases)
+                {
+                    if (p.ItemId == itemId)
+                        purchaseQty += p.Quantity ?? 0;
+                }
+
+                var issues = Connection.List<IssueDetailsRow>();
+
+                foreach (var i in issues)
+                {
+                    if (i.ItemId == itemId)
+                        issueQty += i.Qty ?? 0;
+                }
+
+                item.Purchasestock = purchaseQty;
+                item.Rate = currentRate;
+
+                item.Balancestock =
+                    (item.Openingstock ?? 0)
+                    + purchaseQty
+                    - issueQty;
+
+                Connection.UpdateById(item);
+            }
         }
         private class MyDeleteHandler : DeleteRequestHandler<MyRow>
         {
@@ -55,5 +100,6 @@ namespace SereneMovieTutorial.Inventry.Repositories
         }
         private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> { }
         private class MyListHandler : ListRequestHandler<MyRow> { }
+
     }
 }

@@ -99,14 +99,17 @@ namespace SereneMovieTutorial.Default.Entities
         }
 
         [DisplayName("Customer Id"), NotNull]
-        [ForeignKey("[dbo].[CustomerMaster]", "CustomerId"), LeftJoin("c"), LookupEditor(typeof(CustomerMasterRow))]
+        [ForeignKey("[dbo].[CustomerMaster]", "CustomerId"),
+ LeftJoin("c"),
+ LookupEditor(typeof(CustomerMasterRow))]
         [TextualField("CustomerName")]
         public Int32? CustomerId
         {
             get { return Fields.CustomerId[this]; }
             set { Fields.CustomerId[this] = value; }
         }
-        //[Expression("(Select A.FirstName from CustomerMaster A join VehicleMaster B on A.CustomerId = B.CustomerId where A.CustomerId =T0[CustomerId])")]
+
+        [LookupInclude]
         [Expression("c.FirstName+' '+c.LastName")]
         public String CustomerName
         {

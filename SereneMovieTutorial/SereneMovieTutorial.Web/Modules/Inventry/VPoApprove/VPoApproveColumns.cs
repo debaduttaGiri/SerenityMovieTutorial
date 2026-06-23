@@ -24,7 +24,7 @@ namespace SereneMovieTutorial.Inventry.Columns
         public DateTime CreatedDate { get; set; }
         public Int32 UpdatedBy { get; set; }
         public DateTime UpdateDate { get; set; }
-        public Boolean Status { get; set; }
+        //public Boolean Status { get; set; }
 
         
     

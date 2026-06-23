@@ -8,6 +8,7 @@
         export declare function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ItemRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ItemRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function ExcelImport(request: ExcelImportRequest, onSuccess?: (response: ExcelImportResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        export declare function GetItemDetails(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ItemRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
 
         export declare const enum Methods {
             Create = "Inventry/Item/Create",
@@ -15,7 +16,8 @@
             Delete = "Inventry/Item/Delete",
             Retrieve = "Inventry/Item/Retrieve",
             List = "Inventry/Item/List",
-            ExcelImport = "Inventry/Item/ExcelImport"
+            ExcelImport = "Inventry/Item/ExcelImport",
+            GetItemDetails = "Inventry/Item/GetItemDetails"
         }
 
         [
@@ -24,7 +26,8 @@
             'Delete', 
             'Retrieve', 
             'List', 
-            'ExcelImport'
+            'ExcelImport', 
+            'GetItemDetails'
         ].forEach(x => {
             (<any>ItemService)[x] = function (r, s, o) {
                 return Q.serviceRequest(baseUrl + '/' + x, r, s, o);

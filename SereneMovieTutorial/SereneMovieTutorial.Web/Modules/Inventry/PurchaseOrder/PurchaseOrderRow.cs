@@ -71,6 +71,8 @@ namespace SereneMovieTutorial.Inventry.Entities
             get { return Fields.IsApproved[this]; }
             set { Fields.IsApproved[this] = value; }
         }
+        [ReadPermission("Admin:General")]
+        [ModifyPermission("Admin:General")]
         public Boolean? IsUnapproved
         {
             get { return Fields.IsUnapproved[this]; }

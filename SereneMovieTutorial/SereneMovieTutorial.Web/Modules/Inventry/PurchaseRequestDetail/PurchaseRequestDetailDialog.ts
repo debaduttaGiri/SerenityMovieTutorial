@@ -64,19 +64,33 @@ namespace SereneMovieTutorial.Inventry {
 
             // Apply GST
             let gstAmount = 0;
-            if (cgst > 0 || sgst > 0) {
-                gstAmount += (baseAmount * cgst / 100);
-                gstAmount += (baseAmount * sgst / 100);
-            } else if (igst > 0) {
-                gstAmount += (baseAmount * igst / 100);
+            let cgstAmount = 0;
+            let sgstAmount = 0;
+            let igstAmount = 0;
+
+            if (cgst > 0) {
+                cgstAmount = (baseAmount * cgst / 100);
+                gstAmount += cgstAmount;
+            }
+            if (sgst > 0) {
+                sgstAmount = (baseAmount * sgst / 100);
+                gstAmount += sgstAmount;
+            }
+            if (igst > 0) {
+                igstAmount = (baseAmount * igst / 100);
+                gstAmount += igstAmount;
             }
 
             const total = baseAmount + gstAmount;
 
             // Update form fields
             this.form.BasicAmount.value = baseAmount;
+            this.form.CgstAmount.value = cgstAmount;
+            this.form.SgstAmount.value = sgstAmount;
+            this.form.IgstAmount.value = igstAmount;
             this.form.TotalAmount.value = total;
         }
+
 
         protected afterLoadEntity() {
             super.afterLoadEntity();

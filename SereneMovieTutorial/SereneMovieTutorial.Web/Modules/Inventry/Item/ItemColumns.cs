@@ -11,6 +11,7 @@ namespace SereneMovieTutorial.Inventry.Columns
     {
         [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight, Hidden]
         public Int32 Id { get; set; }
+
         [EditLink]
         [DisplayName("Part No.")]
         public String Partnumber { get; set; }
@@ -40,5 +41,7 @@ namespace SereneMovieTutorial.Inventry.Columns
         public DateTime Updatedat { get; set; }
         [Width(80)]
         public string UpdatedByUsername { get; set; }
+
+        
     }
 }

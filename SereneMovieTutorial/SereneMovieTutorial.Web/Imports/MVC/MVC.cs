@@ -233,6 +233,16 @@ namespace MVC
 
         public static class Inventry
         {
+            public static class IssueDetails
+            {
+                public const string IssueDetailsIndex = "~/Modules/Inventry/IssueDetails/IssueDetailsIndex.cshtml";
+            }
+
+            public static class IssueHeader
+            {
+                public const string IssueHeaderIndex = "~/Modules/Inventry/IssueHeader/IssueHeaderIndex.cshtml";
+            }
+
             public static class Item
             {
                 public const string ItemIndex = "~/Modules/Inventry/Item/ItemIndex.cshtml";

@@ -9,7 +9,7 @@ namespace SereneMovieTutorial.Membership
     [FormScript("Membership.ForgotPassword")]
     public class ForgotPasswordRequest : ServiceRequest
     {
-        [Required(true), EmailEditor, DisplayName("E-mail Address")]
+        [Required(true), EmailAddressEditor, DisplayName("E-mail Address")]
         public String Email { get; set; }
     }
 }

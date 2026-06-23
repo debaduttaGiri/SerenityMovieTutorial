@@ -1,6 +1,7 @@
 ﻿
 namespace SereneMovieTutorial.Inventry.Repositories
 {
+    using SereneMovieTutorial.Inventry.Entities;
     using Serenity.Data;
     using Serenity.Services;
     using System.Data;
@@ -35,9 +36,14 @@ namespace SereneMovieTutorial.Inventry.Repositories
             return new MyListHandler().Process(connection, request);
         }
 
-        private class MySaveHandler : SaveRequestHandler<MyRow> { }
+        private class MySaveHandler : SaveRequestHandler<MyRow>
+        {
+            
+        }
         private class MyDeleteHandler : DeleteRequestHandler<MyRow> { }
         private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> { }
         private class MyListHandler : ListRequestHandler<MyRow> { }
+
+        
     }
 }

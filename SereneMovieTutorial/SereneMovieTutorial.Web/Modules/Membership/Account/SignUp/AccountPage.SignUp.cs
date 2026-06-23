@@ -16,6 +16,15 @@ namespace SereneMovieTutorial.Membership.Pages
 
     public partial class AccountController : Controller
     {
+        public ActionResult TestMail()
+        {
+            Common.EmailHelper.Send(
+                "Test Mail",
+                "<h2>Email service is working!</h2>",
+                "debug0245@gmail.com");
+
+            return Content("Mail Sent");
+        }
         [HttpGet]
         public ActionResult SignUp()
         {
@@ -65,6 +74,11 @@ namespace SereneMovieTutorial.Membership.Pages
                         InsertDate = DateTime.Now,
                         InsertUserId = 1,
                         LastDirectoryUpdate = DateTime.Now
+                    });
+                    connection.Insert(new UserRoleRow
+                    {
+                        UserId = userId,
+                        RoleId = 2
                     });
 
                     byte[] bytes;

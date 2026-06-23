@@ -3,6 +3,7 @@ namespace SereneMovieTutorial.Inventry.Endpoints
 {
     using OfficeOpenXml;
     using SereneMovieTutorial.Inventry.Entities;
+    using SereneMovieTutorial.Inventry.Repositories;
     using SereneMovieTutorial.Modules.Common.BusinessLogic;
     using Serenity;
     using Serenity.Data;
@@ -113,6 +114,12 @@ namespace SereneMovieTutorial.Inventry.Endpoints
             }
 
             return response;
+        }
+
+        [HttpPost]
+        public RetrieveResponse<ItemRow> GetItemDetails(IDbConnection connection, RetrieveRequest request)
+        {
+            return new ItemRepository().Retrieve(connection, request);
         }
     }
 

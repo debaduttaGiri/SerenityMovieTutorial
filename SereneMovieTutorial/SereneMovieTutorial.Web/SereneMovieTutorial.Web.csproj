@@ -848,6 +848,7 @@
     <Content Include="Modules\Default\Plant\PlantIndex.cshtml" />
     <Content Include="Modules\Default\AccountingReports\AccountingDashBoard.cshtml" />
     <Content Include="Modules\MaintenanceModule\Reports\MaintenanceReport.cshtml" />
+    <Content Include="Modules\Inventry\Reports\Index.cshtml" />
     <None Include="Properties\PublishProfiles\site64137-WebDeploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Readme.CodeGenerator.txt" />
@@ -1216,6 +1217,18 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Inventry.ExItemForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.GetItemRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.GetItemResponse.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.IssueDetailsColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.IssueHeaderColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Inventry.ItemColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1312,6 +1325,8 @@
     <TypeScriptCompile Include="Modules\Default\UnloadTrip\DownloadFormatter.ts" />
     <TypeScriptCompile Include="Modules\FuelManagement\FuelDetails\FuelDetailsEditor.ts" />
     <TypeScriptCompile Include="Modules\FuelManagement\FuelDetails\FuelDetailsEditorDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\IssueDetails\ExIssueDetailsDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\IssueDetails\ExIssueDetailsEditor.ts" />
     <TypeScriptCompile Include="Modules\Inventry\Item\ExItemDialog.ts" />
     <TypeScriptCompile Include="Modules\Inventry\PurchaseBillDetail\ExPurchaseBillDetailEditor.ts" />
     <TypeScriptCompile Include="Modules\Inventry\PurchaseBillDetail\ExPurchaseBillDetailDialog.ts" />
@@ -2340,6 +2355,30 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Inventry.VPoApproveForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.IssueDetailsRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.IssueDetailsService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Inventry\IssueDetails\IssueDetailsIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Inventry\IssueDetails\IssueDetailsDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\IssueDetails\IssueDetailsGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.IssueDetailsForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.IssueHeaderRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.IssueHeaderService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Inventry\IssueHeader\IssueHeaderIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Inventry\IssueHeader\IssueHeaderDialog.ts" />
+    <TypeScriptCompile Include="Modules\Inventry\IssueHeader\IssueHeaderGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Inventry.IssueHeaderForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -2385,6 +2424,9 @@
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Imports\ClientTypes\FuelManagement.FuelDetailsEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Inventry.ExIssueDetailsEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Imports\ClientTypes\Inventry.ExPurchaseBillDetailEditorAttribute.cs">
@@ -2463,7 +2505,10 @@
     <Compile Include="Modules\FuelManagement\Dieselissue\DieselRateRequest.cs" />
     <Compile Include="Modules\FuelManagement\FuelData\FuelDataModel.cs" />
     <Compile Include="Modules\FuelManagement\FuelData\YesNo.cs" />
+    <Compile Include="Modules\Inventry\IssueDetails\ItemNumberLookup .cs" />
     <Compile Include="Modules\Inventry\Item\ExItemForm.cs" />
+    <Compile Include="Modules\Inventry\Reports\PurchaseBillReportController.cs" />
+    <Compile Include="Modules\Inventry\Reports\PurchaseBillReportModel.cs" />
     <Compile Include="Modules\Inventry\VPoApprove\VPoApproveColumns.cs" />
     <Compile Include="Modules\Inventry\VPoApprove\VPoApproveEndpoint.cs" />
     <Compile Include="Modules\Inventry\VPoApprove\VPoApproveForm.cs" />
@@ -2760,12 +2805,25 @@
     <Compile Include="Modules\Default\MaintenanceHead\MaintenanceHeadPage.cs" />
     <Compile Include="Modules\Default\MaintenanceHead\MaintenanceHeadColumns.cs" />
     <Compile Include="Modules\Default\MaintenanceHead\MaintenanceHeadForm.cs" />
+    <Compile Include="Modules\Inventry\IssueDetails\IssueDetailsRow.cs" />
+    <Compile Include="Modules\Inventry\IssueDetails\IssueDetailsRepository.cs" />
+    <Compile Include="Modules\Inventry\IssueDetails\IssueDetailsEndpoint.cs" />
+    <Compile Include="Modules\Inventry\IssueDetails\IssueDetailsPage.cs" />
+    <Compile Include="Modules\Inventry\IssueDetails\IssueDetailsColumns.cs" />
+    <Compile Include="Modules\Inventry\IssueDetails\IssueDetailsForm.cs" />
+    <Compile Include="Modules\Inventry\IssueHeader\IssueHeaderRow.cs" />
+    <Compile Include="Modules\Inventry\IssueHeader\IssueHeaderRepository.cs" />
+    <Compile Include="Modules\Inventry\IssueHeader\IssueHeaderEndpoint.cs" />
+    <Compile Include="Modules\Inventry\IssueHeader\IssueHeaderPage.cs" />
+    <Compile Include="Modules\Inventry\IssueHeader\IssueHeaderColumns.cs" />
+    <Compile Include="Modules\Inventry\IssueHeader\IssueHeaderForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Modules\FuelManagement\Reports\" />
     <Folder Include="Views\AccountingDashboard\" />
     <Folder Include="Views\Maintenance\" />
+    <Folder Include="Views\PurchaseBillReport\" />
     <Folder Include="Views\TripInvoice\" />
   </ItemGroup>
   <ItemGroup>

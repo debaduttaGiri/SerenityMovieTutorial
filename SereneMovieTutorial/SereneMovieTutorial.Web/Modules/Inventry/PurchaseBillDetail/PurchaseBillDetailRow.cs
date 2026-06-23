@@ -27,12 +27,18 @@ namespace SereneMovieTutorial.Inventry.Entities
             set { Fields.PurchaseOrderId[this] = value; }
         }
 
-        [DisplayName("Purchase Bill"), NotNull, ForeignKey("[dbo].[PurchaseBill]", "Id"), LeftJoin("jPurchaseBill"), TextualField("PurchaseBillBillNo")]
+        [DisplayName("Purchase Bill"), NotNull, ForeignKey("[dbo].[PurchaseBill]", "Id"), LeftJoin("jPurchaseBill"), TextualField("BillNo")]
         public Int32? PurchaseBillId
         {
             get { return Fields.PurchaseBillId[this]; }
             set { Fields.PurchaseBillId[this] = value; }
         }
+        //[Expression("jPurchaseBill.BillNo")]
+        //public string BillNo
+        //{
+        //    get { return Fields.BillNo[this]; }
+        //    set { Fields.BillNo[this] = value; }
+        //}
 
         [DisplayName("Item Id"), NotNull]
         public Int32? ItemId
@@ -140,6 +146,13 @@ namespace SereneMovieTutorial.Inventry.Entities
         }
 
 
+        [DisplayName("Created Date")]
+        public DateTime? CreatedDate
+        {
+            get { return Fields.CreatedDate[this]; }
+            set { Fields.CreatedDate[this] = value; }
+        }
+
 
 
 
@@ -162,6 +175,7 @@ namespace SereneMovieTutorial.Inventry.Entities
 
         public class RowFields : RowFieldsBase
         {
+           
             public Int32Field Id;
             public Int32Field PurchaseOrderId;
             public Int32Field PurchaseBillId;
@@ -180,7 +194,8 @@ namespace SereneMovieTutorial.Inventry.Entities
             public DecimalField IgstAmount;
             public DecimalField TotalAmount;
             public StringField Remarks;
-
+            //public StringField BillNo;
+            public DateTimeField CreatedDate;
 
         }
     }

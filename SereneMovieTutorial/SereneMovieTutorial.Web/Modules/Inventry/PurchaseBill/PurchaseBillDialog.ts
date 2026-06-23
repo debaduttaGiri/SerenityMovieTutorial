@@ -38,12 +38,14 @@ namespace SereneMovieTutorial.Inventry {
                     Cgst += i.CgstAmount || 0;
                     sgst += i.SgstAmount || 0;
                     igst += i.IgstAmount || 0;
+                    
                 }
                 this.form.TaxableAmount.value = taxableamt;
                 this.form.CgstAmount.value = Cgst;
                 this.form.SgstAmount.value = sgst;
                 this.form.IgstAmount.value = igst;
                 this.form.TotalBillAmount.value = totalAmmount;
+                
 
             });
            
@@ -53,30 +55,22 @@ namespace SereneMovieTutorial.Inventry {
         protected afterLoadEntity() {
             super.afterLoadEntity();
 
-            if (!this.isNew()) return;
+            if (!this.isNew())
+                return;
 
             this.form.PartyId.value = this.SelectedPartyId.toString();
-            //let lookup = SereneMovieTutorial.Default.PartyMasterRow.getLookup();
-
-           // let item = lookup.itemById[this.SelectedPartyId];
-
-            //this.form.PartyId.value = item ? item.Name : '';
-           
-            if (this.SelectedPoNo) {
-                this.form.PoNumber.value = this.SelectedPoNo.toString().toUpperCase();
-            }
-            console.log(this.rows)
-
 
             if (this.rows?.length) {
+                console.log("Loading rows:", this.rows);
                 this.form.PurchaseDetails.value = this.rows;
             }
 
             if (!this.form.LedgerTypeId.value) {
-                this.form.LedgerTypeId.value = 1;  
+                this.form.LedgerTypeId.value = 1;
             }
-           
-            
+
+            console.log("LedgerTypeId After:", this.form.LedgerTypeId.value);
+            console.log("Ledger Selected Item:", this.form.LedgerTypeId);
         }
         
 

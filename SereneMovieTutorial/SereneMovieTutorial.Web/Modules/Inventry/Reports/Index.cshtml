@@ -1,0 +1,140 @@
+﻿
+@model List<SereneMovieTutorial.Modules.Inventry.Reports.PurchaseBillReportModel>
+<div style="background-color:white;border-radius:5px">
+    <form method="post">
+        <div class="filter-box row">
+            <div class="col-md-12">
+                <h4 style="margin-top:10px;  font-weight:bold;text-align:center;background-color:gray;color:white ">PurchaseBill Report</h4>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>To Date</label>
+                    <input type="date" id="todate" name="todate" class="form-control" />
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>From Date</label>
+                    <input type="date" id="fromdate" name="fromdate" class="form-control" />
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label>Party Name</label>
+                    <select id="PartyId" name="PartyId" class="form-control">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+           
+
+
+            <!-- Submit -->
+            <div class="col-md-2" style="margin-top:23px;">
+                <button type="submit" class="btn btn-info">🔍</button>
+            </div>
+
+
+        </div>
+    </form>
+    <div style="padding-bottom:20px;">
+
+        <button type="button"
+                class="btn btn-success"
+                onclick="tableToExcel('tblStock','tblStock')">
+            Export Excel
+        </button>
+
+        <button type="button"
+                class="btn btn-primary"
+                onclick="window.print()">
+            Print
+        </button>
+
+    </div>
+
+    <br />
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table table-bordered table-striped">
+
+            <thead>
+                <tr>
+                    <th>Bill No</th>
+                    <th>Bill Date</th>
+                    <th>Party</th>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Rate</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.BillNo</td>
+                        <td>@item.BillDate?.ToString("dd-MM-yyyy")</td>
+                        <td>@item.PartyName</td>
+                        <td>@item.TotalBillAmount</td>
+                        <td>@item.TaxableAmount</td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    }
+</div>
+
+
+<script>
+    //$("#EntryDate").datepicker({
+    //    //format: 'dd-mm-yyyy',
+    //    autoclose: true,
+    //});
+    //$("#MaintenanceDate").datepicker({
+    //    //format: 'dd-mm-yyyy',
+    //    autoclose: true,
+
+    //});
+
+    $(function () {
+        console.log(Q.getLookup("Default.PartyMaster").items);
+        $.each(Q.getLookup("Default.PartyMaster").items, function (index, value) {
+
+            $('#PartyId').append($('<option>', {
+                value: value.Id,
+                text: value.Name
+            }));
+        });
+
+        $("#PartyId").select2({
+            placeholder: "-- Select Party --",
+            allowClear: true,
+            minimumResultsForSearch: 2
+        });
+
+        function getTodayDate() {
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+
+            return `${dd}-${mm}-${yyyy}`;
+        }
+
+        $("#todayDate").text(getTodayDate());
+
+    });
+    // Print into the span
+   // document.getElementById("todayDate").textContent = getTodayDate();
+
+</script>
+<script src="~/Scripts/Custom.js"></script>

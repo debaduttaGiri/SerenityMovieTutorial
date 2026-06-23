@@ -7616,6 +7616,18 @@ section.content > .s-DataGrid {
 .s-Default-VPoApproveDialog .caption {
   width: 150px;
 }
+.s-Default-IssueDetailsDialog > .size {
+  width: 650px;
+}
+.s-Default-IssueDetailsDialog .caption {
+  width: 150px;
+}
+.s-Default-IssueHeaderDialog > .size {
+  width: 650px;
+}
+.s-Default-IssueHeaderDialog .caption {
+  width: 150px;
+}
 .s-Fuel Management-FuelDataDialog > .size {
   width: 650px;
 }
@@ -7680,6 +7692,18 @@ section.content > .s-DataGrid {
   width: 650px;
 }
 .s-Inventry-VPoApproveDialog .caption {
+  width: 150px;
+}
+.s-Inventry-IssueDetailsDialog > .size {
+  width: 650px;
+}
+.s-Inventry-IssueDetailsDialog .caption {
+  width: 150px;
+}
+.s-Inventry-IssueHeaderDialog > .size {
+  width: 650px;
+}
+.s-Inventry-IssueHeaderDialog .caption {
   width: 150px;
 }
 .s-Master-MaintenanceDialog > .size {

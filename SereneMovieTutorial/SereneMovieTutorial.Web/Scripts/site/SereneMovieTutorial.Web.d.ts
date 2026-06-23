@@ -3043,6 +3043,179 @@ declare namespace SereneMovieTutorial.Inventry {
     }
 }
 declare namespace SereneMovieTutorial.Inventry {
+    interface GetItemRequest extends Serenity.ServiceRequest {
+        ItemId?: number;
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    interface GetItemResponse extends Serenity.ServiceResponse {
+        Rate?: number;
+        BalanceStock?: number;
+        PartName?: string;
+        PartNumber?: string;
+        TodayStock?: number;
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+}
+declare namespace SereneMovieTutorial.Inventry {
+    interface IssueDetailsForm {
+        ItemId: Serenity.LookupEditor;
+        IssueId: Serenity.IntegerEditor;
+        PartNumber: Serenity.LookupEditor;
+        PartName: Serenity.LookupEditor;
+        Company: Serenity.StringEditor;
+        Rate: Serenity.DecimalEditor;
+        Qty: Serenity.IntegerEditor;
+        PartAmount: Serenity.DecimalEditor;
+        StockAsOnDate: Serenity.DecimalEditor;
+        TotalStock: Serenity.IntegerEditor;
+    }
+    class IssueDetailsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    interface IssueDetailsRow {
+        ItemId?: number;
+        DetailId?: number;
+        IssueId?: number;
+        Partnumber?: string;
+        Partname?: string;
+        Company?: string;
+        Rate?: number;
+        Qty?: number;
+        PartAmount?: number;
+        StockAsOnDate?: number;
+        TotalStock?: number;
+        IssueIssueNo?: string;
+        IssueVehicleNo?: string;
+        IssueOwner?: string;
+        IssueIssueDate?: string;
+    }
+    namespace IssueDetailsRow {
+        const idProperty = "DetailId";
+        const nameProperty = "Partname";
+        const localTextPrefix = "Inventry.IssueDetails";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            ItemId = "ItemId",
+            DetailId = "DetailId",
+            IssueId = "IssueId",
+            Partnumber = "Partnumber",
+            Partname = "Partname",
+            Company = "Company",
+            Rate = "Rate",
+            Qty = "Qty",
+            PartAmount = "PartAmount",
+            StockAsOnDate = "StockAsOnDate",
+            TotalStock = "TotalStock",
+            IssueIssueNo = "IssueIssueNo",
+            IssueVehicleNo = "IssueVehicleNo",
+            IssueOwner = "IssueOwner",
+            IssueIssueDate = "IssueIssueDate"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    namespace IssueDetailsService {
+        const baseUrl = "Inventry/IssueDetails";
+        function Create(request: Serenity.SaveRequest<IssueDetailsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<IssueDetailsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<IssueDetailsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<IssueDetailsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function GetItemDetails(request: GetItemRequest, onSuccess?: (response: GetItemResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Inventry/IssueDetails/Create",
+            Update = "Inventry/IssueDetails/Update",
+            Delete = "Inventry/IssueDetails/Delete",
+            Retrieve = "Inventry/IssueDetails/Retrieve",
+            List = "Inventry/IssueDetails/List",
+            GetItemDetails = "Inventry/IssueDetails/GetItemDetails"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+}
+declare namespace SereneMovieTutorial.Inventry {
+    interface IssueHeaderForm {
+        IssueNo: Serenity.StringEditor;
+        VehicleId: Serenity.LookupEditor;
+        Owner: Serenity.StringEditor;
+        IssueDate: Serenity.DateEditor;
+        IssueDetails: ExIssueDetailsEditor;
+    }
+    class IssueHeaderForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    interface IssueHeaderRow {
+        IssueId?: number;
+        IssueNo?: string;
+        VehicleId?: number;
+        VehicleNumber?: string;
+        Owner?: string;
+        IssueDate?: string;
+        IssueDetails?: IssueDetailsRow[];
+        CreatedByUsername?: string;
+        UpdatedByUsername?: string;
+        CreatedDate?: string;
+        CreatedBy?: number;
+        UpdateDate?: string;
+        UpdatedBy?: number;
+    }
+    namespace IssueHeaderRow {
+        const idProperty = "IssueId";
+        const nameProperty = "IssueNo";
+        const localTextPrefix = "Inventry.IssueHeader";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            IssueId = "IssueId",
+            IssueNo = "IssueNo",
+            VehicleId = "VehicleId",
+            VehicleNumber = "VehicleNumber",
+            Owner = "Owner",
+            IssueDate = "IssueDate",
+            IssueDetails = "IssueDetails",
+            CreatedByUsername = "CreatedByUsername",
+            UpdatedByUsername = "UpdatedByUsername",
+            CreatedDate = "CreatedDate",
+            CreatedBy = "CreatedBy",
+            UpdateDate = "UpdateDate",
+            UpdatedBy = "UpdatedBy"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    namespace IssueHeaderService {
+        const baseUrl = "Inventry/IssueHeader";
+        function Create(request: Serenity.SaveRequest<IssueHeaderRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<IssueHeaderRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<IssueHeaderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<IssueHeaderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Inventry/IssueHeader/Create",
+            Update = "Inventry/IssueHeader/Update",
+            Delete = "Inventry/IssueHeader/Delete",
+            Retrieve = "Inventry/IssueHeader/Retrieve",
+            List = "Inventry/IssueHeader/List"
+        }
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
 }
 declare namespace SereneMovieTutorial.Inventry {
     interface ItemDetailsRequest extends Serenity.ServiceRequest {
@@ -3125,13 +3298,15 @@ declare namespace SereneMovieTutorial.Inventry {
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ItemRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ItemRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function ExcelImport(request: ExcelImportRequest, onSuccess?: (response: ExcelImportResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function GetItemDetails(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ItemRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Create = "Inventry/Item/Create",
             Update = "Inventry/Item/Update",
             Delete = "Inventry/Item/Delete",
             Retrieve = "Inventry/Item/Retrieve",
             List = "Inventry/Item/List",
-            ExcelImport = "Inventry/Item/ExcelImport"
+            ExcelImport = "Inventry/Item/ExcelImport",
+            GetItemDetails = "Inventry/Item/GetItemDetails"
         }
     }
 }
@@ -3304,6 +3479,7 @@ declare namespace SereneMovieTutorial.Inventry {
         IgstAmount?: number;
         TotalAmount?: number;
         Remarks?: string;
+        CreatedDate?: string;
     }
     namespace PurchaseBillDetailRow {
         const idProperty = "Id";
@@ -3331,7 +3507,8 @@ declare namespace SereneMovieTutorial.Inventry {
             SgstAmount = "SgstAmount",
             IgstAmount = "IgstAmount",
             TotalAmount = "TotalAmount",
-            Remarks = "Remarks"
+            Remarks = "Remarks",
+            CreatedDate = "CreatedDate"
         }
     }
 }
@@ -3880,7 +4057,7 @@ declare namespace SereneMovieTutorial.Membership {
 }
 declare namespace SereneMovieTutorial.Membership {
     interface ForgotPasswordForm {
-        Email: Serenity.EmailEditor;
+        Email: Serenity.EmailAddressEditor;
     }
     class ForgotPasswordForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -3935,8 +4112,7 @@ declare namespace SereneMovieTutorial.Membership {
 declare namespace SereneMovieTutorial.Membership {
     interface SignUpForm {
         DisplayName: Serenity.StringEditor;
-        Email: Serenity.EmailEditor;
-        ConfirmEmail: Serenity.EmailEditor;
+        Email: Serenity.EmailAddressEditor;
         Password: Serenity.PasswordEditor;
         ConfirmPassword: Serenity.PasswordEditor;
     }
@@ -5484,6 +5660,79 @@ declare namespace SereneMovieTutorial.FuelManagement {
     class FuelDetailsGrid extends Serenity.EntityGrid<FuelDetailsRow, any> {
         protected getColumnsKey(): string;
         protected getDialogType(): typeof FuelDetailsDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected getColumns(): Slick.Column[];
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    class ExIssueDetailsDialog extends Common.GridEditorDialog<IssueDetailsRow> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected form: IssueDetailsForm;
+        private syncing;
+        protected afterLoadEntity(): void;
+        protected getSaveEntity(): IssueDetailsRow;
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    class ExIssueDetailsEditor extends Common.GridEditorBase<IssueDetailsRow> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ExIssueDetailsDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        constructor(container: JQuery);
+        protected getColumns(): Slick.Column[];
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    class IssueDetailsDialog extends Serenity.EntityDialog<IssueDetailsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: IssueDetailsForm;
+        protected afterLoadEntity(): void;
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    class IssueDetailsGrid extends Serenity.EntityGrid<IssueDetailsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof IssueDetailsDialog;
+        protected getIdProperty(): string;
+        protected getInsertPermission(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    class IssueHeaderDialog extends Serenity.EntityDialog<IssueHeaderRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected getDeletePermission(): string;
+        protected getInsertPermission(): string;
+        protected getUpdatePermission(): string;
+        protected form: IssueHeaderForm;
+        protected afterLoadEntity(): void;
+    }
+}
+declare namespace SereneMovieTutorial.Inventry {
+    class IssueHeaderGrid extends Serenity.EntityGrid<IssueHeaderRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof IssueHeaderDialog;
         protected getIdProperty(): string;
         protected getInsertPermission(): string;
         protected getLocalTextPrefix(): string;

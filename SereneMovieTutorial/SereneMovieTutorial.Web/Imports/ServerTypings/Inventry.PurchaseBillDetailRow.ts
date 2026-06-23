@@ -18,6 +18,7 @@
         IgstAmount?: number;
         TotalAmount?: number;
         Remarks?: string;
+        CreatedDate?: string;
     }
 
     export namespace PurchaseBillDetailRow {
@@ -47,7 +48,8 @@
             SgstAmount = "SgstAmount",
             IgstAmount = "IgstAmount",
             TotalAmount = "TotalAmount",
-            Remarks = "Remarks"
+            Remarks = "Remarks",
+            CreatedDate = "CreatedDate"
         }
     }
 }

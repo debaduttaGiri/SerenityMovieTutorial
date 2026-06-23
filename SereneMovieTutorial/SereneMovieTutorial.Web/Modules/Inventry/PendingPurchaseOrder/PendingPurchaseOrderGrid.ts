@@ -94,7 +94,8 @@ namespace SereneMovieTutorial.Inventry {
                     });
                 }
                 //  Dialog creation (fixed order)
-                let dlg = new PurchaseBillDialog(rows); 
+                let dlg = new PurchaseBillDialog(rows);
+                console.log("Rows passed to dialog:", rows);
                 dlg.SelectedPartyId = Number(PartyFilter.value);
                 dlg.SelectedPoNo =PONOFilter.value.toString();
                 console.log("PonoFilter"+PONOFilter.value);

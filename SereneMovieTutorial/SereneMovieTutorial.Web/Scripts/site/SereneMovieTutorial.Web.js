@@ -2694,6 +2694,148 @@ var SereneMovieTutorial;
 (function (SereneMovieTutorial) {
     var Inventry;
     (function (Inventry) {
+        var IssueDetailsForm = /** @class */ (function (_super) {
+            __extends(IssueDetailsForm, _super);
+            function IssueDetailsForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!IssueDetailsForm.init) {
+                    IssueDetailsForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.LookupEditor;
+                    var w1 = s.IntegerEditor;
+                    var w2 = s.StringEditor;
+                    var w3 = s.DecimalEditor;
+                    Q.initFormType(IssueDetailsForm, [
+                        'ItemId', w0,
+                        'IssueId', w1,
+                        'PartNumber', w0,
+                        'PartName', w0,
+                        'Company', w2,
+                        'Rate', w3,
+                        'Qty', w1,
+                        'PartAmount', w3,
+                        'StockAsOnDate', w3,
+                        'TotalStock', w1
+                    ]);
+                }
+                return _this;
+            }
+            IssueDetailsForm.formKey = 'Inventry.IssueDetails';
+            return IssueDetailsForm;
+        }(Serenity.PrefixedContext));
+        Inventry.IssueDetailsForm = IssueDetailsForm;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var IssueDetailsRow;
+        (function (IssueDetailsRow) {
+            IssueDetailsRow.idProperty = 'DetailId';
+            IssueDetailsRow.nameProperty = 'Partname';
+            IssueDetailsRow.localTextPrefix = 'Inventry.IssueDetails';
+            IssueDetailsRow.deletePermission = 'Administration:General';
+            IssueDetailsRow.insertPermission = 'Administration:General';
+            IssueDetailsRow.readPermission = 'Administration:General';
+            IssueDetailsRow.updatePermission = 'Administration:General';
+        })(IssueDetailsRow = Inventry.IssueDetailsRow || (Inventry.IssueDetailsRow = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var IssueDetailsService;
+        (function (IssueDetailsService) {
+            IssueDetailsService.baseUrl = 'Inventry/IssueDetails';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List',
+                'GetItemDetails'
+            ].forEach(function (x) {
+                IssueDetailsService[x] = function (r, s, o) {
+                    return Q.serviceRequest(IssueDetailsService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(IssueDetailsService = Inventry.IssueDetailsService || (Inventry.IssueDetailsService = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var IssueHeaderForm = /** @class */ (function (_super) {
+            __extends(IssueHeaderForm, _super);
+            function IssueHeaderForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!IssueHeaderForm.init) {
+                    IssueHeaderForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    var w1 = s.LookupEditor;
+                    var w2 = s.DateEditor;
+                    var w3 = Inventry.ExIssueDetailsEditor;
+                    Q.initFormType(IssueHeaderForm, [
+                        'IssueNo', w0,
+                        'VehicleId', w1,
+                        'Owner', w0,
+                        'IssueDate', w2,
+                        'IssueDetails', w3
+                    ]);
+                }
+                return _this;
+            }
+            IssueHeaderForm.formKey = 'Inventry.IssueHeader';
+            return IssueHeaderForm;
+        }(Serenity.PrefixedContext));
+        Inventry.IssueHeaderForm = IssueHeaderForm;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var IssueHeaderRow;
+        (function (IssueHeaderRow) {
+            IssueHeaderRow.idProperty = 'IssueId';
+            IssueHeaderRow.nameProperty = 'IssueNo';
+            IssueHeaderRow.localTextPrefix = 'Inventry.IssueHeader';
+            IssueHeaderRow.deletePermission = 'Administration:General';
+            IssueHeaderRow.insertPermission = 'Administration:General';
+            IssueHeaderRow.readPermission = 'Administration:General';
+            IssueHeaderRow.updatePermission = 'Administration:General';
+        })(IssueHeaderRow = Inventry.IssueHeaderRow || (Inventry.IssueHeaderRow = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var IssueHeaderService;
+        (function (IssueHeaderService) {
+            IssueHeaderService.baseUrl = 'Inventry/IssueHeader';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                IssueHeaderService[x] = function (r, s, o) {
+                    return Q.serviceRequest(IssueHeaderService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(IssueHeaderService = Inventry.IssueHeaderService || (Inventry.IssueHeaderService = {}));
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
         var ItemForm = /** @class */ (function (_super) {
             __extends(ItemForm, _super);
             function ItemForm(prefix) {
@@ -2758,7 +2900,8 @@ var SereneMovieTutorial;
                 'Delete',
                 'Retrieve',
                 'List',
-                'ExcelImport'
+                'ExcelImport',
+                'GetItemDetails'
             ].forEach(function (x) {
                 ItemService[x] = function (r, s, o) {
                     return Q.serviceRequest(ItemService.baseUrl + '/' + x, r, s, o);
@@ -3364,7 +3507,7 @@ var SereneMovieTutorial;
                 if (!ForgotPasswordForm.init) {
                     ForgotPasswordForm.init = true;
                     var s = Serenity;
-                    var w0 = s.EmailEditor;
+                    var w0 = s.EmailAddressEditor;
                     Q.initFormType(ForgotPasswordForm, [
                         'Email', w0
                     ]);
@@ -3443,12 +3586,11 @@ var SereneMovieTutorial;
                     SignUpForm.init = true;
                     var s = Serenity;
                     var w0 = s.StringEditor;
-                    var w1 = s.EmailEditor;
+                    var w1 = s.EmailAddressEditor;
                     var w2 = s.PasswordEditor;
                     Q.initFormType(SignUpForm, [
                         'DisplayName', w0,
                         'Email', w1,
-                        'ConfirmEmail', w1,
                         'Password', w2,
                         'ConfirmPassword', w2
                     ]);
@@ -3597,7 +3739,7 @@ var SereneMovieTutorial;
 (function (SereneMovieTutorial) {
     var Texts;
     (function (Texts) {
-        SereneMovieTutorial['Texts'] = Q.proxyTexts(Texts, '', { Db: { Administration: { Language: { Id: 1, LanguageId: 1, LanguageName: 1 }, Role: { RoleId: 1, RoleName: 1 }, RolePermission: { PermissionKey: 1, RoleId: 1, RolePermissionId: 1, RoleRoleName: 1 }, Translation: { CustomText: 1, EntityPlural: 1, Key: 1, OverrideConfirmation: 1, SaveChangesButton: 1, SourceLanguage: 1, SourceText: 1, TargetLanguage: 1, TargetText: 1 }, User: { DisplayName: 1, Email: 1, InsertDate: 1, InsertUserId: 1, IsActive: 1, LastDirectoryUpdate: 1, Password: 1, PasswordConfirm: 1, PasswordHash: 1, PasswordSalt: 1, Source: 1, UpdateDate: 1, UpdateUserId: 1, UserId: 1, UserImage: 1, Username: 1 }, UserPermission: { Granted: 1, PermissionKey: 1, User: 1, UserId: 1, UserPermissionId: 1, Username: 1 }, UserRole: { RoleId: 1, User: 1, UserId: 1, UserRoleId: 1, Username: 1 } }, Common: { UserPreference: { Name: 1, PreferenceType: 1, UserId: 1, UserPreferenceId: 1, Value: 1 } }, Default: { BranchMaster: { Address: 1, BranchCode: 1, BranchName: 1, GstNo: 1, Id: 1, PanNo: 1, PhoneNumber: 1, PinCode: 1, Remarks: 1, State: 1, State1: 1, StateId: 1, StateRemarks: 1, StateStateCode: 1 }, Customer: { Address: 1, City: 1, CompanyName: 1, ContactName: 1, ContactTitle: 1, Country: 1, CustomerId: 1, Fax: 1, Phone: 1, PostalCode: 1, Region: 1 }, CustomerMaster: { AddressLine1: 1, AddressLine2: 1, City: 1, CreatedDate: 1, CustomerCode: 1, CustomerId: 1, DateOfBirth: 1, Email: 1, FirstName: 1, IdentityNumber: 1, IdentityType: 1, IsActive: 1, LastName: 1, MobileNumber: 1, Pincode: 1, State: 1 }, Destination: { Destination: 1, Distict: 1, DistictName: 1, Id: 1, Plant: 1, PlantName: 1, Remarks: 1 }, Distict: { Distict: 1, Id: 1, Plant: 1, PlantName: 1, Remarks: 1 }, Employees: { Address: 1, BirthDate: 1, City: 1, Country: 1, EmployeeId: 1, Extension: 1, FullName: 1, HireDate: 1, HomePhone: 1, PostalCode: 1, Region: 1, Title: 1, TitleOfCourtesy: 1 }, Expense: { Destination: 1, Destination1: 1, DestinationDistict: 1, DestinationPlant: 1, DestinationRemarks: 1, District: 1, DistrictDistict: 1, DistrictPlant: 1, DistrictRemarks: 1, Expense: 1, ExpenseId: 1, Plant: 1, Plant1: 1, PlantRemarks: 1, Remarks: 1, Weight: 1, Wheels: 1 }, FinancialYear: { EndDate: 1, Id: 1, Name: 1, NameOfInvoice: 1, Remarks: 1, StartDate: 1 }, Genre: { Dates: 1, GenreId: 1, Name: 1 }, Invoicedetails: { Billingamount: 1, Challan: 1, Id: 1, Invoicedate: 1, LoadingTripId: 1, Lrno: 1, ManageInvoiceId: 1, VehicleNumber: 1, Vehicleid: 1, Weight: 1, freightRate: 1 }, ItemMaster: { Id: 1, ItemName: 1, Remarks: 1 }, LoadingTrip: { Branch: 1, BranchId: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Customer: 1, CustomerId: 1, Destination: 1, DestinationId: 1, District: 1, DistrictId: 1, ExpenseAmount: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, Plant: 1, PlantId: 1, Remarks: 1, State: 1, StateId: 1, TripDate: 1, TripNo: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1, freightRate: 1 }, MaintenanceHead: { CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Head: 1, Id: 1, Remarks: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1 }, Manageinvoice: { Addgst: 1, Branch: 1, Branchid: 1, Cgstamount: 1, Cgstrate: 1, Fromdate: 1, Id: 1, Igstamount: 1, Igstrate: 1, InvoiceDetails: 1, Invoicedate: 1, Invoiceno: 1, LoadingTripId: 1, Localgst: 1, Plant: 1, Plantid: 1, Pono: 1, Saccode: 1, Sgstamount: 1, Sgstrate: 1, Tax: 1, Todate: 1, Totalgstamount: 1, Totalinvoiceamount: 1, Totaltrips: 1, TripNo: 1 }, Movie: { Actors: 1, CastList: 1, Description: 1, GalleryImages: 1, GenreList: 1, Kind: 1, MovieId: 1, PrimaryImage: 1, ReleaseDate: 1, Runtime: 1, Storyline: 1, Title: 1, Year: 1 }, MovieCast: { Character: 1, MovieCastId: 1, MovieDescription: 1, MovieId: 1, MovieKind: 1, MovieReleaseDate: 1, MovieRuntime: 1, MovieStoryline: 1, MovieTitle: 1, MovieYear: 1, PersonBirthDate: 1, PersonBirthPlace: 1, PersonFirstName: 1, PersonFullName: 1, PersonGender: 1, PersonHeight: 1, PersonId: 1, PersonLastName: 1 }, MovieGenres: { GenreId: 1, GenreName: 1, MovieDescription: 1, MovieGenreId: 1, MovieId: 1, MovieKind: 1, MovieReleaseDate: 1, MovieRuntime: 1, MovieStoryline: 1, MovieTitle: 1, MovieYear: 1 }, PartyMaster: { Address: 1, Email: 1, Gst: 1, Id: 1, Name: 1, Pan: 1, PhoneNumber: 1, StateId: 1, StateName: 1 }, PendingTripDetailsInvoice: { BranchId: 1, BranchName: 1, CreatedDate: 1, Createdate: 1, Createdby: 1, CustomerId: 1, CustomerName: 1, DestinationId: 1, DestinationName: 1, DistrictId: 1, DistrictName: 1, ExpenseAmount: 1, FreightRate: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, PlantId: 1, PlantName: 1, Remarks: 1, StateId: 1, StateName: 1, TripDate: 1, TripNo: 1, Updatedby: 1, Updateddate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1 }, Person: { BirthDate: 1, BirthPlace: 1, FirstName: 1, FullName: 1, GalleryImages: 1, Gender: 1, Height: 1, LastName: 1, PersonId: 1, PrimaryImage: 1 }, Plant: { Id: 1, Plant: 1, Remarks: 1 }, Pumpmaster: { Address: 1, Gst: 1, Id: 1, Name: 1, Pan: 1, Stock: 1, Type: 1 }, StateMaster: { Id: 1, Remarks: 1, State: 1, StateCode: 1 }, Tax: { Id: 1, Remarks: 1, TaxAmount: 1, TaxAmountText: 1 }, Unit: { Id: 1, UnitName: 1 }, UnloadTrip: { Branch: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, CustomerName: 1, Destination: 1, District: 1, ExpenseAmount: 1, Item: 1, LoadingTripId: 1, Plant: 1, Remarks: 1, State: 1, TripDate: 1, TripNo: 1, UnloadDate: 1, UnloadTripId: 1, UnloadWeight: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleName: 1, Weight: 1, Wheels: 1 }, VLoadingTripDetails: { BranchId: 1, BranchName: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, CustomerId: 1, CustomerName: 1, DestinationId: 1, DestinationName: 1, DistrictId: 1, DistrictName: 1, ExpenseAmount: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, PlantId: 1, PlantName: 1, Remarks: 1, StateId: 1, StateName: 1, TripDate: 1, TripNo: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1 }, VehicleMaster: { Brand: 1, ChassisNumber: 1, Color: 1, CreatedDate: 1, CustomerId: 1, CustomerName: 1, EngineNumber: 1, FuelType: 1, InsuranceExpiryDate: 1, IsActive: 1, ManufacturingYear: 1, Model: 1, SeatingCapacity: 1, VehicleId: 1, VehicleNumber: 1, VehicleType: 1, Wheels: 1 } }, FuelManagement: { Dieselissue: { CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Destination: 1, DestinationName: 1, Diesel: 1, Distict: 1, DistrictName: 1, Id: 1, Plant: 1, PlantName: 1, PumpName: 1, Pumpid: 1, Rateofdiesel: 1, Stock: 1, Today: 1, Totalprice: 1, TripNumber: 1, Tripno: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, Vehiclenumber: 1 }, FuelData: { AllottedQuantity: 1, BasicAmount: 1, DrAccountId: 1, FuelDetails: 1, Id: 1, InvoiceDate: 1, InvoiceNo: 1, InwardNo: 1, PartyId: 1, QtyKl: 1, QuantityLtr: 1, RateKl: 1, RateLtr: 1, ReceiptDate: 1, ShortageAmt: 1, ShortageCrAccount: 1, ShortageDrAccount: 1, ShortageKl: 1, ShortageLtr: 1, ShowFuelDetails: 1, TankerNo: 1, TdsAccountId: 1, TdsAmount: 1, TdsPayable: 1, TdsPercent: 1, TdsSection: 1, TotalAmount: 1, TransportationAmt: 1, TransportationRate: 1, TransporterId: 1 }, FuelDetails: { FuelDataId: 1, Id: 1, PumpId: 1, PumpName: 1, Quantity: 1, ReceiptDate: 1, TankerNo: 1 } }, Inventry: { Item: { Balancestock: 1, CreatedByUsername: 1, Createdat: 1, Createdby: 1, GrossPrice: 1, Id: 1, Openingstock: 1, Partname: 1, Partnumber: 1, Purchasestock: 1, Rate: 1, Stocklvlmaximum: 1, Stocklvlminimum: 1, UpdatedByUsername: 1, Updatedat: 1, Updatedby: 1 }, PendingPurchaseOrder: { BalanceStock: 1, BasicAmount: 1, BranchId: 1, BranchName: 1, CGSTRate: 1, CgstAmount: 1, CurrentRate: 1, DetailId: 1, IGSTRate: 1, Id: 1, IgstAmount: 1, ItemId: 1, OrderDate: 1, PartNo: 1, Partname: 1, Party: 1, PartyId: 1, PoNo: 1, PreviousRate: 1, PurchaseOrderId: 1, Quantity: 1, SGSTRate: 1, SgstAmount: 1, StockLevelMax: 1, StockLevelMin: 1, TotalAmount: 1, UnitId: 1, UnitName: 1 }, PurchaseBill: { BillDate: 1, BillNo: 1, CgstAmount: 1, CgstLedger: 1, DebitLedgerId: 1, Gstin: 1, Id: 1, IgstAmount: 1, IgstLedger: 1, LedgerTypeId: 1, PartyId: 1, PartyName: 1, PoNumber: 1, PurchaseDetails: 1, Remarks: 1, RoundOff: 1, SgstAmount: 1, SgstLedger: 1, StockInDate: 1, TDSLedger: 1, TaxableAmount: 1, TdsAmount: 1, TdsRate: 1, TdsSection: 1, TotalBillAmount: 1 }, PurchaseBillDetail: { CgstAmount: 1, CgstRate: 1, CurrentRate: 1, Discount: 1, Id: 1, IgstAmount: 1, IgstRate: 1, ItemId: 1, ItemName: 1, PreviousRate: 1, PurchaseBillId: 1, PurchaseOrderId: 1, Quantity: 1, Remarks: 1, SgstAmount: 1, SgstRate: 1, TaxableAmount: 1, TotalAmount: 1 }, PurchaseOrder: { BranchId: 1, BranchName: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, DetailList: 1, Id: 1, IsApproved: 1, IsUnapproved: 1, OrderDate: 1, PartyId: 1, PartyName: 1, PoNo: 1, Remarks: 1, UpdateDate: 1, UpdatedBy: 1, UpdatedByUsername: 1 }, PurchaseRequestDetail: { BalanceStock: 1, BasicAmount: 1, CgstAmount: 1, CgstRate: 1, CurrentRate: 1, Id: 1, IgstAmount: 1, IgstRate: 1, ItemId: 1, PartName: 1, PartNo: 1, PoNo: 1, PreviousRate: 1, PurchaseOrderId: 1, Quantity: 1, SgstAmount: 1, SgstRate: 1, StockLevelMax: 1, StockLevelMin: 1, TotalAmount: 1, UnitId: 1, UnitName: 1 }, VPoApprove: { BranchId: 1, CreatedBy: 1, CreatedDate: 1, Id: 1, OrderDate: 1, PartyId: 1, PoNo: 1, Status: 1, UpdateDate: 1, UpdatedBy: 1 } }, MaintenanceModule: { Maintenance: { CustomerName: 1, DueDate: 1, EntryDate: 1, EntryNumber: 1, EstimatedPeriod: 1, Head: 1, HeadId: 1, Id: 1, LastMaintenance: 1, ModelNumber: 1, Narration: 1, Owner: 1, PeriodTill: 1, TruckId: 1, TruckNumber: 1, TruckType: 1 } } }, Forms: { Membership: { ChangePassword: { FormTitle: 1, SubmitButton: 1, Success: 1 }, ForgotPassword: { BackToLogin: 1, FormInfo: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, Login: { FacebookButton: 1, ForgotPassword: 1, FormTitle: 1, GoogleButton: 1, OR: 1, RememberMe: 1, SignInButton: 1, SignUpButton: 1 }, ResetPassword: { BackToLogin: 1, EmailSubject: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, SignUp: { AcceptTerms: 1, ActivateEmailSubject: 1, ActivationCompleteMessage: 1, BackToLogin: 1, ConfirmEmail: 1, ConfirmPassword: 1, DisplayName: 1, Email: 1, FormInfo: 1, FormTitle: 1, Password: 1, SubmitButton: 1, Success: 1 } } }, Site: { AccessDenied: { ClickToChangeUser: 1, ClickToLogin: 1, LackPermissions: 1, NotLoggedIn: 1, PageTitle: 1 }, BasicProgressDialog: { CancelTitle: 1, PleaseWait: 1 }, BulkServiceAction: { AllHadErrorsFormat: 1, AllSuccessFormat: 1, ConfirmationFormat: 1, ErrorCount: 1, NothingToProcess: 1, SomeHadErrorsFormat: 1, SuccessCount: 1 }, Dashboard: { ContentDescription: 1 }, Layout: { FooterCopyright: 1, FooterInfo: 1, FooterRights: 1, GeneralSettings: 1, Language: 1, Theme: 1, ThemeBlack: 1, ThemeBlackLight: 1, ThemeBlue: 1, ThemeBlueLight: 1, ThemeGreen: 1, ThemeGreenLight: 1, ThemePurple: 1, ThemePurpleLight: 1, ThemeRed: 1, ThemeRedLight: 1, ThemeYellow: 1, ThemeYellowLight: 1 }, RolePermissionDialog: { DialogTitle: 1, EditButton: 1, SaveSuccess: 1 }, UserDialog: { EditPermissionsButton: 1, EditRolesButton: 1 }, UserPermissionDialog: { DialogTitle: 1, Grant: 1, Permission: 1, Revoke: 1, SaveSuccess: 1 }, UserRoleDialog: { DialogTitle: 1, SaveSuccess: 1 }, ValidationError: { Title: 1 } }, Validation: { AuthenticationError: 1, CantFindUserWithEmail: 1, CurrentPasswordMismatch: 1, DeleteForeignKeyError: 1, EmailConfirm: 1, EmailInUse: 1, InvalidActivateToken: 1, InvalidResetToken: 1, MinRequiredPasswordLength: 1, SavePrimaryKeyError: 1 } });
+        SereneMovieTutorial['Texts'] = Q.proxyTexts(Texts, '', { Db: { Administration: { Language: { Id: 1, LanguageId: 1, LanguageName: 1 }, Role: { RoleId: 1, RoleName: 1 }, RolePermission: { PermissionKey: 1, RoleId: 1, RolePermissionId: 1, RoleRoleName: 1 }, Translation: { CustomText: 1, EntityPlural: 1, Key: 1, OverrideConfirmation: 1, SaveChangesButton: 1, SourceLanguage: 1, SourceText: 1, TargetLanguage: 1, TargetText: 1 }, User: { DisplayName: 1, Email: 1, InsertDate: 1, InsertUserId: 1, IsActive: 1, LastDirectoryUpdate: 1, Password: 1, PasswordConfirm: 1, PasswordHash: 1, PasswordSalt: 1, Source: 1, UpdateDate: 1, UpdateUserId: 1, UserId: 1, UserImage: 1, Username: 1 }, UserPermission: { Granted: 1, PermissionKey: 1, User: 1, UserId: 1, UserPermissionId: 1, Username: 1 }, UserRole: { RoleId: 1, User: 1, UserId: 1, UserRoleId: 1, Username: 1 } }, Common: { UserPreference: { Name: 1, PreferenceType: 1, UserId: 1, UserPreferenceId: 1, Value: 1 } }, Default: { BranchMaster: { Address: 1, BranchCode: 1, BranchName: 1, GstNo: 1, Id: 1, PanNo: 1, PhoneNumber: 1, PinCode: 1, Remarks: 1, State: 1, State1: 1, StateId: 1, StateRemarks: 1, StateStateCode: 1 }, Customer: { Address: 1, City: 1, CompanyName: 1, ContactName: 1, ContactTitle: 1, Country: 1, CustomerId: 1, Fax: 1, Phone: 1, PostalCode: 1, Region: 1 }, CustomerMaster: { AddressLine1: 1, AddressLine2: 1, City: 1, CreatedDate: 1, CustomerCode: 1, CustomerId: 1, DateOfBirth: 1, Email: 1, FirstName: 1, IdentityNumber: 1, IdentityType: 1, IsActive: 1, LastName: 1, MobileNumber: 1, Pincode: 1, State: 1 }, Destination: { Destination: 1, Distict: 1, DistictName: 1, Id: 1, Plant: 1, PlantName: 1, Remarks: 1 }, Distict: { Distict: 1, Id: 1, Plant: 1, PlantName: 1, Remarks: 1 }, Employees: { Address: 1, BirthDate: 1, City: 1, Country: 1, EmployeeId: 1, Extension: 1, FullName: 1, HireDate: 1, HomePhone: 1, PostalCode: 1, Region: 1, Title: 1, TitleOfCourtesy: 1 }, Expense: { Destination: 1, Destination1: 1, DestinationDistict: 1, DestinationPlant: 1, DestinationRemarks: 1, District: 1, DistrictDistict: 1, DistrictPlant: 1, DistrictRemarks: 1, Expense: 1, ExpenseId: 1, Plant: 1, Plant1: 1, PlantRemarks: 1, Remarks: 1, Weight: 1, Wheels: 1 }, FinancialYear: { EndDate: 1, Id: 1, Name: 1, NameOfInvoice: 1, Remarks: 1, StartDate: 1 }, Genre: { Dates: 1, GenreId: 1, Name: 1 }, Invoicedetails: { Billingamount: 1, Challan: 1, Id: 1, Invoicedate: 1, LoadingTripId: 1, Lrno: 1, ManageInvoiceId: 1, VehicleNumber: 1, Vehicleid: 1, Weight: 1, freightRate: 1 }, ItemMaster: { Id: 1, ItemName: 1, Remarks: 1 }, LoadingTrip: { Branch: 1, BranchId: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Customer: 1, CustomerId: 1, Destination: 1, DestinationId: 1, District: 1, DistrictId: 1, ExpenseAmount: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, Plant: 1, PlantId: 1, Remarks: 1, State: 1, StateId: 1, TripDate: 1, TripNo: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1, freightRate: 1 }, MaintenanceHead: { CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Head: 1, Id: 1, Remarks: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1 }, Manageinvoice: { Addgst: 1, Branch: 1, Branchid: 1, Cgstamount: 1, Cgstrate: 1, Fromdate: 1, Id: 1, Igstamount: 1, Igstrate: 1, InvoiceDetails: 1, Invoicedate: 1, Invoiceno: 1, LoadingTripId: 1, Localgst: 1, Plant: 1, Plantid: 1, Pono: 1, Saccode: 1, Sgstamount: 1, Sgstrate: 1, Tax: 1, Todate: 1, Totalgstamount: 1, Totalinvoiceamount: 1, Totaltrips: 1, TripNo: 1 }, Movie: { Actors: 1, CastList: 1, Description: 1, GalleryImages: 1, GenreList: 1, Kind: 1, MovieId: 1, PrimaryImage: 1, ReleaseDate: 1, Runtime: 1, Storyline: 1, Title: 1, Year: 1 }, MovieCast: { Character: 1, MovieCastId: 1, MovieDescription: 1, MovieId: 1, MovieKind: 1, MovieReleaseDate: 1, MovieRuntime: 1, MovieStoryline: 1, MovieTitle: 1, MovieYear: 1, PersonBirthDate: 1, PersonBirthPlace: 1, PersonFirstName: 1, PersonFullName: 1, PersonGender: 1, PersonHeight: 1, PersonId: 1, PersonLastName: 1 }, MovieGenres: { GenreId: 1, GenreName: 1, MovieDescription: 1, MovieGenreId: 1, MovieId: 1, MovieKind: 1, MovieReleaseDate: 1, MovieRuntime: 1, MovieStoryline: 1, MovieTitle: 1, MovieYear: 1 }, PartyMaster: { Address: 1, Email: 1, Gst: 1, Id: 1, Name: 1, Pan: 1, PhoneNumber: 1, StateId: 1, StateName: 1 }, PendingTripDetailsInvoice: { BranchId: 1, BranchName: 1, CreatedDate: 1, Createdate: 1, Createdby: 1, CustomerId: 1, CustomerName: 1, DestinationId: 1, DestinationName: 1, DistrictId: 1, DistrictName: 1, ExpenseAmount: 1, FreightRate: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, PlantId: 1, PlantName: 1, Remarks: 1, StateId: 1, StateName: 1, TripDate: 1, TripNo: 1, Updatedby: 1, Updateddate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1 }, Person: { BirthDate: 1, BirthPlace: 1, FirstName: 1, FullName: 1, GalleryImages: 1, Gender: 1, Height: 1, LastName: 1, PersonId: 1, PrimaryImage: 1 }, Plant: { Id: 1, Plant: 1, Remarks: 1 }, Pumpmaster: { Address: 1, Gst: 1, Id: 1, Name: 1, Pan: 1, Stock: 1, Type: 1 }, StateMaster: { Id: 1, Remarks: 1, State: 1, StateCode: 1 }, Tax: { Id: 1, Remarks: 1, TaxAmount: 1, TaxAmountText: 1 }, Unit: { Id: 1, UnitName: 1 }, UnloadTrip: { Branch: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, CustomerName: 1, Destination: 1, District: 1, ExpenseAmount: 1, Item: 1, LoadingTripId: 1, Plant: 1, Remarks: 1, State: 1, TripDate: 1, TripNo: 1, UnloadDate: 1, UnloadTripId: 1, UnloadWeight: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleName: 1, Weight: 1, Wheels: 1 }, VLoadingTripDetails: { BranchId: 1, BranchName: 1, CreateDate: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, CustomerId: 1, CustomerName: 1, DestinationId: 1, DestinationName: 1, DistrictId: 1, DistrictName: 1, ExpenseAmount: 1, ItemId: 1, ItemName: 1, LoadingTripId: 1, PlantId: 1, PlantName: 1, Remarks: 1, StateId: 1, StateName: 1, TripDate: 1, TripNo: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, VehicleNumber: 1, Weight: 1, Wheels: 1 }, VehicleMaster: { Brand: 1, ChassisNumber: 1, Color: 1, CreatedDate: 1, CustomerId: 1, CustomerName: 1, EngineNumber: 1, FuelType: 1, InsuranceExpiryDate: 1, IsActive: 1, ManufacturingYear: 1, Model: 1, SeatingCapacity: 1, VehicleId: 1, VehicleNumber: 1, VehicleType: 1, Wheels: 1 } }, FuelManagement: { Dieselissue: { CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, Destination: 1, DestinationName: 1, Diesel: 1, Distict: 1, DistrictName: 1, Id: 1, Plant: 1, PlantName: 1, PumpName: 1, Pumpid: 1, Rateofdiesel: 1, Stock: 1, Today: 1, Totalprice: 1, TripNumber: 1, Tripno: 1, UpdatedBy: 1, UpdatedByUsername: 1, UpdatedDate: 1, VehicleId: 1, Vehiclenumber: 1 }, FuelData: { AllottedQuantity: 1, BasicAmount: 1, DrAccountId: 1, FuelDetails: 1, Id: 1, InvoiceDate: 1, InvoiceNo: 1, InwardNo: 1, PartyId: 1, QtyKl: 1, QuantityLtr: 1, RateKl: 1, RateLtr: 1, ReceiptDate: 1, ShortageAmt: 1, ShortageCrAccount: 1, ShortageDrAccount: 1, ShortageKl: 1, ShortageLtr: 1, ShowFuelDetails: 1, TankerNo: 1, TdsAccountId: 1, TdsAmount: 1, TdsPayable: 1, TdsPercent: 1, TdsSection: 1, TotalAmount: 1, TransportationAmt: 1, TransportationRate: 1, TransporterId: 1 }, FuelDetails: { FuelDataId: 1, Id: 1, PumpId: 1, PumpName: 1, Quantity: 1, ReceiptDate: 1, TankerNo: 1 } }, Inventry: { IssueDetails: { Company: 1, DetailId: 1, IssueId: 1, IssueIssueDate: 1, IssueIssueNo: 1, IssueOwner: 1, IssueVehicleNo: 1, ItemId: 1, PartAmount: 1, Partname: 1, Partnumber: 1, Qty: 1, Rate: 1, StockAsOnDate: 1, TotalStock: 1 }, IssueHeader: { CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, IssueDate: 1, IssueDetails: 1, IssueId: 1, IssueNo: 1, Owner: 1, UpdateDate: 1, UpdatedBy: 1, UpdatedByUsername: 1, VehicleId: 1, VehicleNumber: 1 }, Item: { Balancestock: 1, CreatedByUsername: 1, Createdat: 1, Createdby: 1, GrossPrice: 1, Id: 1, Openingstock: 1, Partname: 1, Partnumber: 1, Purchasestock: 1, Rate: 1, Stocklvlmaximum: 1, Stocklvlminimum: 1, UpdatedByUsername: 1, Updatedat: 1, Updatedby: 1 }, PendingPurchaseOrder: { BalanceStock: 1, BasicAmount: 1, BranchId: 1, BranchName: 1, CGSTRate: 1, CgstAmount: 1, CurrentRate: 1, DetailId: 1, IGSTRate: 1, Id: 1, IgstAmount: 1, ItemId: 1, OrderDate: 1, PartNo: 1, Partname: 1, Party: 1, PartyId: 1, PoNo: 1, PreviousRate: 1, PurchaseOrderId: 1, Quantity: 1, SGSTRate: 1, SgstAmount: 1, StockLevelMax: 1, StockLevelMin: 1, TotalAmount: 1, UnitId: 1, UnitName: 1 }, PurchaseBill: { BillDate: 1, BillNo: 1, CgstAmount: 1, CgstLedger: 1, DebitLedgerId: 1, Gstin: 1, Id: 1, IgstAmount: 1, IgstLedger: 1, LedgerTypeId: 1, PartyId: 1, PartyName: 1, PoNumber: 1, PurchaseDetails: 1, Remarks: 1, RoundOff: 1, SgstAmount: 1, SgstLedger: 1, StockInDate: 1, TDSLedger: 1, TaxableAmount: 1, TdsAmount: 1, TdsRate: 1, TdsSection: 1, TotalBillAmount: 1 }, PurchaseBillDetail: { CgstAmount: 1, CgstRate: 1, CreatedDate: 1, CurrentRate: 1, Discount: 1, Id: 1, IgstAmount: 1, IgstRate: 1, ItemId: 1, ItemName: 1, PreviousRate: 1, PurchaseBillId: 1, PurchaseOrderId: 1, Quantity: 1, Remarks: 1, SgstAmount: 1, SgstRate: 1, TaxableAmount: 1, TotalAmount: 1 }, PurchaseOrder: { BranchId: 1, BranchName: 1, CreatedBy: 1, CreatedByUsername: 1, CreatedDate: 1, DetailList: 1, Id: 1, IsApproved: 1, IsUnapproved: 1, OrderDate: 1, PartyId: 1, PartyName: 1, PoNo: 1, Remarks: 1, UpdateDate: 1, UpdatedBy: 1, UpdatedByUsername: 1 }, PurchaseRequestDetail: { BalanceStock: 1, BasicAmount: 1, CgstAmount: 1, CgstRate: 1, CurrentRate: 1, Id: 1, IgstAmount: 1, IgstRate: 1, ItemId: 1, PartName: 1, PartNo: 1, PoNo: 1, PreviousRate: 1, PurchaseOrderId: 1, Quantity: 1, SgstAmount: 1, SgstRate: 1, StockLevelMax: 1, StockLevelMin: 1, TotalAmount: 1, UnitId: 1, UnitName: 1 }, VPoApprove: { BranchId: 1, CreatedBy: 1, CreatedDate: 1, Id: 1, OrderDate: 1, PartyId: 1, PoNo: 1, Status: 1, UpdateDate: 1, UpdatedBy: 1 } }, MaintenanceModule: { Maintenance: { CustomerName: 1, DueDate: 1, EntryDate: 1, EntryNumber: 1, EstimatedPeriod: 1, Head: 1, HeadId: 1, Id: 1, LastMaintenance: 1, ModelNumber: 1, Narration: 1, Owner: 1, PeriodTill: 1, TruckId: 1, TruckNumber: 1, TruckType: 1 } } }, Forms: { Membership: { ChangePassword: { FormTitle: 1, SubmitButton: 1, Success: 1 }, ForgotPassword: { BackToLogin: 1, FormInfo: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, Login: { FacebookButton: 1, ForgotPassword: 1, FormTitle: 1, GoogleButton: 1, OR: 1, RememberMe: 1, SignInButton: 1, SignUpButton: 1 }, ResetPassword: { BackToLogin: 1, EmailSubject: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, SignUp: { AcceptTerms: 1, ActivateEmailSubject: 1, ActivationCompleteMessage: 1, BackToLogin: 1, ConfirmEmail: 1, ConfirmPassword: 1, DisplayName: 1, Email: 1, FormInfo: 1, FormTitle: 1, Password: 1, SubmitButton: 1, Success: 1 } } }, Site: { AccessDenied: { ClickToChangeUser: 1, ClickToLogin: 1, LackPermissions: 1, NotLoggedIn: 1, PageTitle: 1 }, BasicProgressDialog: { CancelTitle: 1, PleaseWait: 1 }, BulkServiceAction: { AllHadErrorsFormat: 1, AllSuccessFormat: 1, ConfirmationFormat: 1, ErrorCount: 1, NothingToProcess: 1, SomeHadErrorsFormat: 1, SuccessCount: 1 }, Dashboard: { ContentDescription: 1 }, Layout: { FooterCopyright: 1, FooterInfo: 1, FooterRights: 1, GeneralSettings: 1, Language: 1, Theme: 1, ThemeBlack: 1, ThemeBlackLight: 1, ThemeBlue: 1, ThemeBlueLight: 1, ThemeGreen: 1, ThemeGreenLight: 1, ThemePurple: 1, ThemePurpleLight: 1, ThemeRed: 1, ThemeRedLight: 1, ThemeYellow: 1, ThemeYellowLight: 1 }, RolePermissionDialog: { DialogTitle: 1, EditButton: 1, SaveSuccess: 1 }, UserDialog: { EditPermissionsButton: 1, EditRolesButton: 1 }, UserPermissionDialog: { DialogTitle: 1, Grant: 1, Permission: 1, Revoke: 1, SaveSuccess: 1 }, UserRoleDialog: { DialogTitle: 1, SaveSuccess: 1 }, ValidationError: { Title: 1 } }, Validation: { AuthenticationError: 1, CantFindUserWithEmail: 1, CurrentPasswordMismatch: 1, DeleteForeignKeyError: 1, EmailConfirm: 1, EmailInUse: 1, InvalidActivateToken: 1, InvalidResetToken: 1, MinRequiredPasswordLength: 1, SavePrimaryKeyError: 1 } });
     })(Texts = SereneMovieTutorial.Texts || (SereneMovieTutorial.Texts = {}));
 })(SereneMovieTutorial || (SereneMovieTutorial = {}));
 var SereneMovieTutorial;
@@ -9987,6 +10129,307 @@ var SereneMovieTutorial;
 (function (SereneMovieTutorial) {
     var Inventry;
     (function (Inventry) {
+        var ExIssueDetailsDialog = /** @class */ (function (_super) {
+            __extends(ExIssueDetailsDialog, _super);
+            function ExIssueDetailsDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Inventry.IssueDetailsForm(_this.idPrefix);
+                _this.syncing = false;
+                return _this;
+            }
+            ExIssueDetailsDialog.prototype.getFormKey = function () { return Inventry.IssueDetailsForm.formKey; };
+            ExIssueDetailsDialog.prototype.getIdProperty = function () { return Inventry.IssueDetailsRow.idProperty; };
+            ExIssueDetailsDialog.prototype.getLocalTextPrefix = function () { return Inventry.IssueDetailsRow.localTextPrefix; };
+            ExIssueDetailsDialog.prototype.getService = function () { return Inventry.IssueDetailsService.baseUrl; };
+            ExIssueDetailsDialog.prototype.afterLoadEntity = function () {
+                var _this = this;
+                _super.prototype.afterLoadEntity.call(this);
+                this.form.PartNumber.changeSelect2(function (e) {
+                    if (_this.syncing)
+                        return;
+                    var itemId = Q.toId(_this.form.PartNumber.value);
+                    if (itemId == null) {
+                        _this.syncing = true;
+                        _this.form.PartName.value = null;
+                        _this.form.ItemId.value = null;
+                        _this.syncing = false;
+                        _this.form.PartName.readOnly = false;
+                        return;
+                    }
+                    _this.syncing = true;
+                    _this.form.PartName.value = itemId.toString();
+                    _this.syncing = false;
+                    _this.form.ItemId.value = itemId.toString();
+                    _this.form.PartName.readOnly = true;
+                    Inventry.IssueDetailsService.GetItemDetails({
+                        ItemId: itemId
+                    }, function (res) {
+                        _this.form.Rate.value = res.Rate;
+                        _this.form.TotalStock.value = res.BalanceStock;
+                        _this.form.StockAsOnDate.value = res.TodayStock;
+                    });
+                });
+                this.form.PartName.changeSelect2(function (e) {
+                    if (_this.syncing)
+                        return;
+                    var itemId = Q.toId(_this.form.PartName.value);
+                    if (itemId == null) {
+                        _this.syncing = true;
+                        _this.form.PartNumber.value = null;
+                        _this.form.ItemId.value = null;
+                        _this.syncing = false;
+                        _this.form.PartNumber.readOnly = false;
+                        return;
+                    }
+                    _this.syncing = true;
+                    _this.form.PartNumber.value = itemId.toString();
+                    _this.syncing = false;
+                    _this.form.ItemId.value = itemId.toString();
+                    _this.form.PartNumber.readOnly = true;
+                    Inventry.IssueDetailsService.GetItemDetails({
+                        ItemId: itemId
+                    }, function (res) {
+                        _this.form.Rate.value = res.Rate;
+                        _this.form.TotalStock.value = res.BalanceStock;
+                        _this.form.StockAsOnDate.value = res.TodayStock;
+                    });
+                });
+                this.form.Qty.change(function (e) {
+                    var qty = Number(_this.form.Qty.value) || 0;
+                    var rate = Number(_this.form.Rate.value) || 0;
+                    _this.form.PartAmount.value = qty * rate;
+                });
+            };
+            ExIssueDetailsDialog.prototype.getSaveEntity = function () {
+                var entity = _super.prototype.getSaveEntity.call(this);
+                console.log(this);
+                var itemId = Q.toId(this.form.ItemId.value);
+                console.log(Q.getLookup("Inventry.ItemName").itemById[itemId]);
+                var item = Q.getLookup("Inventry.ItemName").itemById[itemId];
+                entity.ItemId = itemId;
+                entity.Partname = item.Partname;
+                entity.Partnumber = item.Partnumber;
+                return entity;
+            };
+            ExIssueDetailsDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], ExIssueDetailsDialog);
+            return ExIssueDetailsDialog;
+        }(SereneMovieTutorial.Common.GridEditorDialog));
+        Inventry.ExIssueDetailsDialog = ExIssueDetailsDialog;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var ExIssueDetailsEditor = /** @class */ (function (_super) {
+            __extends(ExIssueDetailsEditor, _super);
+            //protected getService() { return IssueDetailsService.baseUrl; }
+            function ExIssueDetailsEditor(container) {
+                return _super.call(this, container) || this;
+            }
+            ExIssueDetailsEditor.prototype.getColumnsKey = function () { return 'Inventry.IssueDetails'; };
+            ExIssueDetailsEditor.prototype.getDialogType = function () {
+                return Inventry.ExIssueDetailsDialog;
+            };
+            ExIssueDetailsEditor.prototype.getIdProperty = function () { return Inventry.IssueDetailsRow.idProperty; };
+            //protected getInsertPermission() { return IssueDetailsRow.insertPermission; }
+            ExIssueDetailsEditor.prototype.getLocalTextPrefix = function () { return Inventry.IssueDetailsRow.localTextPrefix; };
+            ExIssueDetailsEditor.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            ExIssueDetailsEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], ExIssueDetailsEditor);
+            return ExIssueDetailsEditor;
+        }(SereneMovieTutorial.Common.GridEditorBase));
+        Inventry.ExIssueDetailsEditor = ExIssueDetailsEditor;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var IssueDetailsDialog = /** @class */ (function (_super) {
+            __extends(IssueDetailsDialog, _super);
+            function IssueDetailsDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Inventry.IssueDetailsForm(_this.idPrefix);
+                return _this;
+            }
+            IssueDetailsDialog.prototype.getFormKey = function () { return Inventry.IssueDetailsForm.formKey; };
+            IssueDetailsDialog.prototype.getIdProperty = function () { return Inventry.IssueDetailsRow.idProperty; };
+            IssueDetailsDialog.prototype.getLocalTextPrefix = function () { return Inventry.IssueDetailsRow.localTextPrefix; };
+            IssueDetailsDialog.prototype.getNameProperty = function () { return Inventry.IssueDetailsRow.nameProperty; };
+            IssueDetailsDialog.prototype.getService = function () { return Inventry.IssueDetailsService.baseUrl; };
+            IssueDetailsDialog.prototype.getDeletePermission = function () { return Inventry.IssueDetailsRow.deletePermission; };
+            IssueDetailsDialog.prototype.getInsertPermission = function () { return Inventry.IssueDetailsRow.insertPermission; };
+            IssueDetailsDialog.prototype.getUpdatePermission = function () { return Inventry.IssueDetailsRow.updatePermission; };
+            IssueDetailsDialog.prototype.afterLoadEntity = function () {
+                var _this = this;
+                _super.prototype.afterLoadEntity.call(this);
+                console.log(this.form);
+                this.form.PartNumber.changeSelect2(function (e) {
+                    var itemId = Q.toId(_this.form.PartNumber.value);
+                    _this.form.PartName.value = itemId.toString();
+                    _this.form.ItemId.value = itemId.toString();
+                    Inventry.IssueDetailsService.GetItemDetails({
+                        ItemId: itemId
+                    }, function (res) {
+                        _this.form.Rate.value = res.Rate;
+                        _this.form.TotalStock.value = res.BalanceStock;
+                    });
+                    Inventry.IssueDetailsService.GetTodayStock({
+                        ItemId: itemId
+                    }, function (response) {
+                        _this.form.StockAsOnDate.value = response.TodayStock;
+                    });
+                });
+                this.form.PartName.changeSelect2(function (e) {
+                    var itemId = Q.toId(_this.form.PartName.value);
+                    _this.form.PartNumber.value = itemId.toString();
+                    _this.form.ItemId.value = itemId.toString();
+                    Inventry.IssueDetailsService.GetItemDetails({
+                        ItemId: itemId
+                    }, function (res) {
+                        _this.form.Rate.value = res.Rate;
+                        _this.form.TotalStock.value = res.BalanceStock;
+                    });
+                    Inventry.IssueDetailsService.GetTodayStock({
+                        ItemId: itemId
+                    }, function (response) {
+                        _this.form.StockAsOnDate.value = response.TodayStock;
+                    });
+                });
+                //IssueDetailsService.GetItemDetails({
+                //    ItemId: itemId
+                //}, res => {
+                //    this.form.Rate.value = res.Rate;
+                //    this.form.TotalStock.value = res.BalanceStock;
+                //    this.form.StockAsOnDate.valueAsDate = new Date();
+                //});
+                this.form.Qty.change(function (e) {
+                    var qty = Number(_this.form.Qty.value) || 0;
+                    var rate = Number(_this.form.Rate.value) || 0;
+                    _this.form.PartAmount.value = qty * rate;
+                });
+            };
+            IssueDetailsDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], IssueDetailsDialog);
+            return IssueDetailsDialog;
+        }(Serenity.EntityDialog));
+        Inventry.IssueDetailsDialog = IssueDetailsDialog;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var IssueDetailsGrid = /** @class */ (function (_super) {
+            __extends(IssueDetailsGrid, _super);
+            function IssueDetailsGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            IssueDetailsGrid.prototype.getColumnsKey = function () { return 'Inventry.IssueDetails'; };
+            IssueDetailsGrid.prototype.getDialogType = function () { return Inventry.IssueDetailsDialog; };
+            IssueDetailsGrid.prototype.getIdProperty = function () { return Inventry.IssueDetailsRow.idProperty; };
+            IssueDetailsGrid.prototype.getInsertPermission = function () { return Inventry.IssueDetailsRow.insertPermission; };
+            IssueDetailsGrid.prototype.getLocalTextPrefix = function () { return Inventry.IssueDetailsRow.localTextPrefix; };
+            IssueDetailsGrid.prototype.getService = function () { return Inventry.IssueDetailsService.baseUrl; };
+            IssueDetailsGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], IssueDetailsGrid);
+            return IssueDetailsGrid;
+        }(Serenity.EntityGrid));
+        Inventry.IssueDetailsGrid = IssueDetailsGrid;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var IssueHeaderDialog = /** @class */ (function (_super) {
+            __extends(IssueHeaderDialog, _super);
+            function IssueHeaderDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Inventry.IssueHeaderForm(_this.idPrefix);
+                return _this;
+            }
+            IssueHeaderDialog.prototype.getFormKey = function () { return Inventry.IssueHeaderForm.formKey; };
+            IssueHeaderDialog.prototype.getIdProperty = function () { return Inventry.IssueHeaderRow.idProperty; };
+            IssueHeaderDialog.prototype.getLocalTextPrefix = function () { return Inventry.IssueHeaderRow.localTextPrefix; };
+            IssueHeaderDialog.prototype.getNameProperty = function () { return Inventry.IssueHeaderRow.nameProperty; };
+            IssueHeaderDialog.prototype.getService = function () { return Inventry.IssueHeaderService.baseUrl; };
+            IssueHeaderDialog.prototype.getDeletePermission = function () { return Inventry.IssueHeaderRow.deletePermission; };
+            IssueHeaderDialog.prototype.getInsertPermission = function () { return Inventry.IssueHeaderRow.insertPermission; };
+            IssueHeaderDialog.prototype.getUpdatePermission = function () { return Inventry.IssueHeaderRow.updatePermission; };
+            IssueHeaderDialog.prototype.afterLoadEntity = function () {
+                var _this = this;
+                _super.prototype.afterLoadEntity.call(this);
+                this.form.VehicleId.changeSelect2(function (e) {
+                    var vehicle = SereneMovieTutorial.Default.VehicleMasterRow.getLookup().itemById[_this.form.VehicleId.value];
+                    console.log(vehicle);
+                    if (vehicle) {
+                        _this.form.Owner.value = vehicle.CustomerName;
+                    }
+                    else {
+                        _this.form.Owner.value = '';
+                    }
+                });
+            };
+            IssueHeaderDialog = __decorate([
+                Serenity.Decorators.panel(),
+                Serenity.Decorators.registerClass()
+            ], IssueHeaderDialog);
+            return IssueHeaderDialog;
+        }(Serenity.EntityDialog));
+        Inventry.IssueHeaderDialog = IssueHeaderDialog;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
+        var IssueHeaderGrid = /** @class */ (function (_super) {
+            __extends(IssueHeaderGrid, _super);
+            function IssueHeaderGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            IssueHeaderGrid.prototype.getColumnsKey = function () { return 'Inventry.IssueHeader'; };
+            IssueHeaderGrid.prototype.getDialogType = function () { return Inventry.IssueHeaderDialog; };
+            IssueHeaderGrid.prototype.getIdProperty = function () { return Inventry.IssueHeaderRow.idProperty; };
+            IssueHeaderGrid.prototype.getInsertPermission = function () { return Inventry.IssueHeaderRow.insertPermission; };
+            IssueHeaderGrid.prototype.getLocalTextPrefix = function () { return Inventry.IssueHeaderRow.localTextPrefix; };
+            IssueHeaderGrid.prototype.getService = function () { return Inventry.IssueHeaderService.baseUrl; };
+            IssueHeaderGrid.prototype.getColumns = function () {
+                var columns = _super.prototype.getColumns.call(this);
+                columns.unshift({
+                    field: "SerielNo",
+                    name: "S. No",
+                    format: function (ctx) { return (ctx.row + 1).toString(); }
+                });
+                return columns;
+            };
+            IssueHeaderGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], IssueHeaderGrid);
+            return IssueHeaderGrid;
+        }(Serenity.EntityGrid));
+        Inventry.IssueHeaderGrid = IssueHeaderGrid;
+    })(Inventry = SereneMovieTutorial.Inventry || (SereneMovieTutorial.Inventry = {}));
+})(SereneMovieTutorial || (SereneMovieTutorial = {}));
+var SereneMovieTutorial;
+(function (SereneMovieTutorial) {
+    var Inventry;
+    (function (Inventry) {
         var ExItemDialog = /** @class */ (function (_super) {
             __extends(ExItemDialog, _super);
             function ExItemDialog() {
@@ -10228,6 +10671,7 @@ var SereneMovieTutorial;
                     }
                     //  Dialog creation (fixed order)
                     var dlg = new Inventry.PurchaseBillDialog(rows);
+                    console.log("Rows passed to dialog:", rows);
                     dlg.SelectedPartyId = Number(PartyFilter.value);
                     dlg.SelectedPoNo = PONOFilter.value.toString();
                     console.log("PonoFilter" + PONOFilter.value);
@@ -10336,19 +10780,15 @@ var SereneMovieTutorial;
                 if (!this.isNew())
                     return;
                 this.form.PartyId.value = this.SelectedPartyId.toString();
-                //let lookup = SereneMovieTutorial.Default.PartyMasterRow.getLookup();
-                // let item = lookup.itemById[this.SelectedPartyId];
-                //this.form.PartyId.value = item ? item.Name : '';
-                if (this.SelectedPoNo) {
-                    this.form.PoNumber.value = this.SelectedPoNo.toString().toUpperCase();
-                }
-                console.log(this.rows);
                 if ((_a = this.rows) === null || _a === void 0 ? void 0 : _a.length) {
+                    console.log("Loading rows:", this.rows);
                     this.form.PurchaseDetails.value = this.rows;
                 }
                 if (!this.form.LedgerTypeId.value) {
                     this.form.LedgerTypeId.value = 1;
                 }
+                console.log("LedgerTypeId After:", this.form.LedgerTypeId.value);
+                console.log("Ledger Selected Item:", this.form.LedgerTypeId);
             };
             PurchaseBillDialog = __decorate([
                 Serenity.Decorators.panel(),
@@ -10613,7 +11053,6 @@ var SereneMovieTutorial;
             PurchaseOrderGrid.prototype.getLocalTextPrefix = function () { return Inventry.PurchaseOrderRow.localTextPrefix; };
             PurchaseOrderGrid.prototype.getService = function () { return Inventry.PurchaseOrderService.baseUrl; };
             PurchaseOrderGrid.prototype.getColumns = function () {
-                var _this = this;
                 var columns = _super.prototype.getColumns.call(this);
                 // Add serial number
                 columns.unshift({
@@ -10622,7 +11061,7 @@ var SereneMovieTutorial;
                     format: function (ctx) { return (ctx.row + 1).toString(); }
                 });
                 // Add row selection
-                columns.splice(0, 0, Serenity.GridRowSelectionMixin.createSelectColumn(function () { return _this.rowSelection; }));
+                //columns.splice(0, 0, Serenity.GridRowSelectionMixin.createSelectColumn(() => this.rowSelection));
                 // Render IsUnapproved as checkbox (read-only if 0)
                 Q.first(columns, function (x) { return x.field === "IsUnapproved"; }).format = function (ctx) {
                     return "<input type=\"checkbox\" class=\"inline-unapprove\" " + (ctx.value ? "checked" : "") + " />";
@@ -10724,16 +11163,27 @@ var SereneMovieTutorial;
                 var igst = Number(this.form.IgstRate.value);
                 // Apply GST
                 var gstAmount = 0;
-                if (cgst > 0 || sgst > 0) {
-                    gstAmount += (baseAmount * cgst / 100);
-                    gstAmount += (baseAmount * sgst / 100);
+                var cgstAmount = 0;
+                var sgstAmount = 0;
+                var igstAmount = 0;
+                if (cgst > 0) {
+                    cgstAmount = (baseAmount * cgst / 100);
+                    gstAmount += cgstAmount;
                 }
-                else if (igst > 0) {
-                    gstAmount += (baseAmount * igst / 100);
+                if (sgst > 0) {
+                    sgstAmount = (baseAmount * sgst / 100);
+                    gstAmount += sgstAmount;
+                }
+                if (igst > 0) {
+                    igstAmount = (baseAmount * igst / 100);
+                    gstAmount += igstAmount;
                 }
                 var total = baseAmount + gstAmount;
                 // Update form fields
                 this.form.BasicAmount.value = baseAmount;
+                this.form.CgstAmount.value = cgstAmount;
+                this.form.SgstAmount.value = sgstAmount;
+                this.form.IgstAmount.value = igstAmount;
                 this.form.TotalAmount.value = total;
             };
             PurchaseRequestDetailDialog.prototype.afterLoadEntity = function () {
@@ -11369,7 +11819,7 @@ var SereneMovieTutorial;
                 }
             };
             LoginPanel.prototype.getTemplate = function () {
-                return "\n<div class=\"flex-layout\">\n    <div class=\"logo\"></div>\n    <h3>" + Q.text("Forms.Membership.Login.FormTitle") + "</h3>\n\n    <form id=\"~_Form\" action=\"\">\n        <div class=\"s-Form\">\n            <div class=\"fieldset ui-widget ui-widget-content ui-corner-all\">\n\n                <div id=\"~_PropertyGrid\"></div>\n                \n\n                <div class=\"clear\"></div>\n            </div>\n\n            <div class=\"buttons\">\n                <button id=\"~_LoginButton\" type=\"submit\" class=\"btn btn-primary\">\n                    " + Q.text("Forms.Membership.Login.SignInButton") + "\n                </button>\n            </div>\n        </div>\n    </form>\n</div>";
+                return "\n<div class=\"flex-layout\">\n    <div class=\"logo\"></div>\n    <h3>" + Q.text("Forms.Membership.Login.FormTitle") + "</h3>\n\n    <form id=\"~_Form\" action=\"\">\n        <div class=\"s-Form\">\n            <div class=\"fieldset ui-widget ui-widget-content ui-corner-all\">\n\n                <div id=\"~_PropertyGrid\"></div>\n                \n\n                <div class=\"clear\"></div>\n            </div>\n\n            <div class=\"buttons\">\n                <button id=\"~_LoginButton\" type=\"submit\" class=\"btn btn-primary\">\n                    " + Q.text("Forms.Membership.Login.SignInButton") + "\n                </button>\n            </div>\n            <div class=\"actions\">\n                <a href=\"" + Q.resolveUrl('~/Account/ForgotPassword') + "\"><i class=\"fa fa-angle-right\"></i>&nbsp;" + Q.text("Forms.Membership.Login.ForgotPassword") + "</a>\n                <a href=\"" + Q.resolveUrl('~/Account/SignUp') + "\"><i class=\"fa fa-angle-right\"></i>&nbsp;" + Q.text("Forms.Membership.Login.SignUpButton") + "</a>\n                <div class=\"clear\"></div>\n            </div>\n        </div>\n    </form>\n</div>";
             };
             LoginPanel.prototype.afterLoadEntity = function () {
                 this.byId('State')
@@ -11528,11 +11978,6 @@ var SereneMovieTutorial;
             function SignUpPanel(container) {
                 var _this = _super.call(this, container) || this;
                 _this.form = new Membership.SignUpForm(_this.idPrefix);
-                _this.form.ConfirmEmail.addValidationRule(_this.uniqueName, function (e) {
-                    if (_this.form.ConfirmEmail.value !== _this.form.Email.value) {
-                        return Q.text('Validation.EmailConfirm');
-                    }
-                });
                 _this.form.ConfirmPassword.addValidationRule(_this.uniqueName, function (e) {
                     if (_this.form.ConfirmPassword.value !== _this.form.Password.value) {
                         return Q.text('Validation.PasswordConfirm');

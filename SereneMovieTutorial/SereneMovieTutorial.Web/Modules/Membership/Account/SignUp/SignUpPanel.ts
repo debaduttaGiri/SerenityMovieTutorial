@@ -12,12 +12,6 @@
 
             this.form = new SignUpForm(this.idPrefix);
 
-            this.form.ConfirmEmail.addValidationRule(this.uniqueName, e => {
-                if (this.form.ConfirmEmail.value !== this.form.Email.value) {
-                    return Q.text('Validation.EmailConfirm');
-                }
-            });
-
             this.form.ConfirmPassword.addValidationRule(this.uniqueName, e => {
                 if (this.form.ConfirmPassword.value !== this.form.Password.value) {
                     return Q.text('Validation.PasswordConfirm');
@@ -44,7 +38,6 @@
                         });
                     }
                 });
-
             });
         }
     }

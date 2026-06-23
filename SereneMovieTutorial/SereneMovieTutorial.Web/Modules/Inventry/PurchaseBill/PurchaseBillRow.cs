@@ -22,7 +22,7 @@ namespace SereneMovieTutorial.Inventry.Entities
             set { Fields.Id[this] = value; }
         }
 
-        [DisplayName("Party"), Column("PartyId"), ForeignKey("[dbo].[PartyMaster]", "Id"), LeftJoin("jparty"), TextualField("PartyName")]
+        [DisplayName("Party"), Column("PartyId"), ForeignKey("[dbo].[PartyMaster]", "Id"), LeftJoin("jparty"),]
         [LookupEditor(typeof(PartyMasterRow))]
         public Int32? PartyId
         {

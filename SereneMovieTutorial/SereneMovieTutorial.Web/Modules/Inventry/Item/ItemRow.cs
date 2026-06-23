@@ -28,7 +28,7 @@ namespace SereneMovieTutorial.Inventry.Entities
             set { Fields.Partnumber[this] = value; }
         }
 
-        [DisplayName("Partname"), Column("PARTNAME"), Size(50)]
+        [DisplayName("Partname"), Column("PARTNAME"), Size(50),NotNull]
         public String Partname
         {
             get { return Fields.Partname[this]; }

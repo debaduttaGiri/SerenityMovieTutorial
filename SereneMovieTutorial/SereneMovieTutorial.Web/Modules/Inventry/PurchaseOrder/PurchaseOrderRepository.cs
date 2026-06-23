@@ -3,6 +3,7 @@ namespace SereneMovieTutorial.Inventry.Repositories
 {
     using Serenity.Data;
     using Serenity.Services;
+    using System.Collections.Generic;
     using System.Data;
     using MyRow = Entities.PurchaseOrderRow;
 
@@ -35,7 +36,33 @@ namespace SereneMovieTutorial.Inventry.Repositories
             return new MyListHandler().Process(connection, request);
         }
 
-        private class MySaveHandler : SaveRequestHandler<MyRow> { }
+        private class MySaveHandler : SaveRequestHandler<MyRow>
+        {
+            protected override void BeforeSave()
+            {
+                base.BeforeSave();
+
+                if (Row.DetailList == null)
+                    return;
+
+                var items = new HashSet<int>();
+
+                foreach (var detail in Row.DetailList)
+                {
+                    if (detail.ItemId == null)
+                        continue;
+
+                    if (items.Contains(detail.ItemId.Value))
+                    {
+                        throw new ValidationError(
+                            "Item '" + detail.PartName +
+                            "' already exists in this Purchase Order.");
+                    }
+
+                    items.Add(detail.ItemId.Value);
+                }
+            }
+        }
         private class MyDeleteHandler : DeleteRequestHandler<MyRow> { }
         private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> { }
         private class MyListHandler : ListRequestHandler<MyRow> { }

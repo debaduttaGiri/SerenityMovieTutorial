@@ -27,7 +27,7 @@
             });
 
             // Add row selection
-            columns.splice(0, 0, Serenity.GridRowSelectionMixin.createSelectColumn(() => this.rowSelection));
+            //columns.splice(0, 0, Serenity.GridRowSelectionMixin.createSelectColumn(() => this.rowSelection));
 
             // Render IsUnapproved as checkbox (read-only if 0)
             Q.first(columns, x => x.field === "IsUnapproved").format = ctx => {

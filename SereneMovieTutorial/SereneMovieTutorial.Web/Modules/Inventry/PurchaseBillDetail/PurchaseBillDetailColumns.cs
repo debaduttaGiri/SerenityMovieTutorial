@@ -29,5 +29,6 @@ namespace SereneMovieTutorial.Inventry.Columns
 
         public Decimal TotalAmount { get; set; }
         public String Remarks { get; set; }
+        
     }
 }

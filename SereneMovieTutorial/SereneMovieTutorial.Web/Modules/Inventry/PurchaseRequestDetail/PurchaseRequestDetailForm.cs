@@ -22,7 +22,7 @@ namespace SereneMovieTutorial.Inventry.Forms
         public Decimal PreviousRate { get; set; }
         [HalfWidth, ReadOnly(true)]
         public Decimal BalanceStock { get; set; }
-        [HalfWidth]
+        [HalfWidth][ReadOnly(true)]
         public Decimal StockLevelMax { get; set; }
         [HalfWidth, ReadOnly(true)]
         public Decimal StockLevelMin { get; set; }

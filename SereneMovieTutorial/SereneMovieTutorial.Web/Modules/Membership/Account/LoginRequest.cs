@@ -12,7 +12,7 @@ namespace SereneMovieTutorial.Membership
     [BasedOnRow(typeof(Administration.Entities.UserRow))]
     public class LoginRequest : ServiceRequest
     {
-        [DefaultValue("Raju")]
+        [DefaultValue("Dev")]
         public string Username { get; set; }
         [PasswordEditor, Placeholder(""), Required(true)]
         [DefaultValue("12365478")]
@@ -23,8 +23,15 @@ namespace SereneMovieTutorial.Membership
         public Int32? BranchId { get; set; }
         [DisplayName("FinancialYear"), NotNull, Required(true)]
         [LookupEditor(typeof(FinancialYearRow))]
-        [DefaultValue("1")]
+        [DefaultValue("2")]
         public Int32? FinancialYearId { get; set; }
 
     }
 }
+/*<system.net>
+    <mailSettings>
+      <smtp deliveryMethod="SpecifiedPickupDirectory" from="no-reply@mysite.com">
+      </smtp>
+    </mailSettings>
+  </system.net>
+*/
